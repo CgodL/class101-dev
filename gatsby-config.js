@@ -35,6 +35,12 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-plugin-netlify-cms`,
+      optiopns: {
+        enableIdentityWidget: false
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,

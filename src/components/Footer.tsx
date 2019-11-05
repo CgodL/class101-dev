@@ -11,34 +11,13 @@ const Footer: React.FC = () => {
       <Grid>
         <Row>
           <Col>
-            <LogoIcon src="/images/logotype-black.png" alt="class101" />
             <ContactSection>
               <ContactArticle>
-                <b>{t('title')}</b>
-                <p>{t('address')}</p>
-                <p>457-81-00277</p>
-                <p>
-                  <a href="mailto:helloworld@class101.net">
-                    c.henry.92092@gmail.com
+                <div>
+                  <a href="mailto:c.henry.92092@gmail.com">
+                    c.henry.9209@gmail.com
                   </a>
-                </p>
-              </ContactArticle>
-              <ContactArticle>
-                <a
-                  href="https://play.google.com/store/apps/details?id=net.pedaling.class101"
-                  target="_blank"
-                >
-                  <DownloadIcon
-                    src="/images/download-android.png"
-                    alt="android"
-                  />
-                </a>
-                <a
-                  href="https://apps.apple.com/kr/app/class101-%ED%81%B4%EB%9E%98%EC%8A%A4101/id1320607634"
-                  target="_blank"
-                >
-                  <DownloadIcon src="/images/download-ios.png" alt="ios" />
-                </a>
+                </div>
               </ContactArticle>
             </ContactSection>
           </Col>
