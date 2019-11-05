@@ -12,6 +12,7 @@ description: '셀레늄 / 퍼페티어'
 ### Puppeteer
 
 퍼페티어는 크롬에서 만든 자바스크립트 전용
+셀레늄
 
 <hr />
 <center>

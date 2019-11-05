@@ -202,9 +202,9 @@ const PostTOC = styled.div`
   margin: 16px 0;
   padding: 16px 0;
   line-height: 26px;
-  border: ${Colors.gray400} solid 1px;
+  border: #fbeef1 solid 2px;
   a {
-    color: inherit;
+    color: #696969;
     text-decoration: none;
     &:hover {
       text-decoration: underline;
@@ -213,7 +213,8 @@ const PostTOC = styled.div`
   ul,
   ol {
     margin: 0 0 0 8px;
-    list-style-type: decimal;
+    // color: #fbeef1 
+    // list-style-type: decimal;
   }
   p {
     margin: 0;

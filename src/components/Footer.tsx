@@ -34,7 +34,7 @@ const Container = styled.footer`
   padding-top: 32px;
   a {
     color: inherit;
-    font-weight: 600;
+    font-weight: 400;
     color: #696969;
     text-decoration: none;
     &:hover {

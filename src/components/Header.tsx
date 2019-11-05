@@ -36,7 +36,7 @@ const Header: React.FC = () => {
                       href="https://github.com/CgodL"
                       target="_blank"
                     >
-                      GITHUB
+                      GIT
                     </ExternalNavLink>
                     <ExternalNavLink
                       href="https://channing.netlify.com/"

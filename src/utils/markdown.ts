@@ -201,6 +201,7 @@ export default css`
   .markdown-body strong {
     font-weight: inherit;
     font-weight: bolder;
+    color: #6CB2D1;
   }
 
   .markdown-body h1 {
@@ -535,7 +536,7 @@ export default css`
   .markdown-body hr {
     background-color: #e1e4e8;
     border: 0;
-    height: 0.25em;
+    height: 0.2em;
     margin: 24px 0;
     padding: 0;
   }
