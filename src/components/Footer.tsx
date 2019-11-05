@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
 export default Footer;
 
 const Container = styled.footer`
-  background-color: #fbeef1;
+  background-color: #FFD1D1;
   padding-top: 32px;
   a {
     color: inherit;

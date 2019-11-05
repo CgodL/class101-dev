@@ -356,6 +356,7 @@ export default css`
     line-height: 28px;
     margin-bottom: 24px;
     margin-top: 0;
+    font-weight: 400;
   }
 
   .markdown-body blockquote {
@@ -629,6 +630,7 @@ export default css`
 
   .markdown-body li {
     word-wrap: break-all;
+    font-weight: 400;
   }
 
   .markdown-body li > p {
