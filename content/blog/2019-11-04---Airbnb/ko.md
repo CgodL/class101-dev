@@ -175,6 +175,7 @@ admin페이지를 생성합니다.
 Reference <br>
 
 [DJANGO](https://docs.djangoproject.com/ko/2.2/intro/)<br>
-[NOMAD](https://academy.nomadcoders.co/courses/category/KR)
+[NOMAD](https://academy.nomadcoders.co/courses/category/KR)<br>
+[장고](https://channing.netlify.com/ko/blog/2019/10/18/channing)
 
 </center>
