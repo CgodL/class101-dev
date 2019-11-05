@@ -165,10 +165,6 @@ confing > urls.py
 * 웹 마스터(프로그래머)용 admin 페이지를 만들어 보도록 하겠습니다.
 
 장고는 자동으로 admin 페이지를 생성해줍니다. 저는 새로 지정한 필드를 추가해줄 수 있습니다. 장고는 우리가 작성한 코드를 알아서 configuration(환경 설정) 해줍니다.
-Django 의 Model 파일은
-User Model을 생성하구요
-변화된 값을 local에서 확인합니다.
-admin페이지를 생성합니다.
 
 <hr />
 <center>

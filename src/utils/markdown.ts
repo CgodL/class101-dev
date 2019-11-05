@@ -305,7 +305,7 @@ export default css`
   .markdown-body h6 {
     margin-bottom: 0;
     margin-top: 0;
-    color: #B64D3A;
+    color: #DC453D;
   }
 
   .markdown-body h1 {

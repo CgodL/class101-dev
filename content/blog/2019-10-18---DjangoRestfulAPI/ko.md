@@ -36,6 +36,47 @@ models 패키지의 Model 객체를 상속받는 클래스가 하나의 DB 테�
 * Each attribute of the model represents a database field.
 * With all of this, Django gives you an automatically-generated database-access API
 
+<br>
+
+> **DB 테이블 구조/타입을 먼저 설계를 한 후에 모델을 정의합니다.**
+
+```py
+from django.db import models
+
+class Post(models.Model):
+    title = models.CharField(max_length=100) # 길이 제한이 있는 문자열
+    content = models.TextField() # 길이 제한이 없는 문자열
+    created_at = models.DateTimeField(auto_now_add=True) # 해당 레코드 생성시 현재 시간 자동저장
+    updated_at = models.DateTimeField(auto_now=True) # 해당 레코드 갱신시 현재 시간 자동저장
+    # DB에서는 길이제한 유무에 따라서 문자열 필드 타입이 다릅니다.
+    # 길이 제한이 없는 문자열을 많이 쓰면 성능이 떨어집니다.
+```
+
+> 모델 등록 절차
+
+1. `models.py`에 모델 클래스를 정의합니다.
+2. `pipenv shell` 에서 `migrations`, `migrate`를 실행합니다.
+3. `admin.py`에 모델 클래스 등록
+
+```py
+$ python3 manage.py makemigrations
+$ python3 manage.py migrate
+# 위 명령을 통해서 앱폴더 아래에 migration 폴더가 생성되고 DB에 테이블을 생성합니다.
+```
+
+```py
+# admin.py에 모델 클래스를 등록합니다.
+from django.contrib import admin
+from .models import Post
+
+admin.site.register(Post)
+# 또는 decorator를 활용합니다.
+@admin.register(models.User)
+
+```
+
+> 주요 모델
+
 ---
 
 ### Django Restful [API](https://channing.netlify.com/ko/blog/2019/10/22/channing/)
