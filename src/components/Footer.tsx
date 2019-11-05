@@ -18,12 +18,20 @@ const Footer: React.FC = () => {
                 <p>{t('address')}</p>
                 <p>457-81-00277</p>
                 <p>
-                  <a href="mailto:helloworld@class101.net">helloworld@class101.net</a>
+                  <a href="mailto:helloworld@class101.net">
+                    c.henry.92092@gmail.com
+                  </a>
                 </p>
               </ContactArticle>
               <ContactArticle>
-                <a href="https://play.google.com/store/apps/details?id=net.pedaling.class101" target="_blank">
-                  <DownloadIcon src="/images/download-android.png" alt="android" />
+                <a
+                  href="https://play.google.com/store/apps/details?id=net.pedaling.class101"
+                  target="_blank"
+                >
+                  <DownloadIcon
+                    src="/images/download-android.png"
+                    alt="android"
+                  />
                 </a>
                 <a
                   href="https://apps.apple.com/kr/app/class101-%ED%81%B4%EB%9E%98%EC%8A%A4101/id1320607634"
