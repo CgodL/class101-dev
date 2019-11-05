@@ -9,7 +9,7 @@ description: 'GraphQL 개념 과 특징.'
 
 ![gq](./apo.png)
 
-#### 기존 [API](https://aenglee.netlify.com/posts/API/)
+#### 기존 [API](https://channing.netlify.com/ko/blog/2019/10/22/channing/)
 
 기존의 웹 은 어플리케이션의 API를 구현할 때, 통상적으로 **REST API** 를 사용합니다. 우리가 클라이언트 사이드에서 어떠한 기능이 필요할 때마다 그때 그때 새로운 API를 만들어 주었어야 했습니다.
 

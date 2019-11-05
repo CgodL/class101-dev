@@ -37,7 +37,7 @@ HTTP는 서버 / 클라이언트 모델을 따릅니다.
 
 - 연결을 끊어버리기 때문에, 클라이언트의 이전 상황을 알 수가 없습니다.<br>(쇼핑몰 에서 쇼핑을 한뒤 결제를 하려고 했는데 무엇을 쇼핑했는지 모릅니다.)<br>
 - 위와 같은 특징을 무상태(Stateless) 라고 말합니다.<br>
-  이러한 특징 때문에 정보를 유지하기 위해서 [Cookie](https://aenglee.netlify.com/posts/cookiesession/)와 같은 기술이 등장하게 되었습니다.
+  이러한 특징 때문에 정보를 유지하기 위해서 [Cookie](https://channing.netlify.com/ko/blog/2019/10/13/channing/)와 같은 기술이 등장하게 되었습니다.
 
 ### HTTP Request & HTTP Response
 

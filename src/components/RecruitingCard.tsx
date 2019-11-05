@@ -24,17 +24,12 @@ const RecruitingCard: React.FC = () => {
   const [_, setCopied] = useState(false);
 
   const handleClickCopy = () => {
-    copyToClipboard('helloworld@class101.net');
+    copyToClipboard('c.henry.9209@gmail.com');
     setCopied(true);
   };
 
   return (
     <RecruitingCardWrapper title="지원방법" status={CalloutStatus.SUGGEST}>
-      <p>
-        자유 형식의 이력서, 포트폴리오와 GitHub 계정을 아래 메일로 제출합니다.
-        <br />
-        이력서에 나이, 사진을 첨부하지 않습니다. 평가와 관련이 없습니다.
-      </p>
       <Flex>
         <b>helloworld@class101.net</b>
         <IconButton

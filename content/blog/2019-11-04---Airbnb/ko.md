@@ -9,7 +9,7 @@ description: 'AIRBNB CLONE'
 
 ![airbnb](./aba.png)
 
-## <b>Airbnb</b>
+## Airbnb
 
 > Airbnb 클론 코딩을 해보도록 하겠습니다.
 

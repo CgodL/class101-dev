@@ -13,7 +13,7 @@ class NotFoundPage extends React.Component {
         <Grid>
           <Headline1>404 Not Found</Headline1>
           <br />
-          <Body2>아무것도 찾지 못했다요.</Body2>
+          <Body2>아무것도 찾지 못했습니다.</Body2>
         </Grid>
       </Layout>
     );

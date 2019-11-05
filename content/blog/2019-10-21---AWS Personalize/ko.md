@@ -96,7 +96,7 @@ Personalize는 이처럼 나와 비슷한 성향의 사람의 일련의 행동(�
 
 - **Process [ AWS SDK를 사용한 방법 ]**
 
-  세팅 전에 툴을 정합니다. 저는 Jupyter 를 사용하겠습니다. AWS Personalize에는 각 과정을 생성 및 설정 하기 위한 기능을 갖고 있는 [API](https://aenglee.netlify.com/posts/API)가 존재 합니다. API를 활용하여 각 부분을 구성 하겠습니다.
+  세팅 전에 툴을 정합니다. 저는 Jupyter 를 사용하겠습니다. AWS Personalize에는 각 과정을 생성 및 설정 하기 위한 기능을 갖고 있는 [API](https://channing.netlify.com/ko/blog/2019/10/22/channing/)가 존재 합니다. API를 활용하여 각 부분을 구성 하겠습니다.
 
 ![product-page-diagram_amazon_personalize_how-it-works 3ceac8883c7d6bd67d7cf26d8a7d505520d02a40](https://user-images.githubusercontent.com/48753593/66401654-76872e80-ea1e-11e9-93d8-2c3f32bed16f.png)
 

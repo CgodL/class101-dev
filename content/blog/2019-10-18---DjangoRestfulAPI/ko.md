@@ -24,7 +24,7 @@ description: 'Django Restful API'
 
 **\*Django Model**은 **\*Django ORM(Object-Relational Mapping)**에서 기본적으로 제공하는 기능 중 하나 입니다.<br> 데이터베이스를 “객체”의 형태로 사용할 수 있도록 도와줍니다.
 
-### Django Restful [API](https://aenglee.netlify.com/posts/API/)
+### Django Restful [API](https://channing.netlify.com/ko/blog/2019/10/22/channing/)
 
 <br>
 <br>

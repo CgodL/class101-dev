@@ -50,6 +50,7 @@ const InnerHeroContainer = styled.div`
     color: #696969;
   }
   h3 {
-    color: #696969;
+    bold;
+    color: #DDBD9D;
   }
 `;
