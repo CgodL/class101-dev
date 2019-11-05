@@ -20,9 +20,23 @@ description: 'Django Restful API'
 또한, "DRY(Don't repeat yourself: 중복배제)" 원리를 따릅니다. <br>
 설정 파일부터 데이터 모델에까지 파이썬 언어가 구석구석에 쓰여 있습니다.
 
+---
+
 ### Django Model
 
-**\*Django Model**은 **\*Django ORM(Object-Relational Mapping)**에서 기본적으로 제공하는 기능 중 하나 입니다.<br> 데이터베이스를 “객체”의 형태로 사용할 수 있도록 도와줍니다.
+> **Django** 에서 **Model**은 MVC패턴에서 Model 영역을 의미합니다. 데이터를 DB에 저장하고 가공 하는 작업을 하며 데이터 서비스를 제공하는 기능을 담당합니다.
+
+Django의 Model은 각각의 Django App 안에 기본적으로 생성되는 models.py에 코드를 작성하여 정의합니다.<br> 클래스 형태로 정의하며, <b>하나의 모델 클래스는 DB에서 하나의 테이블에 해당됩니다.</b> <br>
+장고 모델은 DB데이터를 정의하는 작업 입니다.
+models 패키지의 Model 객체를 상속받는 클래스가 하나의 DB 테이블 입니다.
+특정 `Field 클래스`의 인스턴스로 생성되는 변수들이 해당 테이블의 한 필드가 됩니다.
+
+- Each model is a Python class that subclasses django.db.models.Model.
+
+* Each attribute of the model represents a database field.
+* With all of this, Django gives you an automatically-generated database-access API
+
+---
 
 ### Django Restful [API](https://channing.netlify.com/ko/blog/2019/10/22/channing/)
 
@@ -36,6 +50,8 @@ description: 'Django Restful API'
 <center>
 
 Reference <br>
-[Docker](https://medium.com/@BennettGarner/build-your-first-rest-api-with-django-rest-framework-e394e39a482c) <br>
+[REST](https://medium.com/@BennettGarner/build-your-first-rest-api-with-django-rest-framework-e394e39a482c) <br>
+[Model](https://revidream.tistory.com/18)<br>
+[DJANGO](https://docs.djangoproject.com/en/2.2/topics/db/models/)<br>
 
 </center>

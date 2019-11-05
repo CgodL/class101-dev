@@ -201,7 +201,7 @@ export default css`
   .markdown-body strong {
     font-weight: inherit;
     font-weight: bolder;
-    color: #6CB2D1;
+    color: #FF6961;
   }
 
   .markdown-body h1 {
@@ -251,8 +251,8 @@ export default css`
   }
 
   .markdown-body a {
-    color: #0366d6;
-    text-decoration: none;
+    color: #FFB9C4;
+    text-decoration: underline;
   }
 
   .markdown-body a:hover {
@@ -305,7 +305,7 @@ export default css`
   .markdown-body h6 {
     margin-bottom: 0;
     margin-top: 0;
-    color: #F7A046;
+    color: #B64D3A;
   }
 
   .markdown-body h1 {
