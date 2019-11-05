@@ -4,11 +4,11 @@
 
 exports.users = [
   {
-    profileImage: '',
+    profileImage: '/images/profiles/photo.jpg',
     name: 'channing',
-    description: 'DEVELOPER',
-    github: '',
+    description: '백엔드 개발자를 꿈꾸며',
+    github: 'https://github.com/CgodL',
     blog: '',
-    linkedin: ''
+    linkedin: 'https://www.linkedin.com/in/chan-haeng-l-b12089180/'
   }
 ];

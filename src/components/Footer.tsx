@@ -30,12 +30,12 @@ const Footer: React.FC = () => {
 export default Footer;
 
 const Container = styled.footer`
-  background-color: ${Colors.gray100};
+  background-color: #fbeef1;
   padding-top: 32px;
   a {
     color: inherit;
     font-weight: 600;
-    color: ${Colors.gray900};
+    color: #696969;
     text-decoration: none;
     &:hover {
       color: inherit;

@@ -33,7 +33,7 @@ export const initI18n = () => {
                 hun: '훈'
               }
             },
-            title: '클래스101 기술 블로그',
+            title: 'BLOG',
             description: '신나는 코딩세상',
             company: '(주)클래스101',
             address: '서울특별시 중구 한강대로 416 서울스퀘어 13층',

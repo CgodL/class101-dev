@@ -15,11 +15,6 @@ const AuthorsPage: React.FC = () => {
       <SEO title={`클래스101 구성원`} pathname={`/tags`} />
       <Grid>
         <Row>
-          <Col lgOffset={2}>
-            <Headline2>구성원</Headline2>
-          </Col>
-        </Row>
-        <Row>
           {users.map(user => (
             <Col key={user.name} lgOffset={2}>
               <Bio user={user} />

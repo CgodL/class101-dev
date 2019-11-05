@@ -12,10 +12,10 @@ module.exports = {
       'apllo',
       'aws'
     ],
-    siteUrl: `https://class101.dev`,
-    facebookAppId: '2582489538450547',
+    siteUrl: `https://github.com/CgodL`,
+    facebookAppId: '',
     social: {
-      twitter: `class101`
+      twitter: ``
     }
   },
   plugins: [
@@ -173,9 +173,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `클래스101 기술 블로그`,
-        short_name: `class101.dev`,
-        description: `신나는 코딩 세상`,
+        name: `Blog`,
+        short_name: ``,
+        description: ``,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#ffffff`,
