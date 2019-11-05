@@ -27,7 +27,7 @@ const Header: React.FC = () => {
               <NoHoverLink to={`/`}>
                 {/* <LogoIcon src={logo} alt="class101" /> */}
               </NoHoverLink>
-              <SearchInput />
+              {/* <SearchInput /> */}
               <MenuContainer onClick={toggleMenu}>
                 <Icon.Menu fillColor={Colors.gray600} />
                 {menu && (
@@ -36,7 +36,13 @@ const Header: React.FC = () => {
                       href="https://github.com/CgodL"
                       target="_blank"
                     >
-                      Github
+                      GITHUB
+                    </ExternalNavLink>
+                    <ExternalNavLink
+                      href="https://channing.netlify.com/"
+                    // target="_blank"
+                    >
+                      HOME
                     </ExternalNavLink>
                   </NavLinkList>
                 )}

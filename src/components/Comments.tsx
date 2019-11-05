@@ -16,7 +16,7 @@ interface Props {
 
 const Comments: React.FC<Props> = props => {
   const { slug, title, siteUrl } = props;
-  const disqusShortname = 'class101-dev';
+  const disqusShortname = 'aenglee';
   const disqusConfig = {
     title,
     url: `${siteUrl}${slug}`,
