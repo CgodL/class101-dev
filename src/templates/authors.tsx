@@ -8,26 +8,27 @@ import { users } from '../data/users';
 
 
 const AuthorsPage: React.FC = () => {
-  
+
   return (
 
-  <Layout>
-    <SEO title={`클래스101 구성원`} pathname={`/tags`} />
-    <Grid>
-      <Row>
-        <Col lgOffset={2}>
-          <Headline2>구성원</Headline2>
-        </Col>
-      </Row>
-      <Row>
-        {users.map(user => (
-          <Col key={user.name} lgOffset={2}>
-            <Bio user={user} />
+    <Layout>
+      <SEO title={`클래스101 구성원`} pathname={`/tags`} />
+      <Grid>
+        <Row>
+          <Col lgOffset={2}>
+            <Headline2>구성원</Headline2>
           </Col>
-        ))}
-      </Row>
-    </Grid>
-  </Layout>
-)};
+        </Row>
+        <Row>
+          {users.map(user => (
+            <Col key={user.name} lgOffset={2}>
+              <Bio user={user} />
+            </Col>
+          ))}
+        </Row>
+      </Grid>
+    </Layout>
+  )
+};
 
 export default AuthorsPage;

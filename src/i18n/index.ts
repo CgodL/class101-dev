@@ -16,6 +16,7 @@ export const initI18n = () => {
           translation: {
             profile: {
               name: {
+                channing: '이엘티',
                 yozzing: '요찡',
                 john: '존',
                 joy: '조이',
@@ -46,6 +47,7 @@ export const initI18n = () => {
           translation: {
             profile: {
               name: {
+                channing: 'elt',
                 yozzing: 'Yozzing',
                 john: 'John',
                 joy: 'Joy',
