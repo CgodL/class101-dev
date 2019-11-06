@@ -12,7 +12,7 @@ const AuthorsPage: React.FC = () => {
   return (
 
     <Layout>
-      <SEO title={`클래스101 구성원`} pathname={`/tags`} />
+      <SEO title={`ELT`} pathname={`/tags`} />
       <Grid>
         <Row>
           {users.map(user => (

@@ -14,9 +14,9 @@ const Footer: React.FC = () => {
             <ContactSection>
               <ContactArticle>
                 <div>
-                  <a href="mailto:c.henry.92092@gmail.com">
+                  {/* <a href="mailto:c.henry.92092@gmail.com">
                     c.henry.9209@gmail.com
-                  </a>
+                  </a> */}
                 </div>
               </ContactArticle>
             </ContactSection>

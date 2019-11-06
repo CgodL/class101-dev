@@ -16,7 +16,7 @@ description: 'Django Restful API'
 > <b>Model View Controller (MVC) 패턴을 따르고 있습니다.</b>
 
 고도의 데이터베이스 기반 웹사이트를 작성하는 데 있어서 수고를 더는 것이 장고의 주된 목표입니다.<br>
-장고는 콤포넌트의 재사용성(reusability)과 플러그인화 가능성(pluggability), 빠른 개발 등을 강조하고 있습니다. <br>
+장고는 컴포넌트의 재사용성(reusability)과 플러그인화 가능성(pluggability), 빠른 개발 등을 강조하고 있습니다. <br>
 또한, "DRY(Don't repeat yourself: 중복배제)" 원리를 따릅니다. <br>
 설정 파일부터 데이터 모델에까지 파이썬 언어가 구석구석에 쓰여 있습니다.
 
@@ -56,7 +56,7 @@ class Post(models.Model):
 
 1. `models.py`에 모델 클래스를 정의합니다.
 2. `pipenv shell` 에서 `migrations`, `migrate`를 실행합니다.
-3. `admin.py`에 모델 클래스 등록
+3. `admin.py`에 모델 클래스를 등록 합니다.
 
 ```py
 $ python3 manage.py makemigrations
