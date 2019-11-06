@@ -111,8 +111,6 @@ $ python manage.py runserver
 $ python manage.py createsuperuser
 ```
 
----
-
 ### 🎃 Django Applications
 
 #### Divide and Conquer
@@ -123,8 +121,6 @@ $ python manage.py createsuperuser
   즉, 기능별 / 역할별 구분이 필요하며, 몇 개의 어플리케이션이 필요할지를 설계 해야합니다. <br>
   <b>Airbnb</b>를 예를 들면, room 어플리케이션( 룸 수정, 삭제, 입력 ) 과 review( 리뷰 입력, 수정, 삭제 ) 어플리케이션은 별도의 기능을 갖고 있는 것처럼요.
   기능별로 구분한 어플리케이션을 **config** 에서 통합하여 장고 웹사이트를 구성합니다.
-
----
 
 ### 🎃 Create the Apps
 
@@ -140,7 +136,7 @@ $ python manage.py createsuperuser
 $ django-admin startapp < application name >
 ```
 
-- **reservations, users, lists, reviews, rooms, conversations** application을 생성합니다.
+- **"reservations, users, lists, reviews, rooms, conversations"** application을 생성합니다.
 
 ```py
 # admin 페이지에 대한 설정을 하는 파일 입니다.
@@ -156,16 +152,34 @@ Views.py
 confing > urls.py
 ```
 
+---
+
+### 🎃 Settings.py
+
+- `$ config > settings.py`를 설정합니다.
+  장고에서 우리가 만든 폴더를 인식 시키기 위해서 `settings.py`를 configuration 해야 합니다.
+
+---
+
 ### 🎃 Introduce and Make the User Model
 
 > **DB 테이블 구조/타입을 먼저 설계를 한 후에 모델을 정의합니다.**
 
 - [MODEL](https://channing.netlify.com/ko/blog/2019/10/18/channing)
 
-* models.py를 통해 DB를 설정합니다.<br>
+* models.py를 통해 테이블을 구성합니다.<br>
 
-- Airbnb `user model`(웹 마스터) 에 들어갈 수 있는 테이블들 입니다.
-  각 테이블들이 Airbnb에서 필요로 할 유저의 정보를 담을 부분 이라고 생각하면 됩니다. models.py를 수정하여 기존 /admin 페이지에 해당 테이블들이 추가해보겠습니다.
+<center>
+
+[실제 Airbnb의 user 페이지 입니다]
+
+</center>
+
+![per](./p2.png)
+
+- 이제 저희의 Airbnb `user model`(웹 마스터) 에 들어갈 수 있는 테이블을 구상하겠습니다.
+  각 부분들이 필드가 될 것이고 Airbnb에서 필요로 할 유저의 정보를 담을 부분 이라고 생각하면 됩니다. models.py를 수정하여 기존 장고 `/admin` 페이지에 해당 필드들을 추가해보겠습니다.
+
   - avatar
   - gender
   - bio
@@ -174,7 +188,9 @@ confing > urls.py
   - currency
   - superhost
 
-이를 기초로 하여 `modes.py` 코드를 작성해보겠습니다.
+<br>
+
+- 이를 기초로 하여 `modes.py` 코드를 작성해보겠습니다.
 
 ```py
 $ users > models.py
@@ -182,9 +198,87 @@ $ users > models.py
 # There are two ways to extend the default User model without substituting your own model.
 from dango.contrib.auth.models import AbstractUser
 from dango.db import models
+
+# AbstractUser로 상속 합니다.
+class User(AbstractUser):
+    """ Custom User Model """
+
+    GENDER_MALE = "male"
+    GENDER_FEMALE = "female"
+    GENDER_OTHER = "other"
+
+    GENDER_CHOICES = (
+        (GENDER_MALE, "Male"),
+        (GENDER_FEMALE, "Female"),
+        (GENDER_OTHER, "Other"),
+    )
+
+    LANGUAGE_ENGLISH = "en"
+    LANGUAGE_KOREAN = "kr"
+
+    LANGUAGE_CHOICES = ((LANGUAGE_ENGLISH, "English"), (LANGUAGE_KOREAN, "Korean"))
+
+    CURRENCY_USD = "usd"
+    CURRENCY_KRW = "krw"
+
+    CURRENCY_CHOICES = ((CURRENCY_USD, "USD"), (CURRENCY_KRW, "KRW"))
+
+    avatar = models.ImageField(null=True, blank=True)
+    gender = models.CharField(
+        choices=GENDER_CHOICES, max_length=10, null=True, blank=True
+    )
+    # default 가 필요한 이유.. DB column에 디폴트 값을  설정하기 위해서!
+    bio = models.TextField(default="", blank=True)
+    birthday = models.DateField(null=True)
+    language = models.CharField(
+        choices=LANGUAGE_CHOICES, max_length=2, null=True, blank=True
+    )
+    currency = models.CharField(
+        choices=CURRENCY_CHOICES, max_length=3, null=True, blank=True
+    )
+    superhost = models.BooleanField(default=False)
+
 ```
 
-  <hr />
+- 이제 생성한 모델을 실제 확인 하려면`/admin` 패널에서 볼 수 있습니다. `/admin` 패널은 `admin.py` 로 작업해야 합니다.<br>
+  `admin.py` 에서 우리가 만든 `model`을 `register` 해옵니다.
+
+```py
+from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
+from . import models
+
+# Register your models here.
+# decorator
+# 저는 admin 패널에서 User를 보고 싶습니다.
+@admin.register(models.User)
+# User를 컨트롤할 클래스가 바로 CustomUserAdmin이 될 겁니다.
+# CustomUserAdmin으로 User를 컨트롤 하고 싶습니다.
+class CustomUserAdmin(UserAdmin):
+
+    """ Custom User Admin """
+    # admin 페이지에 해당 테이블을 생성합니다.
+    # list_display = ("username", "email", "gender", "language", "currency", "superhost")
+    # list_filter = ("superhost", "language", "currency")
+    fieldsets = UserAdmin.fieldsets + (
+        (
+            "Custom Profile",
+            {
+                "fields": (
+                    "avatar",
+                    "gender",
+                    "bio",
+                    "birthday",
+                    "language",
+                    "currency",
+                    "superhost",
+                )
+            },
+        ),
+    )
+```
+
+<hr />
 
 <center>
 
@@ -194,3 +288,4 @@ Reference <br>
 [장고](https://channing.netlify.com/ko/blog/2019/10/18/channing)<br>
 
 </center>
+```
