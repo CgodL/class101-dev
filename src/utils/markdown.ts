@@ -714,6 +714,7 @@ export default css`
     background: transparent;
     border: 0;
     font-size: 100%;
+    font-weight: 400;
     margin: 0;
     padding: 0;
     white-space: pre;
@@ -721,7 +722,7 @@ export default css`
   }
 
   .markdown-body .highlight {
-    margin-bottom: 16px;
+    margin-bottom: 16px;  
   }
 
   .markdown-body .highlight pre {
