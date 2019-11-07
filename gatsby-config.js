@@ -149,14 +149,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-64561335-30`
+        trackingId: `UA-151758942-1`
       }
     },
     {
       resolve: `gatsby-plugin-facebook-analytics`,
       options: {
         // Required - set this to the ID of your facebook app.
-        appId: `2582489538450547`,
+        appId: ``,
 
         // Which version of the SDK to load.
         version: `v3.3`,

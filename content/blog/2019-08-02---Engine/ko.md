@@ -10,12 +10,3 @@ description: 'Engine - Runtime - CallStack - Event Loop'
 ![v](./v.png)
 
 ### JS ENGINE
-
-<center>
-Reference <br>
-
-[Batch Processing](https://limkydev.tistory.com/m/140)<br>
-
-</center>
-
-https://limkydev.tistory.com/m/140
