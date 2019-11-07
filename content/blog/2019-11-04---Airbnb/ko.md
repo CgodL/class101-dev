@@ -104,12 +104,14 @@ $ python manage.py runserver
 - <b>localhost:8000/admin</b> 을 통해 admin 페이지에 접근할 수 있습니다. <br>
   하지만 초기 접근시에 migrate 하지 않았다는 에러가 발생하여 접근이 불가능 합니다.
   장고는 많은 기능들이 사전에 구현되어 있는 웹 프레임워크 입니다.
-  admin 페이지 역시 구현이 되어있고 이를 사용하기 위해 장고의 초기 DB(SQlite)와 migrate를 해주면 됩니다.
+  admin 페이지 역시 구현이 되어있고 이를 사용하기 위해 장고의 초기 DB(sqlite)와 migrate를 해주면 됩니다.
 
 ```py
 # admin page를 사용할 계정을 만듭니다.
 $ python manage.py createsuperuser
 ```
+
+---
 
 ### 🎃 Django Applications
 
@@ -119,7 +121,7 @@ $ python manage.py createsuperuser
   장고는 여러 개의 어플리케이션으로 구성되어 있습니다.<br>
   장고를 효과적으로 사용하는 벙법은 언제 어플리케이션을 만들고 만들지 않아야 하는지를 구별하는 것 입니다. <br>
   즉, 기능별 / 역할별 구분이 필요하며, 몇 개의 어플리케이션이 필요할지를 설계 해야합니다. <br>
-  <b>Airbnb</b>를 예를 들면, room 어플리케이션( 룸 수정, 삭제, 입력 ) 과 review( 리뷰 입력, 수정, 삭제 ) 어플리케이션은 별도의 기능을 갖고 있는 것처럼요.
+  <b>Airbnb</b>를 예로 들면, room 어플리케이션( 룸 수정, 삭제, 입력 ) 과 review 어플리케이션( 리뷰 입력, 수정, 삭제 )은 별도의 기능을 갖고 있는 것처럼요.
   기능별로 구분한 어플리케이션을 **config** 에서 통합하여 장고 웹사이트를 구성합니다.
 
 ### 🎃 Create the Apps
@@ -158,6 +160,23 @@ confing > urls.py
 
 - `$ config > settings.py`를 설정합니다.
   장고에서 우리가 만든 폴더를 인식 시키기 위해서 `settings.py`를 configuration 해야 합니다.
+
+```py
+$ config > settings.py
+# 외부 패키지를 configuration할 변수를 생성합니다.
+THIRD_PARTY_APPS = []
+
+# Application Definition ( 기존에 생성되어 있는 변수 입니다. )
+DJANGO_APPS = []
+
+# Project를 담을 변수를 생성합니다.
+PROJECT_APPS = []
+
+INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
+
+AUTH_USER_MODEL = "users.User"
+
+```
 
 ---
 
@@ -278,6 +297,12 @@ class CustomUserAdmin(UserAdmin):
     )
 ```
 
+---
+
+### 🎃 Room Model
+
+#### Foreign Key
+
 <hr />
 
 <center>
@@ -288,4 +313,3 @@ Reference <br>
 [장고](https://channing.netlify.com/ko/blog/2019/10/18/channing)<br>
 
 </center>
-```

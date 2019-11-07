@@ -9,6 +9,8 @@ description: 'Django Restful API'
 
 ![django](./djan.png)
 
+---
+
 ### Django
 
 **장고**는 Django Software Foundation이 관리하는 파이썬으로 작성된 오픈소스 **웹 애플리케이션 프레임워크** 입니다.
@@ -19,6 +21,8 @@ description: 'Django Restful API'
 장고는 **컴포넌트의 재사용성(reusability)** 과 **플러그인화 가능성(pluggability)** 또 **빠른 개발** 등을 강조하고 있습니다. <br>
 또한, **"DRY(Don't repeat yourself)"** 원리를 따릅니다.
 설정 파일부터 데이터 모델까지 파이썬 언어가 구석구석에 쓰여 있습니다.
+
+---
 
 ### Django ORM
 
