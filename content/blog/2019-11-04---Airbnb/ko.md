@@ -197,7 +197,7 @@ AUTH_USER_MODEL = "users.User"
 ![per](./p2.png)
 
 - 이제 저희의 Airbnb `user model`(웹 마스터) 에 들어갈 수 있는 테이블을 구상하겠습니다.
-  각 부분들이 필드가 될 것이고 Airbnb에서 필요로 할 유저의 정보를 담을 부분 이라고 생각하면 됩니다. models.py를 수정하여 기존 장고 `/admin` 페이지에 해당 필드들을 추가해보겠습니다.
+  각 부분들이 필드가 될 것이고 Airbnb에서 필요로 할 유저의 정보를 담을 부분 이라고 생각하면 됩니다. `models.py`를 수정하여 기존 장고 `/admin/users` 페이지에 해당 필드들을 추가해보겠습니다.
 
   - avatar
   - gender
@@ -300,6 +300,64 @@ class CustomUserAdmin(UserAdmin):
 ---
 
 ### 🎃 Room Model
+
+<br>
+
+<center>
+
+[실제 Airbnb의 Room 페이지 입니다]
+
+</center>
+
+![room](./room.png)
+
+- User Model과 같이 실제 Airbnb에서 필요로 할 Room 정보를 담을 부분 입니다.<br> `models.py`를 수정하여 기존 장고 `/admin/rooms` 페이지에 해당 필드들을 추가해보겠습니다.
+
+  - name
+  - description
+  - country
+  - city
+  - price
+  - address
+  - guests
+  - beds
+  - bedrooms
+  - baths
+  - check_in
+  - check_out
+  - instant_book
+  - host
+
+```py
+from django.db import models
+from django_countries.fields import CountryField
+from core import models as core_models
+from users import models as user_models
+
+
+class Room(core_models.TimeStampedModel):
+
+    """ Room Model Definition"""
+
+    # Django Countries
+    name = models.CharField(max_length=140)
+    description = models.TextField()
+    country = CountryField()
+    city = models.CharField(max_length=80)
+    price = models.IntegerField()
+    address = models.CharField(max_length=140)
+    guests = models.IntegerField()
+    beds = models.IntegerField()
+    bedrooms = models.IntegerField()
+    baths = models.IntegerField()
+    check_in = models.TimeField()
+    check_out = models.TimeField()
+    instant_book = models.BooleanField(default=False)
+    host = models.ForeignKey(user_models.User, on_delete=models.CASCADE)
+
+    # 모델과 다른 모델을 연결하는 방법 => foreign key
+
+```
 
 #### Foreign Key
 

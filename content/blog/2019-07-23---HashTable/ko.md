@@ -1,11 +1,13 @@
 ---
 title: 'HASH TABLES'
 date: '2019-07-23T13:48:56'
-thumbnail: '/images/thumbnails/e.png'
+thumbnail: '/images/thumbnails/hashtable.png'
 author: 'channing'
 tags: ['Hash Tables']
 description: 'Resizing Hash Tables'
 ---
+
+![hash](./hashtable.png)
 
 #### Hash Tables
 
