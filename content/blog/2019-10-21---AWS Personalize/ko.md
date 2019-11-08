@@ -52,7 +52,7 @@ Netflix Prize Contest를 통해 SVD(Singular Value Decomposition, 특이값 분�
 한가지 예를 들어보겠습니다. 제가(A) 좋아하는 맥주로 설명 해보겠습니다. 저 같은 경우 맥주 종류 중 '라거'를 좋아합니다.<br>
 '라거'는 또 칭다오, 카스, 코로나 .. 등 수십, 수백가지의 제품이 있습니다.
 그리고 여기에 저와 같은 취향의 맥주 '라거' 를 좋아하는 친구(B)가 있습니다.
-저는(A) 라거를 좋아하지만 다양한 제품을 즐겨보지는 못했습니다. 그에 반해 친구(B)는 매우 다양한 제품의 맥주를 먹어봤습니다.
+<br>저는(A) 라거를 좋아하지만 다양한 제품을 즐겨보지는 못했습니다. 그에 반해 친구(B)는 매우 다양한 제품의 맥주를 먹어봤습니다.<br>
 여기서 **B는 A의 친구이기 때문에 A는 B를 통해 맥주를 추천 받을 수 있습니다.**
 
 Personalize는 이처럼 나와 비슷한 성향의 사람의 일련의 행동(이벤트)을 기준으로 학습하여 관련성 높은 추천을 생성할 수 있습니다.
@@ -102,7 +102,7 @@ Personalize는 이처럼 나와 비슷한 성향의 사람의 일련의 행동(�
 
 <center>
 
-##### Data Formatting 과 형식만 잘 잡혔다면 데이터를 올리고 난후 모델 생성은 매우 간단합니다.
+#### Data Formatting 과 형식만 잘 잡혔다면 데이터를 올리고 난후 모델 생성은 매우 간단합니다.
 
 </center>
 
@@ -112,19 +112,17 @@ Personalize는 이처럼 나와 비슷한 성향의 사람의 일련의 행동(�
 
 #### Airflow를 활용한 방법
 
-각 Task를 분리하여 특정 시간마다 AWS Personalize 일련의 과정을 생성 하는 과정을 반복합니다. 데이터가 클수록 소요시간이 길어집니다.
+- Batch processing을 활용합니다. **Airflow** 는 batch scheduler 로써 큰 데이터를 특정 시간에 처리할 수 있도록 도와주는 스케줄러 입니다.<br>
+  각 Task를 분리하여 특정 시간마다 AWS Personalize 일련의 과정을 생성 하는 과정을 반복합니다. 데이터가 클수록 소요시간이 길어집니다.
 
 #### PutEvents API를 활용한 방법.
 
 1.  PutEvents API를 통해 요구하는 형태의 데이터를 수집합니다.<br>
 2.  Cloud Watch를 통해 생성된 데이터를 확인합니다.<br>
-3.  최종적으로 create solution version -> campaign update 를 통해 추천결과를 업데이트 합니다.<br>
-    ( 단 trainning을 주기적으로 해야합니다. )
+3.  최종적으로 create solution version -> campaign update 를 통해 추천결과를 업데이트 합니다.( 단 trainning을 주기적으로 해야합니다. )<br>
+    PutEvents시 데이터 업데이트가 이뤄지고, 트레이닝만 다시해주면 됩니다.<br>
 
- <br>
-
-PutEvents시 데이터 업데이트가 이뤄지고, 트레이닝만 다시해주면 됩니다.<br> \* 의문점 : PutEvents API 는 실시간 업데이트를 실행하는 API임에도 트레이닝을 주기적으로 해줘야 하는 점<br>
-(by AWS solutions architect)
+> \*\* PutEvents API 는 실시간 업데이트를 실행하는 API임에도 트레이닝을 주기적으로 해줘야 하는 점은 의문 입니다. 리트레이닝 자체가 실시간 업데이트라는 의미가 퇴색 되는 것 아닌지.. ( by AWS solutions architect )
 
 ---
 
@@ -151,7 +149,7 @@ AWS Personalize 설정 과정을 백트래킹 했고, 일련의 과정을 모두
 
 ### 결론
 
-Personalize 세팅에 있어서 고려해야 할 가장 주된 사항을 고르라면, AWS Personalize를 사용할 고객이 갖고 있는 데이터 가 Personalize에 요구하는 Schema Field에 맞도록 데이터를 알맞게 구성하는게 제일 중요한 부분이라고 생각합니다.
+Personalize 세팅에 있어서 고려해야 할 가장 주된 사항을 고른다면, AWS Personalize를 사용할 고객이 갖고 있는 데이터 가 Personalize에 요구하는 Schema Field에 맞도록 데이터를 알맞게 구성하는게 제일 중요한 부분이라고 생각합니다.
 
 가령 크런치 프라이스의 예를 들면, 필수적으로 들어가는 TIMESTAMP 값이나 선택사항인 EVENT TYPE의 경우가 있습니다.
 크런치 프라이스 사용자가 해당 상품 페이지에 접속한 시간을 TIMESTAMP 값으로 넣어줬으며 , EVENT TYPE은 Click, Add to Cart 등 과 같이 의미있는 값을 데이터로 넘겨야 보다 정확한 추천 결과를 받을 수 있습니다.

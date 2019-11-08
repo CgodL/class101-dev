@@ -119,7 +119,7 @@ $ python manage.py createsuperuser
 
 - <b>Application is Group of Function.</b><br>
   장고는 여러 개의 어플리케이션으로 구성되어 있습니다.<br>
-  장고를 효과적으로 사용하는 벙법은 언제 어플리케이션을 만들고 만들지 않아야 하는지를 구별하는 것 입니다. <br>
+  장고를 효과적으로 사용하는 방법은 언제 어플리케이션을 만들고 만들지 않아야 하는지를 구별하는 것 입니다. <br>
   즉, 기능별 / 역할별 구분이 필요하며, 몇 개의 어플리케이션이 필요할지를 설계 해야합니다. <br>
   <b>Airbnb</b>를 예로 들면, room 어플리케이션( 룸 수정, 삭제, 입력 ) 과 review 어플리케이션( 리뷰 입력, 수정, 삭제 )은 별도의 기능을 갖고 있는 것처럼요.
   기능별로 구분한 어플리케이션을 **config** 에서 통합하여 장고 웹사이트를 구성합니다.
@@ -182,7 +182,8 @@ AUTH_USER_MODEL = "users.User"
 
 ### 🎃 Introduce and Make the User Model
 
-> **DB 테이블 구조/타입을 먼저 설계를 한 후에 모델을 정의합니다.**
+> **DB 테이블 구조/타입을 먼저 설계**를 한 후에 모델을 정의합니다.
+> **admin/ 페이지**를 먼저 구현 합니다.
 
 - [MODEL](https://channing.netlify.com/ko/blog/2019/10/18/channing)
 

@@ -15,6 +15,8 @@ description: 'Async - Ajax - Axios - Fetch'
 
 ### Multi Thread
 
+[Thread](https://channing.netlify.com/ko/blog/2019/11/08/channing)
+
 ---
 
 ![re](./re.png)
