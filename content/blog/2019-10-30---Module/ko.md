@@ -7,6 +7,7 @@ tags: ['JavaScript', 'Node.js']
 description: '모듈화'
 ---
 
+![mo](./mo.png)
 package.json
 npm
 모듈화

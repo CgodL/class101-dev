@@ -1,13 +1,13 @@
 ---
 title: 'SELENIUM / PUPPETEER'
 date: '2019-11-03T16:50:56'
-thumbnail: '/images/thumbnails/sel.png'
+thumbnail: '/images/thumbnails/sel2.png'
 author: 'channing'
 tags: ['Puppeteer', 'Selenium']
 description: '셀레늄 / 퍼페티어'
 ---
 
-![sel](./sel.png)
+![sel](./sel2.png)
 
 ### Puppeteer
 

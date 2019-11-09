@@ -155,6 +155,10 @@ const SEO: React.FC<Props> = props => {
           content: t(`profile.name.${author || siteMetadata.author}`)
         },
         {
+          name: 'google-site-verification',
+          content: 'hYPjTYVh8MNwhYnT_d92NDmC_uKmyZ1nTvhVYQzXeVM'
+        },
+        {
           property: `og:title`,
           content: title
         },
