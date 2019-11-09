@@ -11,11 +11,13 @@ description: 'DATA BASE - SQL'
 
 ## DATABASE 란?
 
-#### 먼저 데이터,
+### 먼저 데이터,
 
 데이터는 어떤 것들의 ‘기록 정보’이고, 이러한 데이터를 모아 둔 것을 데이터베이스라고 합니다. 과거에는 이런 정보들을 문서에 직접 손으로 기록하여 관리하는 수밖에 없었습니다. 하지만 지금은 IT 기술이 발달하면서 정보들을 컴퓨터로 관리할 수 있게 되었습니다. 이로써 데이터를 좀 더 일관되고 효율적으로 관리할 수 있게 되었고, 데이터를 여러 가지 형태로 가공하거나 분석하는 것뿐만 아니라 신속하게 찾아내 출력할 수 있게 되었습니다.
 
 방대한 데이터를 효율적으로 관리할 수 있는 컴퓨터 프로그램을 만들었는데, 이를 **데이터베이스 관리 시스템(DBMS, DataBase Management System)**이라고 합니다. **데이터베이스**란 **데이터를 모아 놓은 것**으로, 이런 데이터베이스를 관리하는 소프트웨어가 바로 **DBMS**입니다. 데이터베이스를 관리한다는 것은 데이터베이스 안에 데이터를 저장하고, 필요한 데이터를 꺼내 보고, 저장된 데이터를 수정하거나 삭제하는 행위를 의미하는데, 이런 일련의 작업을 DBMS가 처리합니다.
+
+---
 
 ### 테이블
 
@@ -71,79 +73,6 @@ description: 'DATA BASE - SQL'
 `foreign key`(외래키)
 
 ---
-
-## SQL
-
-SQL은 관계형 데이터베이스에서 사용하는 컴퓨터 언어입니다.
-DB에 접근하여 데이터를 조회, 입력, 수정, 삭제 하기 위해 사용합니다.
-
-- SQL의 종류
-
-  <br>
-
-  | DDL            | DML    | TCL      |
-  | :------------- | :----- | :------- |
-  | CREATE         | MERGE  | ROLLBACK |
-  | DROP           | SELECT | COMMIT   |
-  | ALTER          | INSERT |          |
-  | TRUNCATE TABLE | UPDATE |          |
-  | RENAME         | DELETE |
-
-### 테이블 생성
-
-```sql
-CREATE TABLE table_name(
-    column_name1 datatype [NOT] NULL,
-    column_name2 datatype [NOT] NULL,
-    ...
-    PRIMARY KEY(column_list)
-);
-
-```
-
-### 컬럼의 데이터형
-
-- 대체로 문자형 컬럼은 `VARCHAR2` 형으로 만듭니다. `VARCHAR2(n)` 은 가변 길이 문자, 최대 4000byte 입니다.
-- 숫자형은 `NUMBER` 형으로 만듭니다.
-- 날짜형은 `DATE` 형으로 만듭니.
-- `NULL`은 해당 컬럼에 값이 들어갈지 / 안들어갈지를 명시합니다.
-
-### ORACLE Live SQL
-
-![Oracle](./oa.png)
-
-<center>
-
-[ORACLE](https://livesql.oracle.com/) 페이지 에서 SQL 을 실제 생성 연습할 수 있습니다.
-
-</center>
-
-```sql
-# academy라는 테이블을 생성합니다.
-CREATE TABLE academy (
-    student_name    VARCHAR2(10) NOT NULL,
-    age             NUMBER NOT NULL,
-    major           VARCHAR2(10) NULL,
-    job             VARCHAR2(10) NULL,
-    rg_date         DATE NOT NULL,
-    PRIMARY KEY( student_name , rg_date )
-)
-```
-
-### 테이블 조회
-
-```sql
-SELECT * FROM academy;
-```
-
-### 데이터 입력 INSERT
-
-테이블에 데이터를 입력하는데 필요한 정보는 크게 테이블 명, 컬럼 명과 개수, 컬럼에 들어갈 데이터 로 구분할 수 있습니다.
-
-```sql
-INSERT INTO TABLE_NAME(column1, column2, column3, ...)
-VALUES( value1, value2, ... )
-```
 
 ### 관계
 
@@ -246,6 +175,83 @@ VALUES( value1, value2, ... )
 |      N      |      N      |
 
 > 한명의 사람은 여러개의 취미를 가질수 있으며 취미는 여러사람이 같은 취미를 가질 수 있습니다.
+
+---
+
+## SQL
+
+SQL은 관계형 데이터베이스에서 사용하는 컴퓨터 언어입니다.
+DB에 접근하여 데이터를 조회, 입력, 수정, 삭제 하기 위해 사용합니다.
+
+- SQL의 종류
+
+  <br>
+
+  | DDL            | DML    | TCL      |
+  | :------------- | :----- | :------- |
+  | CREATE         | MERGE  | ROLLBACK |
+  | DROP           | SELECT | COMMIT   |
+  | ALTER          | INSERT |          |
+  | TRUNCATE TABLE | UPDATE |          |
+  | RENAME         | DELETE |
+
+### 테이블 생성
+
+```sql
+CREATE TABLE table_name(
+    column_name1 datatype [NOT] NULL,
+    column_name2 datatype [NOT] NULL,
+    ...
+    PRIMARY KEY(column_list)
+);
+
+```
+
+### 컬럼의 데이터형
+
+- 대체로 문자형 컬럼은 `VARCHAR2` 형으로 만듭니다. `VARCHAR2(n)` 은 가변 길이 문자, 최대 4000byte 입니다.
+- 숫자형은 `NUMBER` 형으로 만듭니다.
+- 날짜형은 `DATE` 형으로 만듭니.
+- `NULL`은 해당 컬럼에 값이 들어갈지 / 안들어갈지를 명시합니다.
+
+### ORACLE Live SQL
+
+![Oracle](./oa.png)
+
+<center>
+
+[ORACLE](https://livesql.oracle.com/) 페이지 에서 SQL 을 실제 생성 연습할 수 있습니다.
+
+</center>
+
+```sql
+# academy라는 테이블을 생성합니다.
+CREATE TABLE academy (
+    student_name    VARCHAR2(10) NOT NULL,
+    age             NUMBER NOT NULL,
+    major           VARCHAR2(10) NULL,
+    job             VARCHAR2(10) NULL,
+    rg_date         DATE NOT NULL,
+    PRIMARY KEY( student_name , rg_date )
+)
+```
+
+### 테이블 조회
+
+```sql
+SELECT * FROM academy;
+```
+
+### 데이터 입력 INSERT
+
+테이블에 데이터를 입력하는데 필요한 정보는 크게 테이블 명, 컬럼 명과 개수, 컬럼에 들어갈 데이터 로 구분할 수 있습니다.
+
+```sql
+INSERT INTO TABLE_NAME(column1, column2, column3, ...)
+VALUES( value1, value2, ... )
+```
+
+
 
 <hr />
 <center>

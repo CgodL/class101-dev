@@ -12,13 +12,19 @@ module.exports = {
       'apllo',
       'aws'
     ],
-    siteUrl: `https://github.com/CgodL`,
+    siteUrl: `https://channing.netlify.com`,
     facebookAppId: '',
     social: {
       twitter: ``
     }
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+      }
+    },
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
