@@ -22,6 +22,7 @@ description: 'INSTAGRAM SCRAPING'
 
 ### GOAL
 
+> <b>2019.10.29 - (미정)</b><br>
 > 인스타그램 해시태그를 활용하여 특정 지역 들의 데이터를 스크랩핑 / 크롤링 해보도록 하겠습니다.
 >
 > 1.  해시태그를 크롤링 한다.
@@ -38,6 +39,7 @@ description: 'INSTAGRAM SCRAPING'
 
 - JS + Puppeteer
 - Python + Selenium
+- async / await
 
 ---
 
@@ -64,7 +66,7 @@ description: 'INSTAGRAM SCRAPING'
 
 ---
 
-**KEYWORD**
+**Requirements**
 
 - 비동기로 처리해야 합니다.
 - 인스타 페이지 로그인이 필요합니다.<br>
