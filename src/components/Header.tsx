@@ -36,13 +36,19 @@ const Header: React.FC = () => {
                       href="https://github.com/CgodL"
                       target="_blank"
                     >
-                      GIT
+                      G I T
                     </ExternalNavLink>
                     <ExternalNavLink
-                      href="https://channing.netlify.com/"
+                      href="http://developer-channing.com/"
                     // target="_blank"
                     >
-                      HOME
+                      H O M E
+                    </ExternalNavLink>
+                    <ExternalNavLink
+                      href="http://developer-channing.com/resume"
+                    // target="_blank"
+                    >
+                      R E S U M E
                     </ExternalNavLink>
                   </NavLinkList>
                 )}
@@ -103,7 +109,7 @@ const navLinkCss = css`
   font-size: 16px;
   padding: 8px;
   margin: -1px;
-  width: 100px;
+  width: 120px;
   text-align: center;
   text-decoration: none;
   &:hover {
