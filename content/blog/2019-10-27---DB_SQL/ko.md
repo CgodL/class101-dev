@@ -45,6 +45,9 @@ description: 'DATA BASE - SQL'
 
 한 테이블에 몰아넣는 대신 별도로 주소 테이블을 만들고, 회원정보 테이블에는 주소 테이블의 특정 주소를 가리키는, 데이터 크기가 작은 컬럼(보통 숫자형 컬럼을 사용합니다)을 둔다면 훨씬 효율적일 것입니다
 
+![q2](./q1.png)
+![q1](./q2.png)
+
 - RDBMS의 관계<br>
   -- 데이터 성격에 맞게 테이블을 여러개로 분리하고 분리한 테이블 간에 연결고리 역할을 하는 컬럼을 두어 이 컬럼을 이용해 관계를 맺는 것.
 
@@ -70,7 +73,8 @@ description: 'DATA BASE - SQL'
 ### Key
 
 데이터 무결성을 확보하기 위해 테이블에는 반드시 하나의 키가 되는 컬럼을 두어야 합니다. 같은 이름의 값을 분별하기 위해 사용할 값으로, `primary key`(기본키) 를 활용합니다.
-`foreign key`(외래키)
+테이블에서 유일하게 로우를 식별하는 키를 `기본 키(primary key)`, 다른 테이블의 기본 키와 연결고리가 되는 키를 `참조 키(foreign key)`라고 합니다.
+참조 키 컬럼은 `참조 키(foreign key)`를 중복으로 갖을 수 있습니다.
 
 ---
 
@@ -114,14 +118,12 @@ description: 'DATA BASE - SQL'
 | 부장 |   02    |
 | 차장 |   03    |
 | 팀장 |   04    |
-| 과장 |   05    |
-| 과장 |   06    |
-| 대리 |   07    |
-| 대리 |   08    |
-| 주임 |   09    |
+| 대리 |   05    |
+| 대리 |   06    |
+| 사원 |   07    |
+| 사원 |   08    |
+| 사원 |   09    |
 | 사원 |   10    |
-| 사원 |   11    |
-| 사원 |   12    |
 
 > 인사 테이블
 
@@ -137,8 +139,6 @@ description: 'DATA BASE - SQL'
 | 08      | Sung     |
 | 09      | Min      |
 | 10      | So       |
-| 11      | Yo       |
-| 12      | Miny     |
 
 | 인사 테이블 | 직급 테이블 |
 | :---------: | :---------: |
@@ -180,6 +180,18 @@ description: 'DATA BASE - SQL'
 
 ## SQL
 
+### ORACLE Live SQL
+
+![Oracle](./oa.png)
+
+<center>
+
+[ORACLE](https://livesql.oracle.com/) 페이지 에서 SQL 을 실제 생성 연습할 수 있습니다.
+
+</center>
+
+---
+
 SQL은 관계형 데이터베이스에서 사용하는 컴퓨터 언어입니다.
 DB에 접근하여 데이터를 조회, 입력, 수정, 삭제 하기 위해 사용합니다.
 
@@ -209,37 +221,78 @@ CREATE TABLE table_name(
 
 ### 컬럼의 데이터형
 
+- `CHAR(n)` 고정 길이 문자형 으로, 최대 2000byte 입니다.
 - 대체로 문자형 컬럼은 `VARCHAR2` 형으로 만듭니다. `VARCHAR2(n)` 은 가변 길이 문자, 최대 4000byte 입니다.
 - 숫자형은 `NUMBER` 형으로 만듭니다.
-- 날짜형은 `DATE` 형으로 만듭니.
-- `NULL`은 해당 컬럼에 값이 들어갈지 / 안들어갈지를 명시합니다.
+- 날짜형은 `DATE` 형으로 만듭니다.
+- `NULL`은 해당 컬럼에 값이 들어갈지 / 안 들어갈지를 명시합니다. 따라서 `NOT NULL` 로 지정한 컬럼은 값이 반드시 들어가야 합니다.
 
-### ORACLE Live SQL
+<br>
+<br>
 
-![Oracle](./oa.png)
+- Primary key 는 컬럼 정의시에 `PRIMARY KEY` 구문을 추가하여 생성할 수 있습니다. 기본키 칼럼에는 `NOT NULL`을 반드시 추가해야 합니다.
 
-<center>
-
-[ORACLE](https://livesql.oracle.com/) 페이지 에서 SQL 을 실제 생성 연습할 수 있습니다.
-
-</center>
+```sql
+CREATE TABLE Person (
+    user_name NUMBER NOT NULL PRIMARY KEY,
+);
+```
 
 ```sql
 # academy라는 테이블을 생성합니다.
+# 정의한 해당 컬럼을 갖고 있는 academy라는 빈 테이블이 생성 됩니다.
+
 CREATE TABLE academy (
+    student_id NUMBER NOT NULL,
     student_name    VARCHAR2(10) NOT NULL,
     age             NUMBER NOT NULL,
     major           VARCHAR2(10) NULL,
     job             VARCHAR2(10) NULL,
-    rg_date         DATE NOT NULL,
-    PRIMARY KEY( student_name , rg_date )
+    register_date         DATE NOT NULL,
+    PRIMARY KEY( student_id, student_name , register_date )
 )
 ```
 
-### 테이블 조회
+### 데이터 조회 SELECT
 
 ```sql
 SELECT * FROM academy;
+
+SELECT column1, column2, …
+FROM 테이블 명
+WHERE 조건
+ORDER BY 정렬 순서;
+
+# academy 테이블 에서 컬럼 값이 '전공(컴퓨터 공학)'에 해당하는 데이터만을 조회하는 쿼리 입니다.
+SELECT * FROM academy
+WHERE major = 'CS'
+```
+
+- `WHERE` 절은 `IF문` 입니다. 조건 연산자를 활용할 수 있습니다.
+  <br>
+  <br>
+
+  | 조건 연산자 | 기능                                      |
+  | :---------- | :---------------------------------------- |
+  | =           | 조건 대상 값이 같을 때 참                 |
+  | !=, <>      | 조건 대상 값이 다를 때 참                 |
+  | <           | 왼쪽 값이 오른쪽 값보다 작을 때 참        |
+  | >           | 왼쪽 값이 오른쪽 값보다 클 때 참          |
+  | <=          | 왼쪽 값이 오른쪽 값보다 작거나 같을 때 참 |
+  | >=          | 왼쪽 값이 오른쪽 값보다 크거나 같을 때 참 |
+
+- 2개 이상의 조건을 사용할 때는 `AND` 또는 `OR` 를 사용합니다.
+
+  - 연산자 우선순위에 유의해야 합니다. (괄호를 활용해야 합니다)
+
+- `LIKE` 와 `IN` 그리고 `BETWEEN`
+
+```sql
+
+SELECT * FROM academy
+WHERE major = 'CS'
+ AND age >= 20
+ AND job = 'None'
 ```
 
 ### 데이터 입력 INSERT
@@ -249,9 +302,25 @@ SELECT * FROM academy;
 ```sql
 INSERT INTO TABLE_NAME(column1, column2, column3, ...)
 VALUES( value1, value2, ... )
+
+INSERT INTO academy(student_id, student_name, age, major, job, register_date)
+VALUES( 1, 'channing', 28, 'CS', 'None', '2019-10-27' )
 ```
 
+### 데이터 삭제 DELETE
 
+```sql
+DELETE FROM TABLE_NAME
+WHERE COLUMN_NAME = X;
+```
+
+### 데이터 정렬 ORDER BY
+
+### 트랜잭션 TRANSACTION
+
+---
+
+### AWS RDS
 
 <hr />
 <center>

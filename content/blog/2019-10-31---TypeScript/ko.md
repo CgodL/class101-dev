@@ -10,6 +10,7 @@ description: 'TYPESCRIPT'
 ![TypeScript](./t.png)
 
 <center>
+[2019.10.31 - 미정]
 
 ### "TYPESCRIPT를 활용하여 만드는 간단한 블록체인"
 

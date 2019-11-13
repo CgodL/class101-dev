@@ -18,6 +18,7 @@ description: 'Django Restful API'
 > <b>Model View Controller (MVC) 패턴을 따르고 있습니다.</b>
 
 고도의 데이터베이스 기반 웹사이트를 작성하는 데 있어서 **수고를 더는 것**이 장고의 주된 목표입니다.<br>
+실제로 많은 기능들이 구현되어 있습니다. 프레임워크 특성상 장고에서 요구하는 범위에서 벗어나지만 않는다면 에러를 발생시키지 않으며, 편리하게 활용할 수 있습니다.
 장고는 **컴포넌트의 재사용성(reusability)** 과 **플러그인화 가능성(pluggability)** 또 **빠른 개발** 등을 강조하고 있습니다. <br>
 또한, **"DRY(Don't repeat yourself)"** 원리를 따릅니다.
 설정 파일부터 데이터 모델까지 파이썬 언어가 구석구석에 쓰여 있습니다.
@@ -27,7 +28,7 @@ description: 'Django Restful API'
 ### Django ORM
 
 **ORM(Object Relational Mapping)** OOP언어와 데이터를 다루는 RDBMS와의 상이한 시스템을 매핑하여 데이터 관련 OOP 프로그래밍을 쉽게 하도록 도와주는 기술 입니다.
-**즉, 우리의 파이썬 코드를 SQL문으로 바꿔서 DB에서 알아들을 수 있게 해줍니다.**
+**즉, 복잡한 SQL문을 공부할 필요 없이 우리의 파이썬 코드를 SQL문으로 바꿔서 DB에서 알아들을 수 있게 해줍니다.**
 `models.py`에 작성한 코드를 장고가 알아서 DB 테이블로 만들어 줍니다.
 ![cs](./cx.png)
 

@@ -18,7 +18,14 @@ description: 'Express'
 <br>
 
 ## Express란?
+
 <b>[Express.js](https://ko.wikipedia.org/wiki/Express.js)</b>, 또는 간단히 익스프레스(Express)는 Node.js를 위한 <b>[웹 프레임워크](https://ko.wikipedia.org/wiki/%EC%9B%B9_%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC)</b>의 하나로, MIT 허가서로 라이선스되는 자유-오픈 소스 소프트웨어로 출시되었습니다. 웹 애플리케이션, API 개발을 위해 설계되었다. Node.js의 사실상의 표준 서버 프레임워크로 불리고 있습니다.
+
+> 제 나름의 해석을 해보자면 ( 제 생각 입니다.. )<br><br>`Express(Framework)`는 `let app = express()`와 같이 `app`이라는 인스턴스를 만듭니다.<br> `app` 은 `express()` 객체를 상속받은것 이며 `app.set/get/use` 처럼 사용하는데 <br> `set/get/use` 는 `express`에 있는 메소드 이며 / 각각 필요에 맞춰서 사용합니다..?<br>
+> 이후
+> `express`는 작성된 코드를 컴파일 합니다? Node.js 기반이면 V8 엔진이 컴파일 할텐데..<br>
+> port 를 리스닝 한 뒤에 해당 포트에서 요청받는 라우트 경로에 따라 원하는 결과를 라우트를 통해 보여줍니다.<br>
+> 아무튼, 프레임워크 특성상 정해진 틀(요구, 갖춰진 기능) 안에서 코드를 작성합니다.
 
 ---
 
@@ -34,6 +41,8 @@ const express = require('express'),
   http = require('http');
 
 // 익스프레스 객체 생성
+// app은 express의 인스턴스입니다.
+// 생성한 app 이라는 인스턴스 가 각 요청을 처리한다 라고 생각하고 있습니다.
 let app = express();
 
 // 기본 포트를 app 객체에 속성으로 설정
