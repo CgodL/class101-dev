@@ -33,29 +33,26 @@ const Header: React.FC = () => {
                 {menu && (
                   <NavLinkList>
                     <ExternalNavLink
+                      href="http://developer-channing.com/"
+                    // target="_blank"
+                    >
+                      H O M E
+                    </ExternalNavLink>
+
+                    <ExternalNavLink
                       href="http://developer-channing.com/ko/authors"
                     // target="_blank"
                     >
                       R E S U M E
                     </ExternalNavLink>
+
                     <ExternalNavLink
                       href="https://github.com/CgodL"
                       target="_blank"
                     >
                       G I T
                     </ExternalNavLink>
-                    <ExternalNavLink
-                      href="http://developer-channing.com/"
-                    // target="_blank"
-                    >
-                      H O M E
-                    </ExternalNavLink>
-                    <ExternalNavLink
-                      href="http://developer-channing.com/ko/authors"
-                    // target="_blank"
-                    >
-                      R E S U M E
-                    </ExternalNavLink>
+
                     <ExternalNavLink
                       href="http://developer-channing.com/ko/tags"
                     // target="_blank"
