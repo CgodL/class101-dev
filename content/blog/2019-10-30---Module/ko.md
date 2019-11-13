@@ -4,7 +4,7 @@ date: '2019-10-14T11:30:56'
 thumbnail: '/images/thumbnails/mo.png'
 author: 'channing'
 tags: ['JavaScript', 'Node.js']
-description: '모듈화'
+description: '모듈화 - 모듈은 매우 복잡하고 긴 코드를 사용 용도 에 따라 파일로 구분한 뒤, 다른 파일에서 해당 클래스나 함수가 필요할 때 가져와서 사용할 수 있게 해줍니다.'
 ---
 
 ![mo](./mo.png)

@@ -4,7 +4,7 @@ date: '2019-11-04T14:58:56'
 thumbnail: '/images/thumbnails/aba.png'
 author: 'channing'
 tags: ['Django', 'Airbnb', 'Python']
-description: 'AIRBNB CLONE'
+description: 'AIRBNB CLONE - 장고를 활용한 Airbnb 클론 코딩'
 ---
 
 ![airbnb](./aba.png)

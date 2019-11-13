@@ -4,7 +4,7 @@ date: '2019-10-28T10:23:56'
 thumbnail: '/images/thumbnails/se3.png'
 author: 'channing'
 tags: ['SQL', 'Database', 'MySQL', 'MongoDB', "NoSQL'Sequelize", 'Node.js']
-description: 'Sequelize'
+description: 'Sequelize - 시퀄라이저는 ORM(Object-Relational Mapping)으로 분류됩니다. ORM은 자바스크립트 객체와 데이터베이스의 관계를 매핑 해주는 도구 입니다.'
 ---
 
 ![sequelize](./se3.png)

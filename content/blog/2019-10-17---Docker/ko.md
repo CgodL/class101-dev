@@ -4,7 +4,7 @@ date: '2019-10-17T11:22:56'
 thumbnail: '/images/thumbnails/dok.png'
 author: 'channing'
 tags: ['Docker']
-description: 'Docker 설정'
+description: 'Docker 설정 - 도커(Docker)는 리눅스의 응용 프로그램들을 소프트웨어 컨테이너 안에 배치시키는 일을 자동화하는 오픈 소스 프로젝트입니다.'
 ---
 
 ![doc](./dok.png)

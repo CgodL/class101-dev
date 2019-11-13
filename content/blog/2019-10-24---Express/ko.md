@@ -4,7 +4,7 @@ date: '2019-10-24T20:45:56'
 thumbnail: '/images/thumbnails/ex.png'
 author: 'channing'
 tags: ['Node.js', 'Server', 'Node', 'Express', 'Javascript']
-description: 'Express'
+description: 'Express - Express 는 Node.js를 위한 웹 프레임워크 입니다. 웹 애플리케이션, API 개발을 위해 설계되었습니다.'
 ---
 
 ![express](./ex.png)
@@ -19,7 +19,7 @@ description: 'Express'
 
 ## Express란?
 
-<b>[Express.js](https://ko.wikipedia.org/wiki/Express.js)</b>, 또는 간단히 익스프레스(Express)는 Node.js를 위한 <b>[웹 프레임워크](https://ko.wikipedia.org/wiki/%EC%9B%B9_%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC)</b>의 하나로, MIT 허가서로 라이선스되는 자유-오픈 소스 소프트웨어로 출시되었습니다. 웹 애플리케이션, API 개발을 위해 설계되었다. Node.js의 사실상의 표준 서버 프레임워크로 불리고 있습니다.
+<b>[Express.js](https://ko.wikipedia.org/wiki/Express.js)</b>, 또는 간단히 익스프레스(Express)는 Node.js를 위한 <b>[웹 프레임워크](https://ko.wikipedia.org/wiki/%EC%9B%B9_%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC)</b>의 하나로, MIT 허가서로 라이선스되는 자유-오픈 소스 소프트웨어로 출시되었습니다. 웹 애플리케이션, API 개발을 위해 설계되었습니다. Node.js의 사실상의 표준 서버 프레임워크로 불리고 있습니다.
 
 > 제 나름의 해석을 해보자면 ( 제 생각 입니다.. )<br><br>`Express(Framework)`는 `let app = express()`와 같이 `app`이라는 인스턴스를 만듭니다.<br> `app` 은 `express()` 객체를 상속받은것 이며 `app.set/get/use` 처럼 사용하는데 <br> `set/get/use` 는 `express`에 있는 메소드 이며 / 각각 필요에 맞춰서 사용합니다..?<br>
 > 이후

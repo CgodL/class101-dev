@@ -4,7 +4,7 @@ date: '2019-11-07T20:41:56'
 thumbnail: '/images/thumbnails/t.jpg'
 author: 'channing'
 tags: ['Batch Processing']
-description: 'IT기술 / 일반IT'
+description: 'IT기술 / 일반IT - 사전적 의미로 일괄 처리를 뜻하며, 컴퓨터 프로그램 흐름에 따라 순차적으로 자료를 처리하는 방식을 뜻합니다.'
 ---
 
 ![tech](./tech.jpg)

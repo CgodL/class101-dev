@@ -4,7 +4,7 @@ date: '2019-10-19T14:14:56'
 thumbnail: '/images/thumbnails/apo.png'
 author: 'channing'
 tags: ['GraphQL']
-description: 'GraphQL 개념 과 특징.'
+description: 'GraphQL 개념 과 특징 - GraphQL은 페이스북에서 만든 어플리케이션 레이어 쿼리 언어 입니다'
 ---
 
 ![gq](./apo.png)

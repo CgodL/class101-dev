@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
                     c.henry.9209@gmail.com
                   </a> */}
                   {
-                    "Published with Gatsby & Deployed by Netlify"
+                    "Powerd by Gatsby & Deployed by Netlify"
                   }
                 </div>
               </ContactArticle>

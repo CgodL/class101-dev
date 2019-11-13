@@ -4,7 +4,7 @@ date: '2019-10-09T14:22:56'
 thumbnail: '/images/thumbnails/rec.png'
 author: 'channing'
 tags: ['React Router', 'React', 'Router', 'JavaScript']
-description: 'React Router 세팅'
+description: 'React Router 세팅 - react-router는 써드파티 라이브러리로써, 웹 개발 에 있어서 한 종류의 화면만 사용한다는 것은 있을 수 없는 일입니다. 만약 사용자가 여러 화면으로 구성된 웹 어플리케이션을 만들게 된다면, react-router는 필수 라이브러리 입니다.'
 ---
 
 ![re](./rec.png)
@@ -27,7 +27,7 @@ HTML 파일, 혹은 템플릿 엔진 등을 사용해서 어플리케이션의 �
 
 #### react-router
 
-react-router는 써드파티 라이브러리로써, 웹 개발 에 있어서 한 종류의 화면만 사용한다는 것은 있을 수 없는 일이다.
+react-router는 써드파티 라이브러리로써, 웹 개발 에 있어서 한 종류의 화면만 사용한다는 것은 있을 수 없는 일입니다.
 만약 사용자가 여러 화면으로 구성된 웹 어플리케이션을 만들게 된다면, react-router는 필수 라이브러리 입니다.
 
 #### 라우팅 : 다른 주소에 따라 다른 뷰를 보여주는 것

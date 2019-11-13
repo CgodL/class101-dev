@@ -4,7 +4,7 @@ date: '2019-10-21T16:47:56'
 thumbnail: '/images/thumbnails/aws.jpg'
 author: 'channing'
 tags: ['AWS', 'AWS Personalize']
-description: 'AWS Personalize 서비스 소개 와 구축'
+description: 'AWS Personalize 서비스 소개 와 구축 - 개발자가 애플리케이션을 사용하는 고객에게 개별화된 추천을 손쉽게 생성할 수 있도록 하는 AWS의 기존 데이터와 노하우를 종합하여 만든 독자적인 기계 학습 서비스입니다'
 ---
 
 ![aws](./aws.jpg)

@@ -4,7 +4,7 @@ date: '2019-10-13T23:22:56'
 thumbnail: '/images/thumbnails/demo.jpg'
 author: 'channing'
 tags: ['Cookie', 'Session', 'Cache', 'JWT']
-description: '서버 인증에 대하여'
+description: '서버 인증에 대하여 - 인증은 프론트엔드 관점에서 봤을 때 사용자의 로그인, 회원가입과 같이 사용자의 도입부분을 가리키곤 합니다. 반면 서버사이드 관점에서 봤을 때는 모든 API 요청에 대해 사용자를 확인하는 작업입니다.'
 ---
 
 ![jwt](./demo.jpg)

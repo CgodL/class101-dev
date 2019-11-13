@@ -4,7 +4,7 @@ date: '2019-11-01T14:01:56'
 thumbnail: '/images/thumbnails/aws.jpg'
 author: 'channing'
 tags: ['aws', 'AWS', 'AWS 201']
-description: 'AWS 201'
+description: 'AWS 201 - AWS S3 , AWS EBS , AWS CloudFront , AWS Glacier'
 ---
 
 ![aws2](./aws.jpg)

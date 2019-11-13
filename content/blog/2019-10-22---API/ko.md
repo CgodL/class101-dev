@@ -4,7 +4,7 @@ date: '2019-10-22T23:47:56'
 thumbnail: '/images/thumbnails/aa.png'
 author: 'channing'
 tags: ['API', 'Rest API']
-description: 'API'
+description: 'API - 다른 소프트웨어를 제어하기 위해 미리 약속된 인터페이스 나 규약 입니다.'
 ---
 
 ![aa](./aa.png)
@@ -13,7 +13,7 @@ description: 'API'
 
 **API(Application Program Interface)**
 
-- 정의 - 다른 소프트웨어를 제어하기 위해 미리 _약속된 인터페이스_ 나 _규약_
+- 정의 - 다른 소프트웨어를 제어하기 위해 미리 <b>약속된 인터페이스</b> 나 <b>규약</b>
 - 효과 - 반복되는 코드를 *API*로 이용함으로써 소스 코드의 재사용성을 높여 개발 *생산성*을 올릴 수 있습니다.
 
 ![APIStructure](./APIstructure.png)

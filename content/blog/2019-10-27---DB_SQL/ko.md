@@ -4,7 +4,7 @@ date: '2019-10-27T13:26:56'
 thumbnail: '/images/thumbnails/sql-illustration.png'
 author: 'channing'
 tags: ['SQL', 'Database', 'MySQL', 'MongoDB', 'NoSQL']
-description: 'DATA BASE - SQL'
+description: 'DATA BASE - SQL / 데이터는 어떤 것들의 ‘기록 정보’이고, 이러한 데이터를 모아 둔 것을 데이터베이스라고 합니다. '
 ---
 
 ![sql](./sql-illustration.png)

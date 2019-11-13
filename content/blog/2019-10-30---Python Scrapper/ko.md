@@ -4,7 +4,7 @@ date: '2019-10-30T16:06:56'
 thumbnail: '/images/thumbnails/beautifulsoup.png'
 author: 'channing'
 tags: ['Scraper', 'Python', 'Crawler']
-description: 'Python Scraper 만들기'
+description: 'Python Scraper 만들기 - Python을 활용하여 Web Scraper 만들어 보겠습니다. 목표는 Python을 활용하여 Indeed 사이트의 Python 구인/구직현황 정보를 스크랩핑 하는 것 입니다.'
 ---
 
 ![beautiful](./beautifulsoup.png)

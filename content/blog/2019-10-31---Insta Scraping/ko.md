@@ -13,7 +13,7 @@ tags:
     'selenium',
     'puppeteer',
   ]
-description: 'INSTAGRAM SCRAPING'
+description: 'INSTAGRAM SCRAPING - 인스타그램 해시태그를 활용하여 특정 지역 들의 데이터를 스크랩핑 / 크롤링 해보도록 하겠습니다.'
 ---
 
 ![it](./it4.jpg)
