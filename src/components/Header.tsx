@@ -25,7 +25,7 @@ const Header: React.FC = () => {
           <Col>
             <NavInnerContainer>
               <NoHoverLink to={`/`}>
-                <LogoIcon src={logo} alt="class101" />
+                <LogoIcon src={logo} alt="Channing" />
               </NoHoverLink>
               <SearchInput />
               <MenuContainer onClick={toggleMenu}>
