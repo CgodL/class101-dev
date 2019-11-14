@@ -362,6 +362,22 @@ class Room(core_models.TimeStampedModel):
 
 #### Foreign Key
 
+---
+
+#### on_delete
+
+---
+
+사용자가 변경할 수 있도록 모델을 설정 할 것인가 / 아닌가
+<br>Amenity를 예로 들어보자.
+Airbnb에는 Amenity를 확인할 수 있다. 이를 개발자인 우리가 모두 수정하기 에는 너무 귀찮다. 이를 해결하기 위해 우리는 장고의 어드민 페이지를 활용한다.
+
+---
+
+#### Meta Class
+
+---
+
 <hr />
 
 <center>

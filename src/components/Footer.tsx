@@ -14,12 +14,10 @@ const Footer: React.FC = () => {
             <ContactSection>
               <ContactArticle>
                 <div>
-                  {/* <a href="mailto:c.henry.92092@gmail.com">
-                    c.henry.9209@gmail.com
-                  </a> */}
-                  {
-                    "Powerd by Gatsby & Deployed by Netlify"
-                  }
+                  TEL: 010-6328-4679
+                </div>
+                <div>
+                  Powerd by Gatsby & Deployed by Netlify
                 </div>
               </ContactArticle>
             </ContactSection>
@@ -33,12 +31,12 @@ const Footer: React.FC = () => {
 export default Footer;
 
 const Container = styled.footer`
-  background-color: #FFD1D1;
-  padding-top: 32px;
+  background-color: #588681;
+  padding-top: 0px;
   a {
     color: inherit;
     font-weight: 400;
-    color: #696969;
+    color: white;
     text-decoration: none;
     &:hover {
       color: inherit;
@@ -66,5 +64,6 @@ const ContactSection = styled.div`
   ${TextStyles.body1};
 `;
 const ContactArticle = styled.div`
-  padding: 16px 0;
+  padding: 14px 0;
+  color: white;
 `;

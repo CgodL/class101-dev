@@ -11,10 +11,10 @@ const Header: React.FC = () => {
   const translation = useTranslation();
 
   const [menu, openMenu] = useState(false);
-  // const logo =
-  //   typeof window !== 'undefined' && window.innerWidth > 425
-  //     ? '/images/logotype-black.png'
-  //     : '/images/symbol-black.png';
+  const logo =
+    typeof window !== 'undefined' && window.innerWidth > 425
+      ? '/images/logo_for_channing.png'
+      : '/images/logo_for_channing.png';
 
   const toggleMenu = () => openMenu(!menu);
 
@@ -25,9 +25,9 @@ const Header: React.FC = () => {
           <Col>
             <NavInnerContainer>
               <NoHoverLink to={`/`}>
-                {/* <LogoIcon src={logo} alt="class101" /> */}
+                <LogoIcon src={logo} alt="class101" />
               </NoHoverLink>
-              {/* <SearchInput /> */}
+              <SearchInput />
               <MenuContainer onClick={toggleMenu}>
                 <Icon.Menu fillColor={Colors.gray600} />
                 {menu && (
@@ -37,13 +37,6 @@ const Header: React.FC = () => {
                     // target="_blank"
                     >
                       H O M E
-                    </ExternalNavLink>
-
-                    <ExternalNavLink
-                      href="http://developer-channing.com/ko/authors"
-                    // target="_blank"
-                    >
-                      R E S U M E
                     </ExternalNavLink>
 
                     <ExternalNavLink

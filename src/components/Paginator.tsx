@@ -32,14 +32,14 @@ const PaginationLink = styled(LinkWithLang)`
   padding: 8px 14px;
   margin: 4px;
   text-decoration: none;
-  color: ${Colors.orange500};
+  color: #8C9C88;
   background: white;
   border-radius: 4px;
   &.active {
     color: white;
-    background: ${Colors.orange500};
+    background: #155764;
   }
   &:hover {
-    background: ${Colors.orange200};
+    background: #00BF9E;
   }
 `;
