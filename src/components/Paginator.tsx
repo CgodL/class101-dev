@@ -30,7 +30,9 @@ const PaginationWrapper = styled.div`
 
 const PaginationLink = styled(LinkWithLang)`
   padding: 8px 14px;
-  margin: 4px;
+  padding-top: 3px;
+  padiing-bottom: 3px;
+  margin: 5px;
   text-decoration: none;
   color: #8C9C88;
   background: white;

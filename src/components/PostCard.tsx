@@ -43,11 +43,12 @@ const Card = styled(LinkWithLang)`
   display: block;
   border-radius: 10px;
   // box-shadow: 0 0.3px 1px rgba(0, 0, 0, 0.46);
-  // box-shadow: 0 1px 1px rgba(0,0,0,0.19), 0 1px 1px rgba(0,0,0,0.23);
+  box-shadow: 0 0.1px 50px rgba(0,0,0,0.1), 0 0.1px 0.1px rgba(0,0,0,0.1);
   box-sizing: border-box;
   background: white;
   text-decoration: none;
-  margin-bottom: 16px;
+  margin-bottom: 30px;
+  margin-top: 15px;
   &:hover {
     transform: scale(1.025);
     transition: transform 0.3s ease-in;
@@ -71,13 +72,13 @@ const CardThumbnail = styled(Img)`
 const CardTitle = styled.h2`
   ${TextStyles.subtitle1};
   margin-bottom: 4px;
-  margin: 10px;
+  margin: 15px;
 `;
 
 const CardCaption = styled(Body2)`
   color: ${Colors.gray700};
   margin-bottom: 4px;
-  margin: 10px;
+  margin: 15px;
 `;
 
 const CardDescription = styled.div`
@@ -85,7 +86,7 @@ const CardDescription = styled.div`
   color: ${Colors.gray900};
   overflow: hidden;
   text-overflow: ellipsis;
-  letter-spacing: none;
+  letter-spacing: 1px;
   display: -webkit-box;
   -webkit-line-clamp: 3; /* 라인수 */
   -webkit-box-orient: vertical;
@@ -93,5 +94,5 @@ const CardDescription = styled.div`
   line-height: 1.5em;
   height: 4.5em;
   margin-bottom: 4px;
-  margin: 10px;
+  margin: 15px;
 `;

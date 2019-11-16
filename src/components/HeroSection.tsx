@@ -24,7 +24,8 @@ export default class HeroSection extends React.PureComponent {
 const Container = styled.div`
   position: relative;
   width: 100%;
-  height: 45vh;
+  height: 50vh;
+  z-index: 10;
   margin: -32px 0 64px;
 `;
 
@@ -43,7 +44,7 @@ const InnerHeroContainer = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 96px 24px;
+  padding: 120px 24px;
   color: white;
   h1 {
     ${TextStyles.headline1};

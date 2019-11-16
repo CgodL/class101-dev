@@ -112,5 +112,5 @@ export const pageQuery = graphql`
 
 const SiteTitle = styled.h1`
   ${TextStyles.headline2};
-  margin-bottom: 24px;
+  margin-bottom: 24x;
 `;

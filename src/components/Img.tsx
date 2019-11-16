@@ -7,7 +7,7 @@ interface Props extends React.ImgHTMLAttributes<any> {
 
 export default class Img extends React.Component<Props> {
   public static readonly defaultProps: Partial<Props> = {
-    ratio: 9 / 16,
+    ratio: 8 / 16,
   };
 
   render() {
