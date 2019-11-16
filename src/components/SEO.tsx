@@ -49,7 +49,7 @@ const SEO: React.FC<Props> = props => {
   const { title, description, thumbnail, author, pathname } = props;
 
   const absolutedThumbnail =
-    siteMetadata.siteUrl + (thumbnail || '/images/og-image.png');
+    siteMetadata.siteUrl + (thumbnail || '/images/logo_.png');
 
   return (
     <Helmet

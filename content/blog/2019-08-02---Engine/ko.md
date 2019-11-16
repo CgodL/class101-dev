@@ -4,7 +4,7 @@ date: '2019-08-02T13:32:56'
 thumbnail: '/images/thumbnails/v8.png'
 author: 'channing'
 tags: ['Engine', 'Callstack', 'Runtime', 'V8']
-description: 'Engine - Runtime - CallStack - Event Loop'
+description: 'Engine - Runtime - CallStack - Event Loop / 자바스크립트 는 싱글 스레드 기반이며 콜백 큐를 이용 합니다.'
 ---
 
 ![v](./v.png)

@@ -235,8 +235,8 @@ const PostFooter = styled.div`
 const PostNavigator = styled(LinkWithLang)`
   display: block;
   position: relative;
-  flex: 1;
   background: black;
+  flex: 1;
   opacity: 0.99;
   img {
     z-index: 1;

@@ -41,9 +41,9 @@ export const initI18n = () => {
             company: '',
             address:
               '',
-            tel: '',
+            tel: '010-6328-4679',
             searchPlaceholder: 'Input title or contents',
-            recruiting: 'Recruiting',
+            recruiting: '',
             members: 'Members'
           }
         }

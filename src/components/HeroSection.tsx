@@ -25,7 +25,7 @@ const Container = styled.div`
   position: relative;
   width: 100%;
   height: 50vh;
-  z-index: 10;
+  z-index: 0;
   margin: -32px 0 64px;
 `;
 

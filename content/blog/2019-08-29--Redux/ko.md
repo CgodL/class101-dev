@@ -4,7 +4,9 @@ date: '2019-08-29T10:20:56'
 thumbnail: '/images/thumbnails/rez.png'
 author: 'channing'
 tags: ['Redux', 'React', 'JavaScript']
-description: 'Redux 이해하기'
+description: 'Redux 이해하기- 앱의 상태 전부는 하나의 스토어(store)안에 있는 객체트리에 저장됩니다.
+상태 트리를 변경하는 유일한 방법은 무엇이 일어날지 서술하는 객체인 액션(action)을 보내는 것 뿐입니다.
+액션이 상태 트리를 어떻게 변경할지 명시하기 위해 여러분은 리듀서(reducers)를 작성해야 합니다 '
 ---
 
 ![re](./rez.png)

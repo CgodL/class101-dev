@@ -4,7 +4,7 @@ date: '2019-07-21T15:20:56'
 thumbnail: '/images/thumbnails/s.png'
 author: 'channing'
 tags: ['sort', 'Javascript']
-description: 'Sort 에 대하여'
+description: 'Sort 에 대하여 - Array.prototype.sort( ) : sort( ) 메서드는 배열의 요소를 적절한 위치에 정렬한 후 그 배열을 반환합니다. 기본 정렬 순서는 문자열의 유니코드 코드 포인트 를 따릅니다.'
 ---
 
 ![s](./s.png)

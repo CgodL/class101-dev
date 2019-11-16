@@ -4,7 +4,11 @@ date: '2019-09-12T15:20:56'
 thumbnail: '/images/thumbnails/hp.png'
 author: 'channing'
 tags: ['HTTP Protocol', 'http']
-description: 'HTTP PROTOCOL 정의와 작동방식'
+description: 'HTTP PROTOCOL 정의와 작동방식 - 사람과 사람이 전화 통화를 하기 위해서도 몇 가지 규약이 필요합니다.
+서로 알아들을 수 있는 말을 사용해야 하며, 한쪽이 말할 때 다른 쪽에서는 들어야 합니다. 또한, 전화 연결이 끊어지면 대화를 할 수가 없습니다.
+웹 브라우저와 웹 서버 간에도 서로 통신하기 위해서는 규약이 필요합니다.
+이때 필요한 규약이 HTTP 입니다. HTTP 는 웹에서 브라우저와 서버간에 데이터를 주고받기 위한 방식 입니다.
+HTTP는 어떤 종류의 데이터든 전송이 가능합니다.( 동영상, 이미지, 문서 등 )'
 ---
 
 ![ht](./hp.png)

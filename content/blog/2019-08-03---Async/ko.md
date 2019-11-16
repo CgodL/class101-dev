@@ -4,7 +4,7 @@ date: '2019-08-03T19:32:56'
 thumbnail: '/images/thumbnails/cl.png'
 author: 'channing'
 tags: ['Axios', 'Fetch', 'Server', 'Node.js', 'Async', 'Promise', 'AsyncAwait']
-description: 'Async - Ajax - Axios - Fetch'
+description: 'Async - Ajax - Axios - Fetch / 하나의 서버에 수 많은 클라이언트의 요청이 발생하게 되면 병목현상이 발생하게 됩니다. 이 병목현상은 로직보다 입출력(IO)에서 발생하게 되죠. 따라서 서버에서 IO를 처리하다 지연이 발생하게 되면 다른 요청들을 처리하지 못하고 계속 대기하는 현상이 발생합니다. 이를 해결하기 위해 자바(스프링) 같은 언어는 멀티쓰레드 를 이용해 사용자의 요청을 처리하기 위해 클라이언트 요청 마다 쓰레드를 발생시킵니다. 이 말은 동시 접속자 수가 많을 수록 Thread가 많이 발생한다는 의미이며 그만큼 메모리 자원도 많이 소모한다는 의미입니다. 그러나 서버의 자원은 제한되어 있으므로 일정 수 이상의 Thread는 발생시킬 수 없습니다'
 ---
 
 ![a](./cl.png)
