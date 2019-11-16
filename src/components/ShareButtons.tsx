@@ -17,27 +17,18 @@ interface Props {
 
 const ShareButtons: React.FC<Props> = props => {
   const { url } = props;
-  const title = 'class101';
-
+  const title = 'Channing';
+  const body = 'c.henry.9209@gmail.com'
+  
   return (
     <Wrapper>
-      <ButtonWrapper>
-        <FacebookShareButton url={url} quote={title}>
-          <FacebookIcon size={32} round />
-        </FacebookShareButton>
-      </ButtonWrapper>
-      <ButtonWrapper>
-        <TwitterShareButton url={url} title={title}>
-          <TwitterIcon size={32} round />
-        </TwitterShareButton>
-      </ButtonWrapper>
       <ButtonWrapper>
         <LinkedinShareButton url={url} windowWidth={750} windowHeight={600}>
           <LinkedinIcon size={32} round />
         </LinkedinShareButton>
       </ButtonWrapper>
       <ButtonWrapper>
-        <EmailShareButton url={url} subject={title} body="body">
+        <EmailShareButton url={url} subject={title} body={body}>
           <EmailIcon size={32} round />
         </EmailShareButton>
       </ButtonWrapper>

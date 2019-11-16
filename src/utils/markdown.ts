@@ -318,12 +318,13 @@ export default css`
   }
 
   .markdown-body h2 {
-    font-size: 24px;
+    font-size: 25px;
     margin-top: 36px;
   }
 
   .markdown-body h3 {
-    font-size: 20px;
+    font-size: 22px;
+    color: red;
     margin-top: 32px;
   }
 
