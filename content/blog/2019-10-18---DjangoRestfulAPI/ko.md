@@ -1,13 +1,13 @@
 ---
-title: 'DJANGO RESTFUL API'
+title: 'DJANGO'
 date: '2019-10-18T23:04:56'
-thumbnail: '/images/thumbnails/djan.png'
+thumbnail: '/images/thumbnails/django.png'
 author: 'channing'
 tags: ['Django Restful API', 'Django', 'Python']
-description: 'Django Restful API - 장고는 Django Software Foundation이 관리하는 파이썬으로 작성된 오픈소스 웹 애플리케이션 프레임워크입니다.'
+description: 'Django - 장고는 Django Software Foundation이 관리하는 파이썬으로 작성된 오픈소스 웹 애플리케이션 프레임워크입니다.'
 ---
 
-![django](./djan.png)
+![django](./django1.png)
 
 ---
 

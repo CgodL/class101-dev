@@ -102,9 +102,9 @@ $ python manage.py runserver
 ```
 
 - <b>localhost:8000/admin</b> 을 통해 admin 페이지에 접근할 수 있습니다. <br>
-  하지만 초기 접근시에 migrate 하지 않았다는 에러가 발생하여 접근이 불가능 합니다.
-  장고는 많은 기능들이 사전에 구현되어 있는 웹 프레임워크 입니다.
-  admin 페이지 역시 구현이 되어있고 이를 사용하기 위해 장고의 초기 DB(sqlite)와 migrate를 해주면 됩니다.
+  > 하지만 초기 접근시에 migrate 하지 않았다는 에러가 발생하여 접근이 불가능 합니다.
+  > 장고는 많은 기능들이 사전에 구현되어 있는 웹 프레임워크 입니다.
+  > admin 페이지 역시 구현이 되어있고 이를 사용하기 위해 장고의 초기 DB(sqlite)와 migrate를 해주면 됩니다.
 
 ```py
 # admin page를 사용할 계정을 만듭니다.
@@ -115,22 +115,26 @@ $ python manage.py createsuperuser
 
 ### 🎃 Django Applications
 
-#### Divide and Conquer
+#### "Divide and Conquer"
 
 - <b>Application is Group of Function.</b><br>
-  장고는 여러 개의 어플리케이션으로 구성되어 있습니다.<br>
-  장고를 효과적으로 사용하는 방법은 언제 어플리케이션을 만들고 만들지 않아야 하는지를 구별하는 것 입니다. <br>
-  즉, 기능별 / 역할별 구분이 필요하며, 몇 개의 어플리케이션이 필요할지를 설계 해야합니다. <br>
-  <b>Airbnb</b>를 예로 들면, room 어플리케이션( 룸 수정, 삭제, 입력 ) 과 review 어플리케이션( 리뷰 입력, 수정, 삭제 )은 별도의 기능을 갖고 있는 것처럼요.
-  기능별로 구분한 어플리케이션을 **config** 에서 통합하여 장고 웹사이트를 구성합니다.
+ > 장고는 여러 개의 어플리케이션으로 구성되어 있습니다.<br>
+ > 장고를 효과적으로 사용하는 방법은 언제 어플리케이션을 만들고 만들지 않아야 하는지를 구별하는 것 입니다. <br>
+ > 즉, 기능별 / 역할별 구분이 필요하며, 몇 개의 어플리케이션이 필요할지를 설계 해야합니다. <br>
+ > <b>Airbnb</b>를 예로 들면, room 어플리케이션( 룸 수정, 삭제, 입력 ) 과 review 어플리케이션( 리뷰 입력, 수정, 삭제 )은 별도의 기능을 갖고 있는 것처럼요.
+ > 기능별로 구분한 어플리케이션을 **config**에서 통합하여 장고 웹사이트를 구성합니다.
 
 ### 🎃 Create the Apps
 
-> #### <b>"We play by the rule of the framework" </b><br>
+#### "We play by the rule of the framework"
 >
-> 프레임워크는 정해진 규칙에 따라서 사용해야 합니다. 장고 역시 폴더 명이나 파일명을 수정해서는 안됩니다. 생성은 가능합니다
+> 프레임워크는 정해진 규칙에 따라서 사용해야 합니다. 장고 역시 폴더 명이나 파일명을 수정해서는 안됩니다.( 생성은 가능합니다 ) <br>일례로 모델을 생성할때 `class Any(models.Model)` 처럼 생성하는데 Django 는 `models`를 읽고 Any라는 모델을 생성하는구나 라고 해석하여 Any가 DB에 저장되어야 한다고 알게 됩니다.
 
-<b>Divide and Conquer를 고려하여 각 기능을 고려하여 어플리케이션을 만들어 보겠습니다.
+<b>Divide and Conquer를 고려하여 각 기능을 고려하여 어플리케이션을 만들겠습니다.
+
+> 각 기능별로 Model을 생성하겠지만 <b>기능을 어떻게 나눌지도 고려해야할 사항 입니다.</b><br>
+> 에이비엔비 사이트에서 숙소를 선택해서 들어가면, 해당 Room 페이지에 존재하는 section 들을 나열하면 'Reservation', 'Room Info', 'Facilities', 'Amenity', 'Reviews', 'Conversation', 'Availability', 'Host's Info', 'The neighbourhood', 'Things to keep in mind', 'House Rules', 'Cancellations' 등과 같이 Room안 에서도 수많은 부분들이 존재합니다.<br>
+> 이들을 Room 모델 하나에 다루는 것이 아닌 Divdie and Conquer를 고려하여 나눌 수 있는 부분들(기능・용도별)을 적절히 나누어 설계하는 것이 목표가 되겠습니다.
 
 ```py
 # startapp 을 통해 어플리케이션을 생성합니다.
@@ -138,7 +142,13 @@ $ python manage.py createsuperuser
 $ django-admin startapp < application name >
 ```
 
-- **"reservations, users, lists, reviews, rooms, conversations"** application을 생성합니다.
+**-** **reservations** <br>
+**-** **users** <br>
+**-** **lists** <br>
+**-** **reviews** <br>
+**-** **rooms** <br>
+**-** **conversations**<br><br>
+application을 생성합니다.
 
 ```py
 # admin 페이지에 대한 설정을 하는 파일 입니다.
@@ -185,7 +195,7 @@ AUTH_USER_MODEL = "users.User"
 > **DB 테이블 구조/타입을 먼저 설계**를 한 후에 모델을 정의합니다.
 > **admin/ 페이지**를 먼저 구현 합니다.
 
-- [MODEL](https://channing.netlify.com/ko/blog/2019/10/18/channing)
+- [MODEL](https://developer-channing.com/ko/blog/2019/10/18/channing)
 
 * models.py를 통해 테이블을 구성합니다.<br>
 
@@ -210,7 +220,7 @@ AUTH_USER_MODEL = "users.User"
 
 <br>
 
-- 이를 기초로 하여 `modes.py` 코드를 작성해보겠습니다.
+- 이를 기초로 하여 `models.py` 코드를 작성해보겠습니다.
 
 ```py
 $ users > models.py
@@ -446,6 +456,6 @@ Media root config - settings - BASE_DIR
 Reference <br>
 [DJANGO](https://docs.djangoproject.com/ko/2.2/intro/)<br>
 [NOMAD](https://academy.nomadcoders.co/courses/category/KR)<br>
-[장고](https://channing.netlify.com/ko/blog/2019/10/18/channing)<br>
+[장고byChanning](https://developer-channing.com/ko/blog/2019/10/18/channing)<br>
 
 </center>
