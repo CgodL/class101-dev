@@ -36,7 +36,11 @@ const getColLg = (index: number) => {
   if (index <= 3) {
     return 4;
   }
-  return 6;
+  if (index >= 4 && index <= 5) {
+    return 6;
+  }
+  return 12;
+  // return 6;
 };
 
 const PostsTemplate: React.FC<RouteComponentProps & Props> = props => {

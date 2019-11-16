@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
             <ContactSection>
               <ContactArticle>
                 <div>
-                  TEL: 010-6328-4679
+                  TEL. 010-6328-4679
                 </div>
                 <div>
                   Powerd by Gatsby & Deployed by Netlify
@@ -30,8 +30,10 @@ const Footer: React.FC = () => {
 
 export default Footer;
 
+
+//#6EA59C #588681
 const Container = styled.footer`
-  background-color: #588681;
+  background-color: #6EA59C;
   padding-top: 0px;
   a {
     color: inherit;

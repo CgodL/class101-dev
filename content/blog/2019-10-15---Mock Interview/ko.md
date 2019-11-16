@@ -1,5 +1,5 @@
 ---
-title: 'PREPARATION FOR MOCK INTERVIEW'
+title: 'MOCK INTERVIEW'
 date: '2019-10-15T15:22:56'
 thumbnail: '/images/thumbnails/Mock.png'
 author: 'channing'

@@ -41,16 +41,20 @@ export default PostCard;
 
 const Card = styled(LinkWithLang)`
   display: block;
-  border-radius: 3px;
+  border-radius: 10px;
+  // box-shadow: 0 0.3px 1px rgba(0, 0, 0, 0.46);
+  // box-shadow: 0 1px 1px rgba(0,0,0,0.19), 0 1px 1px rgba(0,0,0,0.23);
   box-sizing: border-box;
   background: white;
   text-decoration: none;
   margin-bottom: 16px;
   &:hover {
+    transform: scale(1.025);
+    transition: transform 0.3s ease-in;
     color: inherit;
     img {
       transition: transform 0.3s ease-in;
-      transform: scale(1.025);
+      // transform: scale(1.025);
     }
   }
 `;
@@ -61,16 +65,19 @@ const CardBody = styled.div`
 
 const CardThumbnail = styled(Img)`
   object-fit: cover;
+  border-radius: 10px 10px 0 0;
 `;
 
 const CardTitle = styled.h2`
   ${TextStyles.subtitle1};
   margin-bottom: 4px;
+  margin: 10px;
 `;
 
 const CardCaption = styled(Body2)`
   color: ${Colors.gray700};
   margin-bottom: 4px;
+  margin: 10px;
 `;
 
 const CardDescription = styled.div`
@@ -86,4 +93,5 @@ const CardDescription = styled.div`
   line-height: 1.5em;
   height: 4.5em;
   margin-bottom: 4px;
+  margin: 10px;
 `;

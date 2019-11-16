@@ -378,6 +378,67 @@ Airbnb에는 Amenity를 확인할 수 있다. 이를 개발자인 우리가 모�
 
 ---
 
+### 🎃Decorate Admin Panel
+
+- [Django Admin site](https://docs.djangoproject.com/en/2.2/ref/contrib/admin/)<br><br>
+
+  - `ModelAdmin.list_display` <br><br>
+    > Set list_display to control which fields are displayed on the change list page of the admin.
+  - `list_filter`<br><br>
+    ```py
+        list_filter = (
+            "instant_book",
+            "host__superhost",
+            "room_type",
+            "amenities",
+            "facilities",
+            "house_rules",
+            "city",
+            "country",
+        )
+    ```
+  - `search_fields`<br><br>
+    > serach box를 생성합니다. icontains default로 되어있습니다. 대∙소문자를 구별하지 않습니다.
+    ```py
+        search_fields = ("^city", "^host__username")
+    ```
+  - `fieldsets`
+  - `ordering`
+
+---
+
+### 🎃 Managers and QuerySets
+
+- [Making Queries](https://docs.djangoproject.com/en/2.2/topics/db/queries/)
+
+```py
+$ Terminal
+
+pipenv shell
+python manage.py shell
+
+from users.models import User
+yosep = User.objects.get(username="yosep")
+yosep.rooms.all()
+
+startswith = User.objects.filter(username__startswith="yos")
+```
+
+- `vars` & `dir`<br><br>
+- `User.object.all()` <br><br>
+  > `<QuerySet [<User: elt>, <User: channing>, <User: yosep>]>` <br>QuerySet은 Object의 List 입니다.
+- `set`
+
+함수를 추가하여 어드민 페이지에 원하는 데이터를 더 추가하여 확인할 수 있습니다.
+related_name = "" room이 무엇을 갖고 있다 .
+프론트와 admin에서 쓰고싶은 함수는 model.py 에서 메서드로 구현한다.
+
+파이썬 라이브러리를 사용하지 않는 이유는 Django 서버에서 인식 하기 위해서. 장고 케어
+from django.utils import timezone
+Media root config - settings - BASE_DIR
+
+---
+
 <hr />
 
 <center>
