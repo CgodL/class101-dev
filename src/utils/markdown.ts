@@ -358,6 +358,7 @@ export default css`
     margin-bottom: 24px;
     margin-top: 0;
     font-weight: 400;
+    font-family: 'Raleway', sans-serif, monospace, 'Noto Serif KR'
   }
 
   .markdown-body blockquote {
@@ -369,6 +370,7 @@ export default css`
     margin-bottom: 0;
     margin-top: 0;
     padding-left: 0;
+    font-family: 'Noto Sans KR', sans-serif;
   }
 
   .markdown-body ol ol,
@@ -582,6 +584,7 @@ export default css`
     line-height: 1.25;
     margin-bottom: 16px;
     margin-top: 44px;
+    font-family: monospace, 'Nanum Gothic', sans-serif
   }
 
   .markdown-body h1 {
@@ -734,17 +737,18 @@ export default css`
   .markdown-body .highlight pre,
   .markdown-body pre {
     background-color: #f6f8fa;
-    border-radius: 3px;
+    border-radius: 9px;
     font-size: 90%;
     line-height: 1.45;
     overflow: auto;
     padding: 16px;
-    box-shadow: 0 4px 5px -2px rgba(41, 42, 43, 0.2);
+    box-shadow: 0 2px 2px -1.5px rgba(41, 42, 43, 0.15);
   }
 
   .markdown-body pre code {
     background-color: transparent;
     border: 0;
+    // font-family: 'Souce Code Pro', monospace;
     display: inline;
     line-height: inherit;
     margin: 0;
@@ -757,7 +761,7 @@ export default css`
   .markdown-body .commit-tease-sha {
     color: #444d56;
     display: inline-block;
-    font-family: 'Source Code Pro', 'Noto Sans KR', monospace;
+    font-family: monospace, 'Nanum Gothic', 'Source Code Pro', 'Noto Sans KR',  ;
     font-size: 90%;
   }
 

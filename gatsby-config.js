@@ -22,7 +22,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        output: `/sitemap.xml`,
+        output: `/sitemap.xml`
       }
     },
     {
@@ -36,6 +36,26 @@ module.exports = {
           {
             family: `Source Code Pro`,
             variants: [`400`, `600`]
+          },
+          {
+            family: `Nanum Gothic`,
+            variants: [`400`, `600`]
+          },
+          {
+            family: `Song Myung`,
+            variants: [`400`, `600`]
+          },
+          {
+            family: `Noto Serif KR`,
+            variants: [`400`, `600`]
+          },
+          {
+            family: `Shadows Into Light`,
+            variants: [`400`, `600`]
+          },
+          {
+            family: `Raleway`,
+            varinats: [`200`, `400`, `500`]
           }
         ]
       }
