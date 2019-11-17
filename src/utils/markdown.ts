@@ -250,6 +250,10 @@ export default css`
     line-height: inherit;
   }
 
+  .markdwon-body del {
+    text-decoration: line-through;
+  }
+
   .markdown-body a {
     color: #FFB9C4;
     text-decoration: underline;
@@ -324,7 +328,7 @@ export default css`
 
   .markdown-body h3 {
     font-size: 22px;
-    color: red;
+    color: #F25E7A;
     margin-top: 32px;
   }
 
@@ -584,7 +588,7 @@ export default css`
     line-height: 1.25;
     margin-bottom: 16px;
     margin-top: 44px;
-    font-family: monospace, 'Nanum Gothic', sans-serif
+    font-family: 'Noto Sans KR', sans-serif;
   }
 
   .markdown-body h1 {
@@ -704,8 +708,9 @@ export default css`
 
   .markdown-body code {
     background-color: rgba(27, 31, 35, 0.05);
-    border-radius: 3px;
-    font-size: 85%;
+    border-radius: 4px;
+    font-size: 90%;
+    font-family: 'Raleway', sans-serif;
     margin: 0;
     padding: 0.2em 0.4em;
   }
