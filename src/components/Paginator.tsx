@@ -39,9 +39,9 @@ const PaginationLink = styled(LinkWithLang)`
   border-radius: 4px;
   &.active {
     color: white;
-    background: #F2BBBB;
+    background: #ff8793;
   }
   &:hover {
-    background: #FF5A6A;
+    background: #F2BBBB;
   }
 `;

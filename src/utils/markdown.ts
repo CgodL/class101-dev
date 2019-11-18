@@ -250,13 +250,9 @@ export default css`
     line-height: inherit;
   }
 
-  .markdwon-body del {
-    text-decoration: line-through;
-  }
-
   .markdown-body a {
-    color: #FFB9C4;
-    text-decoration: underline;
+    color: black;
+    text-decoration: underline double #f7b602;
   }
 
   .markdown-body a:hover {
@@ -505,6 +501,7 @@ export default css`
 
   .markdown-body .text-bold {
     font-weight: 600 !important;
+
   }
 
   .markdown-body:before {

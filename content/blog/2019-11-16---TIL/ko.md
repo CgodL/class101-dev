@@ -1,6 +1,6 @@
 ---
 title: 'TIL'
-date: '2019-11-18T23:20:56'
+date: '2019-11-19T23:20:56'
 thumbnail: '/images/thumbnails/til1.png'
 author: 'channing'
 tags: ['TIL']
@@ -13,6 +13,8 @@ description: 'TIL - 그날 그날 배운 내용을 최신으로 업데이트 합
 <center>
 
 <B>**[Previously on the TIL](https://github.com/CgodL/TIL)**<B>
+<br>
+emoji: ☑️ ✓ ✕ 🆇 ❎ ✖︎ ⭐️ 💫 ⚡️ 🌞 🌛 🌝 🌚 🌕
 
 </center>
 
@@ -24,8 +26,8 @@ description: 'TIL - 그날 그날 배운 내용을 최신으로 업데이트 합
 
 ### 1. BLOG & RESUME SITE
 
-> RESUME SITE 번호 / 문구 및 이미지 (png to svg convert) 추가 and 수정 중 <br>
-> BLOG box-shadow / transition / margin / z-index 설정 and 수정 중<br>
+> ☑️ ~~RESUME SITE 번호 / 문구 및 이미지 (png to svg convert) 추가 and 수정 중~~ <br>
+> 🆇 BLOG box-shadow / transition / margin / z-index 설정 and 수정 중<br>
 > flex 설정 / md={12}, lg 페이지를 나눈다 비율 별로<br>
 > 포지션 / CSS 겹쳤을 때 우선순위 (Inline 코드냐.. 등)
 
@@ -43,9 +45,9 @@ description: 'TIL - 그날 그날 배운 내용을 최신으로 업데이트 합
 ### 1. BLOG 기능 추가
 
 > BLOG 추가해야할 기능 - 검색기능 작동하도록 / 내비게이션 바 / 드롭박스 Resume 완성후 추가 / Font Setting <br>
-> Resume 페이지 완성하기
+> ✖︎ Resume 페이지 완성하기
 
-## COMMENT
+## 🥰COMMENT
 
 <b>아이패드 사야겠다.<b>
 
@@ -55,7 +57,7 @@ description: 'TIL - 그날 그날 배운 내용을 최신으로 업데이트 합
 
 ## 😇TIL
 
-### 1. IDEA
+### 1. ⭐️ IDEA
 
 > IDEA : 구글 캘린더를 쓰는데, 캘린더에 오늘 할일을 계획 하고, 그걸 다시 TIL에 정리하는건 비효율적이지 않나 싶다. <br>
 > 구글 캘린더 연동 페이지를 만들어 보고 싶다. 먼저 가능한지 부터 고려해보기.
@@ -70,9 +72,9 @@ description: 'TIL - 그날 그날 배운 내용을 최신으로 업데이트 합
 
 ## 😭TODO
 
-### 1. 블로그에 알고리즘 페이지 만들기
+### ✖︎ 1. 블로그에 알고리즘 페이지 만들기
 
-## COMMENT
+## 🥰COMMENT
 
 <b> 주말 이라서 인지, 비 때문인지 코딩이 잘 안되는 기분..<b>
 
@@ -82,13 +84,47 @@ description: 'TIL - 그날 그날 배운 내용을 최신으로 업데이트 합
 
 ## 😇TIL
 
-> BLOG React Bootstrap 을 설치해서 navbar 세팅을 새로함 / React Bootstrap package의 경우 Navbar(header) 자체를 임의로 컨트롤하여 수정하기에는 불편함이 존재. 이후로는 안쓸듯<br>
-> <del>Favicon Setting</del>
+### BLOG 기능 추가 (navbar)
+
+> ☑️BLOG React Bootstrap 을 설치해서 navbar 세팅을 새로함 / React Bootstrap package의 경우 Navbar(header) 자체를 임의로 컨트롤하여 수정하기에는 불편함이 존재. 이후로는 안쓸듯<br> ☑️ <del>Favicon Setting</del> <br> ☑️<del>Notion Resume Fin https://www.notion.so/elt1992/Lee-Chan-Haeng-074a6e1fabd244ff830ae862a200dd5f</del>
 
 ## 😭TODO
 
-> 포트폴리오 만들기 ( Resume 를 노션으로 할지 / 사이트로 할지 정하기 )<br>
+### 포트폴리오 / 깃헙 / Favicon 세팅
+
+> ☑️~~포트폴리오 만들기 ( Resume 를 노션으로 할지 / 사이트로 할지 정하기 ) 노션으로 작성 완료<br>~~
 > GITHUB 정리<br>
-> Favicon 설정 Gatsby의 경우 `gatsby-config.js`에서 `gatsby-plugin-manifest` 의 `icon`을 통해 favicon 설정이 가능하다.
+> ☑️Favicon 설정 Gatsby의 경우 `gatsby-config.js`에서 `gatsby-plugin-manifest` 의 `icon`을 통해 favicon 설정이 가능하다.
+
+## 🥰COMMENT
+
+드디어 <b>[레쥬메](https://www.notion.so/elt1992/Lee-Chan-Haeng-074a6e1fabd244ff830ae862a200dd5f)</b> 완성
+
+---
+
+# 2019.11.19 화요일
+
+## 😇TIL
+
+## 😭TODO
+
+### BLOG 기능 추가 ( 태그 위치, Search bar )
+
+> 페이지 상단 태그 위치 변화 기능 구현( gatsby config )<br> - 우측 또는 좌측으로 빼서 스크롤 같이 되고, 페이지 이동되게 구현 해야함<br>
+> Search Bar 구현
+
+### 장고
+
+> 장고 강의 15강 까지 듣기
+
+### Resume Site
+
+> Resume site 완성은 시켜놓기 (노션 내용으로)
+
+### 면접 준비
+
+> 퀵소트
+
+## 🥰COMMENT
 
 ---
