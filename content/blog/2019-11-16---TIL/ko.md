@@ -82,11 +82,13 @@ description: 'TIL - 그날 그날 배운 내용을 최신으로 업데이트 합
 
 ## 😇TIL
 
-> React Bootstrap 을 설치해서 navbar 세팅을 새로함
+> BLOG React Bootstrap 을 설치해서 navbar 세팅을 새로함 / React Bootstrap package의 경우 Navbar(header) 자체를 임의로 컨트롤하여 수정하기에는 불편함이 존재. 이후로는 안쓸듯<br>
+> <del>Favicon Setting</del>
 
 ## 😭TODO
 
 > 포트폴리오 만들기 ( Resume 를 노션으로 할지 / 사이트로 할지 정하기 )<br>
-> GITHUB 정리
+> GITHUB 정리<br>
+> Favicon 설정 Gatsby의 경우 `gatsby-config.js`에서 `gatsby-plugin-manifest` 의 `icon`을 통해 favicon 설정이 가능하다.
 
 ---

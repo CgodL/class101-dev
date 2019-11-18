@@ -55,7 +55,7 @@ const PostsTemplate: React.FC<RouteComponentProps & Props> = props => {
 
   return (
     <Layout>
-      <SEO title="HOME" />
+      <SEO title="CHANNING" />
       <HeroSection />
       <Grid>
         <Row>
