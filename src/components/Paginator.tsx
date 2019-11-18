@@ -30,18 +30,18 @@ const PaginationWrapper = styled.div`
 
 const PaginationLink = styled(LinkWithLang)`
   padding: 8px 14px;
-  padding-top: 3px;
+
   padiing-bottom: 3px;
   margin: 5px;
   text-decoration: none;
-  color: #8C9C88;
+  color: #FFB7AC;
   background: white;
   border-radius: 4px;
   &.active {
     color: white;
-    background: #155764;
+    background: #F2BBBB;
   }
   &:hover {
-    background: #00BF9E;
+    background: #FF5A6A;
   }
 `;
