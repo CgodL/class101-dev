@@ -8,6 +8,8 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import { users } from '../data/users'
 import Info from './resume'
+import styled from 'styled-components';
+
 
 
 // Rendering
@@ -19,12 +21,14 @@ const AuthorsPage: React.FC = () => {
       <Grid>
         <Row>
           {users.map(user => (
-            <Col key={user.name} lgOffset={2}>
+            <Col key={user.name} lgOffset={3}>
               <Bio user={user} />
+              <br></br>
+              <a href="https://www.notion.so/elt1992/Lee-Chan-Haeng-074a6e1fabd244ff830ae862a200dd5f">🤩R E S U M E👈🏻👈🏻👈🏻</a>
             </Col>
           ))}
         </Row>
-        <Info />
+        {/* <Info /> */}
       </Grid>
 
     </Layout >

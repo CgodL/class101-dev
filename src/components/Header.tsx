@@ -30,7 +30,7 @@ const Header: React.FC = () => {
       <NoHoverLink to={`/`}>
         <LogoIcon src={logo} alt="Channing" />
       </NoHoverLink>
-      <Navbar.Brand href="#home" ></Navbar.Brand>
+      {/* <Navbar.Brand href="#home" ></Navbar.Brand> */}
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
