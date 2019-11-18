@@ -16,8 +16,10 @@ const Footer: React.FC = () => {
                 <div>
                   TEL. 010-6328-4679
                 </div>
+              </ContactArticle>
+              <ContactArticle>
                 <div>
-                  Powerd by Gatsby & Deployed by Netlify
+                  Powerd by Gatsby
                 </div>
               </ContactArticle>
             </ContactSection>
@@ -33,7 +35,7 @@ export default Footer;
 
 //#6EA59C #588681
 const Container = styled.footer`
-  background-color: #6EA59C;
+  background-color: #FFEDE5;
   padding-top: 0px;
   a {
     color: inherit;
@@ -66,6 +68,6 @@ const ContactSection = styled.div`
   ${TextStyles.body1};
 `;
 const ContactArticle = styled.div`
-  padding: 14px 0;
-  color: white;
+  padding: 5px 0;
+  text-align: right;
 `;

@@ -6,7 +6,7 @@ export default class HeroSection extends React.PureComponent {
   public render() {
     return (
       <Container>
-        <HeroImage src="/images/tree.jpg"></HeroImage>
+        <HeroImage src="/images/back1.jpg"></HeroImage>
         <InnerHeroContainer>
           <Grid>
             <h1>C H A N N I N G</h1>
@@ -45,10 +45,11 @@ const InnerHeroContainer = styled.div`
   width: 100%;
   height: 100%;
   padding: 120px 24px;
+  padding-left: 400px;
   color: white;
   h1 {
     ${TextStyles.headline1};
-    color: white;
+    color: #F2BBBB;
   }
   h3 {
     bold;
@@ -57,6 +58,6 @@ const InnerHeroContainer = styled.div`
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-    color: #F9F6E5;
+    color: #F2BBBB;
   }
 `;

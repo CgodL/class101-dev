@@ -82,6 +82,11 @@ description: 'TIL - 그날 그날 배운 내용을 최신으로 업데이트 합
 
 ## 😇TIL
 
+> React Bootstrap 을 설치해서 navbar 세팅을 새로함
+
 ## 😭TODO
+
+> 포트폴리오 만들기 ( Resume 를 노션으로 할지 / 사이트로 할지 정하기 )<br>
+> GITHUB 정리
 
 ---

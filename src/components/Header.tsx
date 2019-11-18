@@ -26,7 +26,7 @@ const Header: React.FC = () => {
   const toggleMenu = () => openMenu(!menu);
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="" expand="lg">
       <NoHoverLink to={`/`}>
         <LogoIcon src={logo} alt="Channing" />
       </NoHoverLink>
