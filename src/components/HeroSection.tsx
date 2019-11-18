@@ -45,7 +45,7 @@ const InnerHeroContainer = styled.div`
   width: 100%;
   height: 100%;
   padding: 120px 24px;
-  padding-left: 400px;
+  padding-left: 500px;
   color: white;
   h1 {
     ${TextStyles.headline1};

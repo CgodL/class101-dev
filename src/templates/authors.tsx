@@ -7,7 +7,7 @@ import Bio from '../components/Bio';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import { users } from '../data/users'
-import Info from './resume'
+import MyDocument from './resume'
 
 
 // Rendering
@@ -25,7 +25,7 @@ const AuthorsPage: React.FC = () => {
           ))}
         </Row>
       </Grid>
-      <Info />
+      {/* <Info /> */}
     </Layout >
   )
 };
