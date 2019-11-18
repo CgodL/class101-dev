@@ -344,6 +344,7 @@ const PostWrapper = styled.section`
 
   .gatsby-highlight pre code {
     color: #dcdcdc;
+    font-size: 17px;
   }
 
   .gatsby-highlight .copy-button {

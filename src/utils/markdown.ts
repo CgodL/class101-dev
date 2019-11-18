@@ -324,7 +324,7 @@ export default css`
 
   .markdown-body h3 {
     font-size: 22px;
-    color: #F25E7A;
+    color: black;
     margin-top: 32px;
   }
 

@@ -103,11 +103,11 @@ description: 'GRAPHQL 실습'
   GraphQL-Yoga 는 React의 CRA와 비슷합니다. 매우 간편하게 서버를 설정할 수 있습니다.
 
 ```js
-                                    yarn add graphql-yoga 를 입력합니다.
+$ yarn add graphql-yoga 를 입력합니다.
 ```
 
 ```js
-                                  yarn global add nodemon 노드몬을 설치해줍니다.
+$ yarn global add nodemon 노드몬을 설치해줍니다.
 ```
 
 - index.js 파일을 생성합니다.
@@ -126,11 +126,11 @@ description: 'GRAPHQL 실습'
 다음으로 babel 세팅을 하겠습니다.
 
 ```js
-                                     yarn add babel-node --dev
+$ yarn add babel-node --dev
 ```
 
 ```js
-                                     yarn global add babel-cli
+$ yarn global add babel-cli
 ```
 
 - package.json scripts를 수정 해줍니다.
@@ -150,7 +150,7 @@ description: 'GRAPHQL 실습'
 ```
 
 ```js
-      yarn add babel-cli babel-preset-env babel-preset-stage-3 --dev
+$ yarn add babel-cli babel-preset-env babel-preset-stage-3 --dev
 ```
 
 - index.js 에 graphql-yoga를 import 합니다.
