@@ -9,10 +9,10 @@ export default class HeroSection extends React.PureComponent {
         <HeroImage src="/images/tree.jpg"></HeroImage>
         <InnerHeroContainer>
           <Grid>
-            <h1>CHANNING</h1>
+            <h1>C H A N N I N G</h1>
             <h3>
-              BACKEND <br />
-              DEVELOPER
+              S O F T W A R E <br />
+              D E V E L O P E R
             </h3>
           </Grid>
         </InnerHeroContainer>
@@ -52,6 +52,11 @@ const InnerHeroContainer = styled.div`
   }
   h3 {
     bold;
+    font-size: 18.72px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
     color: #F9F6E5;
   }
 `;

@@ -64,6 +64,8 @@ description: 'TIL - 그날 그날 배운 내용을 최신으로 업데이트 합
 
 ### 2. BLOG FONT SETTING
 
+<del>Blog Font Setting
+
 > 블로그 font css setting 을 했다. Google Font site에서 원하는 폰트를 가져와서 갯츠비에 이식하는데, html 태그로 적용하는건 힘이 드는 과정. 따라서 `gatsby-config`의 `gatsby-plugin-prefetch-google-fonts` 를 활용하여 세팅했다. font-family의 적용방법을 보다 상세하가 알게되었다.<br> 순서 에 따라서 또 언어에 따라서..
 
 ## 😭TODO
@@ -79,5 +81,7 @@ description: 'TIL - 그날 그날 배운 내용을 최신으로 업데이트 합
 # 2019.11.18 월요일
 
 ## 😇TIL
+
+## 😭TODO
 
 ---
