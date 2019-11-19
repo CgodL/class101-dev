@@ -318,6 +318,11 @@ WHERE COLUMN_NAME = X;
 
 ### 트랜잭션 TRANSACTION
 
+### DATA JOIN
+
+JOIN은 테이블 간의 관계를 맺는 방법 입니다. 당연히 두개 이상의 테이블이 필요합니다.
+또 두 테이블의 관계를 맺는데 사용할 칼럼 이 필요 합니다.
+
 ---
 
 ### AWS RDS

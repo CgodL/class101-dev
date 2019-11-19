@@ -30,6 +30,7 @@ exports.createPages = ({ graphql, actions }) => {
                 slug
                 language
               }
+              tableOfContents
               frontmatter {
                 title
                 thumbnail

@@ -152,11 +152,18 @@ fetch('users.json').then(function(response) {
 
 클라이언트에서 fetch api를 통해서 특정 리소스에 대한 요청을 하면 서버에서는 이를 토대로 응답을 주게 되는데, 응답에 걸리는 시간이 수초 에서 수시간 까지 예측할 수 없는 범위내에 일어날 수 있기 때문에, 응답을 마냥 기다리는 것이 아닌 **비동기 처리**를 위해 then을 사용합니다.
 
+> ( 제 생각입니다.. )<br>
+> 서버(Node / Express)는 클라이언트의 요청에 대한 응답을 해야합니다.<br>
+> 클라이언트는 get / post 같이 HTTP requset를 보냅니다.
+> 이때 Fetch API는 요청을 보다 편하게 해줍니다.<br>
+> Fetch API 는 Promise 객체를 반환합니다.
+> 서버와의 소통 특성상 데이터가 얼마나 오래 / 큰지를 모르기 때문에 비동기 처리가 필요하기 때문이라고 생각합니다.
+
 ![fetch](./fetch.png)
 
 ### Fetch API 와 Express
 
-- backend
+- Server
 
 ```js
 import express from 'express';
@@ -170,7 +177,7 @@ app.post('/api/courses', (requset, response) => {
 });
 ```
 
-- front
+- Clientt
 
 ```js
 fetch('/api/courses', {
