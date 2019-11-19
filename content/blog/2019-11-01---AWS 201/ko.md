@@ -9,6 +9,10 @@ description: 'AWS 201 - AWS S3 , AWS EBS , AWS CloudFront , AWS Glacier'
 
 ![aws2](./aws.jpg)
 
+## AWS 201 세미나
+
+---
+
 - 스토리지
 - Block 스토리지 : AWS EBS
 - File 스토리지 : AWS EFS
@@ -18,21 +22,20 @@ description: 'AWS 201 - AWS S3 , AWS EBS , AWS CloudFront , AWS Glacier'
 ---
 
 - S3 종류의 분류 -> 사용 빈도에 따라 분류
-- 스토리지 특성 <be>
-  1.  내구성
-  2.  가용성 - 기대 다운타임
-  3.  보안
-  4.  비용
-  5.  확장성
-  6.  성능
-  7.  Integration
+- 스토리지 특성 <br>
+  >  내구성 <br>
+  >  가용성 - 기대 다운타임<br>
+  >  보안<br>
+  >  비용<br>
+  >  확장성<br>
+  >  성능<br>
+  >  Integration<br>
 
 ---
 
 - Block 스토리지 : AWS EBS
 
-- EC2<br>
-  EC2 는 휘발성 입니다. stop / start로 인해 하드웨어가 바뀌면서 사라집니다.
+- EC2 는 휘발성 입니다. stop / start로 인해 하드웨어가 바뀌면서 사라집니다.
 
 ### AWS EBS(Elastic Block Store)
 
@@ -74,8 +77,7 @@ S3에 저장(백업), EBS API 지원
 - 내구성이 뛰어납니다.
 - 확장에 제약이 없습니다.
 - 웹에서 사용 가능한 오브젝트 저장소
-- 5가지의 유형의 서비스
-  - 데이터 가용성에 따라서 나눠서 사용
+- 5가지의 유형의 서비스 / 데이터 가용성에 따라서 나눠서 사용
 - 병렬 처리 징원
 
 #### S3 Life Cycle
@@ -116,3 +118,5 @@ inteligence 어쩌구가 티어를 자동으로세팅
 5. 데이터를 WAN으로 옮겨도 되는가
 
 ### AWS Transfer for SFTP
+
+---

@@ -98,6 +98,7 @@ const PostTemplate: React.FC<Props & RouteComponentProps> = props => {
                 <PostDate>{date}</PostDate>
               </PostHeader>
 
+
               {tableOfContents && <PostTOC>{parse(tableOfContents.split(slug).join(''), options)}</PostTOC>}
 
 
@@ -214,7 +215,7 @@ const PostTOC = styled.div`
   ul,
   ol {
     margin: 0 0 0 8px;
-    // color: #fbeef1 
+    // color: #fbeef1  
     // list-style-type: decimal;
   }
   p {

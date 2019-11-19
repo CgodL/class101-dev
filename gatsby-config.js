@@ -99,6 +99,10 @@ module.exports = {
         // GitHub Flavored Markdown mode (default: true)
         gfm: true,
         // Plugins configs
+        tableOfContents: {
+          heading: null,
+          maxDepth: 6,
+        },
         plugins: [
           {
             resolve: 'gatsby-remark-external-links',

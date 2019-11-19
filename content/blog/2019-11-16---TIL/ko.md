@@ -104,13 +104,14 @@ emoji: ☑️ ✓ ✕ 🆇 ❎ ✖︎ ⭐️ 💫 ⚡️ 🌞 🌛 🌝 🌚 �
 
 # 2019.11.19 화요일
 
+
 ## 😇TIL
 
 ## 😭TODO
 
 ### BLOG 기능 추가 ( 태그 위치, Search bar )
 
-> 페이지 상단 태그 위치 변화 기능 구현( gatsby config )<br> - 우측 또는 좌측으로 빼서 스크롤 같이 되고, 페이지 이동되게 구현 해야함<br>
+> 페이지 상단 태그 위치 변화 기능 구현( gatsby config )<br> - 우측 또는 좌측으로 빼서 스크롤 같이 되고, 페이지 이동되게 구현 해야함 => TOC 이었음<br>
 > Search Bar 구현
 
 ### 장고
@@ -127,7 +128,10 @@ emoji: ☑️ ✓ ✕ 🆇 ❎ ✖︎ ⭐️ 💫 ⚡️ 🌞 🌛 🌝 🌚 �
 
 ### 블로그 내용 채우기
 
->
+> 
+
+### 앞으로 해야할 녀석들
+> Redis / GraphQL / TypeScript / Data Structure
 
 ## 🥰COMMENT
 
