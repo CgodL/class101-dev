@@ -15,7 +15,7 @@ description: 'Async - Ajax - Axios - Fetch / 하나의 서버에 수 많은 클�
 
 ### Multi Thread
 
-[Thread](https://channing.netlify.com/ko/blog/2019/11/08/channing)
+[Thread](https://developer-channing.com/ko/blog/2019/11/08/channing)
 
 ---
 
@@ -157,11 +157,13 @@ fetch('users.json').then(function(response) {
 > 클라이언트는 get / post 같이 HTTP requset를 보냅니다.
 > 이때 Fetch API는 요청을 보다 편하게 해줍니다.<br>
 > Fetch API 는 Promise 객체를 반환합니다.
-> 서버와의 소통 특성상 데이터가 얼마나 오래 / 큰지를 모르기 때문에 비동기 처리가 필요하기 때문이라고 생각합니다.
+> 서버와의 소통 특성상 응답이 언제 올지 모르기 때문에 비동기 처리가 필요합니다.
 
 ![fetch](./fetch.png)
 
 ### Fetch API 와 Express
+
+![fetchStructure](./fetch2.png)
 
 - Server
 
@@ -177,7 +179,7 @@ app.post('/api/courses', (requset, response) => {
 });
 ```
 
-- Clientt
+- Client
 
 ```js
 fetch('/api/courses', {
@@ -186,6 +188,8 @@ fetch('/api/courses', {
   headers: new Headers({ 'Content-Type': 'application/json' })
 });
 ```
+
+> 코드에서 보이듯이 클라이언트 혼자서는 서버에 접근할 수 없습니다. 실제 프로젝트때 코드 구현시 서버 쪽에서 API 문서를 만들어서 클라이언트로 전달하고, 클라이언트는 해당하는 엔드포인트 또는 [API](https://developer-channing.com/ko/blog/2019/10/22/channing)로 요청을 하는 코드를 구현했으며, 백엔드는 그에 맞는 요청 및 응답을 처리하기 위해 라우팅 세팅을 했습니다.
 
 <hr />
 
