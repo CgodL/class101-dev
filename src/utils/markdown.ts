@@ -310,6 +310,8 @@ export default css`
 
   .markdown-body h1 {
     font-size: 32px;
+    color: black;
+    font-weight: 900;
   }
 
   .markdown-body h1,
@@ -563,6 +565,7 @@ export default css`
 
   .markdown-body kbd {
     background-color: #fafbfc;
+    width: 960px;
     border: 1px solid #c6cbd1;
     border-bottom-color: #959da5;
     border-radius: 3px;
@@ -589,7 +592,7 @@ export default css`
   }
 
   .markdown-body h1 {
-    font-size: 2em;
+    font-size: 1.85em;
   }
 
   .markdown-body h1,
@@ -830,10 +833,10 @@ export default css`
   }
 
   .markdown-body kbd {
-    background-color: #fafbfc;
+    background-color: #2F3640;
     border: 1px solid #d1d5da;
-    border-bottom-color: #c6cbd1;
-    border-radius: 3px;
+    // border-bottom-color: #c6cbd1;
+    border-radius: 10px 10px 10px 10px;
     box-shadow: inset 0 -1px 0 #c6cbd1;
     color: #444d56;
     display: inline-block;
