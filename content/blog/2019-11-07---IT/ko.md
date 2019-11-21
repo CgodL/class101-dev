@@ -42,6 +42,11 @@ description: ' 배치 프로그램 - 사전적 의미로 일괄 처리를 뜻하
 
 [개발용어](https://blog.gaerae.com/2016/11/what-is-library-and-framework-and-architecture-and-platform.html)
 
+- 프레임워크 : 기본적인 기능이 구현되어 있고, 규칙이 존재 하는 큰 틀 프레임 내에서 코드를 구현해야 합니다. (Django, Angularjs, Spring 등)
+- 라이브러리 : 개발자 마음대로 만들 수 있는 프로그램 제작 시 필요한 기능 입니다. (React, jQuery, OOP 등)
+- 아키텍쳐 : 프로그램 의 구조 / 설계
+- 플랫폼 : 프로그램 실행 환경 (macOS, Window, V8 등)
+
 ---
 
 ## 인터프리터 / 컴파일러

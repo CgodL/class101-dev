@@ -96,13 +96,15 @@ Personalize는 이처럼 나와 비슷한 성향의 사람의 일련의 행동(�
 
 - **Process [ AWS SDK를 사용한 방법 ]**
 
-  세팅 전에 툴을 정합니다. 저는 Jupyter 를 사용하겠습니다. AWS Personalize에는 각 과정을 생성 및 설정 하기 위한 기능을 갖고 있는 [API](https://channing.netlify.com/ko/blog/2019/10/22/channing/)가 존재 합니다. API를 활용하여 각 부분을 구성 하겠습니다.
+  세팅 전에 툴을 정합니다. 저는 Jupyter 를 사용하겠습니다. AWS Personalize에는 각 과정을 생성 및 설정 하기 위한 기능을 갖고 있는 [API](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize.html#Personalize.Client.list_solutions)가 존재 합니다. API를 활용하여 각 부분을 구성 하겠습니다.
+
+  > 코드를 보여주면서 따라가지는 않겠습니다. 실제 SDK(boto3)를 활용 하면 실제 구현은 매우 쉽습니다.
 
 ![product-page-diagram_amazon_personalize_how-it-works 3ceac8883c7d6bd67d7cf26d8a7d505520d02a40](https://user-images.githubusercontent.com/48753593/66401654-76872e80-ea1e-11e9-93d8-2c3f32bed16f.png)
 
 <center>
 
-#### Data Formatting 과 형식만 잘 잡혔다면 데이터를 올리고 난후 모델 생성은 매우 간단합니다.
+<b> Data Formatting 과 형식만 잘 잡혔다면 데이터를 올리고 난후 모델 생성은 매우 간단합니다.</b>
 
 </center>
 
@@ -132,7 +134,7 @@ Personalize는 이처럼 나와 비슷한 성향의 사람의 일련의 행동(�
 
 초기 S3 에 CSV 파일로 다룬 item-user interaction data는 6900 여 개의 데이터로 recommendation 테스트를 하였고, recommendation의 경우 userId 를 기준으로 추천을 받았으며, 초기 구현시 예상 데이터로 각각의 userId 마다 서로 다른 추천 데이터를 받기를 기대 하였으나 결과적으로 각기 다른 userId에 같은 상품을 추천해주는 문제 가 발생하였습니다.
 
-이후 문제를 초기 데이터 샘플의 수가 적어서 cold start recipe를 기준으로 추천해주는 상태일 것이라 결론을 내리고, AWS Guideline 에 따라서 Put Events API를 활용하여 설정해둔 Schema 의 Field에 맞춰서 events를 추가 , 데이터 샘플 수를 증가 시켰습니다.
+이후 문제를 초기 데이터 샘플의 수가 적어서 cold start recipe( 사용자에 대한 데이터가 없을때 사용하는 알고리즘 )를 기준으로 추천해주는 상태일 것이라 결론을 내리고, AWS 가이드라인 에 따라서 Put Events API를 활용하여 설정해 둔 Schema 의 Field에 맞춰서 events를 추가, 데이터 샘플 수를 증가 시켰습니다.
 
 AWS Cloud Watch를 통해 Events가 에러 없이 추가 되는 것을 확인했습니다.<br>
 [ S3 CSV 데이터 자체를 업데이트 한 것 이 아니며, 업데이트 된 실시간 데이터는 Cloud Watch 로만 확인이 가능한 점 이 불편했으나 데이터 가공 및 처리 자체를 AWS 알고리즘이 작동 하므로, 우리가 신경 쓸 부분이 아니라고 생각했습니다. ]
@@ -155,3 +157,7 @@ Personalize 세팅에 있어서 고려해야 할 가장 주된 사항을 고른�
 크런치 프라이스 사용자가 해당 상품 페이지에 접속한 시간을 TIMESTAMP 값으로 넣어줬으며 , EVENT TYPE은 Click, Add to Cart 등 과 같이 의미있는 값을 데이터로 넘겨야 보다 정확한 추천 결과를 받을 수 있습니다.
 
 또한 사용자 입맛에 맞게 recipe라 불리는 알고리즘을 선택 하여 추천에 적용할 수 있으므로, 초기 AUTO 로 AWS 추천해주는 레시피 대로 추천 알고리즘을 사용하다가, 이후 지표를 확인후에 solution을 수정하거나 추가하는 식으로 보다 정확한 추천을 받을 수 있습니다.
+
+<hr />
+
+---

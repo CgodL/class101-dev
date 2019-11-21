@@ -39,6 +39,8 @@ Document 동적( dynamic )의 schema 를 갖고있습니다. 같은 Collection �
 - Schema-less ( Schema가 없다. 같은 Collection 안에 있을지라도 다른 Schema를 가지고 있을 수 있다 )
 - 복잡한 JOIN 이 없다.
 
+---
+
 ### Data Modelling
 
 - 예제
@@ -48,6 +50,8 @@ Document 동적( dynamic )의 schema 를 갖고있습니다. 같은 Collection �
 <br>
 <br>
 <br>
+
+---
 
 #### MongoDB 와 RDBMS 비교
 

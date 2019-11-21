@@ -13,6 +13,8 @@ HTTP는 어떤 종류의 데이터든 전송이 가능합니다.( 동영상, 이
 
 ![ht](./hp.png)
 
+<hr />
+
 ### HTTP Protocol
 
 사람과 사람이 전화 통화를 하기 위해서도 몇 가지 규약이 필요합니다.<br>
@@ -20,6 +22,8 @@ HTTP는 어떤 종류의 데이터든 전송이 가능합니다.( 동영상, 이
 **웹 브라우저**와 **웹 서버** 간에도 서로 통신하기 위해서는 **규약**이 필요합니다.
 **이때 필요한 규약이 HTTP 입니다.** **HTTP** 는 웹에서 브라우저와 서버간에 데이터를 주고받기 위한 방식 입니다.<br>
 HTTP는 어떤 종류의 데이터든 전송이 가능합니다.( 동영상, 이미지, 문서 등 )
+
+---
 
 ### 웹의 작동 방식
 
@@ -43,6 +47,8 @@ HTTP는 서버 / 클라이언트 모델을 따릅니다.
 - 위와 같은 특징을 무상태(Stateless) 라고 말합니다.<br>
   이러한 특징 때문에 정보를 유지하기 위해서 [Cookie](https://developer-channing.com/ko/blog/2019/10/13/channing/)와 같은 기술이 등장하게 되었습니다.
 
+---
+
 ### HTTP Request & HTTP Response
 
 HTTP 프로토콜로 데이터를 주고받기 위해서는 요청(Request)을 보내고 응답(Response)을 받아야 합니다.
@@ -60,6 +66,8 @@ HTTP 프로토콜로 데이터를 주고받기 위해서는 요청(Request)을 �
 
 ![URL 구조](https://joshua1988.github.io/images/posts/web/http/url-structure.png)
 
+---
+
 ### HTTP 요청 메서드
 
 ![HTTP](./web.png)
@@ -75,6 +83,8 @@ HTTP 프로토콜로 데이터를 주고받기 위해서는 요청(Request)을 �
 - HEAD : 서버 헤더 정보를 획득. GET과 비슷하나 Response Body를 반환하지 않습니다. <br>해당 자원이 존재하는지 혹은 서버에 문제가 없는지를 확인하기 위해서 사용합니다.<br>
 - OPTIONS : 서버 옵션들을 확인하기 위한 요청. CORS에서 사용합니다.<br>
 - TRACE : 클라이언트의 요청을 그대로 반환합니다. 예컨데 echo 서비스로 서버 상태를 확인하기 위한 목적으로 주로 사용합니다.
+
+---
 
 ### HTTP 상태 코드
 
@@ -94,9 +104,13 @@ GET is one of the most common HTTP methods.
 
 POST is used to send data to a server to create/update a resource.
 
+---
+
 #### STRUCTURE
 
 <img width="942" alt="스크린샷 2019-09-12 오후 5 31 36" src="https://user-images.githubusercontent.com/48753593/64767731-32ba1a00-d583-11e9-9e0a-46385afcfc00.png">
+
+---
 
 #### JSON
 

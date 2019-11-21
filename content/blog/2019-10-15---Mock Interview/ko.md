@@ -17,3 +17,7 @@ Every JavaScript Developer Should Know](https://medium.com/javascript-scene/10-i
 [Callback](https://velopert.com/255)<br>
 
 </center>
+
+<hr />
+
+---

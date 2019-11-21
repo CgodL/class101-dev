@@ -3,7 +3,7 @@ title: 'DATABASE - SQL'
 date: '2019-10-27T13:26:56'
 thumbnail: '/images/thumbnails/sql-illustration.png'
 author: 'channing'
-tags: ['SQL', 'Database', 'MySQL', 'MongoDB', 'NoSQL']
+tags: ['SQL', 'Database', 'MySQL', 'MongoDB', 'NoSQL', 'Oracle']
 description: 'DATA BASE - SQL / 데이터는 어떤 것들의 ‘기록 정보’이고, 이러한 데이터를 모아 둔 것을 데이터베이스라고 합니다. '
 ---
 
@@ -322,6 +322,82 @@ WHERE COLUMN_NAME = X;
 
 JOIN은 테이블 간의 관계를 맺는 방법 입니다. 당연히 두개 이상의 테이블이 필요합니다.
 또 두 테이블의 관계를 맺는데 사용할 칼럼 이 필요 합니다.
+
+- 테이블간의 연결고리가 필요합니다. → column
+- WHERE(조건)과 SELECT로 JOIN을 수행합니다.
+
+---
+
+### MySQL
+
+![mysql](./mysql.png)
+<br>
+
+<b>brew 를 이용해서 MySQL을 설치합니다.</b>
+
+```js
+// 먼저 brew를 최신버전으로 업데이트 합니다.
+$ brew update
+// mysql을 설치합니다.
+$ brew install mysql
+// 설치 모록에서 mysql을 확인합니다.
+$ brew list
+```
+
+```sql
+-- mysql 을 시작합니다.
+$ mysql.start server
+-- mysql secure 설정을 합니다.
+$ mysql_secure_installation
+-- mysql로 들어갑니다
+$ mysql -uroot -p
+mysql>
+
+-- mysql 서버를 종료합니다.
+$ mysql.server stop
+```
+
+```sql
+-- 실전입니다.
+
+-- 먼저 mysql 터미널에서 database를 확인합니다.
+$ show databases;
++--------------------+
+| Database           |
++--------------------+
+| Test_db            |
++--------------------+
+
+-- db 가 없다면 db를 생성해줍니다.
+$ create database Test_db;
+
+-- 만든 db를 사용하겠다고 말합니다.
+$ use Test_db;
+
+-- 테이블을 생성합니다.
+mysql> CREATE TABLE prac(
+    -> name char(10),
+    -> address char(80),
+    -> primary key(name)
+    -> );
+
+-- 생성한 테이블을 확인합니다.
+$ show tables;
++-------------------+
+| Tables_in_test_db |
++-------------------+
+| prac              |
++-------------------+
+
+-- 테이블 내부를 들여다 보겠습니다.
+$ desc prac;
++---------+----------+------+-----+---------+-------+
+| Field   | Type     | Null | Key | Default | Extra |
++---------+----------+------+-----+---------+-------+
+| name    | char(10) | NO   | PRI | NULL    |       |
+| address | char(80) | YES  |     | NULL    |       |
++---------+----------+------+-----+---------+-------+
+```
 
 ---
 

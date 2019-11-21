@@ -23,13 +23,13 @@ description: 'AWS 201 - AWS S3 , AWS EBS , AWS CloudFront , AWS Glacier'
 
 - S3 종류의 분류 -> 사용 빈도에 따라 분류
 - 스토리지 특성 <br>
-  >  내구성 <br>
-  >  가용성 - 기대 다운타임<br>
-  >  보안<br>
-  >  비용<br>
-  >  확장성<br>
-  >  성능<br>
-  >  Integration<br>
+  > 내구성 <br>
+  > 가용성 - 기대 다운타임<br>
+  > 보안<br>
+  > 비용<br>
+  > 확장성<br>
+  > 성능<br>
+  > Integration<br>
 
 ---
 
@@ -120,3 +120,10 @@ inteligence 어쩌구가 티어를 자동으로세팅
 ### AWS Transfer for SFTP
 
 ---
+
+<hr />
+<center>
+
+Reference
+
+</center>
