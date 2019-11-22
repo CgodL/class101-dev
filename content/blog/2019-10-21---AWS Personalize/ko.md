@@ -74,6 +74,11 @@ Personalize는 이처럼 나와 비슷한 성향의 사람의 일련의 행동(�
 - Amazon Personalize가 액세스할 수 있는 Amazon Simple Storage Service(Amazon S3)에 파일을 업로드합니다.<br>
   -- CSV 파일을 S3에 업로드 함으로써 기본적인 세팅을 마칩니다.
 
+- 데이터 준비가 끝났으면 AWS Console 상에서 몇번의 클릭만으로 손쉽게 생성할 수 있습니다.
+>보다 쉽게 설명하면, AWS Personalize 는 S3내에 CSV 파일을 읽고, 읽은 CSV 파일이 요구하는 schema에 적합하면 다음 단계를 실행하며 추천데이터를 생성합니다.<br>
+
+---
+
 추천 알고리즘을 구현하기 위해서 사용할 수 있는 몇 가지 방법이 존재합니다.
 
 - AWS Console 을 이용하여 서비스를 구축하는 방법.
@@ -96,9 +101,9 @@ Personalize는 이처럼 나와 비슷한 성향의 사람의 일련의 행동(�
 
 - **Process [ AWS SDK를 사용한 방법 ]**
 
-  세팅 전에 툴을 정합니다. 저는 Jupyter 를 사용하겠습니다. AWS Personalize에는 각 과정을 생성 및 설정 하기 위한 기능을 갖고 있는 [API](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize.html#Personalize.Client.list_solutions)가 존재 합니다. API를 활용하여 각 부분을 구성 하겠습니다.
+  세팅 전에 툴을 정합니다. 저는 Jupyter 와 vscode를 사용했습니다. AWS Personalize에는 각 과정을 생성 및 설정 하기 위한 기능을 갖고 있는 [API](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize.html#Personalize.Client.list_solutions)가 존재 합니다. API를 활용하여 각 부분을 구성 했습니다.
 
-  > 코드를 보여주면서 따라가지는 않겠습니다. 실제 SDK(boto3)를 활용 하면 실제 구현은 매우 쉽습니다.
+  > 블로그에 코드를 보면서 따라가지는 않겠습니다. 실제 SDK(boto3)를 활용 하면 실제 구현은 매우 쉽습니다.
 
 ![product-page-diagram_amazon_personalize_how-it-works 3ceac8883c7d6bd67d7cf26d8a7d505520d02a40](https://user-images.githubusercontent.com/48753593/66401654-76872e80-ea1e-11e9-93d8-2c3f32bed16f.png)
 
@@ -115,7 +120,10 @@ Personalize는 이처럼 나와 비슷한 성향의 사람의 일련의 행동(�
 #### Airflow를 활용한 방법
 
 - Batch processing을 활용합니다. **Airflow** 는 batch scheduler 로써 큰 데이터를 특정 시간에 처리할 수 있도록 도와주는 스케줄러 입니다.<br>
-  각 Task를 분리하여 특정 시간마다 AWS Personalize 일련의 과정을 생성 하는 과정을 반복합니다. 데이터가 클수록 소요시간이 길어집니다.
+  각 Task를 분리하여 특정 시간마다 AWS Personalize 일련의 과정을 생성 하는 과정을 반복합니다. 데이터가 클수록 소요시간이 길어집니다.<br>
+  실제로 Airflow를 통해 매 정시에 Personalize 캠페인을 매일 새로 생성해줬습니다.
+> Airflow를 왜 사용했나요? <br>
+> AWS Personalize의 추천 캠페인이 생성되는데는 긴 시간이 소요됩니다. 실제로 데이터셋 생성 부터 솔루션, 캠페인 까지 데이터 양 / 데이터간의 관계 에 따라 변동이 있으나 200,000개 정도의 데이터의 기준 캠페인 생성까지 3시간 가량 소요됐습니다. 실시간 업데이트를 구현해주는 putEvents API 가 예상대로 동작하지 않았고, 비용적 문제가 있었기 때문에 Airflow를 활용했습니다.
 
 #### PutEvents API를 활용한 방법.
 
@@ -124,37 +132,55 @@ Personalize는 이처럼 나와 비슷한 성향의 사람의 일련의 행동(�
 3.  최종적으로 create solution version -> campaign update 를 통해 추천결과를 업데이트 합니다.( 단 trainning을 주기적으로 해야합니다. )<br>
     PutEvents시 데이터 업데이트가 이뤄지고, 트레이닝만 다시해주면 됩니다.<br>
 
-> \*\* PutEvents API 는 실시간 업데이트를 실행하는 API임에도 트레이닝을 주기적으로 해줘야 하는 점은 의문 입니다. 리트레이닝 자체가 실시간 업데이트라는 의미가 퇴색 되는 것 아닌지.. ( by AWS solutions architect )
+> \*\* PutEvents API 는 실시간 업데이트를 실행하는 API임에도 트레이닝을 주기적으로 해줘야 하는 점은 의문 입니다. 리트레이닝 자체가 실시간 업데이트라는 의미가 퇴색 되는 것 아닌지.. ( by AWS solutions architect ) <br>
+> PutEvents API 는 빈도의 따라 사용 요금이 변합니다. 이 또한 수치를 조절할 수 있도록 되있습니다.
+
+---
+<center>
+
+### 실제 추천 데이터 구현 영상
+</center>
+<br>
+<br>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tjxwqqM10Tk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+> 0초 ~ 12초는 | 먼저 로그인 상태 이며, AWS를 통한 추천 상품을 받는 화면입니다.<br>
+> 12초 이후 | 로그아웃 하여 cold_starter로 분류되어 다른 레시피(알고리즘) 을 사용한 추천 데이터가 보여집니다.<br>
+> 추천데이터는 데이터의 Event에 따라 다른데, Click, Add to Cart, Purchase 등의 이벤트를 넣어주었습니다. <br>
+> 영상에는 나와있지 않지만 Airflow로 데이터가 매 정시마다 업데이트 되어 00시 기준으로 추천데이터가 변화 합니다.
 
 ---
 
 ### Personalize 구축 중 생긴 문제 와 고려 사항
 
-**실시간 데이터 처리**
+#### 실시간 데이터 처리
 
-초기 S3 에 CSV 파일로 다룬 item-user interaction data는 6900 여 개의 데이터로 recommendation 테스트를 하였고, recommendation의 경우 userId 를 기준으로 추천을 받았으며, 초기 구현시 예상 데이터로 각각의 userId 마다 서로 다른 추천 데이터를 받기를 기대 하였으나 결과적으로 각기 다른 userId에 같은 상품을 추천해주는 문제 가 발생하였습니다.
+초기 S3 에 CSV 파일로 다룬 item-user interaction data는 6900 여 개의 데이터로 recommendation 테스트를 하였고, recommendation의 경우 유저(userId) 를 기준으로 추천을 받았으며, 초기 구현시 예상 데이터로 각각의 userId 마다 서로 다른 추천 데이터를 받기를 기대 하였으나 결과적으로 각기 다른 userId에 같은 상품을 추천해주는 문제 가 발생하였습니다.
 
 이후 문제를 초기 데이터 샘플의 수가 적어서 cold start recipe( 사용자에 대한 데이터가 없을때 사용하는 알고리즘 )를 기준으로 추천해주는 상태일 것이라 결론을 내리고, AWS 가이드라인 에 따라서 Put Events API를 활용하여 설정해 둔 Schema 의 Field에 맞춰서 events를 추가, 데이터 샘플 수를 증가 시켰습니다.
 
 AWS Cloud Watch를 통해 Events가 에러 없이 추가 되는 것을 확인했습니다.<br>
-[ S3 CSV 데이터 자체를 업데이트 한 것 이 아니며, 업데이트 된 실시간 데이터는 Cloud Watch 로만 확인이 가능한 점 이 불편했으나 데이터 가공 및 처리 자체를 AWS 알고리즘이 작동 하므로, 우리가 신경 쓸 부분이 아니라고 생각했습니다. ]
+> S3 CSV 데이터 자체를 업데이트 한 것 이 아니며, 업데이트 된 실시간 데이터는 Cloud Watch 로만 확인이 가능한 점 이 불편했으나 데이터 가공 및 처리 자체를 AWS 알고리즘내 에서 작동 하므로, 우리가 신경 쓸 부분이 아니라고 생각했습니다. 
 
 이벤트가 추가된 지표(25,000개)를 토대로 하여 Solution Version Update를 AWS 콘솔상에서 실행했습니다.  
 이후 Get Recommendation 를 요청 했을때, 기존 데이터와 같은 추천값을 반환했습니다.
 
-상식적으로 6900 개의 데이터와 25000 개의 데이터 간의 차이가 없는 것은 말이 안되므로,
-AWS Personalize 설정 과정을 백트래킹 했고, 일련의 과정을 모두 재설정 하였습니다.
+상식적으로 6900 개의 데이터와 25000 개의 데이터 간의 차이가 없는 것은 말이 안되었고, 다른 테스트로 임의의 계정 A,B 두개를 만들고, 하나의 계정(A)에 다른 상대방(B)의 클릭/장바구니/구매 등의 이벤트를 임의로 넣어서 A의 추천 데이터가 B 기준으로 변화하는지도 체크했습니다. 하지만 위 과정역시 데이터의 변화가 없었습니다.
 
+그래서 다시 처음으로 돌아가 AWS Personalize 설정 과정을 백트래킹 했고,일련의 과정을 모두 재설정 하였습니다.
 이후 solution version update 뿐만 아니라 campaign update 또한 필요하다는 걸 알게 되었습니다.
+>이는 AWS 측에 자문을 받았을 당시 AWS Personalize solutions architect 분께서도 놓쳤던 부분 이었으며, Docs에도 나와있지 않았습니다.
 
-현재 크런치 프라이스는 Put Events를 활용한 실시간 데이터 업데이트 가 아닌 airflow 라는 scheduler 를 활용 하루에 쌓인 데이터를, 사용자가 적은 시간대에 S3 에 저장된 CSV 파일 부터 차례대로 import job - create solution version - update campaign의 과정을 통해 데이터를 업데이트, 사용자 추천 품목을 변화시키는 방안을 채택 활용하고 있습니다.
+현재 크런치 프라이스는 Put Events를 활용한 실시간 데이터 업데이트 가 아닌 airflow 라는 scheduler 를 활용 하루에 쌓인 데이터를, 사용자가 적은 시간대에 S3 에 저장된 CSV 파일 부터 차례대로 import job - create solution version - update campaign의 과정을 통해 데이터를 업데이트, 사용자 추천 품목을 변화시키는 방안을 채택 활용하고 있습니다.<br>(**2019.11.22일 AWS 에서 다른 서비스로의 이전을 위해 현재 기업측에서는 추천데이터 페이지를 내렸습니다.)
 
 ### 결론
-
-Personalize 세팅에 있어서 고려해야 할 가장 주된 사항을 고른다면, AWS Personalize를 사용할 고객이 갖고 있는 데이터 가 Personalize에 요구하는 Schema Field에 맞도록 데이터를 알맞게 구성하는게 제일 중요한 부분이라고 생각합니다.
+아무래도 최신 기술이어서 레퍼런스가 부족하여 더 고생한 점이 있지 않았나 싶습니다.<br>
+Personalize 구축을 고려하고 계시다면, 제가 생각하는 Personalize 세팅에 있어서 고려해야 할 가장 주된 사항을 고른다면, AWS Personalize를 사용할 고객이 갖고 있는 데이터 가 Personalize에 요구하는 Schema Field에 맞도록 데이터를 알맞게 구성하는게 제일 중요한 부분이라고 생각합니다.
 
 가령 크런치 프라이스의 예를 들면, 필수적으로 들어가는 TIMESTAMP 값이나 선택사항인 EVENT TYPE의 경우가 있습니다.
-크런치 프라이스 사용자가 해당 상품 페이지에 접속한 시간을 TIMESTAMP 값으로 넣어줬으며 , EVENT TYPE은 Click, Add to Cart 등 과 같이 의미있는 값을 데이터로 넘겨야 보다 정확한 추천 결과를 받을 수 있습니다.
+크런치 프라이스 사용자가 해당 상품 페이지에 접속한 시간을 TIMESTAMP 값으로 넣어줬으며 , EVENT TYPE은 Click, Add to Cart 등 과 같이 의미있는 값을 데이터로 넘겨, 보다 정확한 추천 결과를 받을 수 있었습니다.
+> 뿐만 아니라 데이터 세트 유형을 더 세분화 하여 보다 나은 결과를 받을 수 있습니다.
 
 또한 사용자 입맛에 맞게 recipe라 불리는 알고리즘을 선택 하여 추천에 적용할 수 있으므로, 초기 AUTO 로 AWS 추천해주는 레시피 대로 추천 알고리즘을 사용하다가, 이후 지표를 확인후에 solution을 수정하거나 추가하는 식으로 보다 정확한 추천을 받을 수 있습니다.
 

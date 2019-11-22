@@ -219,6 +219,8 @@ AUTH_USER_MODEL = "users.User"
 
 <br>
 
+
+
 - 이를 기초로 하여 `models.py` 코드를 작성해보겠습니다.
 
 ```py
@@ -305,6 +307,28 @@ class CustomUserAdmin(UserAdmin):
             },
         ),
     )
+```
+---
+
+#### 장고 추상화 도구 (Abstraction)
+[추상화](https://hyunalee.tistory.com/20)<br>
+Django Model을 구현하다보면 여러 테이블에 같은 형식의 필드가 있는 경우가 많습니다. 이럴때 사용하는게 Abstract Model(추상 모델) 입니다.
+추상 모델을 만들어 상속을 받습니다.
+
+```py
+from django.db import models
+
+class CommonInfo(models.Model):
+    name = models.CharField(max_length=100)
+    age = models.PositiveIntegerField()
+
+    # 추상 클래스 입니다.
+    class Meta:
+        abstar = True
+
+class Studuent(CommonInfo):
+    home_group = models.CharField(max_length=5)
+    
 ```
 
 ---
@@ -528,6 +552,9 @@ $ config > setting.py > third_party_apps 에 django_seed 를 추가합니다.
 
 ![django](./django.png)
 
+<br>
+<br>
+
 프론트단 역시 장고로 만들것이기 때문에 html 파일을 활용하여 템플릿을 구성합니다.
 
 > 구조는 이렇습니다. html파일 하나에 페이지를 구현하면 코드가 엄청나게 길어집니다. 따라서 Divide Conquer 하여 코드를 구성합니다. 먼저 blueprint 가 될 base.html을 생성하고 거기서 또 html 내에서 나눠 질 수 있는 부분 header , footer 등을 모두 나누어 구성합니다.
@@ -536,6 +563,56 @@ $ config > setting.py > third_party_apps 에 django_seed 를 추가합니다.
 
 > templates 라는 폴더를 생성한후 각 부분 을 나누어 생성합니다. <br>
 > 만든 html 파일을 사용하기 위해서는 extend 가 필요합니다. 그리고 장고는 html내에서 조건 문이나 반복문을 쓸수 있도록 하는 문법이 존재합니다. `{% %}` 나 `{{ }}` 등 입니다.
+
+> `objects.all()`은 위험합니다. 왜냐하면 DB에 있는 모든 데이터를 꺼내는 query이기 때문입니다. 만약 데이터가 수만개가 있고, 그 데이터 전부를 가져온다면 어떻게 될지..<br>
+> 따라서 limiting Querysets을 합니다. Queryset을 호출한다고 해서 바로 값이 출력되는 것은 아닙니다.
+
+
+```py
+$ views.py 
+def all_rooms(request):
+    page = request.GET.get("page")
+    room_list = models.Room.objects.all()
+    paginator = Paginator(room_list, 10)
+    rooms = paginator.get_page(page)
+    return render(
+        request,
+        "rooms/home.html",
+        {"rooms": rooms}
+    )
+
+```
+
+```html
+$ home.html
+{% extends "base.html" %}
+
+{% block page_name %} 
+    Home 
+{% endblock page_name %} 
+
+{% block content %} 
+
+    {% for room in rooms.object_list %}
+        <h1>{{room.name}} / ${{room.price}}</h1>
+    {% endfor %} 
+    
+    <h5> 
+    {% if page is not 1%}
+        <a href="?page={{page|add:-1}}">Previous</a>
+    {% endif %}
+    Page {{rooms.number}} of {{rooms.paginator.num_pages}}
+    {% if not page == page_count %}
+        <a href="?page={{page|add:1}}">Next</a>
+    {% endif %}
+    </h5>
+
+{% endblock content %}
+
+```
+> 코드를 보게되면 views.py 에서 request 에서 "page" get 해옵니다. 이는 url에서 쿼리 부분을 읽어오는 건데요, `http://localhost:8001/?page=2` 여기서 ?page=2 이부분을 get 해오겠다는 겁니다. 저 url은 html파일 내에서 `<a href="?page">` 같은 식으로 되어있습니다. 해당 링크에 접근하면 장고 view는 get으로 쿼리를 읽어옵니다.
+
+
 
 ---
 
@@ -547,5 +624,6 @@ Reference <br>
 [DJANGO](https://docs.djangoproject.com/ko/2.2/intro/)<br>
 [NOMAD](https://academy.nomadcoders.co/courses/category/KR)<br>
 [장고byChanning](https://developer-channing.com/ko/blog/2019/10/18/channing)<br>
+[장고 개발 방식](https://stickie.tistory.com/13)
 
 </center>
