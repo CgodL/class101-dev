@@ -1,6 +1,6 @@
 ---
 title: 'TIL'
-date: '2019-11-21T23:20:56'
+date: '2019-11-23T23:20:56'
 thumbnail: '/images/thumbnails/til1.png'
 author: 'channing'
 tags: ['TIL']
@@ -12,7 +12,8 @@ description: 'TIL - 그날 그날 배운 내용을 최신으로 업데이트 합
 
 <center>
 
-<B>**[Previously on the TIL](https://github.com/CgodL/TIL)**<B>
+click 👉🏻 <mark><B>**[Previously on the TIL](https://github.com/CgodL/TIL)**<B></mark>
+<br>
 <br>
 emoji: ☑️ ✓ ✕ 🆇 ❎ ✖︎ ⭐️ 💫 ⚡️ 🌞 🌛 🌝 🌚 🌕
 
@@ -67,7 +68,7 @@ emoji: ☑️ ✓ ✕ 🆇 ❎ ✖︎ ⭐️ 💫 ⚡️ 🌞 🌛 🌝 🌚 �
 
 ### 1. ⭐️ IDEA
 
-> IDEA : 구글 캘린더를 쓰는데, 캘린더에 오늘 할일을 계획 하고, 그걸 다시 TIL에 정리하는건 비효율적이지 않나 싶다. <br>
+> 아이디어 : 구글 캘린더를 쓰는데, 캘린더에 오늘 할일을 계획 하고, 그걸 다시 TIL에 정리하는건 비효율적이지 않나 싶다. <br>
 > 구글 캘린더 연동 페이지를 만들어 보고 싶다. 먼저 가능한지 부터 고려해보기.
 > 구체적으로 생각해보면 구글 캘린더에 작성한 내용을 블로그에 옮길 수 있는지 가능성 체크
 > 먼저 입력받은 구글 캘린더 데이터 export를 해서 내 개츠비 서버로 받아와야 하는데 개츠비는 graphQL이고 ..
@@ -175,7 +176,51 @@ emoji: ☑️ ✓ ✕ 🆇 ❎ ✖︎ ⭐️ 💫 ⚡️ 🌞 🌛 🌝 🌚 �
 
 ### 도서관 DB 스케마 작성해보기
 
-> [DB_diagram](https://dbdiagram.io/d)
+> ~~[DB_diagram](https://dbdiagram.io/d)~~
+
+## 🥰COMMENT
+
+도서관 DB를 짜긴 했는데(버전 1) 사실 나혼자 한거라서 정확하지도 않고, 자문이 필요하다.
+
+<center>
+
+# 2019.11.22 금요일
+
+</center>
+
+## 😇TIL
+
+### Django
+
+> Django View단 돌입. 프론트 작업도 장고로 하는데.. 문제는 장고는 html 파일 자체에서 장고 문법을 활용해서 프론트를 구성한다. 나름 편하긴 한데 리액트만 못한 느낌 적인 느낌
+
+## 😭TODO
+
+> Models.py / admin.py 에서 list_display 가 도저히 이해가 가지 않는다. field도 없는 녀석이 어째서 DB에 추가된단 말인가.. 모델에서 정의해준 녀석도 아니면서 ㅠㅠ
+
+## 🥰COMMENT
+
+모르는 문제 / 막히는 문제를 만났을 때 접근 방법을 체크해가며 소거하여 같은 일을 반복하지 않도록 하자.
+
+---
+
+<center>
+
+# 2019.11.23 토요일
+
+</center>
+
+## 😇TIL
+
+## 😭TODO
+
+### 번역
+
+> [REST](https://medium.com/@BennettGarner/build-your-first-rest-api-with-django-rest-framework-e394e39a482c) 번역하기
+
+### 블로그 CSS
+
+> TOC를 a 태그로 처리할 수 있다는 소식을 들었다. 도전 해야지
 
 ## 🥰COMMENT
 

@@ -18,6 +18,23 @@ description: 'AIRBNB CLONE - 장고를 활용한 Airbnb 클론 코딩을 해보�
 - <b>[Django](https://www.djangoproject.com/)</b>
 - <b>Python</b>
 - <b>Selenium</b>
+- <b>React Native</b>
+
+---
+
+### CONTENTS
+
+1. <mark> Application 구성 </mark> | 그냥 말 그대로 기능별로 나눕니다.
+
+   > 각 Application을 \$ django-admin startapp < application name > 요 코드로 만듭니다.
+
+2. <mark> DB 테이블 구조/타입을 먼저 설계를 한 후에 models.py를 정의합니다. localhost:8000/admin/ 페이지를 먼저 구현 합니다. </mark>
+
+   > 2-1. 구현하고자 하는 부분의 설계를 해야 DB Table 구상이 쉽습니다.<br>
+   > 각 Column의 Field를 구상합니다.<br>
+
+3. <mark> View 구성 </mark>
+   > ~중간에 모델을 상세하게 설정 하고, command를 추가하여 더미데이터를 넣는 등의 과정은 아래에서 확인 가능합니다.
 
 ---
 
@@ -113,7 +130,7 @@ $ python manage.py createsuperuser
 
 ---
 
-### 🎃 Django Applications
+### 🎃 Django Applications 구상
 
 #### "Divide and Conquer"
 
@@ -219,8 +236,6 @@ AUTH_USER_MODEL = "users.User"
 
 <br>
 
-
-
 - 이를 기초로 하여 `models.py` 코드를 작성해보겠습니다.
 
 ```py
@@ -308,9 +323,14 @@ class CustomUserAdmin(UserAdmin):
         ),
     )
 ```
+
+> **[list_display](https://wayhome25.github.io/django/2017/03/22/django-ep8-django-admin/)** > `list_display` 옵션 은 모델 인스턴스 필드명/속성명/함수명 뿐만 아니라, ModelAdmin 내 멤버 함수로도 지정이 가능하다.
+> 이 말은 즉 모델에서 Field를 지정해서 DB를 생성하지 않아도 admin 내에서 생성 가능하다는 말인가?
+
 ---
 
 #### 장고 추상화 도구 (Abstraction)
+
 [추상화](https://hyunalee.tistory.com/20)<br>
 Django Model을 구현하다보면 여러 테이블에 같은 형식의 필드가 있는 경우가 많습니다. 이럴때 사용하는게 Abstract Model(추상 모델) 입니다.
 추상 모델을 만들어 상속을 받습니다.
@@ -328,7 +348,7 @@ class CommonInfo(models.Model):
 
 class Studuent(CommonInfo):
     home_group = models.CharField(max_length=5)
-    
+
 ```
 
 ---
@@ -567,9 +587,8 @@ $ config > setting.py > third_party_apps 에 django_seed 를 추가합니다.
 > `objects.all()`은 위험합니다. 왜냐하면 DB에 있는 모든 데이터를 꺼내는 query이기 때문입니다. 만약 데이터가 수만개가 있고, 그 데이터 전부를 가져온다면 어떻게 될지..<br>
 > 따라서 limiting Querysets을 합니다. Queryset을 호출한다고 해서 바로 값이 출력되는 것은 아닙니다.
 
-
 ```py
-$ views.py 
+$ views.py
 def all_rooms(request):
     page = request.GET.get("page")
     room_list = models.Room.objects.all()
@@ -584,35 +603,24 @@ def all_rooms(request):
 ```
 
 ```html
-$ home.html
-{% extends "base.html" %}
+$ home.html {% extends "base.html" %} {% block page_name %} Home {% endblock
+page_name %} {% block content %} {% for room in rooms.object_list %}
+<h1>{{room.name}} / ${{room.price}}</h1>
+{% endfor %}
 
-{% block page_name %} 
-    Home 
-{% endblock page_name %} 
-
-{% block content %} 
-
-    {% for room in rooms.object_list %}
-        <h1>{{room.name}} / ${{room.price}}</h1>
-    {% endfor %} 
-    
-    <h5> 
-    {% if page is not 1%}
-        <a href="?page={{page|add:-1}}">Previous</a>
-    {% endif %}
-    Page {{rooms.number}} of {{rooms.paginator.num_pages}}
-    {% if not page == page_count %}
-        <a href="?page={{page|add:1}}">Next</a>
-    {% endif %}
-    </h5>
+<h5>
+  {% if page is not 1%}
+  <a href="?page={{page|add:-1}}">Previous</a>
+  {% endif %} Page {{rooms.number}} of {{rooms.paginator.num_pages}} {% if not
+  page == page_count %}
+  <a href="?page={{page|add:1}}">Next</a>
+  {% endif %}
+</h5>
 
 {% endblock content %}
-
 ```
+
 > 코드를 보게되면 views.py 에서 request 에서 "page" get 해옵니다. 이는 url에서 쿼리 부분을 읽어오는 건데요, `http://localhost:8001/?page=2` 여기서 ?page=2 이부분을 get 해오겠다는 겁니다. 저 url은 html파일 내에서 `<a href="?page">` 같은 식으로 되어있습니다. 해당 링크에 접근하면 장고 view는 get으로 쿼리를 읽어옵니다.
-
-
 
 ---
 

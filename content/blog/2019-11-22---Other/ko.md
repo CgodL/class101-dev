@@ -1,5 +1,5 @@
 ---
-title: '개발을 배우기전'
+title: '개발을 배우기 전'
 date: '2019-11-20T23:20:56'
 thumbnail: '/images/thumbnails/other.jpeg'
 author: 'channing'

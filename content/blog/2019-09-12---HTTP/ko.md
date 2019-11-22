@@ -120,6 +120,18 @@ POST is used to send data to a server to create/update a resource.
 - 상대적으로 XML보다 가볍습니다.
 - JSON 해석시 여러 종류의 라이브러리 지원합니다.
 
+---
+
+#### HTTP 2.0
+
+[HTTP 2.0](https://www.popit.kr/%EB%82%98%EB%A7%8C-%EB%AA%A8%EB%A5%B4%EA%B3%A0-%EC%9E%88%EB%8D%98-http2/)
+
+---
+
+[TCP/IP](https://brunch.co.kr/@wangho/6)
+
+---
+
 <hr />
 
 <center>
@@ -128,5 +140,6 @@ Reference <br>
 [HTTP](https://www.edwith.org/boostcourse-web/lecture/16661/) <br>
 [HTTP 완벽가이드](https://feel5ny.github.io/2019/08/18/HTTP_003_04/)<br>
 [HTTP 완벽가이드 책](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788966261208&orderClick=LEa&Kc=)
+[브라우저는 어떻게 문서를 보여줄까](https://medium.com/@pks2974/website%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%B3%B4%EC%97%AC%EC%A7%80%EA%B2%8C%EB%90%98%EB%8A%94-%EA%B1%B8%EA%B9%8C-1-108009d4bdb)
 
 </center>

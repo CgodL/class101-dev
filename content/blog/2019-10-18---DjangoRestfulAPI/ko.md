@@ -36,6 +36,8 @@ description: 'Django - 장고는 Django Software Foundation이 관리하는 파�
 
 ### Django Model
 
+[Model](https://brunch.co.kr/@ddangdol/1)
+
 > **Django** 에서 **Model**은 MVC패턴에서 Model 영역을 의미합니다. <br> 데이터를 DB에 저장하고 가공 하는 작업을 하며 데이터 서비스를 제공하는 기능을 담당합니다.
 
 Django의 Model은 각각의 Django App 안에 기본적으로 생성되는 models.py에 코드를 작성하여 정의합니다.<br> 클래스 형태로 정의하며, <b>하나의 모델 클래스는 DB에서 하나의 테이블에 해당됩니다.</b> <br>
@@ -98,13 +100,30 @@ admin.site.register(Post)
 
 ![django](./django.png)
 
+---
+
+<center>
+
+### REST API
+
+<mark>[REST](https://medium.com/@BennettGarner/build-your-first-rest-api-with-django-rest-framework-e394e39a482c)
+</mark>
+
+</center>
+<br>
+
+![rest](./rest.png)
+
+> REST APIs are so commonplace in software development, it’s an essential skill for a developer to know how they work. APIs are how applications communicate with one another or even within themselves.
+> In web development, many applications rely on REST APIs to allow the front end to talk to the back end. If you’re deploying a React application atop Django, for instance, you’ll need an API to allow React to consume information from the database.
+
 <hr />
 
 <center>
 
 Reference <br>
 [REST](https://medium.com/@BennettGarner/build-your-first-rest-api-with-django-rest-framework-e394e39a482c) <br>
-[Model](https://revidream.tistory.com/18)<br>
+[Model](https://brunch.co.kr/@ddangdol/1)<br>
 [DJANGO](https://docs.djangoproject.com/en/2.2/topics/db/models/)<br>
 
 </center>
