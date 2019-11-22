@@ -118,16 +118,15 @@ $ python manage.py createsuperuser
 #### "Divide and Conquer"
 
 - <b>Application is Group of Function.</b><br>
- > 장고는 여러 개의 어플리케이션으로 구성되어 있습니다.<br>
- > 장고를 효과적으로 사용하는 방법은 언제 어플리케이션을 만들고 만들지 않아야 하는지를 구별하는 것 입니다. <br>
- > 즉, 기능별 / 역할별 구분이 필요하며, 몇 개의 어플리케이션이 필요할지를 설계 해야합니다. <br>
- > <b>Airbnb</b>를 예로 들면, room 어플리케이션( 룸 수정, 삭제, 입력 ) 과 review 어플리케이션( 리뷰 입력, 수정, 삭제 )은 별도의 기능을 갖고 있는 것처럼요.
- > 기능별로 구분한 어플리케이션을 **config**에서 통합하여 장고 웹사이트를 구성합니다.
+  > 장고는 여러 개의 어플리케이션으로 구성되어 있습니다.<br>
+  > 장고를 효과적으로 사용하는 방법은 언제 어플리케이션을 만들고 만들지 않아야 하는지를 구별하는 것 입니다. <br>
+  > 즉, 기능별 / 역할별 구분이 필요하며, 몇 개의 어플리케이션이 필요할지를 설계 해야합니다. <br> > <b>Airbnb</b>를 예로 들면, room 어플리케이션( 룸 수정, 삭제, 입력 ) 과 review 어플리케이션( 리뷰 입력, 수정, 삭제 )은 별도의 기능을 갖고 있는 것처럼요.
+  > 기능별로 구분한 어플리케이션을 **config**에서 통합하여 장고 웹사이트를 구성합니다.
 
 ### 🎃 Create the Apps
 
 #### "We play by the rule of the framework"
->
+
 > 프레임워크는 정해진 규칙에 따라서 사용해야 합니다. 장고 역시 폴더 명이나 파일명을 수정해서는 안됩니다.( 생성은 가능합니다 ) <br>일례로 모델을 생성할때 `class Any(models.Model)` 처럼 생성하는데 Django 는 `models`를 읽고 Any라는 모델을 생성하는구나 라고 해석하여 Any가 DB에 저장되어야 한다고 알게 됩니다.
 
 <b>Divide and Conquer를 고려하여 각 기능을 고려하여 어플리케이션을 만들겠습니다.
@@ -439,6 +438,10 @@ startswith = User.objects.filter(username__startswith="yos")
   > `<QuerySet [<User: elt>, <User: channing>, <User: yosep>]>` <br>QuerySet은 Object의 List 입니다.
 - `set`
 
+---
+
+## <다시 정리하기>
+
 함수를 추가하여 어드민 페이지에 원하는 데이터를 더 추가하여 확인할 수 있습니다.
 related_name = "" room이 무엇을 갖고 있다 .
 프론트와 admin에서 쓰고싶은 함수는 model.py 에서 메서드로 구현한다.
@@ -446,6 +449,93 @@ related_name = "" room이 무엇을 갖고 있다 .
 파이썬 라이브러리를 사용하지 않는 이유는 Django 서버에서 인식 하기 위해서. 장고 케어
 from django.utils import timezone
 Media root config - settings - BASE_DIR
+
+---
+
+### 🎃Custom manage.py commands
+
+Django는 commands도 만들 수 있습니다.
+["BaseCommand"](https://docs.djangoproject.com/en/2.2/howto/custom-management-commands/)
+
+> commands를 왜 만들어야 하죠?
+
+![tree](./tree.png)
+
+> rooms application내에 commands 생성을 위한 폴더를 추가해줍니다. 내부 구조를 보게되면 rooms application 내부에 management 폴더를 생성하였고, 그 내부에 _init_.py 와 commands 또 내부에 _init_.py 와 loveyou.py 를 생성한걸 볼 수 있습니다.
+
+<b>원하는 기능을 구현할때는 항상 Django Docs를 참고합니다.</b>
+
+![command](./command1.png)
+
+> 장고 Docs 사용례 대로 생성 한뒤 해당 코드를 실행하면 위와 같이 나오는데요.
+> `--help` 명령어를 실행하게 되면 Test by Channing이 출력되고, optional arguments에 --times TIMES aloha 가 추가된걸 볼 수 있습니다!
+
+![command2](./command.png)
+
+> 장고 커맨드는 handle을 추가하라고 요구합니다. 이것 역시도 Docs에 나와있습니다.
+> 위 처럼 코드를 작성한뒤 명령어를 실행하면 원하는 값을 출력합니다.
+
+---
+
+### 🎃 seed_amenities command
+
+> commands 를 왜 만드는 걸까요? 지금까지 amenity 같이 중복으로 사용될 요소들을 admin page에서 수동적으로 생성 했었습니다. 이제는 이와 같은 일들을 코드로써 자동화 하기 위함 입니다. 또 dummy data를 효율적을 생성해줍니다. 일일히 클릭으로 생성할 필요가 없습니다! 즉, 로컬 서버에서 보여지는 화면이 딸랑 사진 하나에 데이터 하나 가 아닌 그럴싸한 사이트를 생성 할 수 있는 것 입니다.
+
+![ammenity](./ammenity.png)
+
+> 위에 연습했던 commands 를 활용하여 ammenity를 한번에 추가하는 코드를 작성했습니다! 이 코드로 admin 페이지에 ammenity가 추가 됩니다.<br> `objects.create()`에 대하여 <br> `stdout.write()`에 대하여
+
+> 이제 반복적으로 추가되는 부분에 대해서 같은 작업을 해줍니다.
+
+---
+
+### 🎃 django_seed
+
+[django_seed](https://github.com/Brobin/django-seed) 를 설치 해줍니다. django_seed는 faker의 기능을 갖고 있는데요. 생성한 model의 field를 보고 fake data를 만들어 채워주는 역할을 합니다.
+
+```py
+$ pipenv install django_seed
+
+$ config > setting.py > third_party_apps 에 django_seed 를 추가합니다.
+```
+
+> `lambda x` 는 JS에서 익명함수와 같습니다.
+
+---
+
+### 🎃 Introduction to Urls and Views
+
+- url 설계
+
+  > url을 `config urls.py`에 전부 정의하게 되면 너무 길어질 수 있기 때문에 각각의 어플리케이션에 url.py에 root를 정의해줘야 합니다.
+
+- `views.py`
+
+  > views에서 Http Request 와 Http Response를 처리합니다.
+  > template 을 redering 할 겁니다. <br>
+  > 구조를 생각해보겠습니다.
+
+  ```py
+  def all_rooms(request):
+    print(var(request))
+
+  # 위 처럼 요청을 출력 해보면, 내부에는 cookies, GET, WSGI, schema 등 수많은 데이터가 들어있습니다.
+  큰 구조는 웹 에서의 HTTP 요청과 응답 입니다.
+  ```
+
+<b>결국 요청을 받아서 응답을 한다 입니다.</b> <br>
+장고로 이해해보면, 사용자가 'blahblah.com/rooms' 와 같이 url에 접속하겠다 라고 서버에 요청을 할겁니다. ("/room" 가 서버에서 정의한 path가 될겁니다.) 그러면 장고는 `url.py` 에서 해당 path 가 정의되어 있는지를 볼겁니다. 존재한다면 path에 해당하는 화면을 렌더링 해줘야 겠죠? 장고는 `views.py`가 사용자에게 보여줄 화면을 http 응답으로 반환합니다. 여기서 단순하게 html 파일 수동적으로 작성해서 보여줄 수 도 있지만, 그건 매우 low level 이므로, 생성한 템플릿을 렌더링 하도록 합니다.
+
+![django](./django.png)
+
+프론트단 역시 장고로 만들것이기 때문에 html 파일을 활용하여 템플릿을 구성합니다.
+
+> 구조는 이렇습니다. html파일 하나에 페이지를 구현하면 코드가 엄청나게 길어집니다. 따라서 Divide Conquer 하여 코드를 구성합니다. 먼저 blueprint 가 될 base.html을 생성하고 거기서 또 html 내에서 나눠 질 수 있는 부분 header , footer 등을 모두 나누어 구성합니다.
+
+![temp](./template.png)
+
+> templates 라는 폴더를 생성한후 각 부분 을 나누어 생성합니다. <br>
+> 만든 html 파일을 사용하기 위해서는 extend 가 필요합니다. 그리고 장고는 html내에서 조건 문이나 반복문을 쓸수 있도록 하는 문법이 존재합니다. `{% %}` 나 `{{ }}` 등 입니다.
 
 ---
 
