@@ -3,7 +3,7 @@ title: 'DJANGO'
 date: '2019-10-18T23:04:56'
 thumbnail: '/images/thumbnails/django.png'
 author: 'channing'
-tags: ['Django Restful API', 'Django', 'Python']
+tags: ['Django Restful API', 'Django', 'Python', 'Django Rest API']
 description: 'Django - 장고는 Django Software Foundation이 관리하는 파이썬으로 작성된 오픈소스 웹 애플리케이션 프레임워크입니다.'
 ---
 
@@ -104,18 +104,104 @@ admin.site.register(Post)
 
 <center>
 
-### REST API
+### DJANGO REST API
 
-<mark>[REST](https://medium.com/@BennettGarner/build-your-first-rest-api-with-django-rest-framework-e394e39a482c)
+<mark>[REST](https://medium.com/@BennettGarner/build-your-first-rest-api-with-django-rest-framework-e394e39a482c) 를 번역한 글입니다. (오역 / 의역에 유의하세요)
 </mark>
 
 </center>
 <br>
 
+![django](./djan.png)
+
+장고 에서 REST API를 build 하는건 매우 쉽습니다.
+
+#### WHY REST API ?
+
+코드를 작성하기 전에 왜 API를 만드는 것이 중요한지 알아야 합니다. <b> REST API </b> 는 어플리케이션에 데이터를 제공하는 가장 표준화된 방법입니다. 어플리케이션은 원하는 대로 데이터를 사용할 수 있습니다. 또한 API는 다른 어플리케이션이 데이터를 변경할 수 있는 방법을 제공합니다.<br> REST API 요청에는 아래와 같이 몇가지 옵션이 존재합니다.
+
+- GET : 가장 보편적인 옵션으로, 사용자가 방문한 endpoint 와 사용자가 제공하는 매개변수를 기반으로 API 에서 일부 데이터를 반환 합니다.
+- POST : DB에 추가되는 새로운 레코드를 생성합니다.
+- PUT : Looks for a record at the given URI you provide. If it exists, update the existing record. If not, create a new record
+- DELETE : Deletes the record at the given URI
+- PATCH : Update individual fields of a record
+
+일반적으로, API는 데이터베이스에 대한 창 입니다. API 백엔드는 DB 쿼리 및 응답 포맷을 처리합니다. 사용자는 요청한 리소스에 대한 정적인 응답(일반적으로 JSON 형식) 을 받습니다.
+
+REST API는 소프트웨어 개발에서 매우 일반적이며 개발자가 작동 방식을 아는 데 필수적인 기술입니다
+
 ![rest](./rest.png)
 
-> REST APIs are so commonplace in software development, it’s an essential skill for a developer to know how they work. APIs are how applications communicate with one another or even within themselves.
-> In web development, many applications rely on REST APIs to allow the front end to talk to the back end. If you’re deploying a React application atop Django, for instance, you’ll need an API to allow React to consume information from the database.
+> A typical Django application that uses React as a front end. It needs an API to allow React to consume data from the database.
+> <br> [제 생각 입니다.] API를 통해 제공받는 데이터는 형식 도 타입도 다양합니다. binary data(그림, 소리 파일) / html(웹 페이지) / db data(Json/xml) 등이 있습니다. 구조를 보게 되면 클라이언트(프론트) 는 서버로 데이터를 요청 하는 데요, 이와 같은 데이터는 DB에 들어가 있게 됩니다. 결국 Client가 서버의 DB로 데이터를 요청하고 서버는 이에 대한 응답을 하는 구조가 됩니다. 그리고 이 과정은 API endpoint로 요청 과 응답을 하게 되구요. 여기서 REST Framework가 작동하게 되는겁니다.
+
+예를들어, 웹 개발에서 많은 응용 프로그램은 REST API를 사용하여 프런트 엔드가 백 엔드와 통신 할 수 있도록합니다. 만약 개발자인 당신이 장고 위에 리액트 어플리케이션을 배포 했다면,
+당신은 리액트가 DB의 정보를 사용할수 있도록 API가 필요합니다.
+
+테이블 형식 데이터베이스 값을 쿼리하고 JSON 또는 다른 형식으로 변환하는 프로세스를 serialization 이라고 합니다. API를 만든다고 할때 주요한 과제는 올바른 data serialization을 구현하는 것 입니다.
+
+---
+
+#### WHY DJANGO REST FRAMEWORK?
+
+Django REST Framework를 사용하는 가장 큰 이유는 바로 serialization이 매우 쉽기 때문입니다!
+장고에서는 파이썬을 사용해서 DB의 모델을 정의합니다. (장고 ORM은 위에서 설명했기에 넘어가겠습니다.)
+
+---
+
+#### To-do list to create a REST API in Django
+
+1. 장고 환결 설정을 합니다.
+2. Django ORM이 관리할 DB model을 생성합니다.
+3. Django REST Framework를 설정 합니다.
+4. 2번의 모델을 Serialize 합니다.
+5. Serialize data를 보기 위해 URI endpoints를 생성합니다.
+
+> 1,2 번의 과정은 생략하고 3번과정 부터 따라가겠습니다. <br> > [Serialize란](https://developer-channing.com/ko/blog/2019/11/08/channing)
+
+##### SET UP DJANGO REST FRAMEWORK
+
+우리는 엔드 포인트를 통해 데이터베이스의 데이터를 serialize 해야 합니다. 이를 위해서는, Django Rest Framework를 설치하고 사용해야 합니다.
+
+```py
+// REST FRAMEWORK 를 설치합니다.
+$ pip install djangorestframework
+```
+
+이제 장고에게 REST FRAMEWORK 를 설치했다고 말해줘야 합니다. 생성한 프로젝트의 settings.py에 아래와 같이 추가해줍니다.
+
+```py
+INSTALLED_APPS = [
+    # All your installed apps stay the same
+    ...
+    'rest_framework',
+]
+```
+
+##### SERIALIZE MODEL
+
+우리는 우리의 모델이 어떻게 데이터를 serialize해야 하는지를 REST Framework에 알려야 합니다.
+이를 위해서 `serializers.py` 파일을 생성합니다. 그리고 아래 코드와 같이 Import 해줍니다.
+
+```py
+# model을 Import 합니다.
+# REST Framework serializer를 Import 합니다.
+# Create a new class that links the Hero with its serializer
+
+# serializers.py
+from rest_framework import serializers
+
+from .models import Hero
+
+class HeroSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Hero
+        fields = ('name', 'alias')
+```
+
+<center>
+--- 번역중 ---
+</center>
 
 <hr />
 

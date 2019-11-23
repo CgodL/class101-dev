@@ -28,6 +28,17 @@ description: '운영체제 - 어떠한 프로그램 내에서, 특히 프로세�
 
 ---
 
+### Serializable 직렬화 란?
+
+직렬화(直列化) 또는 시리얼라이제이션(serialization)은 컴퓨터 과학의 데이터 스토리지 문맥에서 데이터 구조나 오브젝트 상태를 동일하거나 다른 컴퓨터 환경에 저장(이를테면 파일이나 메모리 버퍼에서, 또는 네트워크 연결 링크 간 전송)하고 나중에 재구성할 수 있는 포맷으로 변환하는 과정이다.[[wiki]](https://ko.wikipedia.org/wiki/%EC%A7%81%EB%A0%AC%ED%99%94)
+
+설명이 매우 어렵습니다.. <br>
+
+[Serializable](https://hyeonstorage.tistory.com/252)<br>
+[Django Serialize](https://leesoo7595.github.io/2018/07/31/serialization/)
+
+---
+
 <center>
 Reference <br>
 

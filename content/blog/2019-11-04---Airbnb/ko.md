@@ -327,6 +327,11 @@ class CustomUserAdmin(UserAdmin):
 > **[list_display](https://wayhome25.github.io/django/2017/03/22/django-ep8-django-admin/)** > `list_display` 옵션 은 모델 인스턴스 필드명/속성명/함수명 뿐만 아니라, ModelAdmin 내 멤버 함수로도 지정이 가능하다.
 > 이 말은 즉 모델에서 Field를 지정해서 DB를 생성하지 않아도 admin 내에서 생성 가능하다는 말인가?
 
+> 컬럼 자체를 장고 유저(프로그래머)가 사용하기 편하게 그냥 `list_display`했을 시에 해당 컬럼이 생기도록 만들어 놓은 거야. `list_display`를 사용하면 장고가 너의 sqlite에다가 컬럼을
+> 우리대신 만든거지 장고라는 프레임워크를 쓰지 않았다면 우리가 직접해야하는 일을 처리해준거야<br> by [Baby Tiger](https://babytiger.netlify.com/)
+
+> 그렇단 말은, DB에서 주요하게 Field를 관리해야할 부분은 Models에 프로그래머 가 관리 해주고 이외의 값에 대해서는 장고에게 맡긴다 라고 이해 해야겠습니다.
+
 ---
 
 #### 장고 추상화 도구 (Abstraction)
