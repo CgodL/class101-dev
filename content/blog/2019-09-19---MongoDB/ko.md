@@ -3,13 +3,21 @@ title: 'MONGO DB - NoSQL'
 date: '2019-09-19T10:20:56'
 thumbnail: '/images/thumbnails/mo1.jpeg'
 author: 'channing'
-tags: ['Sql', 'Database', 'MySQL', 'MongoDB', 'NoSQL']
+tags: ['Sql', 'Database', 'MySQL', 'MongoDB', 'NoSQL', 'Mongoose']
 description: 'MongoDB 기본'
 ---
 
 ![m](./mo1.jpeg)
 
 ### Mongo DB
+
+---
+
+> - 유동적 스키마 => 고정된 컬럼이 없다 ? <br>
+> - 기존 데이터는 새로 필요한 데이터의 영향을 받지 않습니다. <br>
+> - 분산처리를 위한 확장이 용이하다.<br>
+> - 몽고 DB에서 document 는 RDBMS 에서 record와 비슷합니다. JSON형태로 저장합니다.
+> - RDBMS는 모두 같은 스키마를 가져야 합니다. 하지만 MongoDB는 아닙니다.
 
 몽고디비는 기존의 **관계형 데이터 베이스**와 달리 **SQL**을 사용하지 않습니다.
 따라서 데이터 조회 방식도 SQL과 다릅니다. <br> 하지만 데이터를 저장하거나 조회 하는 방법을 따로 제공하기 때문에 몇 가지 사용법만 알아두면 쉽게 사용할 수 있습니다.
@@ -27,7 +35,7 @@ description: 'MongoDB 기본'
 ```js
 {
     "_id": ObjectId("5099803df3f4948bd2f98391"), // 12bytes의 hexadecimal 값으로서, 각 document의 유일함(uniqueness)을 제공합니다.
-    "username": "aengLee",
+    "username": "channing",
     "name": { first: "C.H", last: "LEE" }
 }
 ```
@@ -39,9 +47,11 @@ Document 동적( dynamic )의 schema 를 갖고있습니다. 같은 Collection �
 - Schema-less ( Schema가 없다. 같은 Collection 안에 있을지라도 다른 Schema를 가지고 있을 수 있다 )
 - 복잡한 JOIN 이 없다.
 
----
+<br>
 
 ### Data Modelling
+
+---
 
 - 예제
 
@@ -51,13 +61,23 @@ Document 동적( dynamic )의 schema 를 갖고있습니다. 같은 Collection �
 <br>
 <br>
 
----
+### MongoDB 와 RDBMS 비교
 
-#### MongoDB 와 RDBMS 비교
+---
 
 <br>
 
 ![mongosql](./mongo.png)
+
+---
+
+### Mongoose
+
+<b>Mongoose</b> 는 elegant mongodb object modeling for node.js.
+|| Node.js 전용 MongoDB기반 ODM(Object Document Mapping) 입니다. <br>( ODM 은 객체와 문서를 매칭 한다는 뜻 입니다.)<br>
+Object는 자바스크립트 객체 이고 Document는 몽고 DB의 문서 입니다. 문서를 DB에서 조회할 때 자바스크립트 객체로 바꿔주는 역할이라고 생각하시면 됩니다.
+
+---
 
 <!--
 <center>
@@ -126,5 +146,8 @@ docker run -d -p 27017-27019:27017-27019 --name (mongodb) mongo
 
 Reference <br>
 [MongoDB](https://docs.mongodb.com/manual/core/databases-and-collections/)<br>
+[mongo](https://velopert.com/mongodb-tutorial-list)<br>
+[mongoose](https://mongoosejs.com/)<br>
+[zerocho-mongoose](https://www.zerocho.com/category/MongoDB/post/5963b908cebb5e001834680e)
 
 </center>

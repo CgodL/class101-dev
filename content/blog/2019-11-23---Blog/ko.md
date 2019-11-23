@@ -21,12 +21,25 @@ description: '리액트를 다루는 기술 - 블로그 만들기'
 
 #### CONTENT
 
+### 서버
+
 1.  프로젝트 생성<br>
     > `yarn init` <br>
-2.  먼저 서버를 구현합니다.
+2.  먼저 Koa로 서버를 구현합니다.
     > Koa로 서버를 구현합니다.<br> `yarn add koa` <br>
 3.  lint 세팅을 합니다.
     > `yarn global add eslint`
+4.  라우터 세팅
+5.  REST API를 설계합니다.
+6.  라우터 모듈화
+    > 유지 보수
+7.  설계한 API 테스트를 위해 Postman을 사용합니다.
+8.  koa-bodyparser를 설치합니다.
+9.  컨트롤러 생성
+10. MongoDB 연결
+11. mongoose and dotenv 설치
+    > `yarn add mongoose dotenv`
+12. 스키마 생성
 
 ---
 

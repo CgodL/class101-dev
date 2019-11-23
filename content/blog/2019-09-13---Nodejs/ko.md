@@ -3,7 +3,7 @@ title: 'NODE.JS'
 date: '2019-09-13T11:20:56'
 thumbnail: '/images/thumbnails/n.png'
 author: 'channing'
-tags: ['Node.js', 'Server', 'Node', 'JavaScript']
+tags: ['Node.js', 'Server', 'Node.js', 'JavaScript']
 description: 'NODE.JS를 통한 서버 구축 - 기본'
 ---
 

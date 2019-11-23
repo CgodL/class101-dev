@@ -3,7 +3,7 @@ title: 'EXPRESS'
 date: '2019-10-24T20:45:56'
 thumbnail: '/images/thumbnails/ex.png'
 author: 'channing'
-tags: ['Node.js', 'Server', 'Node', 'Express', 'Javascript']
+tags: ['Node.js', 'Server', 'Node.js', 'Express', 'Javascript']
 description: 'Express - Express 는 Node.js를 위한 웹 프레임워크 입니다. 웹 애플리케이션, API 개발을 위해 설계되었습니다.'
 ---
 

@@ -3,7 +3,7 @@ title: 'Koa'
 date: '2019-11-19T17:20:56'
 thumbnail: '/images/thumbnails/koa.jpeg'
 author: 'channing'
-tags: ['Koa', 'Node.js', 'Javascript', 'Server', 'Express.js']
+tags: ['Koa', 'Node.js', 'Javascript', 'Server', 'Express']
 description: 'Koa로 서버 만들기'
 ---
 
@@ -195,12 +195,25 @@ app.use(router.routes()).use(router.allowedMethods());
 
 > router 인스턴스를 만들고 왜 app 인스턴스에 등록하나요?
 > <br>[개인적 생각] 제가 생각하는 작동 원리 입니다. <br>
-> Koa 또는 Express 는 프레임워크 입니다. 이 녀석들이 요구하는 규칙 같은게 존재합니다. <br>Koa / Express 는 미들웨어를 읽습니다. 미들웨어는 `app.use()`와 같이 만듭니다. 우리는 Third party로 router를 설치했습니다. <br> Koa 는 router를 읽지 못합니다. 이를 읽게 하기 위해서 Koa를 상속받은 app 미들웨어에 설정한 router를 등록합니다.
+> Koa 또는 Express 는 프레임워크 입니다. 이 녀석들이 요구하는 규칙 같은게 존재합니다. <br>Koa / Express 는 미들웨어를 읽습니다. 미들웨어는 `app.use()`와 같이 만듭니다. 우리는 Third party로 router를 설치했습니다. <br> Koa 는 router를 읽지 못합니다. 이를 읽게 하기 위해서 Koa를 상속받은 app 미들웨어에 설정한 router를 등록합니다.<br> <br> 또는 Koa 서버 자체를 이용하기 위해선 Koa 위에서 작동해야 하고 이를 위해서는 Koa를 상속 받아야하는게 맞으니까 router는 Koa를 상속받은 녀석이 아니니까 app에 등록하여 사용한다 가 맞을까요
 
 ### Route Query
 
-라우트에는 첫번째 파라미터로 path를 넘깁니다. path를 설정할 때는 /page/:what 형식으로 콜론 을 이용하여 라우트 path를 설정합니다.
-Query 는 URL 에서 ? 기준 뒤 에 해당하는 부분입니다
+라우트에는 첫번째 파라미터로 path를 넘깁니다.<br>
+
+- path를 설정할 때는 /page/:what 형식으로 콜론 을 이용하여 라우트 path를 설정합니다.
+
+* query 파라미터가 들어갈 수 있게 처리합니다.
+
+> query 는 URL 에서 ? 기준 뒤 에 해당하는 부분입니다
+
+---
+
+### REST API
+
+---
+
+### 컨트롤러 와 Koa-bodyparser
 
 ---
 
