@@ -7,6 +7,8 @@ tags: ['React', 'JavaScript', '리액트를 다루는 기술', 'Koa', 'MongoDB']
 description: '리액트를 다루는 기술 - 블로그 만들기'
 ---
 
+![blog](./whatisblog.png)
+
 <center>
 
 [리액트를 다루는 기술](https://kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791160505238&orderClick=JAj)의 블로그 만들기 내용을 따라해보겠습니다.
@@ -14,6 +16,8 @@ description: '리액트를 다루는 기술 - 블로그 만들기'
 </center>
 
 ### Blog 만들기
+
+> 블로그를 만들기 위해서 무엇이 필요할까요 ~ ?
 
 #### CONTENT
 
