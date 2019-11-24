@@ -47,6 +47,67 @@ css 파일 이나 이미지 / 폰트 파일은 모두 src 폴더 밑에서 impor
 
 ---
 
+### 리액트 작동원리
+
+CRA로 리액트 프로젝트를 생성하면 초기에 `src 폴더` 에 파일이 몇 개 존재하고, `public 폴더`에도 파일이 존재합니다. `index.js / index.html` 파일을 제외하고는 삭제해도 상관 없습니다. 대략적인 작동원리는 위에서 짧게말한 Virtual DOM이 변화를 감지해서 그 부분 부분 만을 업데이트 하는 건데요, 이를 파일로 보게되면 아래와 같습니다.
+
+src의 `index.js`파일에는 아래와 같은 코드가 작성되어있습니다.<br>
+`ReactDOM.render(<App />, document.getElementById("root"));`
+이는 ReactDOM이 html의 'root' Id에 <App> 파일을 렌더링 한다는 뜻 입니다.
+
+그러면 다음으로 public폴더의 `index.html`을 보겠습니다.
+
+```js
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
+
+```
+
+주석을 다 지우고 나면 위와 같은 html 구조가 보일겁니다. `body 태그`를 보게 되면, `<div id="root">` 가 보입니다.<br> 바로 **App** 파일이 렌더링 되는 부분이 이곳 입니다.
+리액트는 html 해당 태그에 자동으로 렌더링을 해줍니다.
+
+#### COMPONENT
+
+리액트는 컴포넌트로 이루어져 있습니다. CRA로 생성한뒤, 불필요한 부분을 제거한 `App.js` 내부를 살펴보면 코드가 아래와 같습니다.<br> `App()`이 컴포넌트가 됩니다.
+
+```js
+import React from 'react';
+
+function App() {
+  return <div className="App">Hello</div>;
+}
+
+export default App;
+```
+
+리액트는 컴포넌트를 생성해서 프론트단을 구현하는데요, 우리가 생성한 컴포넌트는 아래와 같이 `index.html`에 들어가게 됩니다.
+
+![r](./re.png)
+
+Virtual DOM으로 작동하기 때문에 실제 HTML 파일은 변화가 없습니다.
+사진에서 볼 수 있듯이 `<div id="root">` 내부에 우리가 App() 컴포넌트에 return내부에 정의한 태그가 그대로 들어가는걸 볼 수 있습니다!
+
+---
+
 ### 빌드
 
 ---

@@ -241,3 +241,19 @@ emoji: ☑️ ✓ ✕ 🆇 ❎ ✖︎ ⭐️ 💫 ⚡️ 🌞 🌛 🌝 🌚 �
 Koa 서버 만들기 중 / 장고가 편하긴 한 것 같기도 하고
 
 ---
+
+# 2019.11.24 일요일
+
+</center>
+
+## 😇TIL
+
+## 😭TODO
+
+### 리액트 노마드!
+
+> [리액트 노마드](https://academy.nomadcoders.co/courses/216871/lectures/10881270)
+
+## 🥰COMMENT
+
+---
