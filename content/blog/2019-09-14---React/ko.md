@@ -12,7 +12,6 @@ description: 'React 기본'
 
 <center>
 
-[실전 리액트 프로그래밍](http://book.interpark.com/product/BookDisplay.do?_method=detail&sc.prdNo=308722586&gclid=Cj0KCQiAq97uBRCwARIsADTziyYXgPG4TOcakdMytOcXHMRPm0vFapky32IvMRayJaKomTp8-GYsERYaAjpnEALw_wcB)을 정리한 글 입니다.
 [2019.11.23 토요일 ~ 수정 중]
 
 </center>
@@ -49,7 +48,7 @@ css 파일 이나 이미지 / 폰트 파일은 모두 src 폴더 밑에서 impor
 
 ### 리액트 작동원리
 
-CRA로 리액트 프로젝트를 생성하면 초기에 `src 폴더` 에 파일이 몇 개 존재하고, `public 폴더`에도 파일이 존재합니다. `index.js / index.html` 파일을 제외하고는 삭제해도 상관 없습니다. 대략적인 작동원리는 위에서 짧게말한 Virtual DOM이 변화를 감지해서 그 부분 부분 만을 업데이트 하는 건데요, 이를 파일로 보게되면 아래와 같습니다.
+CRA로 리액트 프로젝트를 생성하면 초기에 `src 폴더` 에 파일이 몇 개 존재하고, `public 폴더`에도 파일이 존재합니다. `index.js / index.html` 파일을 제외하고는 삭제해도 상관 없습니다. 대략적인 작동원리는 위에서 짧게 말한 Virtual DOM이 변화를 감지해서 그 부분 부분 만을 업데이트 하는 건데요, 이를 파일로 보게되면 아래와 같습니다.
 
 src의 `index.js`파일에는 아래와 같은 코드가 작성되어있습니다.<br>
 `ReactDOM.render(<App />, document.getElementById("root"));`
@@ -105,6 +104,8 @@ export default App;
 
 Virtual DOM으로 작동하기 때문에 실제 HTML 파일은 변화가 없습니다.
 사진에서 볼 수 있듯이 `<div id="root">` 내부에 우리가 App() 컴포넌트에 return내부에 정의한 태그가 그대로 들어가는걸 볼 수 있습니다!
+
+그런데 React 를 보면 문법이 조금 특이합니다. `<App />` 이라던가 `{ }` 내부에 변수 등을 넘긴다던가 합니다. 이런 문법을 **JSX**라고 하는데요.<br> Javascript와 HTML을 융합해주는 겁니다.
 
 ---
 
@@ -188,7 +189,8 @@ export default TodoList;
 <center>
 
 Reference <br>
-[react](https://ko.reactjs.org/docs/react-component.html)
-<br>
+[react](https://ko.reactjs.org/docs/react-component.html)<br>
+[실전 리액트 프로그래밍](http://book.interpark.com/product/BookDisplay.do?_method=detail&sc.prdNo=308722586&gclid=Cj0KCQiAq97uBRCwARIsADTziyYXgPG4TOcakdMytOcXHMRPm0vFapky32IvMRayJaKomTp8-GYsERYaAjpnEALw_wcB)<br>
+[노마드](https://academy.nomadcoders.co/courses/216871/lectures/10881288)
 
 </center>
