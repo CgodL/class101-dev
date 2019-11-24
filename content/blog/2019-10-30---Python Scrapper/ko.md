@@ -322,6 +322,7 @@ def save_to_file(jobs):
 <center>
 
 Reference <br>
+[Nomad](https://academy.nomadcoders.co/courses/enrolled/681401)<br>
 [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) <br>
 
 </center>

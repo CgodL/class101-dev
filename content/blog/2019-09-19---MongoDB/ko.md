@@ -69,13 +69,60 @@ Document 동적( dynamic )의 schema 를 갖고있습니다. 같은 Collection �
 
 ![mongosql](./mongo.png)
 
----
+<br>
 
 ### Mongoose
 
+---
+
 <b>Mongoose</b> 는 elegant mongodb object modeling for node.js.
-|| Node.js 전용 MongoDB기반 ODM(Object Document Mapping) 입니다. <br>( ODM 은 객체와 문서를 매칭 한다는 뜻 입니다.)<br>
+|| **Node.js 전용** MongoDB기반 ODM(Object Document Mapping) 입니다. <br>( ODM 은 객체와 문서를 매칭 한다는 뜻 입니다.)<br>
 Object는 자바스크립트 객체 이고 Document는 몽고 DB의 문서 입니다. 문서를 DB에서 조회할 때 자바스크립트 객체로 바꿔주는 역할이라고 생각하시면 됩니다.
+
+> 그냥 한마디로 NoSQL인 MongoDB를 SQL처럼 쓰고싶으니 mongoose를 활용해서 RDBMS처럼 테이블 주고 데이터 관리하고 싶다 인것 같다.
+
+#### 스키마 란 ?
+
+> 데이터베이스를 구성하는 레코드의 크기, 키(key)의 정의, 레코드와 레코드의 관계, 검색 방법 등을 정의한 것. <br>
+
+> 데이터베이스 스키마(database schema)는 데이터베이스에서 자료의 구조, 자료의 표현 방법, 자료 간의 관계를 형식 언어로 정의한 구조이다. 데이터베이스 관리 시스템(DBMS)이 주어진 설정에 따라 데이터베이스 스키마를 생성하며, 데이터베이스 사용자가 자료를 저장, 조회, 삭제, 변경할 때 DBMS는 자신이 생성한 데이터베이스 스키마를 참조하여 명령을 수행한다. <br>
+
+> 데이터베이스의 구조와 제약조건에 관하여 전반적인 명세를 기술한 것. <br>
+> 즉, DB에 어떤 구조로 데이터가 저장되는가를 나타내는 데이터베이스 구조를 스키마라고 합니다.
+
+---
+
+#### Defining your schema
+
+[mongoose docs](https://mongoosejs.com/docs/guide.html)
+
+```sql
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+var blogSchema = new Schema({
+  title: String,
+  author: String,
+  body: String,
+  comments: [{ body: String, date: Date }],
+  date: { type: Date, default: Date.now },
+  hidden: Boolean,
+  meta: {
+    votes: Number,
+    favs: Number
+  }
+})
+```
+
+각 Key 값이 필드의 이름이 됩니다. value는 자료형(데이터 타입)을 정의 해준겁니다. 생성한 스키마를 토대로 모델을 생성합니다.
+
+#### Creating a model
+
+정의한 스키마를 사용하기 위해서 우리는 위에서 만든 blogSchema를 Model로 convert 해야합니다. <br>이를 위해서 `mongoose.model(modelName, schema)` 형태로 넘겨줍니다.
+
+```sql
+var Blog = mongoose.model('Blog', blogSchema);
+```
 
 ---
 
@@ -148,6 +195,8 @@ Reference <br>
 [MongoDB](https://docs.mongodb.com/manual/core/databases-and-collections/)<br>
 [mongo](https://velopert.com/mongodb-tutorial-list)<br>
 [mongoose](https://mongoosejs.com/)<br>
-[zerocho-mongoose](https://www.zerocho.com/category/MongoDB/post/5963b908cebb5e001834680e)
+[velopert-mongoose](https://velopert.com/594)<br>
+[zerocho-mongoose](https://www.zerocho.com/category/MongoDB/post/5963b908cebb5e001834680e)<br>
+[schema](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_%EC%8A%A4%ED%82%A4%EB%A7%88)
 
 </center>

@@ -213,7 +213,12 @@ emoji: ☑️ ✓ ✕ 🆇 ❎ ✖︎ ⭐️ 💫 ⚡️ 🌞 🌛 🌝 🌚 �
 ## 😇TIL
 
 > ~~번역 완료~~<br>
-> Serialize 개념 정리
+> Serialize 개념 정리 <br>
+> React + Koa 블로그 만들기 진행 중 <br>
+> mongoose 진행 중<br>
+> 코드 자체보다 로직이 어떻게 되는지를 이해하는데에 힘쓰는 중<br>
+> 코드 스플리팅 학습<br>
+> 블로그 코드 스플리팅 필요 (블로그 첫 페이지 대기 시간이 긴 이유 / 리액트 특성인점도 있지만)
 
 ## 😭TODO
 
@@ -223,7 +228,7 @@ emoji: ☑️ ✓ ✕ 🆇 ❎ ✖︎ ⭐️ 💫 ⚡️ 🌞 🌛 🌝 🌚 �
 
 ### 번역
 
-> [REST](https://medium.com/@BennettGarner/build-your-first-rest-api-with-django-rest-framework-e394e39a482c) 번역하기
+> ~~[REST](https://medium.com/@BennettGarner/build-your-first-rest-api-with-django-rest-framework-e394e39a482c) 번역하기~~
 
 ### 블로그 CSS
 
@@ -232,5 +237,7 @@ emoji: ☑️ ✓ ✕ 🆇 ❎ ✖︎ ⭐️ 💫 ⚡️ 🌞 🌛 🌝 🌚 �
 ### 리액트 책
 
 ## 🥰COMMENT
+
+Koa 서버 만들기 중 / 장고가 편하긴 한 것 같기도 하고
 
 ---
