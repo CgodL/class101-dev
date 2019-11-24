@@ -73,7 +73,7 @@ const PostTemplate: React.FC<Props & RouteComponentProps> = props => {
     location: { href, pathname },
   } = props;
 
-
+  { console.log('slug', slug, parse(tableOfContents)._owner) }
   return (
     <Layout>
       <SEO
@@ -99,7 +99,7 @@ const PostTemplate: React.FC<Props & RouteComponentProps> = props => {
               </PostHeader>
 
 
-              {tableOfContents && <PostTOC>{parse(tableOfContents.split(slug).join(''), options)}</PostTOC>}
+              {tableOfContents && <PostTOC>{parse(tableOfContents, options)}</PostTOC>}
 
 
               <PostWrapper className="markdown-body">{parse(html, options)}</PostWrapper>

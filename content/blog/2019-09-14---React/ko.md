@@ -4,10 +4,15 @@ date: '2019-09-14T17:20:56'
 thumbnail: '/images/thumbnails/r.png'
 author: 'channing'
 tags: ['React', 'JavaScript']
-description: 'React 기본'
+description: 'React Basic'
 ---
 
 ![r](./r.png)
+
+<!--
+목차<br>
+[1.REACT](#REACT)<br>
+[2.리액트를 사용하는 이유](#리액트-를-사용하는-이유) -->
 <br>
 
 <center>
@@ -19,7 +24,9 @@ description: 'React 기본'
 
 ## REACT
 
-리액트는 페이스북에서 개발하고 관리하는 UI 라이브러리 입니다. 라이브러리 이기 때문에 전반적인 시스템을 개발자가 직접 구축해야 합니다.
+리액트는 페이스북에서 개발하고 관리하는 <b>UI 라이브러리</b> 입니다. 라이브러리 이기 때문에 전반적인 시스템을 개발자가 직접 구축해야 합니다.
+
+> 라이브러리와 프레임워크의 차이가 궁금하시다면 [라이브러리 / 프레임워크](https://developer-channing.com/ko/blog/2019/11/07/channing)
 
 초심자에게는 진입장벽이 높기 때문에 CRA 가 존재합니다.
 CRA (create-react-app)는 여러개의 패키지를 조합해서 자동으로 리액트 개발환경을 구축 해줍니다.

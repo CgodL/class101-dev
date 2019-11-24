@@ -248,11 +248,14 @@ Koa 서버 만들기 중 / 장고가 편하긴 한 것 같기도 하고
 
 ## 😇TIL
 
+> [리액트 노마드](https://academy.nomadcoders.co/courses/216871/lectures/10881270)
+> 리액트 다시 정리 중 <br>
+> DB Modeling 도서관 : RESTful API / 스키마 다시 짜보는 중
+> Mongoose!
+
 ## 😭TODO
 
 ### 리액트 노마드!
-
-> [리액트 노마드](https://academy.nomadcoders.co/courses/216871/lectures/10881270)
 
 ## 🥰COMMENT
 
