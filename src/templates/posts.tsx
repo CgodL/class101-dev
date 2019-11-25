@@ -25,7 +25,6 @@ interface Props {
     currentPage: number;
     limit: number;
     skip: number;
-    language: string;
   };
 }
 
@@ -76,7 +75,7 @@ const PostsTemplate: React.FC<RouteComponentProps & Props> = props => {
 export default PostsTemplate;
 
 export const pageQuery = graphql`
-  query PostsTemplateQuery($skip: Int!, $limit: Int!, $language: String!) {
+  query PostsTemplateQuery($skip: Int!, $limit: Int!) {
     site {
       siteMetadata {
         title
@@ -87,14 +86,12 @@ export const pageQuery = graphql`
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip
-      filter: { fields: { language: { eq: $language } } }
     ) {
       edges {
         node {
           excerpt(pruneLength: 500, truncate: true)
           fields {
             slug
-            language
           }
           frontmatter {
             date(formatString: "YYYY-MM-DD")

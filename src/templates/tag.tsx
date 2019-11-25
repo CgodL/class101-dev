@@ -58,11 +58,11 @@ const TagTemplate: React.FC<Props> = props => {
 export default TagTemplate;
 
 export const pageQuery = graphql`
-  query($tag: String, $language: String!) {
+  query($tag: String) {
     allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } }, fields: { language: { eq: $language } } }
+      filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
       totalCount
       edges {
@@ -70,7 +70,6 @@ export const pageQuery = graphql`
           excerpt(pruneLength: 300, truncate: true)
           fields {
             slug
-            language
           }
           frontmatter {
             date(formatString: "YYYY-MM-DD")

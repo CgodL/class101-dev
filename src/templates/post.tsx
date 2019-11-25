@@ -99,7 +99,7 @@ const PostTemplate: React.FC<Props & RouteComponentProps> = props => {
               </PostHeader>
 
 
-              {tableOfContents && <PostTOC>{parse(tableOfContents.split(slug).join(''), options)}</PostTOC>}
+              {tableOfContents && <PostTOC>{parse(tableOfContents)}</PostTOC>}
 
 
               <PostWrapper className="markdown-body">{parse(html, options)}</PostWrapper>
@@ -149,7 +149,7 @@ const PostTemplate: React.FC<Props & RouteComponentProps> = props => {
 export default PostTemplate;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!, $language: String!) {
+  query BlogPostBySlug($slug: String!) {
     site {
       siteMetadata {
         title
@@ -157,14 +157,13 @@ export const pageQuery = graphql`
         siteUrl
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug }, language: { eq: $language } }) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       tableOfContents
       excerpt(pruneLength: 300, truncate: true)
       html
       fields {
         slug
-        language
       }
       frontmatter {
         title

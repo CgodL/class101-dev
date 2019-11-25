@@ -12,7 +12,7 @@ interface Props {
 const LinkWithLang: React.FC<Props> = props => {
   const { i18n } = useTranslation();
   const { to, children, className } = props;
-  const path = to.startsWith('/') ? `/${i18n.language}${to}` : `/${i18n.language}/${to}`;
+  const path = to.startsWith('/') ? `/${to}` : `/${to}`;
 
   return <Link to={path} className={className}>
     {children}

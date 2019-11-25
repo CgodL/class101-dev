@@ -40,9 +40,9 @@ const Header: React.FC = () => {
             <NavDropdown.Divider />
             <NavDropdown.Item href="https://github.com/CgodL">G I T H U B</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href=" https://developer-channing.com/ko/authors/">R E S U M E</NavDropdown.Item>
+            <NavDropdown.Item href=" https://developer-channing.com/authors/">R E S U M E</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="http://developer-channing.com/ko/tags">T A G S</NavDropdown.Item>
+            <NavDropdown.Item href="http://developer-channing.com/tags">T A G S</NavDropdown.Item>
 
           </NavDropdown>
         </Nav>
