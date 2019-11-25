@@ -83,6 +83,9 @@ const PostTemplate: React.FC<Props & RouteComponentProps> = props => {
         author={author}
         pathname={pathname}
       />
+
+      {tableOfContents && <PostTOC>{parse(tableOfContents)}</PostTOC>}
+
       <Grid>
         <Row>
           <Col>
@@ -99,7 +102,6 @@ const PostTemplate: React.FC<Props & RouteComponentProps> = props => {
               </PostHeader>
 
 
-              {tableOfContents && <PostTOC>{parse(tableOfContents)}</PostTOC>}
 
 
               <PostWrapper className="markdown-body">{parse(html, options)}</PostWrapper>
@@ -198,12 +200,24 @@ const PostDate = styled(Body2)`
   margin-bottom: 16px;
 `;
 
+
 const PostTOC = styled.div`
-  ${TextStyles.body2};
+  ${TextStyles.body2};  
+  border-left: 0.5px solid;
+  border-left-color: #DAE3F0; 
+  padding-left: 14px;
+  width: 20%;
+  position: sticky;
+  top: 0px;
+  overflow: auto;
   margin: 16px 0;
+  height: 100%;
+  float: right;
   padding: 16px 0;
   line-height: 26px;
-  border: #fbeef1 solid 2px;
+  top: 30px;
+  position: sticky;
+  overflow: auto;
   a {
     color: #696969;
     text-decoration: none;
@@ -214,8 +228,8 @@ const PostTOC = styled.div`
   ul,
   ol {
     margin: 0 0 0 8px;
-    // color: #fbeef1  
-    // list-style-type: decimal;
+    color: #fbeef1  
+    list-style-type: decimal;
   }
   p {
     margin: 0;
