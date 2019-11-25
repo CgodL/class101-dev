@@ -1,11 +1,13 @@
 ---
 title: 'AWS S3'
 date: '2019-10-10T17:22:56'
-thumbnail: '/images/thumbnails/rec.png'
+thumbnail: '/images/thumbnails/s3.jpg'
 author: 'channing'
 tags: ['AWS', 'Hosting', 'AWS S3', '정적 호스팅']
 description: 'AWS S3 정적 호스팅'
 ---
+
+![s3](./S3.jpg)
 
 <hr />
 

@@ -9,7 +9,7 @@ description: 'GraphQL 개념 과 특징 - GraphQL은 페이스북에서 만든 �
 
 ![gq](./apo.png)
 
-### GraphQL
+**GraphQL**
 
 ---
 

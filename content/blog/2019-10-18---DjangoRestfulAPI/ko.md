@@ -149,7 +149,7 @@ Django REST Framework를 사용하는 가장 큰 이유는 바로 serialization�
 
 ---
 
-#### To-do list to create a REST API in Django
+### To-do list to create a REST API in Django
 
 1. 장고 환결 설정을 합니다.
 2. Django ORM이 관리할 DB model을 생성합니다.
@@ -159,7 +159,7 @@ Django REST Framework를 사용하는 가장 큰 이유는 바로 serialization�
 
 > 1,2 번의 과정은 생략하고 3번과정 부터 따라가겠습니다. <br> > [Serialize란](https://developer-channing.com/ko/blog/2019/11/08/channing)
 
-##### SET UP DJANGO REST FRAMEWORK
+#### SET UP DJANGO REST FRAMEWORK
 
 우리는 엔드 포인트를 통해 데이터베이스의 데이터를 serialize 해야 합니다. 이를 위해서는, Django Rest Framework를 설치하고 사용해야 합니다.
 
@@ -178,7 +178,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-##### SERIALIZE MODEL
+#### SERIALIZE MODEL
 
 우리는 우리의 모델이 어떻게 데이터를 serialize해야 하는지를 REST Framework에 알려야 합니다.
 이를 위해서 `serializers.py` 파일을 생성합니다. 그리고 아래 코드와 같이 Import 해줍니다.

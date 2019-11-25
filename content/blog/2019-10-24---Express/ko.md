@@ -17,7 +17,9 @@ description: 'Express - Express 는 Node.js를 위한 웹 프레임워크 입니
 </center>
 <br>
 
-## Express란?
+**Express란?**
+
+---
 
 <b>[Express.js](https://ko.wikipedia.org/wiki/Express.js)</b>, 또는 간단히 익스프레스(Express)는 Node.js를 위한 <b>[웹 프레임워크](https://ko.wikipedia.org/wiki/%EC%9B%B9_%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC)</b>의 하나로, MIT 허가서로 라이선스되는 자유-오픈 소스 소프트웨어로 출시되었습니다. 웹 애플리케이션, API 개발을 위해 설계되었습니다. Node.js의 사실상의 표준 서버 프레임워크로 불리고 있습니다.
 
@@ -104,7 +106,7 @@ http.createServer(app).listen(3000, function() {
   - render(view [,locals][,callback]) : 뷰 엔진을 사용해 문서를 만든 후 전송합니다.
 ```
 
-### 익스프레스에서 요청 객체에 추가한 헤더와 파라미터
+### 요청 객체 헤더와 파라미터
 
 ```
  - query : 클라이언트에서 GET 방식으로 전송한 요청 파라미터를 확인합니다.

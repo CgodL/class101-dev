@@ -203,7 +203,7 @@ const PostDate = styled(Body2)`
 
 const PostTOC = styled.div`
   ${TextStyles.body2};  
-  border-left: 0.5px solid;
+  border-left: 0.3px solid;
   border-left-color: #DAE3F0; 
   padding-left: 14px;
   width: 20%;

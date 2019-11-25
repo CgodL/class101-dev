@@ -17,7 +17,9 @@ description: 'React 기본'
 
 </center>
 
-## REACT
+**REACT**
+
+---
 
 리액트는 페이스북에서 개발하고 관리하는 UI 라이브러리 입니다. 라이브러리 이기 때문에 전반적인 시스템을 개발자가 직접 구축해야 합니다.
 
@@ -376,7 +378,7 @@ export default class App extends Component {
 코드를 보게되면 App 컴포넌트는 React.Component를 extend / 상속 받습니다.
 react는 자동적으로 class component의 render method를 실행합니다.
 
-##### 그러면 왜 클래스로 만드는 건가요?
+**그러면 왜 클래스로 만드는 건가요?**
 
 > state 때문 입니다. state 는 객체 이고, 객체기 때문에 component의 data를 넣을 공간이 존재합니다. 그리고 이 데이턴는 변화합니다.
 

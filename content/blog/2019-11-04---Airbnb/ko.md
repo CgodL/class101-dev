@@ -9,8 +9,6 @@ description: 'AIRBNB CLONE - 장고를 활용한 Airbnb 클론 코딩을 해보�
 
 ![airbnb](./aba.png)
 
-## Airbnb
-
 > Airbnb 클론 코딩을 해보도록 하겠습니다.
 
 ### 기술 스택
@@ -38,7 +36,7 @@ description: 'AIRBNB CLONE - 장고를 활용한 Airbnb 클론 코딩을 해보�
 
 ---
 
-### 🎃 초기 환경 설정
+### 초기 환경 설정
 
 <br>
 
@@ -73,7 +71,7 @@ $ django-admin
 
 ---
 
-### 🎃 장고 프로젝트 생성하기
+### 장고 프로젝트 생성하기
 
 <br>
 
@@ -130,7 +128,7 @@ $ python manage.py createsuperuser
 
 ---
 
-### 🎃 Django Applications 구상
+### Django Applications 구상
 
 #### "Divide and Conquer"
 
@@ -140,7 +138,7 @@ $ python manage.py createsuperuser
   > 즉, 기능별 / 역할별 구분이 필요하며, 몇 개의 어플리케이션이 필요할지를 설계 해야합니다. <br> > <b>Airbnb</b>를 예로 들면, room 어플리케이션( 룸 수정, 삭제, 입력 ) 과 review 어플리케이션( 리뷰 입력, 수정, 삭제 )은 별도의 기능을 갖고 있는 것처럼요.
   > 기능별로 구분한 어플리케이션을 **config**에서 통합하여 장고 웹사이트를 구성합니다.
 
-### 🎃 Create the Apps
+### Create the Apps
 
 #### "We play by the rule of the framework"
 
@@ -182,7 +180,7 @@ confing > urls.py
 
 ---
 
-### 🎃 Settings.py
+### Settings.py
 
 - `$ config > settings.py`를 설정합니다.
   장고에서 우리가 만든 폴더를 인식 시키기 위해서 `settings.py`를 configuration 해야 합니다.
@@ -206,7 +204,7 @@ AUTH_USER_MODEL = "users.User"
 
 ---
 
-### 🎃 Introduce and Make the User Model
+### Introduce and Make the User Model
 
 > **DB 테이블 구조/타입을 먼저 설계**를 한 후에 모델을 정의합니다.
 > **admin/ 페이지**를 먼저 구현 합니다.
@@ -358,7 +356,7 @@ class Studuent(CommonInfo):
 
 ---
 
-### 🎃 Room Model
+### Room Model
 
 <br>
 
@@ -436,7 +434,7 @@ Airbnb에는 Amenity를 확인할 수 있다. 이를 개발자인 우리가 모�
 
 ---
 
-### 🎃Decorate Admin Panel
+### Decorate Admin Panel
 
 - [Django Admin site](https://docs.djangoproject.com/en/2.2/ref/contrib/admin/)<br><br>
 
@@ -465,7 +463,7 @@ Airbnb에는 Amenity를 확인할 수 있다. 이를 개발자인 우리가 모�
 
 ---
 
-### 🎃 Managers and QuerySets
+### Managers and QuerySets
 
 - [Making Queries](https://docs.djangoproject.com/en/2.2/topics/db/queries/)
 
@@ -489,8 +487,6 @@ startswith = User.objects.filter(username__startswith="yos")
 
 ---
 
-## <다시 정리하기>
-
 함수를 추가하여 어드민 페이지에 원하는 데이터를 더 추가하여 확인할 수 있습니다.
 related_name = "" room이 무엇을 갖고 있다 .
 프론트와 admin에서 쓰고싶은 함수는 model.py 에서 메서드로 구현한다.
@@ -501,7 +497,7 @@ Media root config - settings - BASE_DIR
 
 ---
 
-### 🎃Custom manage.py commands
+### Custom manage.py commands
 
 Django는 commands도 만들 수 있습니다.
 ["BaseCommand"](https://docs.djangoproject.com/en/2.2/howto/custom-management-commands/)
@@ -526,7 +522,7 @@ Django는 commands도 만들 수 있습니다.
 
 ---
 
-### 🎃 seed_amenities command
+### seed_amenities command
 
 > commands 를 왜 만드는 걸까요? 지금까지 amenity 같이 중복으로 사용될 요소들을 admin page에서 수동적으로 생성 했었습니다. 이제는 이와 같은 일들을 코드로써 자동화 하기 위함 입니다. 또 dummy data를 효율적을 생성해줍니다. 일일히 클릭으로 생성할 필요가 없습니다! 즉, 로컬 서버에서 보여지는 화면이 딸랑 사진 하나에 데이터 하나 가 아닌 그럴싸한 사이트를 생성 할 수 있는 것 입니다.
 
@@ -538,7 +534,7 @@ Django는 commands도 만들 수 있습니다.
 
 ---
 
-### 🎃 django_seed
+### django_seed
 
 [django_seed](https://github.com/Brobin/django-seed) 를 설치 해줍니다. django_seed는 faker의 기능을 갖고 있는데요. 생성한 model의 field를 보고 fake data를 만들어 채워주는 역할을 합니다.
 
@@ -552,7 +548,7 @@ $ config > setting.py > third_party_apps 에 django_seed 를 추가합니다.
 
 ---
 
-### 🎃 Introduction to Urls and Views
+### Introduction to Urls and Views
 
 - url 설계
 

@@ -11,7 +11,7 @@ description: 'GRAPHQL 실습'
 
 먼저 GraphQL의 특징을 먼저 복습 해보겠습니다.<br>
 
-#### Problems solved by GraphQL
+### Problems solved by GraphQL
 
 - #### Over-fetching<br>
 
@@ -230,7 +230,7 @@ server.start(() => console.log('GraphQL Server Running'));
 
 <center>
 
-##### GraphQL은 Operation(질문) 을 Resolve(해결)하는 함수를 만드는 것
+**GraphQL은 Operation(질문) 을 Resolve(해결)하는 함수를 만드는 것**
 
 </center>
 
