@@ -49,6 +49,10 @@ css 파일 이나 이미지 / 폰트 파일은 모두 src 폴더 밑에서 impor
 
 ---
 
+### Virtual DOM
+
+---
+
 ### 리액트 작동원리
 
 CRA로 리액트 프로젝트를 생성하면 초기에 `src 폴더` 에 파일이 몇 개 존재하고, `public 폴더`에도 파일이 존재합니다. `index.js / index.html` 파일을 제외하고는 삭제해도 상관 없습니다. 대략적인 작동원리는 위에서 짧게 말한 Virtual DOM이 변화를 감지해서 그 부분 부분 만을 업데이트 하는 건데요, 이를 파일로 보게되면 아래와 같습니다.
@@ -343,6 +347,7 @@ Food.propTypes = {
 ```
 
 `propTypes`는 코드에서 위 처럼 사용할 수 있습니다. 위 와 같이 등록해 줌으로써, 콘솔상에서 타입에러 라던가, prop key 값이 없다 등의 에러를 표시해줍니다.
+API(JSON 형태)를 보고 propTypes를 설정해주면 됩니다.
 
 ---
 
@@ -355,24 +360,36 @@ state를 쓰기 위해서는 fuction으로 정의한 컴포넌트를 class 형�
 ```js
 // Class Component를 만들어 보겠습니다.
 // 사실 react extension 을 설치하면 snippet을 통해 손쉽게 생성할 수 있습니다.
-rcc 이 단 세글자로 말이죠! 무튼 작성해보겠습니다.
+// rcc 처럼 말이죠! 무튼 작성해보겠습니다.
 
-import React, { Component } from "react";
-
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class App extends Component {
   state = {
+    count: 0
+  };
 
-  }
+  add = () => {
+    console.log('add');
+    this.setState(current => ({ count: current.count + 1 }));
+  };
+
+  minus = () => {
+    console.log('minus');
+    this.setState(current => ({ count: current.count - 1 }));
+  };
+
   render() {
     return (
       <div>
-        <h1>I'm a class</h1>
+        <h1>The number is: {this.state.count}</h1>
+        <button onClick={this.add}>Add</button>
+        <button onClick={this.minus}>Minus</button>
       </div>
     );
   }
 }
-
 ```
 
 코드를 보게되면 App 컴포넌트는 React.Component를 extend / 상속 받습니다.
@@ -380,7 +397,38 @@ react는 자동적으로 class component의 render method를 실행합니다.
 
 **그러면 왜 클래스로 만드는 건가요?**
 
-> state 때문 입니다. state 는 객체 이고, 객체기 때문에 component의 data를 넣을 공간이 존재합니다. 그리고 이 데이턴는 변화합니다.
+> state 때문 입니다. state 는 객체 이고, 객체기 때문에 component의 data를 넣을 공간이 존재합니다. 그리고 이 데이터는 변화합니다.
+
+---
+
+### 라이프사이클
+
+<br>
+
+![new](./new.png)
+
+<center>
+
+[Life-Cycle](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+
+</center>
+
+#### componentDidMount( )
+
+리액트는 라이프사이클(생애주기)이 존재합니다. 말이 어렵습니다.<br> 리액트는 화면을 보여 줍니다. (렌더링 합니다)
+`componentDidMount`는 이 렌더링이 끝난 후에 렌더링이 되는 부분 입니다.
+
+> 제가 이해한 componentDidMount에 대해서 설명해보겠습니다. 아마 그럼 왜 렌더링을 했는데 하고나서 다시 하는지가 궁금할 수 있습니다. 그건 유저가 보여지는 화면 때문입니다. 렌더링에 소요되는 시간이 길 경우 유저는 텅 빈 웹사이트 화면 만을 보고 있어야 합니다. 정말 최악의 상황입니다. 이를 방지하기 위한 방법중 하나가 `componentDidMount( )` 입니다. `render( )` 후에 다시 렌더링 하는 점을 이용하여, 시간이 걸리는 부분(Data를 fetch 한다던가)에 대해서 componentDidMount로 렌더링 하는겁니다.<br> 그러면 유저는 빈화면을 보지 않고 어떤 특정 화면을 볼 수 있겠죠? 뭐 로딩중 입니다 라던가 이런 화면이요.
+
+#### componentDidUpdate( )
+
+업데이트 state를 업데이트 합니다.
+
+---
+
+### axios
+
+API를 사용하기 위해서 / 엔드포인트로 요청을 보내야 합니다. 그 요청에 사용되는 편리한 기능이 몇개 있는데요 그 중 하나가 axios 입니다. axios로 클라이언트 -> 서버로의 요청을 할텐데 (예, JSON 데이터) 이러한 데이터를 응답 받는데에는 시간이 걸립니다. 언제가 걸릴지 모르는 시간이 걸리죠, 따라서 노드에서는 비동기를 통해서 응답을 처리합니다.
 
 ---
 
