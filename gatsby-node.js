@@ -53,7 +53,7 @@ exports.createPages = ({ graphql, actions }) => {
     const allEdges = result.data.allMarkdownRemark.edges;
 
     AVAILABLE_LANGUAGES.forEach(lang => {
-      const firstPathSegment = `/${lang}`;
+      // const firstPathSegment = `/${lang}`;
 
       const language = lang || FALLBACK_LANGUAGE;
 
@@ -67,7 +67,7 @@ exports.createPages = ({ graphql, actions }) => {
         const next = index === 0 ? null : edges[index - 1].node;
 
         createPage({
-          path: `${firstPathSegment}/${edge.node.fields.slug}/`,
+          path: `${edge.node.fields.slug}/`,
           component: postTemplate,
           context: {
             slug: edge.node.fields.slug,
@@ -85,10 +85,11 @@ exports.createPages = ({ graphql, actions }) => {
 
       Array.from({ length: numPages }).forEach((_, i) => {
         createPage({
-          path:
-            i === 0
-              ? `${firstPathSegment}/`
-              : `${firstPathSegment}/blog/${i + 1}/`,
+          // path:
+          //   i === 0
+          //     ? `${firstPathSegment}/`
+          //     : `${firstPathSegment}/blog/${i + 1}/`,
+          path: '/',
           component: postsTemplate,
           context: {
             limit: POSTS_PER_PAGE,
@@ -98,20 +99,6 @@ exports.createPages = ({ graphql, actions }) => {
             currentPage: i + 1
           }
         });
-
-        if (language === FALLBACK_LANGUAGE && i === 0) {
-          createPage({
-            path: '/',
-            component: postsTemplate,
-            context: {
-              limit: POSTS_PER_PAGE,
-              skip: i * POSTS_PER_PAGE,
-              language,
-              numPages,
-              currentPage: i + 1
-            }
-          });
-        }
       });
 
       const tags = Object.keys(
@@ -124,7 +111,7 @@ exports.createPages = ({ graphql, actions }) => {
       );
 
       for (const tag of tags) {
-        const tagPath = `${firstPathSegment}/tags/${_.kebabCase(tag)}/`;
+        const tagPath = `tags/${_.kebabCase(tag)}/`;
         createPage({
           path: tagPath,
           component: tagTemplate,
@@ -137,9 +124,7 @@ exports.createPages = ({ graphql, actions }) => {
       }
 
       for (const user of users) {
-        const authorPath = `${firstPathSegment}/authors/${_.kebabCase(
-          user.name
-        )}/`;
+        const authorPath = `authors/${_.kebabCase(user.name)}/`;
 
         createPage({
           path: authorPath,
@@ -153,7 +138,7 @@ exports.createPages = ({ graphql, actions }) => {
         });
       }
 
-      const authorsPath = `${firstPathSegment}/authors/`;
+      const authorsPath = `authors/`;
       createPage({
         path: authorsPath,
         component: authorsTemplate,
@@ -163,7 +148,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
       });
 
-      const tagsPath = `${firstPathSegment}/tags/`;
+      const tagsPath = `tags/`;
       createPage({
         path: tagsPath,
         component: tagsTemplate,

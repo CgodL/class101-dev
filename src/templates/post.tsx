@@ -73,7 +73,6 @@ const PostTemplate: React.FC<Props & RouteComponentProps> = props => {
     location: { href, pathname },
   } = props;
 
-  { console.log('slug', slug, parse(tableOfContents)._owner) }
   return (
     <Layout>
       <SEO
@@ -149,7 +148,7 @@ const PostTemplate: React.FC<Props & RouteComponentProps> = props => {
 export default PostTemplate;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!, $language: String!) {
+  query BlogPostBySlug($slug: String!) {
     site {
       siteMetadata {
         title
@@ -157,14 +156,13 @@ export const pageQuery = graphql`
         siteUrl
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug }, language: { eq: $language } }) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       tableOfContents
       excerpt(pruneLength: 300, truncate: true)
       html
       fields {
         slug
-        language
       }
       frontmatter {
         title
