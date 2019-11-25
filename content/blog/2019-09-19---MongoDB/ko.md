@@ -187,6 +187,18 @@ docker run -d -p 27017-27019:27017-27019 --name (mongodb) mongo
 
  -->
 
+---
+
+<center>
+
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b> - </b>
+
 <hr />
 
 <center>

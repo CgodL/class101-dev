@@ -31,6 +31,18 @@ npm install --save typescript @types/node // npm 으로도 설치 해줍니다.
 
 - **tsconfig.json** 파일을 생성하여, Typescript 에게 Javascript로 어떻게 컴파일 할지 세팅 합니다.
 
+
+<center>
+
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b> - </b> 
+    
+    
 <hr />
 <center>
 

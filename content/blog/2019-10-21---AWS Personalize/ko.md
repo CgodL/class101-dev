@@ -187,3 +187,15 @@ Personalize 구축을 고려하고 계시다면, 제가 생각하는 Personalize
 <hr />
 
 ---
+
+
+<center>
+
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b> - </b> 
+    

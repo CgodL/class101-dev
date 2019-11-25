@@ -18,7 +18,7 @@ description: 'INSTAGRAM SCRAPING - 인스타그램 해시태그를 활용하여 
 
 ![it](./it4.jpg)
 
-## INSTAGRAM SCRAPING
+**INSTAGRAM SCRAPING**
 
 ### GOAL
 
@@ -158,6 +158,18 @@ puppeteer.launch().then(async browser => {
   await browser.close();
 });
 ```
+
+---
+
+<center>
+
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b> - </b>
 
 <hr />
 <center>

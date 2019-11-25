@@ -400,6 +400,18 @@ $ desc prac;
 
 ### AWS RDS
 
+---
+
+<center>
+
+## ---
+
+## ERROR | ISSUE
+
+</center>
+
+> <b> - </b>
+
 <hr />
 <center>
 

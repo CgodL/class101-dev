@@ -625,6 +625,18 @@ page_name %} {% block content %} {% for room in rooms.object_list %}
 
 ---
 
+
+<center>
+
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b> - </b> 
+    
+    
 <hr />
 
 <center>

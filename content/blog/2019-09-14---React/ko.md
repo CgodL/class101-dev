@@ -507,6 +507,16 @@ export default TodoList;
 
 ---
 
+<center>
+
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b> - </b>
+
 <hr />
 
 <center>

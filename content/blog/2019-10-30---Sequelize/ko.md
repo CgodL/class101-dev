@@ -169,6 +169,19 @@ User.update(
 });
 ```
 
+---
+
+<center>
+
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b> - </b> 
+    
+
 <hr />
 <center>
 

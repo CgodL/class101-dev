@@ -45,6 +45,16 @@ description: '리액트를 다루는 기술 - 블로그 만들기'
 
 ---
 
+<center>
+
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b> - </b> 
+    
 <hr />
 
 <center>

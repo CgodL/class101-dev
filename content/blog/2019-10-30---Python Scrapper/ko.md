@@ -317,6 +317,21 @@ def save_to_file(jobs):
 ```
 
 <br>
+
+
+---
+
+<center>
+
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b> - </b> 
+    
+
 <hr />
 
 <center>

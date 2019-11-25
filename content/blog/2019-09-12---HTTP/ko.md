@@ -108,7 +108,7 @@ POST is used to send data to a server to create/update a resource.
 
 #### STRUCTURE
 
-<img width="942" alt="스크린샷 2019-09-12 오후 5 31 36" src="https://user-images.githubusercontent.com/48753593/64767731-32ba1a00-d583-11e9-9e0a-46385afcfc00.png">
+![http1](./http1.png)
 
 ---
 
@@ -132,6 +132,16 @@ POST is used to send data to a server to create/update a resource.
 
 ---
 
+<center>
+
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b> - </b>
+
 <hr />
 
 <center>
@@ -140,6 +150,7 @@ Reference <br>
 [HTTP](https://www.edwith.org/boostcourse-web/lecture/16661/) <br>
 [HTTP 완벽가이드](https://feel5ny.github.io/2019/08/18/HTTP_003_04/)<br>
 [HTTP 완벽가이드 책](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788966261208&orderClick=LEa&Kc=)
-[브라우저는 어떻게 문서를 보여줄까](https://medium.com/@pks2974/website%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%B3%B4%EC%97%AC%EC%A7%80%EA%B2%8C%EB%90%98%EB%8A%94-%EA%B1%B8%EA%B9%8C-1-108009d4bdb)
+[브라우저는 어떻게 문서를 보여줄까](https://medium.com/@pks2974/website%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%B3%B4%EC%97%AC%EC%A7%80%EA%B2%8C%EB%90%98%EB%8A%94-%EA%B1%B8%EA%B9%8C-1-108009d4bdb)<br>
+[D2](https://d2.naver.com/helloworld/140351)
 
 </center>

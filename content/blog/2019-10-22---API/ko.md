@@ -82,6 +82,20 @@ REST는 기존 RPC나 SOAP 등 복잡한 프로토콜로 통신하는 것보다 
 
 ### RESTful API 설계
 
+
+---
+
+<center>
+
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b> - </b> 
+    
+
 <hr />
 
 <center>

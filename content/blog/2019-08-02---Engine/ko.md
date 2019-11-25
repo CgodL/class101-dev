@@ -13,6 +13,20 @@ description: 'Engine - Runtime - CallStack - Event Loop / 자바스크립트 는
 
 자바스크립트 는 싱글 스레드 기반이며 콜백 큐를 이용 합니다.
 
+---
+
+<center>
+
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b> - </b>
+
+---
+
 <center>
 Reference <br>
 

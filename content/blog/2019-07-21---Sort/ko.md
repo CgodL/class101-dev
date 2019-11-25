@@ -94,6 +94,18 @@ const selectionSort = arr => {
 
 <center>
 
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b> - </b>
+
+---
+
+<center>
+
 Reference <br>
 [Hello Coding 그림으로 개념을 이해하는 알고리즘](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788968483547&orderClick=LAG&Kc=)
 

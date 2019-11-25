@@ -116,6 +116,20 @@ Cahcing은 GET 요청에만 합니다. GET이 REST적 의미로 가져오다 이
 
 익스프레스에는 **패스포트(Passport)** 라는 노드에서 사용할 수 있는 사용자 인증 모듈이 존재합니다.
 
+
+---
+
+<center>
+
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b> - </b> 
+    
+
 <hr />
 
 <center>

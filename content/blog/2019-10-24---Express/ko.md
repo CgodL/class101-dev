@@ -290,6 +290,18 @@ app.post('/public', function(req, res) => {
 ---
 
 <center>
+
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b> - </b> 
+    
+---
+
+<center>
 Reference <br>
 
 [Express](https://expressjs.com/ko/guide/writing-middleware.html)<br>

@@ -39,3 +39,15 @@ react-router는 써드파티 라이브러리로써, 웹 개발 에 있어서 한
 <hr />
 
 ---
+
+
+<center>
+
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b> - </b> 
+    

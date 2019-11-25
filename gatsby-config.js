@@ -12,7 +12,7 @@ module.exports = {
       'apllo',
       'aws'
     ],
-    siteUrl: `https://channing.netlify.com`,
+    siteUrl: `https://developer-channing.com/`,
     facebookAppId: '',
     social: {
       twitter: ``

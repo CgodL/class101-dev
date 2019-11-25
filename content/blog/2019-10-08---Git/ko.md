@@ -49,6 +49,20 @@ ignore 된 파일은 editor 상에서 그림과 같이 회색으로 바뀌고, g
 
 <center>git reset 명령어를 통해 이전 커밋으로 되돌아 갑니다.</center>
 
+---
+
+
+<center>
+
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b> - </b> 
+    
+
 <hr />
 
 <center>

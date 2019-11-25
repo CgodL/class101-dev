@@ -26,6 +26,20 @@ function HashTable() {
 }
 ```
 
+---
+
+<center>
+
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b> - </b>
+
+---
+
 <center>
 
 Reference <br>

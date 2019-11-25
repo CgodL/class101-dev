@@ -203,6 +203,19 @@ class HeroSerializer(serializers.HyperlinkedModelSerializer):
 --- 번역중 ---
 </center>
 
+---
+
+<center>
+
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b> - </b> 
+    
+
 <hr />
 
 <center>

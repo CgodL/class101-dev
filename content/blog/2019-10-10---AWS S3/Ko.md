@@ -9,6 +9,19 @@ description: 'AWS S3 정적 호스팅'
 
 ![s3](./S3.jpg)
 
+---
+
+<center>
+
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b> - </b> 
+    
+
 <hr />
 
 <center>

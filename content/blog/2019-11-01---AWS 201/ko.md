@@ -9,7 +9,7 @@ description: 'AWS 201 - AWS S3 , AWS EBS , AWS CloudFront , AWS Glacier'
 
 ![aws2](./aws.jpg)
 
-## AWS 201 세미나
+**AWS 201 세미나**
 
 ---
 
@@ -120,6 +120,16 @@ inteligence 어쩌구가 티어를 자동으로세팅
 ### AWS Transfer for SFTP
 
 ---
+
+<center>
+
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b> - </b>
 
 <hr />
 <center>

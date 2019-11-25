@@ -149,6 +149,18 @@ REST API와 GraphQL API의 사용
 
 > 즉 요청 쿼리를 응답 쿼리 구조와 비슷하게 하면 된다 라는 말
 
+---
+
+<center>
+
+#### ---
+
+#### ERROR | ISSUE
+
+</center>
+
+> <b> - </b>
+
 <hr />
 
 <center>

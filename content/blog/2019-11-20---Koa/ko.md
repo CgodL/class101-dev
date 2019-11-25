@@ -217,6 +217,20 @@ app.use(router.routes()).use(router.allowedMethods());
 
 ---
 
+<center>
+
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b>1. import 시 `unexpected Identifier` 에러 - </b> `require` 가 아닌 ES6 `import`를 사용하고 싶었다. 그래서 바벨 세팅 부터 여러가지 설정을 한 뒤, 노드몬을 실행했는데 `import express 에서 unexpected Identifier` 에러가 난다.. 해결하려고 구글링 하면서 바벨 설정도 바꿔보고 이것저것 해봤지만, 바벨 서버 실행 코드에서만 작동하고 노드몬을 활용하는것은 아직 성공하지 못했다.. 노드몬 자체가 ES6를 못 읽어서? 바벨을 쓴건데.. 흠..
+
+---
+
+</center>
+
 <hr />
 
 <center>

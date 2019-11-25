@@ -6,3 +6,17 @@ author: 'channing'
 tags: ['AWS', 'AWS IAM']
 description: 'AWS IAM'
 ---
+
+
+---
+
+<center>
+
+### ---
+
+### ERROR | ISSUE
+
+</center>
+
+> <b> - </b> 
+    
