@@ -219,7 +219,7 @@ const PostTOC = styled.div`
   position: sticky;
   overflow: auto;
   a {
-    color: #696969;
+    color: #0D65D9;
     text-decoration: none;
     &:hover {
       text-decoration: underline;
