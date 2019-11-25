@@ -101,7 +101,7 @@ module.exports = {
         // Plugins configs
         tableOfContents: {
           heading: null,
-          maxDepth: 6,
+          maxDepth: 6
         },
         plugins: [
           {
@@ -290,6 +290,7 @@ module.exports = {
       }
     },
     `gatsby-plugin-offline`,
+    `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-styled-components`,
