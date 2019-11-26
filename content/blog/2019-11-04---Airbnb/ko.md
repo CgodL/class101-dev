@@ -138,9 +138,11 @@ $ python manage.py createsuperuser
   > 즉, 기능별 / 역할별 구분이 필요하며, 몇 개의 어플리케이션이 필요할지를 설계 해야합니다. <br> > <b>Airbnb</b>를 예로 들면, room 어플리케이션( 룸 수정, 삭제, 입력 ) 과 review 어플리케이션( 리뷰 입력, 수정, 삭제 )은 별도의 기능을 갖고 있는 것처럼요.
   > 기능별로 구분한 어플리케이션을 **config**에서 통합하여 장고 웹사이트를 구성합니다.
 
+---
+
 ### Create the Apps
 
-#### "We play by the rule of the framework"
+**"We play by the rule of the framework"**
 
 > 프레임워크는 정해진 규칙에 따라서 사용해야 합니다. 장고 역시 폴더 명이나 파일명을 수정해서는 안됩니다.( 생성은 가능합니다 ) <br>일례로 모델을 생성할때 `class Any(models.Model)` 처럼 생성하는데 Django 는 `models`를 읽고 Any라는 모델을 생성하는구나 라고 해석하여 Any가 DB에 저장되어야 한다고 알게 됩니다.
 
@@ -209,7 +211,7 @@ AUTH_USER_MODEL = "users.User"
 > **DB 테이블 구조/타입을 먼저 설계**를 한 후에 모델을 정의합니다.
 > **admin/ 페이지**를 먼저 구현 합니다.
 
-- [MODEL](https://developer-channing.com/ko/blog/2019/10/18/channing)
+- [MODEL](https://developer-channing.com/blog/2019/10/18/channing)
 
 * models.py를 통해 테이블을 구성합니다.<br>
 
@@ -410,13 +412,88 @@ class Room(core_models.TimeStampedModel):
     check_in = models.TimeField()
     check_out = models.TimeField()
     instant_book = models.BooleanField(default=False)
-    host = models.ForeignKey(user_models.User, on_delete=models.CASCADE)
+    host = models.ForeignKey("users.User", related_name="rooms", on_delete=models.CASCADE)
+    room_type = models.ForeignKey("RoomType", related_name="rooms", on_delete=models.SET_NULL, null=True)
+    amenities = models.ManyToManyField("Amenity", related_name="rooms", blank=True)
+    facilities = models.ManyToManyField("Facility", related_name="rooms", blank=True)
+    house_rules = models.ManyToManyField("HouseRule", related_name="rooms", blank=True)
+
 
     # 모델과 다른 모델을 연결하는 방법 => foreign key
 
 ```
 
-#### Foreign Key
+---
+
+![db](./db.png)
+
+> 위에 생성한 Model의 실제 DB 입니다.
+
+---
+
+#### FOREIGN KEY
+
+> Foreign Key, OneToOneField, ManyToManyField 가 뭐야 도대체? 네 알아보겠습니다. <br>
+
+[What is the ForeignKey ?](https://stackoverflow.com/questions/24919638/django-onetoonefield-manytomanyfield-foreign-key)
+
+```py
+from django.db import models
+
+class Place(models.Model):
+    address = models.CharField(max_length=50)
+    country = models.CharField(max_length=50)
+
+class Publisher(models.Model):
+    name = models.CharField(max_length=30)
+    place = models.OneToOneField(Place, primary_key=True)
+
+class Author(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=40)
+
+class Book(models.Model):
+    title = models.CharField(max_length=100)
+    publisher = models.ForeignKey(Publisher)
+    authors = models.ManyToManyField(Author)
+```
+
+> Model을 정의한다는 DB에 class 이름으로 된 Table을 만든다 입니다. 예제는 책에 관련된 DB를 생성하고 있습니다.
+
+- One-to-many / Foreign Key
+  > ManyToMany 랑 OneToOne 으로 쓰면서 ForeignKey는 왜 OneToMany로 안쓰나요 ? 그러게 말입니다. <br>
+  > 무튼 각설하고, <b>일대다 / 외래키 입니다.</b> 먼저 <b>책의 관점에서 보겠습니다.</b> 모든 'Book' 은 'Publisher' 를 갖고있습니다. 당장 집에 있는 책을 꺼내도 출판사가 적혀있죠? 그런데 잘보면 한 책에는 하나의 출판사만 적혀있습니다. 물론 한 책을 여러 출판사에서 출판 할 수 있다고 하여도, <b>한 권의 책에는 하나의 출판사</b> 만 적혀있습니다. 그러면 <b>출판사 입장에서 생각해볼까요?</b> 출판사는 책과는 다르게 여러 개의 책을 출판 할 수 있습니다. 출판사에서 한권의 책만 출판한다면 망하겠죠? 그러므로 이러한 관계를 우리는 <b>one-to-many(book-to-publisher) 관계</b> 로 구조를 짤 수 있는 겁니다. 장고 에서는 `publisher = models.ForeignKey(Publisher)` 이렇게 관계를 맺어줍니다. <br> 제가 알기로는 DB설계 정답이 없으므로(보다 나은 구조는 있지만), 구조를 설계하는건 개발자 마음입니다. 여러 조건을 잘 고려해서 설계해야 합니다.
+
+* One-to-One
+
+  > 말 그대로 <b>1:1 관계입니다.</b> 모든 출판사는 하나의 Place에 위치 합니다.(본사 하나만 갖고 있다라고 가정하겠습니다.) <br> 그리고 모든 Place는 하나의 출판사만을 수용할 수 있습니다. 한 건물은 하나의 주소만을 갖을 수 있습니다. 출판사를 찾아가려고 하는데 주소가 여러 개라면 찾아가기 힘들겠죠?
+
+* Many-to-Many
+  > <b>다대다 관계</b>입니다. 책의 관점에서 보면 모든 책은 하나 또는 하나 이상의 작가를 갖을 수 있습니다. 공저라고 하죠. 작가의 관점 에서 보면 작가가 쓴 책이 한권 일수도, 여러 권 일 수 도 있습니다. 따라서 이런 관계를 다대다 관계로 묶어줍니다.
+
+그래서 공부하면서 생각 해봤는데, 모델(DB)를 설계할 때, 각각의 필드 들을 서로 서로의 관점에서 고려하여 구성 해야 할 것 같습니다.<br>
+Airbnb를 보면 Room 페이지 에서 다양한 정보가 존재하는데, 각각의 부분을 DB에 Room 테이블에서 어떻게 관계를 줘야할지 고려해야 할 것 같습니다. <br>
+
+<center>
+
+--
+
+</center>
+
+이제 다시 Airbnb 모델을 보면, 이런 식으로 관계를 맺어줬습니다.
+
+```py
+host = models.ForeignKey("users.User", related_name="rooms", on_delete=models.CASCADE)
+room_type = models.ForeignKey("RoomType", related_name="rooms", on_delete=models.SET_NULL, null=True)
+amenities = models.ManyToManyField("Amenity", related_name="rooms", blank=True)
+facilities = models.ManyToManyField("Facility", related_name="rooms", blank=True)
+house_rules = models.ManyToManyField("HouseRule", related_name="rooms", blank=True)
+```
+
+> host가 ForeignKey(one-to-Many)로 관계가 맺어져 있습니다. 호스트의 관점에서 보면 한명의 호스트는 여러개의 방을 갖을 수 있기 때문입니다. 방에 관점에서 보면 그 방은 단 한명의 호스트의 방이 겠죠? <br> <br>
+> room_type은 숙소 유형인데 에어비엔비에서는 호텔 객실 / 다인실 / 개인실 / 집 전체 이런 식으로 나누어서 방을 제공합니다. 숙소 유형 관점으로 보면 여러개의 방을 갖을 수 있겠죠? 에어비엔비를 예로 들면, 호텔 객실 카테고리를 클릭했을때 호텔 객실에 해당하는 방 들을 보여줍니다.<br> 이 말은 즉 하나의 룸 타입은 여러 개의 방을 갖고 있을 수 있다는 말입니다. 그럼 반대의 경우 하나의 룸은 몇 개의 숙소 유형을 갖을 수 있을까요? <br>그 방이 건물 전체가 아닌 이상 하나의 룸 타입을 갖고 있을겁니다.<br><br>
+> amenities, facilities, houseRules 의 경우 Many-to-Many Field를 사용하고 있습니다. 역시 각각의 관점에서 생각해보면, 편의 시설 의 경우 모든 방에서 갖을 수 있습니다. A 라는 집에서 칫솔,치약,비데 등등 을 갖을 수 있고, B라는 집에서도 당연히 A의 편의시설 을 갖을 수 있겠죠?<br>
+> 편의시설 은 모든 방에 존재하고, 모든 방은 편의시설을 갖고 있는 관계 입니다.
 
 ---
 
@@ -426,7 +503,7 @@ class Room(core_models.TimeStampedModel):
 
 사용자가 변경할 수 있도록 모델을 설정 할 것인가 / 아닌가
 <br>Amenity를 예로 들어보자.
-Airbnb에는 Amenity를 확인할 수 있다. 이를 개발자인 우리가 모두 수정하기 에는 너무 귀찮다. 이를 해결하기 위해 우리는 장고의 어드민 페이지를 활용한다.
+Airbnb에는 Amenity를 확인할 수 있다. 이를 개발자인 우리가 모두 수정하기 에는 너무 귀찮다. <br>이를 해결하기 위해 우리는 장고의 어드민 페이지를 활용한다.
 
 ---
 
@@ -625,7 +702,6 @@ page_name %} {% block content %} {% for room in rooms.object_list %}
 
 ---
 
-
 <center>
 
 ### ---
@@ -634,9 +710,8 @@ page_name %} {% block content %} {% for room in rooms.object_list %}
 
 </center>
 
-> <b> - </b> 
-    
-    
+> <b> - </b>
+
 <hr />
 
 <center>

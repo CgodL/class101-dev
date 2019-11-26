@@ -93,9 +93,11 @@ admin.site.register(Post)
 
 ---
 
-### Django Restful [API](https://channing.netlify.com/ko/blog/2019/10/22/channing/)
+### DJANGO REST API
 
-<br>
+[API](https://developer-channing.com/blog/2019/10/22/channing) <br>
+[HTTP](https://developer-channing.com/blog/2019/09/12/channing)
+
 <br>
 
 ![django](./django.png)
@@ -103,8 +105,6 @@ admin.site.register(Post)
 ---
 
 <center>
-
-### DJANGO REST API
 
 <mark>[REST](https://medium.com/@BennettGarner/build-your-first-rest-api-with-django-rest-framework-e394e39a482c) 를 번역한 글입니다. (오역 / 의역에 유의하세요)
 </mark>
@@ -157,7 +157,7 @@ Django REST Framework를 사용하는 가장 큰 이유는 바로 serialization�
 4. 2번의 모델을 Serialize 합니다.
 5. Serialize data를 보기 위해 URI endpoints를 생성합니다.
 
-> 1,2 번의 과정은 생략하고 3번과정 부터 따라가겠습니다. <br> > [Serialize란](https://developer-channing.com/ko/blog/2019/11/08/channing)
+> 1,2 번의 과정은 생략하고 3번과정 부터 따라가겠습니다. <br> > [Serialize란](https://developer-channing.com/blog/2019/11/08/channing)
 
 #### SET UP DJANGO REST FRAMEWORK
 
@@ -213,8 +213,7 @@ class HeroSerializer(serializers.HyperlinkedModelSerializer):
 
 </center>
 
-> <b> - </b> 
-    
+> <b> - </b>
 
 <hr />
 

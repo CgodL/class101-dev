@@ -54,7 +54,7 @@ Cahcing은 GET 요청에만 합니다. GET이 REST적 의미로 가져오다 이
 
 ### HTTP 통신
 
-각각의 [HTTP](https://channing.netlify.com/ko/blog/2019/09/12/channing/)요청 에는 누구인지에 대한 정보가 필수 입니다. 서버에 요청을 보내는 작업은 HTTP 메세지를 보내는 것 입니다.
+각각의 [HTTP](https://developer-channing.com/blog/2019/09/12/channing)요청 에는 누구인지에 대한 정보가 필수 입니다. 서버에 요청을 보내는 작업은 HTTP 메세지를 보내는 것 입니다.
 
 - 헤더에는 기본적으로 요청에 대한 정보들이 들어갑니다.
 - 바디에는 서버로 보내야 할 데이터가 들어가게 됩니다.
@@ -116,7 +116,6 @@ Cahcing은 GET 요청에만 합니다. GET이 REST적 의미로 가져오다 이
 
 익스프레스에는 **패스포트(Passport)** 라는 노드에서 사용할 수 있는 사용자 인증 모듈이 존재합니다.
 
-
 ---
 
 <center>
@@ -127,8 +126,7 @@ Cahcing은 GET 요청에만 합니다. GET이 REST적 의미로 가져오다 이
 
 </center>
 
-> <b> - </b> 
-    
+> <b> - </b>
 
 <hr />
 

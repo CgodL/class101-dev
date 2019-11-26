@@ -201,6 +201,8 @@ export default App;
 > props를 콘솔로 찍어보면 객체 형태로 출력 됩니다.
 
 ```js
+
+> App.js
 import React from 'react';
 
 // Food 컴포넌트
@@ -317,6 +319,8 @@ export default App;
 <br>우리는 App()에서 prop을 내릴 수 있습니다. App 컴포넌트를 보면 `foodILike` 데이터를 mapping 하여 내부 데이터를 Food 컴포넌트 에 넣습니다. Food는 props로 App에서 넘긴 데이터를 사용할 수 있습니다.
 `<Food menu={dish.name} picture={dish.image} />` 는 결국 이런 모양이 될겁니다.
 
+> prop을 가장 최상(부모)에서 내려서 사용한다고 생각하면 될 것 같습니다. Redux를 사용하지 않기 때문에 한 쪽에서 관리하는 형태로 사용합니다.
+
 ```js
 // Food Component
 Food {
@@ -398,6 +402,8 @@ react는 자동적으로 class component의 render method를 실행합니다.
 **그러면 왜 클래스로 만드는 건가요?**
 
 > state 때문 입니다. state 는 객체 이고, 객체기 때문에 component의 data를 넣을 공간이 존재합니다. 그리고 이 데이터는 변화합니다.
+>
+> > Hook이 나온 이후로 함수형 으로도 state 관리가 가능해졌습니다.
 
 ---
 
@@ -413,12 +419,30 @@ react는 자동적으로 class component의 render method를 실행합니다.
 
 </center>
 
+---
+
 #### componentDidMount( )
 
 리액트는 라이프사이클(생애주기)이 존재합니다. 말이 어렵습니다.<br> 리액트는 화면을 보여 줍니다. (렌더링 합니다)
 `componentDidMount`는 이 렌더링이 끝난 후에 렌더링이 되는 부분 입니다.
 
-> 제가 이해한 componentDidMount에 대해서 설명해보겠습니다. 아마 그럼 왜 렌더링을 했는데 하고나서 다시 하는지가 궁금할 수 있습니다. 그건 유저가 보여지는 화면 때문입니다. 렌더링에 소요되는 시간이 길 경우 유저는 텅 빈 웹사이트 화면 만을 보고 있어야 합니다. 정말 최악의 상황입니다. 이를 방지하기 위한 방법중 하나가 `componentDidMount( )` 입니다. `render( )` 후에 다시 렌더링 하는 점을 이용하여, 시간이 걸리는 부분(Data를 fetch 한다던가)에 대해서 componentDidMount로 렌더링 하는겁니다.<br> 그러면 유저는 빈화면을 보지 않고 어떤 특정 화면을 볼 수 있겠죠? 뭐 로딩중 입니다 라던가 이런 화면이요.
+> 제가 이해한 componentDidMount에 대해서 설명해보겠습니다. 아마 그럼 왜 렌더링을 했는데 하고나서 다시 하는지가 궁금할 수 있습니다. 그건 유저가 보여지는 화면 때문입니다. 렌더링(뭐 데이터를 받아오는데 시간이 걸리는) 에 소요되는 시간이 길 경우 유저는 텅 빈 웹사이트 화면 만을 보고 있어야 합니다. 정말 최악의 상황입니다. 이를 방지하기 위한 방법중 하나가 `componentDidMount( )` 입니다. `render( )` 후에 다시 렌더링 하는 점을 이용하여, 시간이 걸리는 부분(Data를 fetch 한다던가)에 대해서 componentDidMount로 렌더링 하는겁니다.<br> 그러면 유저는 빈화면을 보지 않고 어떤 특정 화면을 볼 수 있겠죠? 뭐 로딩중 입니다 라던가 이런 화면이요.
+
+![ko](./co.png)
+
+> 코드를 보게 되면 먼저 reder() 내에 "Loading..." 을 출력하고, `componentDidMount` 내에 비동기로 작동하는 코드를 넣어줬습니다. 그러면 실제 화면에서 어떻게 렌더링 되는지 보겠습니다.
+
+![id](./ld.png)
+
+---
+
+![now](./mo.png)
+
+> 입력해준 로딩화면이 먼저 렌더링 되어 나옵니다. 그리고 비동기로 처리한 로직에서 데이터를 받아오면 해당 데이터를 출력합니다.
+
+이런 이유때문에 `componentDidMount`를 사용합니다.
+
+---
 
 #### componentDidUpdate( )
 
