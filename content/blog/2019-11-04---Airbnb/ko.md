@@ -322,6 +322,21 @@ class CustomUserAdmin(UserAdmin):
             },
         ),
     )
+
+    list_filter = UserAdmin.list_filter + ("superhost",)
+
+    list_display = (
+        "username",
+        "first_name",
+        "last_name",
+        "email",
+        "is_active",
+        "language",
+        "currency",
+        "superhost",
+        "is_staff",
+        "is_superuser",
+    )
 ```
 
 ---
@@ -497,7 +512,7 @@ class User(AbstractUser):
 
 ```
 
-위 럼 추상화 된 `AbstactUser`모델에 미리 생성되어있는 field를 활용하여 보다 쉽게 DB설계를 할 수 있습니다.
+위 럼 추상화 된 `AbstactUser`모델에 미리 생성되어있는 field를 활용하여 보다 손쉽게 DB설계를 할 수 있습니다. 해당 field 는 admin.py 에서 `list_display`에서 사용할 수 있습니다!
 
 ---
 
@@ -658,28 +673,56 @@ Airbnb에는 Amenity를 확인할 수 있다. 이를 개발자인 우리가 모�
 
 - [Django Admin site](https://docs.djangoproject.com/en/2.2/ref/contrib/admin/)<br><br>
 
-  - `ModelAdmin.list_display` <br><br>
-    > Set list_display to control which fields are displayed on the change list page of the admin.
-  - `list_filter`<br><br>
-    ```py
-        list_filter = (
-            "instant_book",
-            "host__superhost",
-            "room_type",
-            "amenities",
-            "facilities",
-            "house_rules",
-            "city",
-            "country",
-        )
-    ```
-  - `search_fields`<br><br>
-    > serach box를 생성합니다. icontains default로 되어있습니다. 대∙소문자를 구별하지 않습니다.
-    ```py
-        search_fields = ("^city", "^host__username")
-    ```
-  - `fieldsets`
-  - `ordering`
+- `ModelAdmin.list_display` <br><br>
+  > Set list_display to control which fields are displayed on the change list page of the admin.
+- `list_filter`<br><br>
+
+```py
+    list_filter = (
+        "instant_book",
+        "host__superhost",
+        "room_type",
+        "amenities",
+        "facilities",
+        "house_rules",
+        "city",
+        "country",
+    )
+```
+
+- `search_fields`<br><br>
+  > serach box를 생성합니다. icontains default로 되어있습니다. 대∙소문자를 구별하지 않습니다.
+
+```py
+    search_fields = ("^city", "^host__username")
+```
+
+- `fieldsets`<br><br>
+
+  > [DOCS](https://docs.djangoproject.com/ko/2.2/intro/tutorial07/) | 단지 2개의 필드만으로는 인상적이지는 않지만, 수십 개의 필드가 있는 관리 폼의 경우에는 직관적인 순서을 선택하는 것이 사용 편리성의 중요한 부분입니다. 수십 개의 필드가 있는 폼에 관해서는 폼을 fieldset으로 분할하는 것이 좋습니다.
+
+```py
+fieldsets = UserAdmin.fieldsets + (
+    (
+        "Custom Profile",
+        {
+            "fields": (
+                "avatar",
+                "gender",
+                "bio",
+                "birthday",
+                "language",
+                "currency",
+                "superhost",
+            )
+        },
+    ),
+)
+```
+
+![fs](./fs.png)
+
+- `ordering`
 
 ---
 
@@ -823,20 +866,33 @@ def all_rooms(request):
 
 ```
 
-```html
-$ home.html {% extends "base.html" %} {% block page_name %} Home {% endblock
-page_name %} {% block content %} {% for room in rooms.object_list %}
-<h1>{{room.name}} / ${{room.price}}</h1>
-{% endfor %}
+```js
+$ home.html
+{% extends "base.html" %}
 
-<h5>
-  {% if page is not 1%}
-  <a href="?page={{page|add:-1}}">Previous</a>
-  {% endif %} Page {{rooms.number}} of {{rooms.paginator.num_pages}} {% if not
-  page == page_count %}
-  <a href="?page={{page|add:1}}">Next</a>
-  {% endif %}
-</h5>
+{% block page_name %}
+    Home
+{% endblock page_name %}
+
+{% block content %}
+
+    {% for room in rooms.object_list %}
+        <h1>{{room.name}} / ${{room.price}}</h1>
+    {% endfor %}
+
+    <h5>
+
+    {% if page is not 1%}
+        <a href="?page={{page|add:-1}}">Previous</a>
+    {% endif %}
+
+    Page {{rooms.number}} of {{rooms.paginator.num_pages}}
+
+    {% if not page == page_count %}
+        <a href="?page={{page|add:1}}">Next</a>
+    {% endif %}
+
+    </h5>
 
 {% endblock content %}
 ```

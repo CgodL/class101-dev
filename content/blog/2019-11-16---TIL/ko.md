@@ -318,5 +318,27 @@ TOC
 ---
 
 **🥰COMMENT**
+성공의 기쁨! 아이디어를 설계 해봐야하는데 ..
+
+---
+
+# 2019.11.26 화요일
+
+</center>
+
+**😇TIL**
+
+> Movie_app 를 리액트로 만들기(노마드) : 리액트 복습 겸 실시. http://yts.am/ 에서 MovieAPI 받아서 했다.<br>
+> Airbnb 복습 -> <b>listdisplay</b>, 외래키 , 필드 개념 확립!
+
+---
+
+**😭TODO**
+
+> Movie_app 블로깅 하기
+
+---
+
+**🥰COMMENT**
 
 ---
