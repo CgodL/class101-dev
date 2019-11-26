@@ -206,7 +206,7 @@ AUTH_USER_MODEL = "users.User"
 
 ---
 
-### Introduce and Make the User Model
+### Make the User Model
 
 > **DB 테이블 구조/타입을 먼저 설계**를 한 후에 모델을 정의합니다.
 > **admin/ 페이지**를 먼저 구현 합니다.
@@ -324,13 +324,50 @@ class CustomUserAdmin(UserAdmin):
     )
 ```
 
+---
+
+#### list_display
+
 > **[list_display](https://wayhome25.github.io/django/2017/03/22/django-ep8-django-admin/)** > `list_display` 옵션 은 모델 인스턴스 필드명/속성명/함수명 뿐만 아니라, ModelAdmin 내 멤버 함수로도 지정이 가능하다.
-> 이 말은 즉 모델에서 Field를 지정해서 DB를 생성하지 않아도 admin 내에서 생성 가능하다는 말인가?
-
+> 이 말은 즉 모델에서 Field를 지정해서 DB를 생성하지 않아도 admin 내에서 생성 가능하다는 말인가?<br>
 > 컬럼 자체를 장고 유저(프로그래머)가 사용하기 편하게 그냥 `list_display`했을 시에 해당 컬럼이 생기도록 만들어 놓은 거야. `list_display`를 사용하면 장고가 너의 sqlite에다가 컬럼을
-> 우리대신 만든거지 장고라는 프레임워크를 쓰지 않았다면 우리가 직접해야하는 일을 처리해준거야<br> by [Baby Tiger](https://babytiger.netlify.com/)
-
+> 우리대신 만든거지 장고라는 프레임워크를 쓰지 않았다면 우리가 직접해야하는 일을 처리해준거야<br> by [Baby Tiger](https://babytiger.netlify.com/)<br>
 > 그렇단 말은, DB에서 주요하게 Field를 관리해야할 부분은 Models에 프로그래머 가 관리 해주고 이외의 값에 대해서는 장고에게 맡긴다 라고 이해 해야겠습니다.
+
+> 위 처럼 생각했었는데, 조금 더 공부해 본 바로는 약간의 특징이 보여서 내용을 추가해보겠습니다. 우리는 User 모델을 생성했을때 AbstractUser 처럼 `from django.contrib.auth.models import AbstractUser` 장고 모델에서 추상모델을 import 했습니다. 이 추상모델 에는 여러 기능이 미리 생성되어 있는데요,
+
+```py
+User > admin.py
+    list_display = (
+        "username",
+        "first_name",
+        "last_name",
+        "email",
+        "is_active",
+        "language",
+        "currency",
+        "superhost",
+        "is_staff",
+        "is_superuser",
+    )
+
+```
+
+users Application의 User모델은 `class User(AbstractUser)`로 모델을 구현했습니다. 그리고 admin.py에는 list_display 내부에 위 코드 처럼 테이블에 해당 데이터들이 추가되도록 하였습니다. 바로 저기 쓰여있는데 데이터들이 바로 `class AbstractUser` 내부에 미리 구현되어 있는 Field들 이였던 겁니다!
+
+```py
+class AbstractUser(AbstractBaseUser, PermissionsMixin):
+    first_name = models.CharField(_('first name'), max_length=30, blank=True)
+    last_name = models.CharField(_('last name'), max_length=150, blank=True)
+    email = models.EmailField(_('email address'), blank=True)
+    is_staff = models.BooleanField(
+        _('staff status'),
+        default=False,
+        help_text=_('Designates whether the user can log into this admin site.'),
+    )
+```
+
+즉, 개발자 본인이 모델을 구성하며 여러 Field를 설계할 수 도 있지만, 위에 추상화 도구를 활용하여 보다 편하게 DB설계를 할 수 있다는 것 입니다!
 
 ---
 
@@ -356,9 +393,115 @@ class Studuent(CommonInfo):
 
 ```
 
+<center>
+
+--
+
+</center>
+
+User 모델을 보면, 일반적인 `models.Model`이 아닌 `AbstractUser`와 같이 모델을 생성합니다.
+
+```py
+
+from django.contrib.auth.models import AbstractUser
+from django.db import models
+
+# Create your models here.
+
+# AbstractUser로 상속 합니다.
+class User(AbstractUser):
+
+```
+
+`AbstractUser`를 option + click 해보면 아래와 같은 클래스가 보입니다.
+
+```py
+class AbstractUser(AbstractBaseUser, PermissionsMixin):
+    """
+    An abstract base class implementing a fully featured User model with
+    admin-compliant permissions.
+
+    Username and password are required. Other fields are optional.
+    """
+    username_validator = UnicodeUsernameValidator()
+
+    username = models.CharField(
+        _('username'),
+        max_length=150,
+        unique=True,
+        help_text=_('Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.'),
+        validators=[username_validator],
+        error_messages={
+            'unique': _("A user with that username already exists."),
+        },
+    )
+    first_name = models.CharField(_('first name'), max_length=30, blank=True)
+    last_name = models.CharField(_('last name'), max_length=150, blank=True)
+    email = models.EmailField(_('email address'), blank=True)
+    is_staff = models.BooleanField(
+        _('staff status'),
+        default=False,
+        help_text=_('Designates whether the user can log into this admin site.'),
+    )
+    is_active = models.BooleanField(
+        _('active'),
+        default=True,
+        help_text=_(
+            'Designates whether this user should be treated as active. '
+            'Unselect this instead of deleting accounts.'
+        ),
+    )
+    date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
+
+    objects = UserManager()
+
+    EMAIL_FIELD = 'email'
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['email']
+
+    class Meta:
+        verbose_name = _('user')
+        verbose_name_plural = _('users')
+        abstract = True
+
+    def clean(self):
+        super().clean()
+        self.email = self.__class__.objects.normalize_email(self.email)
+
+    def get_full_name(self):
+        """
+        Return the first_name plus the last_name, with a space in between.
+        """
+        full_name = '%s %s' % (self.first_name, self.last_name)
+        return full_name.strip()
+
+    def get_short_name(self):
+        """Return the short name for the user."""
+        return self.first_name
+
+    def email_user(self, subject, message, from_email=None, **kwargs):
+        """Send an email to this user."""
+        send_mail(subject, message, from_email, [self.email], **kwargs)
+
+
+class User(AbstractUser):
+    """
+    Users within the Django authentication system are represented by this
+    model.
+
+    Username and password are required. Other fields are optional.
+    """
+    class Meta(AbstractUser.Meta):
+        swappable = 'AUTH_USER_MODEL'
+
+
+```
+
+위 럼 추상화 된 `AbstactUser`모델에 미리 생성되어있는 field를 활용하여 보다 쉽게 DB설계를 할 수 있습니다.
+
 ---
 
-### Room Model
+### Make the Room Model
 
 <br>
 
