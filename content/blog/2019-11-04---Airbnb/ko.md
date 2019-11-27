@@ -909,6 +909,7 @@ $ home.html
 ### CBV and FBV
 
 - `ListView`
+- `DetailView`
 
 ---
 
