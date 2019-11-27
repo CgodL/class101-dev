@@ -906,6 +906,49 @@ $ home.html
 
 ---
 
+### Class Based Views
+
+- `ListView`
+
+```py
+from django.shortcuts import render, redirect
+from django.core.paginator import Paginator, EmptyPage
+from . import models
+
+# Create your views here.
+def all_rooms(request):
+    page = request.GET.get("page", 1)
+    room_list = models.Room.objects.all()
+    paginator = Paginator(room_list, 10, orphans=5)
+
+    try:
+        rooms = paginator.page(int(page))
+        return render(request, "rooms/home.html", {"page": rooms})
+    except EmptyPage:
+        return redirect("/")
+```
+
+원래 코드에서는 DB에서 데이터를 get해서 화면에 렌더링하고, 페이지 네이터를 이렇게 구현했었습니다.
+
+```py
+from django.views.generic import ListView
+from . import models
+
+# 반복을 피하고 싶다.
+# ListView : A page representing a list of objects
+class HomeView(ListView):
+
+    """ HomeView Definition """
+
+    # Room을 리스트로 나타내고 싶습니다.
+    model = models.Room
+
+```
+
+길었던 코드가 줄어들었습니다. `ListView`는 A page representing a list of objects 를 해줍니다. 내부를 살펴보면 DB에서 데이터를 가져오는 쿼리셋 부터 구현하고자 하는 기능이 모두 갖추어져 있는 친구 입니다.
+
+---
+
 <center>
 
 ### ---

@@ -13,7 +13,14 @@ description: 'Movie_web_service  만들기'
 
 [노마드](https://academy.nomadcoders.co/courses/enrolled/216871) 무비 웹 서비스 만들기를 정리한 내용 입니다.
 
+[Github](https://github.com/CgodL/movie_app)<br>
+[Movie_app](https://cgodl.github.io/movie_app/)
+
+<iframe width="835" height="445" src="https://www.youtube.com/embed/glrdxRmdQC8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 </center>
+
+---
 
 ### CONTENT
 

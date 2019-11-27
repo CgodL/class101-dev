@@ -45,6 +45,7 @@
     "gatsby-source-filesystem": "^2.0.33",
     "gatsby-transformer-remark": "^2.3.12",
     "gatsby-transformer-sharp": "^2.1.19",
+    "googleapis": "^39.2.0",
     "html-react-parser": "^0.9.1",
     "i18next": "^17.0.11",
     "i18next-browser-languagedetector": "^3.0.3",

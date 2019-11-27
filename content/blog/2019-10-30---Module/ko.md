@@ -25,6 +25,10 @@ description: '모듈화 - 모듈은 매우 복잡하고 긴 코드를 사용 용
 
 ---
 
+### COMMON JS
+
+---
+
 <center>
 
 ### ---
@@ -40,5 +44,6 @@ description: '모듈화 - 모듈은 매우 복잡하고 긴 코드를 사용 용
 Reference <br>
 
 [모듈](<https://ko.wikipedia.org/wiki/%EB%AA%A8%EB%93%88_(%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)>)<br>
+[CommonJS](https://code-daniel.tistory.com/58)
 
 </center>

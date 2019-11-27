@@ -11,6 +11,8 @@ description: 'GRAPHQL 실습'
 
 먼저 GraphQL의 특징을 먼저 복습 해보겠습니다.<br>
 
+---
+
 ### Problems solved by GraphQL
 
 - #### Over-fetching<br>
@@ -33,10 +35,11 @@ description: 'GRAPHQL 실습'
   /feed<br>
   --  
   위와 같이 앱을 시작할때 REST에서 하나를 완성하려 많은 소스롤 요청하는 것을 _Under-fetching_ 이라고 합니다.
-  **GraphQL**은 URL 체계도 없으며 URL도 없습니다. **오로지 하나의 _endpoint_ 만이 존재합니다** <br>
-  /graphql 처럼 말이죠 이름은 상관없습니다. 하지만 단 하나만 존재 합니다.<br>
+  **GraphQL**은 URL 체계도 없으며 URL도 없습니다. **오로지 하나의 _endpoint_ 만이 존재합니다.** `/graphql` 처럼 말이죠 이름은 상관없습니다. 하지만 단 하나만 존재 합니다.<br>
 
   위 3번의 과정을 한번의 Query로 처리 가능합니다.
+  <br>
+  <br>
 
   ```sql
     // Query는 DB에 무언가를 요청하는 GraphQL 언어로 내가 원하는 정보를 알려줄 수 있습니다.
@@ -56,6 +59,8 @@ description: 'GRAPHQL 실습'
   ```
 
   위와 같이 query를 보내면 백엔드 에서는 아래 처럼 위 요청 정보를 담은 Object를 보냅니다.
+  <br>
+  <br>
 
   ```js
     {
@@ -99,7 +104,9 @@ description: 'GRAPHQL 실습'
   3. 내 origin에 생성한 repository를 remote에 추가합니다.
   4. git pull origin master
 
-* [GraphQL-Yoga](https://github.com/prisma-labs/graphql-yoga)를 사용할 겁니다.<br>
+<br>
+
+- [GraphQL-Yoga](https://github.com/prisma-labs/graphql-yoga)를 사용할 겁니다.<br>
   GraphQL-Yoga 는 React의 CRA와 비슷합니다. 매우 간편하게 서버를 설정할 수 있습니다.
 
 ```js
@@ -170,6 +177,8 @@ $ yarn add babel-cli babel-preset-env babel-preset-stage-3 --dev
 - graphql 폴더를 생성합니다.
 - schema.graphql 형식의 schema를 생성합니다.
 
+---
+
 ### graphql의 schema
 
 #### Object types and fields
@@ -183,6 +192,8 @@ $ yarn add babel-cli babel-preset-env babel-preset-stage-3 --dev
     name: String!
   }
 ```
+
+---
 
 ### resolvers
 
@@ -219,6 +230,8 @@ server.start(() => console.log('GraphQL Server Running'));
 
 - GraphQL Server Running이 실행되며, localhost:4000에 접속이 가능합니다.
 
+---
+
 ### GraphQL FLOW
 
 - Query를 보내면 GraphQL이 해당 서버에서 요청을 받고 서버에 정의되어 있는 schema 에서 일치하는 데이터를 찾고, resolver를 찾습니다. 즉 schema 에 일치하는 field가 resolver에도 있어야 합니다.
@@ -244,8 +257,7 @@ server.start(() => console.log('GraphQL Server Running'));
 
 </center>
 
-> <b> - </b> 
-    
+> <b> - </b>
 
 <hr />
 
