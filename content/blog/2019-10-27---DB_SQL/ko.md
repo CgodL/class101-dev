@@ -59,13 +59,15 @@ description: 'DATA BASE - SQL / 데이터는 어떤 것들의 ‘기록 정보�
   <br>
 
 * RDBMS 의 단점 <br>
-  -- 컬럼과 관련된 것인데, 테이블 생성 시 컬럼의 유형을 정의하면 나중에 변경할 때 문제 발생 소지가 많다는 점 입니다.
-  예를들어, 회원 정보와 관련된 데이터만 넣으려고 했는데 컬럼을 삭제하거나 새로운 컬럼을 추가해야하는 상황이 생기면 컬럼 변경으로 인해 기존에 이 테이블을 사용했던 프로그램을 모두 수정해야 한다는 번거로움이 생깁니다.
+  -- 테이블 생성 시 컬럼의 유형을 정의하면 나중에 변경할 때 문제 발생 소지가 많습니다.
+  예를들어, 회원 정보와 관련된 데이터만 넣으려고 했는데 컬럼을 삭제하거나 새로운 컬럼을 추가해야하는 상황이 생기면 컬럼 변경으로 인해 기존에 이 테이블을 사용했던 프로그램을 모두 수정해야합니다.
 
     <br>
 
 - RDBMS 의 특징<br>
   -- 데이터 성격에 맞게 테이블을 여러 개로 분리하고, 분리한 테이블 간에 연결고리 역할을 하는 컬럼을 두어 이 컬럼을 이용해 관계를 맺는 것 입니다.
+
+---
 
 ### Key
 
@@ -204,6 +206,8 @@ DB에 접근하여 데이터를 조회, 입력, 수정, 삭제 하기 위해 사
   | TRUNCATE TABLE | UPDATE |          |
   | RENAME         | DELETE |
 
+---
+
 ### 테이블 생성
 
 ```sql
@@ -215,6 +219,8 @@ CREATE TABLE table_name(
 );
 
 ```
+
+---
 
 ### 컬럼의 데이터형
 
@@ -249,6 +255,8 @@ CREATE TABLE academy (
     PRIMARY KEY( student_id, student_name , register_date )
 )
 ```
+
+---
 
 ### 데이터 조회 SELECT
 
@@ -292,6 +300,8 @@ WHERE major = 'CS'
  AND job = 'None'
 ```
 
+---
+
 ### 데이터 입력 INSERT
 
 테이블에 데이터를 입력하는데 필요한 정보는 크게 테이블 명, 컬럼 명과 개수, 컬럼에 들어갈 데이터 로 구분할 수 있습니다.
@@ -304,6 +314,8 @@ INSERT INTO academy(student_id, student_name, age, major, job, register_date)
 VALUES( 1, 'channing', 28, 'CS', 'None', '2019-10-27' )
 ```
 
+---
+
 ### 데이터 삭제 DELETE
 
 ```sql
@@ -311,9 +323,15 @@ DELETE FROM TABLE_NAME
 WHERE COLUMN_NAME = X;
 ```
 
+---
+
 ### 데이터 정렬 ORDER BY
 
+---
+
 ### 트랜잭션 TRANSACTION
+
+---
 
 ### DATA JOIN
 

@@ -15,13 +15,17 @@ description: 'Sequelize - 시퀄라이저는 ORM(Object-Relational Mapping)으�
 시퀄라이즈는 MySQL 뿐만 아니라 MariaDB, PostgreSQL, SQLite, MSSQL 등 다른 데이터베이스도 같이 쓸 수 있습니다. 시퀄라이즈를 쓰는 이유는 자바스크립트 구문을 알아서 SQL로 바꿔주기 때문입니다. <br>
 즉, SQL을 몰라도 자바스크립트 만으로 MySQL을 조작할 수 있습니다.
 
-#### Install
+---
+
+### Install
 
 ```js
 npm install --save sequelize
 ```
 
-#### Setting up a Connection
+---
+
+### Setting up a Connection
 
 데이터 베이스에 연결하기 위해, 우리는 시퀄라이즈 인스턴스를 만들어야 합니다.
 
@@ -38,7 +42,9 @@ const sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname');
 
 ```
 
-#### Setting up SQLite
+---
+
+### Setting up SQLite
 
 만약 SQLite를 사용한다면 아래와 같이 하면 됩니다.
 
@@ -49,7 +55,9 @@ const sequelize = new Sequelize({
 });
 ```
 
-#### Testing the connection
+---
+
+### Testing the connection
 
 **.authenticate( )** 함수를 사용하여 연결상태를 테스트 할 수 있습니다.
 
@@ -64,11 +72,15 @@ sequelize
   });
 ```
 
-#### Closing the connection
+---
+
+### Closing the connection
 
 연결을 끊길 원한다면 **sequelize.close( )** 를 호출하면 됩니다.
 
-#### Modeling a table
+---
+
+### Modeling a table
 
 모델은 **Sequelize.Model**로 확장된 클래스 입니다. 생성에는 두가지 방법이 존재합니다.
 
@@ -119,7 +131,9 @@ const User = sequelize.define(
 );
 ```
 
-#### Synchronizing the model with the database
+---
+
+### Synchronizing the model with the database
 
 Sequelize가 모델 정의에 따라 테이블을 자동으로 작성하거나 필요에 따라 수정하도록 하려면 다음과 같이 동기화 방법을 사용할 수 있습니다.
 
@@ -134,7 +148,9 @@ User.sync({ force: true }).then(() => {
 });
 ```
 
-#### Querying
+---
+
+### Querying
 
 ```js
 // Find all users
@@ -179,8 +195,7 @@ User.update(
 
 </center>
 
-> <b> - </b> 
-    
+> <b> - </b>
 
 <hr />
 <center>

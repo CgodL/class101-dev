@@ -17,7 +17,7 @@ description: 'Express - Express 는 Node.js를 위한 웹 프레임워크 입니
 </center>
 <br>
 
-**Express란?**
+### Express란?
 
 ---
 
@@ -65,6 +65,8 @@ app 객체는 express() 메소드 호출로 만들어지는 익스프레스 서�
   - get([path,]function) : 특정 패스(Path)로 요청된 정보를 처리합니다.
 ```
 
+---
+
 ### 미들웨어로 클라이언트에 응답보내기
 
 - 현재 까지 구현한 Express 서버에는 아무런 응답이 없습니다. 아직 어떤 응답을 할 것인지 지정하지 않았기 때문입니다.
@@ -96,6 +98,8 @@ http.createServer(app).listen(3000, function() {
 });
 ```
 
+---
+
 ### 익스프레스의 요청 객체와 응답 객체
 
 ```
@@ -105,6 +109,8 @@ http.createServer(app).listen(3000, function() {
   - redirect([status], path) : 웹 페이지 경로를 강제로 이동시킵니다.
   - render(view [,locals][,callback]) : 뷰 엔진을 사용해 문서를 만든 후 전송합니다.
 ```
+
+---
 
 ### 요청 객체 헤더와 파라미터
 
@@ -155,6 +161,8 @@ http.createServer(app).listen(3000, function() {
 
 익스프레스에서는 개발자가 다양한 기능을 사용할 수 있도록 미리 만들어 둔 여러가지 미들웨어를 제공합니다.
 
+---
+
 ### static 미들웨어
 
 static 미들웨어는 특정 폴더의 파일들을 특정 패스(Path)로 접근할 수 있도록 만들어 줍니다.<br>
@@ -164,6 +172,8 @@ static 미들웨어는 특정 폴더의 파일들을 특정 패스(Path)로 접�
 var static = require('serve-static');
 app.use('/public', static(path.join(__dirname, 'public')));
 ```
+
+---
 
 ### body-parser 미들웨어
 
@@ -240,6 +250,21 @@ http.createServer(app).listen(3000, function() {
 });
 ```
 
+<br>
+
+**express.js** 는 body-parser가 built in 되어 있습니다. 즉 body-parser를 따로 Import 하지 않아도 됩니다.
+
+```js
+var express = require('express')
+var app = express();
+app.use(express.json())
+app.post('/public', function(req, res) => {
+  console.log(req.body)
+})
+```
+
+---
+
 ### 요청 라우팅 하기
 
 사용자 요청은 한 가지가 아닌 다양하고 다른 요청이 들어오게 됩니다. <br>이때 `use()`메소드로 설정한 미들웨어 함수는 요청을 구분하지 않고(서로 다른 요청) 항상 호출 되기 때문에 <b>요청 url이 무엇인지 일일이 확인해야 하는 번거로움</b>이 생기게 됩니다. 이 문제를 해결하는 것이 **라우터 미들웨어** 입니다.
@@ -270,19 +295,6 @@ app.use('/', router);
 
 ---
 
-<br>
-
-**express.js** 는 body-parser가 built in 되어 있습니다. 즉 body-parser를 따로 Import 하지 않아도 됩니다.
-
-```js
-var express = require('express')
-var app = express();
-app.use(express.json())
-app.post('/public', function(req, res) => {
-  console.log(req.body)
-})
-```
-
 ### 라우터
 
 클라이언트가 서버로 접속할때는 특정한 URL를 통해 접속합니다.
@@ -297,8 +309,8 @@ app.post('/public', function(req, res) => {
 
 </center>
 
-> <b> - </b> 
-    
+> <b> - </b>
+
 ---
 
 <center>

@@ -9,7 +9,7 @@ description: 'Resizing Hash Tables'
 
 ![hash](./hashtable.png)
 
-#### Hash Tables
+### Hash Tables
 
 자바스크립트의 해시테이블은 C++ 이나 JAVA와는 다른 특징이 있습니다.
 

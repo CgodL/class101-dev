@@ -906,9 +906,13 @@ $ home.html
 
 ---
 
-### Class Based Views
+### CBV and FBV
 
 - `ListView`
+
+---
+
+**FBV(Function Based View)**
 
 ```py
 from django.shortcuts import render, redirect
@@ -930,6 +934,10 @@ def all_rooms(request):
 
 원래 코드에서는 DB에서 데이터를 get해서 화면에 렌더링하고, 페이지 네이터를 이렇게 구현했었습니다.
 
+---
+
+**CBV(Class Based View)**
+
 ```py
 from django.views.generic import ListView
 from . import models
@@ -942,10 +950,49 @@ class HomeView(ListView):
 
     # Room을 리스트로 나타내고 싶습니다.
     model = models.Room
+    paginate_by = 10
+    paginate_orphans = 5
+    ordering = "created"
 
 ```
 
-길었던 코드가 줄어들었습니다. `ListView`는 A page representing a list of objects 를 해줍니다. 내부를 살펴보면 DB에서 데이터를 가져오는 쿼리셋 부터 구현하고자 하는 기능이 모두 갖추어져 있는 친구 입니다.
+길었던 코드가 줄어들었습니다. `ListView`는 A page representing a list of objects 를 해줍니다. 내부를 살펴보면 DB에서 데이터를 가져오는 쿼리셋 부터 구현하고자 하는 기능이 모두 갖추어져 있는 친구 입니다. 페이지 네이션 역시 configuration을 활용해서 매우 간단하게 구현이 가능합니다.
+
+> 그렇다고 해서 함수용 뷰가 클래스형 뷰보다 나쁘거나 부족한건 아닙니다. 그때 그때 에 맞춰서 선택하여 사용하면 됩니다.
+
+`Class Based View`는 inheritence의 특성을 갖고 있고, 갖고 있는 기능을 간편하게 사용할 수 있습니다. 그런데 만약에 리스트 뷰에 없는 기능/부분을 추가해서 그 내용도 리스트 로 나타내고 싶다면 어떻게 해야 할까요?
+
+```py
+from django.utils import timezone
+
+
+# ListView 가 다른 역할을 더 하기 위해서 context_data를 사용합니다.
+def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    now = timezone.now()
+    context["now"] = now
+    return context
+
+```
+
+`get_context_data`는 class based View의 부족한 부분을 채워주는 함수 입니다. 시간에 대한 데이터를 위와 같이 추가하여 렌더링 할 수 있습니다. 원하는 함수를 추가할 수 있습니다! 하지만 class based view의 단점은 코드가 어떻게 돌아가는지를 코드로 확인할 수 없다는 점 입니다.
+
+---
+
+### URLs and Arguments
+
+Django Path => `"url dispatcher"`<br>
+url에 변수를 갖을 수 있게 해줍니다.
+
+> 우리는 룸을 클릭 했을 때 클릭한 해당 룸이 보여지기를 원합니다. 그리고 그 과정은 url이 변하는 식으로 접근을 합니다. "airbnb.com/rooms/1" 이런식으로 말이죠
+> 저 1과 같은 숫자가 room의 각 id가 될 겁니다. 그런데 우리는 저 url path를 수동적으로 '1' 이런식으로 추가하지 않을 겁니다. 이를 해결 하기 위한 게 바로 "url dispatcher" 입니다.
+> namespace / name 은 url을 구성할때 사용합니다.
+
+---
+
+CBV 는 이러한 특성 때문에 abstraction(추상개념) 이라고 부릅니다. 함수형은 코드를 보기만 해도 어떤 기능을 하는지 알 수 있는 반면에 클래스 형은 어떤 기능을 하는지 코드를 봐서는 모릅니다.
+예를 들어 `DetailView`라는 녀석을 import해서 사용할때 `DetailView`를 알아야 그 기능을 알 수 있습니다. 이러한 특성 때문에 추상개념 이라고 합니다.
+이러한 추상적인 특징 때문에 [ccbv](https://ccbv.co.uk/) 와 같이 내부 기능을 정리해 놓은 사이트를 활용하여 보다 쉽게 CBV를 사용할 수 있습니다.
 
 ---
 

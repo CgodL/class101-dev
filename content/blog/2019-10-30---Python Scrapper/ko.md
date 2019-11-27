@@ -16,6 +16,8 @@ Python을 활용하여 <b>Web Scraper</b> 만들어 보겠습니다.<br> 목표�
 - 먼저 Indeed 사이트에서 python을 검색 후 고급설정에서 목록이 50개 까지 보이도록 설정합니다.
 - Jupyter 또는 Repl.it을 활용하겠습니다.
 
+---
+
 #### Scraping 이란?
 
 정해진 특정 웹사이트에서 특정 데이터를 추출하고 가공하는 작업으로 필요한 정보 만을 스크랩하는 행위
@@ -198,6 +200,8 @@ last_indeed_page = extract_indeed_pages()
 indeed_jobs = extract_indeed_jobs(last_indeed_page)
 ```
 
+---
+
 ### Extracting Titles
 
 이번에는 본문에서 제목만을 추출 하겠습니다.<br>
@@ -216,6 +220,8 @@ def extract_indeed_jobs(last_page):
   return jobs
 ```
 
+---
+
 ### Extracting Company
 
 회사명 역시 같은 방법으로 추출 합니다.<br>
@@ -230,6 +236,8 @@ company = result.find('span', {'class': 'company'})
       company = company.strip()
       print(company)
 ```
+
+---
 
 ### Extracting Locations and Finishing up
 
@@ -302,6 +310,8 @@ save_to_file(jobs)
 
 ```
 
+---
+
 ### Make CSV
 
 스크래핑한 데이터를 CSV 파일 형식으로 변환 합니다.
@@ -318,7 +328,6 @@ def save_to_file(jobs):
 
 <br>
 
-
 ---
 
 <center>
@@ -329,8 +338,7 @@ def save_to_file(jobs):
 
 </center>
 
-> <b> - </b> 
-    
+> <b> - </b>
 
 <hr />
 

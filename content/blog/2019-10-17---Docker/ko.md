@@ -14,6 +14,8 @@ description: 'Docker 설정 - 도커(Docker)는 리눅스의 응용 프로그램
 <br>
 <br>
 
+### 도커
+
 **도커(Docker)는 리눅스의 응용 프로그램들을 소프트웨어 컨테이너 안에 배치시키는 일을 자동화하는 오픈 소스 프로젝트입니다.**
 
 서버에서 이야기하는 컨테이너도 이와 비슷한데 다양한 프로그램, 실행환경을 컨테이너로 추상화하고 동일한 인터페이스를 제공하여 프로그램의 배포 및 관리를 단순하게 해줍니다.
@@ -22,12 +24,16 @@ description: 'Docker 설정 - 도커(Docker)는 리눅스의 응용 프로그램
 
 ![Docker](./docker.png)
 
+---
+
 ### 서버 분산 처리 용이
 
 ![Docker-flow](./docker-flow.png)
 
 Docker 에서 ubuntu image를 실행 해보겠습니다.<br>
 각각의 선호 하는 운영체제의 패키지 관리자가 이미지로 도커에서 구성되어 있습니다.
+
+---
 
 #### 도커의 특징
 
@@ -41,6 +47,8 @@ Docker 에서 ubuntu image를 실행 해보겠습니다.<br>
 
 <hr />
 <center>
+
+---
 
 ### 도커세팅
 
@@ -100,6 +108,8 @@ Docker 에서 ubuntu image를 실행 해보겠습니다.<br>
 
 <hr />
 
+---
+
 ### Docker-Compose
 
 컨테이너를 Stack-Service-Task 라는 세가지 가상 계층으로 구분해 관리합니다. <br>
@@ -111,6 +121,8 @@ Docker 에서 ubuntu image를 실행 해보겠습니다.<br>
 버전정보가 클라이언트와 서버로 나뉘어져 있습니다. 도커는 하나의 실행파일이지만 실제로 클라이언트와 서버역할을 각각 할 수 있습니다. 도커 커맨드를 입력하면 도커 클라이언트가 도커 서버로 명령을 전송하고 결과를 받아 터미널에 출력해 줍니다.
 
 ![docker-host](https://user-images.githubusercontent.com/48753593/64958176-71c0d600-d8c9-11e9-84cf-63edb4a367ff.png)
+
+---
 
 ### pip install
 
@@ -128,8 +140,7 @@ docker를 사용하는 중에 pip3 install 과 같이 패키지를 설치하려�
 
 </center>
 
-> <b> - </b> 
-    
+> <b> - </b>
 
 <hr />
 

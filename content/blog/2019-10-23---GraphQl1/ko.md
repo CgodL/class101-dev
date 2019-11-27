@@ -9,7 +9,7 @@ description: 'GraphQL 개념 과 특징 - GraphQL은 페이스북에서 만든 �
 
 ![gq](./apo.png)
 
-**GraphQL**
+### GraphQL
 
 ---
 
@@ -18,7 +18,7 @@ GraphQl은 SQL 과 마찬가지로 쿼리 언어 입니다.
 
 ---
 
-#### SQL VS GQL
+### SQL VS GQL
 
 - SQL은 데이터베이스 시스템에 저장된 데이터를 효율적으로 가져오는 것이 목적 입니다.
 - GQL은 웹 클라이언트가 데이터를 서버로 부터 효율적으로 가져오는 것이 목적 입니다.
@@ -40,7 +40,7 @@ SELECT plot_id, species_id, sex, weight, ROUND(weight / 1000.0, 2) FROM surveys;
 
 ---
 
-#### GraphQL
+### GraphQL
 
 GraphQL은 페이스북에서 만든 어플리케이션 레이어 쿼리 언어 입니다.<br>
 
@@ -91,13 +91,13 @@ query {
 
 ---
 
-#### 장점
+### 장점
 
 특정 언어에 제한된 기술이 아니기 때문에, 여러 환경에서 사용할 수 있으며, 이미 구현된 시스템에 도입을 해도 기존에 있던 시스템이 무너지지 않기 때문에 부담 없이 적용할 수 있습니다.
 
 ---
 
-#### PipeLine
+### PipeLine
 
 ![graphql-pipline](./graphql-pipeline.png)
 
@@ -113,7 +113,7 @@ source : https://tech.kakao.com/2019/08/01/graphql-basic/
 
 ---
 
-#### REST API 와 비교
+### REST API 와 비교
 
 REST API는 URL, METHOD등을 조합하기 때문에 다양한 Endpoint가 존재 합니다. 반면, GQL은 단 하나의 Endpoint가 존재 합니다. 또한, GQL API에서는 불러오는 데이터의 종류를 쿼리 조합을 통해서 결정 합니다. <br>예를 들면, REST API에서는 각 Endpoint마다 데이터베이스 SQL 쿼리가 달라지는 반면, GQL API는 GQL 스키마의 타입마다 데이터베이스 SQL 쿼리가 달라집니다.
 ![gql-http](./gql-http.png)
@@ -126,7 +126,7 @@ source : https://tech.kakao.com/2019/08/01/graphql-basic/
 
 ---
 
-#### HTTP와 GQL의 기술 스택 비교
+### HTTP와 GQL의 기술 스택 비교
 
 <br>
 
@@ -143,9 +143,9 @@ REST API와 GraphQL API의 사용
 
 ---
 
-#### GraqhQL의 Structure
+### GraqhQL의 Structure
 
-##### 쿼리 / 뮤테이션 ( query / mutation )
+#### 쿼리 / 뮤테이션 ( query / mutation )
 
 쿼리와 뮤테이션 그리고 응답 내용의 구조는 상당히 직관적 입니다. 요청하는 쿼리문의 구조와 응답 내용의 구조는 거의 일치 합니다.
 
@@ -167,9 +167,9 @@ REST API와 GraphQL API의 사용
 
 <center>
 
-#### ---
+### ---
 
-#### ERROR | ISSUE
+### ERROR | ISSUE
 
 </center>
 

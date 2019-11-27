@@ -17,7 +17,7 @@ description: 'React 기본'
 
 </center>
 
-**REACT**
+### REACT
 
 ---
 

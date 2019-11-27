@@ -21,7 +21,7 @@ description: 'Promise'
 
 ![a](./prooo.png)
 
-**프로미스**
+### 프로미스
 
 “A promise is an object that may produce a single value some time in the future”
 프로미스는 비동기 처리를 위해 사용되는 객체 입니다.
