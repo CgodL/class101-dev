@@ -25,6 +25,7 @@ const AuthorsPage: React.FC = () => {
               <Bio user={user} />
               <br></br>
               <a href="https://www.notion.so/elt1992/Lee-Chan-Haeng-074a6e1fabd244ff830ae862a200dd5f">🤩R E S U M E👈🏻👈🏻👈🏻</a>
+              <p>c.henry.9209@gmail.com</p>
             </Col>
           ))}
         </Row>

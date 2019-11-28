@@ -61,6 +61,17 @@ description: ' 배치 프로그램 - 사전적 의미로 일괄 처리를 뜻하
 
 ---
 
+## 미들웨어
+
+<b>[미들웨어](https://ko.wikipedia.org/wiki/%EB%AF%B8%EB%93%A4%EC%9B%A8%EC%96%B4)</b>
+<br>
+<b>[미들웨어2](https://www.redhat.com/ko/topics/middleware/what-is-middleware)</b>
+![middle](./middle.jpeg)
+
+미들웨어는 양 쪽을 연결하여 데이터를 주고 받을 수 있도록 중간에서 매개 역할을 하는 소프트웨어, 네트워크를 통해서 연결된 여러 개의 컴퓨터에 있는 많은 프로세스들에게 어떤 서비스를 사용할 수 있도록 연결해 주는 소프트웨어를 말한다. 3계층 클라이언트/서버 구조에서 미들웨어가 존재한다. 웹 브라우저에서 데이터베이스로부터 데이터를 저장하거나 읽어올 수 있게 중간에 미들웨어가 존재하게 된다.
+
+---
+
 <center>
 Reference <br>
 
