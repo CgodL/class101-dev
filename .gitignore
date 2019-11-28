@@ -69,3 +69,6 @@ yarn-error.log
 .yarn-integrity
 
 .json
+
+client_secret.json
+getCalenderdata.js
