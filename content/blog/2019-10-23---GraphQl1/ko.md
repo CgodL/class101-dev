@@ -13,8 +13,9 @@ description: 'GraphQL 개념 과 특징 - GraphQL은 페이스북에서 만든 �
 
 ---
 
-GraphQl은 SQL 과 마찬가지로 쿼리 언어 입니다.
-기존의 웹 은 어플리케이션의 API를 구현할 때, 통상적으로 **REST API** 를 사용합니다. 우리가 클라이언트 사이드에서 어떠한 기능이 필요할 때마다 그때 그때 새로운 API를 만들어 주었어야 했습니다.
+GraphQL은 API를 위한 쿼리 언어이며 이미 존재하는 데이터로 쿼리를 수행하기 위한 런타임 입니다. GraphQL은 API에 있는 데이터에 대한 완벽하고 이해하기 쉬운 설명을 제공하고 클라이언트에게 필요한 것을 정확하게 요청할 수 있는 기능을 제공하며 시간이 지남에 따라 API를 쉽게 진화시키고 강력한 개발자 도구를 지원합니다.
+
+![gql](./gql.png)
 
 ---
 
@@ -49,7 +50,43 @@ GraphQL은 페이스북에서 만든 어플리케이션 레이어 쿼리 언어 
 
 - 쿼리를 통하여 필요한 데이터만 fetching 하기 때문에 overfetch / underfetch 할 걱정을 할 필요가 없습니다.
 
-```js
+---
+
+[공식 홈페이지 내용 입니다.](https://graphql-kr.github.io/learn/)<br>
+GraphQL 서비스는 타입과 필드를 정의하고, 각 타입의 필드에 대한 함수로 구현됩니다. 예를 들어, 로그인한 사용자가 누구인지(me)와 해당 사용자의 이름(name)을 가져오는 GraphQL 서비스는 다음과 같습니다.
+
+```sql
+type Query {
+  me: User
+}
+
+type User {
+  id: ID
+  name: String
+}
+```
+
+GraphQL 서비스가 실행되면 (일반적으로는 웹 서비스의 URL) GraphQL 쿼리를 전송하여 유효성을 검사하고 실행할 수 있습니다. 수신된 쿼리는 먼저 정의된 타입과 필드만 참조하도록 검사한 다음, 함수를 실행하여 결과를 생성합니다.
+
+```sql
+{
+  me {
+    name
+  }
+}
+```
+
+```json
+{
+  "me": {
+    "name": "Luke Skywalker"
+  }
+}
+```
+
+---
+
+```sql
 쿼리
 query {
     account(id: "1") {
@@ -182,6 +219,9 @@ REST API와 GraphQL API의 사용
 Reference <br>
 [GraphQL-velopert](https://velopert.com/2318) <br>
 [GraphQL-kakao](https://tech.kakao.com/2019/08/01/graphql-basic/)<br>
-[GraphQL 공식홈페이지](https://graphql.org/)
+[GraphQL 공식홈페이지 영문](https://graphql.org/)<br>
+[GraphQL 공식홈페이지 한글](https://graphql-kr.github.io/)<br>
+[GraphQL JS](https://graphql-kr.github.io/code/#javascript)<br>
+[GraphQL Tutorial](https://www.howtographql.com/basics/0-introduction/)
 
 </center>

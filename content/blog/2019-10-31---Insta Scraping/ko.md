@@ -89,23 +89,24 @@ const puppeteer = require('puppeteer');
 puppeteer.launch().then(async browser => {
   const page = await browser.newPage();
 
-  //TODO 인스타그램 로그인 페이지에서의 설정을 먼저 해줍니다.
+  // TODO 인스타그램 로그인 페이지에서의 설정을 먼저 해줍니다.
   await page.goto('https://www.instagram.com/accounts/login/');
   await page.waitForSelector('input[name="username"]');
 
-  //TODO 인스타그램 페이지에 접속하기 위해서 계정에 로그인 해야 합니다.
+  // TODO 인스타그램 페이지에 접속하기 위해서 계정에 로그인 해야 합니다.
   // SECRET 한 값으로 관리할 필요가 있습니다.
+  // DOTENV!!
   await page.type('input[name="username"]', '');
   await page.type('input[name="password"]', '');
   await page.click('button[type="submit"]');
 
-  //TODO 로그인 을 기다린 뒤 리다이렉트 합니다.
+  // TODO 로그인 을 기다린 뒤 리다이렉트 합니다.
   await page.waitForResponse(
     response =>
       response.url() === 'https://www.instagram.com/' &&
       response.status() === 200
   );
-  //TODO Gets the full HTML contents of the page, including the doctype.
+  // TODO Gets the full HTML contents of the page, including the doctype.
   await page.waitForNavigation();
   // const html = await page.content();
   // console.log('html', html)
@@ -158,6 +159,23 @@ puppeteer.launch().then(async browser => {
   await browser.close();
 });
 ```
+
+---
+
+### 태그 읽어오기
+
+<br>
+
+```js
+// TODO Page에 특정 태그 클래스 네임만 읽어오기
+const text = await page.evaluate(() => {
+  document.querySelectorAll('article');
+});
+console.log(text);
+```
+
+태그를 읽어오기 위해선 해당 페이지를 `evaluate`하여, 원하는 태그를 읽어와야 합니다. 그런데 여기서 문제가 생겨버렸습니다.. 예상과 달리 위 코드는 undefined 만을 반환합니다. page 자체에서 해당 태그 자체를 읽어오지 못합니다.
+`content`의 경우 html을 다 읽어오는 반면에, content로는 읽어오지 못하는 것 같습니다.
 
 ---
 
