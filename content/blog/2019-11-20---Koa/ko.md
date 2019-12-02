@@ -4,7 +4,9 @@ date: '2019-11-19T17:20:56'
 thumbnail: '/images/thumbnails/koa.jpeg'
 author: 'channing'
 tags: ['Koa', 'Node.js', 'Javascript', 'Server', 'Express']
-description: 'Koa로 서버 만들기'
+description: 'Koa로 서버 만들기 - Koa 는 웹 프레임워크 입니다. Express.js 와 비슷합니다. 서버를 구현하는데 에 편리한 도구 입니다. Koa 미들웨어 함수에는 두가지 파라미터가 있습니다. ctx 와 next 입니다. ctx는 웹 요청과 응답 정보를 갖고 있습니다.
+
+'
 ---
 
 ![koa](./koa.jpeg)

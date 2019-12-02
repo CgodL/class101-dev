@@ -20,7 +20,7 @@ HTTP는 어떤 종류의 데이터든 전송이 가능합니다.( 동영상, 이
 사람과 사람이 전화 통화를 하기 위해서도 몇 가지 규약이 필요합니다.<br>
 서로 알아들을 수 있는 말을 사용해야 하며, 한쪽이 말할 때 다른 쪽에서는 들어야 합니다. 또한, 전화 연결이 끊어지면 대화를 할 수가 없습니다.
 **웹 브라우저**와 **웹 서버** 간에도 서로 통신하기 위해서는 **규약**이 필요합니다.
-**이때 필요한 규약이 HTTP 입니다.** **HTTP** 는 웹에서 브라우저와 서버간에 데이터를 주고받기 위한 방식 입니다.<br>
+**이때 필요한 규약이 HTTP 입니다.**<br> **HTTP** 는 웹에서 브라우저와 서버간에 데이터를 주고받기 위한 방식 입니다.<br>
 HTTP는 어떤 종류의 데이터든 전송이 가능합니다.( 동영상, 이미지, 문서 등 )
 
 ---
@@ -112,7 +112,7 @@ POST is used to send data to a server to create/update a resource.
 
 ---
 
-#### JSON
+### JSON
 
 - HTTP 요청에 대한 응답 시 데이터를 표현하는 포맷 중 하나입니다.
 - 자바스크립트를 기반으로 한 데이터 정의 포맷으로 시작합니다.
@@ -122,13 +122,41 @@ POST is used to send data to a server to create/update a resource.
 
 ---
 
-#### HTTP 2.0
+### HTTP 2.0
 
 [HTTP 2.0](https://www.popit.kr/%EB%82%98%EB%A7%8C-%EB%AA%A8%EB%A5%B4%EA%B3%A0-%EC%9E%88%EB%8D%98-http2/)
 
 ---
 
+### TCP/IP
+
 [TCP/IP](https://brunch.co.kr/@wangho/6)
+
+---
+
+### CORS
+
+![cors](./cors.png)
+
+<center>
+
+[CORS_WIKI](https://ko.wikipedia.org/wiki/%EA%B5%90%EC%B0%A8_%EC%B6%9C%EC%B2%98_%EB%A6%AC%EC%86%8C%EC%8A%A4_%EA%B3%B5%EC%9C%A0)
+
+</center>
+
+<br>
+
+![cors2](./CORS_principle.png)
+
+<center>
+
+[CORS_MDN](https://developer.mozilla.org/ko/docs/Web/HTTP/Access_control_CORS)
+
+</center>
+
+- CORS(교차출처요청) - 다른 출처의 자원 ( 도메인, 프로토콜, 포트 ) 리소스 요청시 CORS 에러가 일어납니다.
+
+* Ajax 는 기본적으로 금지 되어 있습니다.
 
 ---
 

@@ -50,9 +50,6 @@ description: '구글 캘린더 블로그에 연동하기'
 
 ![ap](./api.png)
 
-레퍼런스도 쉽게 잘 설명이 되어 있다. 다만 문제가 있다면, 내 블로그 코드 구조에 있다.
-이 블로그는 graphQL과 갯츠비 또 typescript로 이루어져있다.. 난 graphQL / typescript / 갯츠비 다 개념이 부족하다..
-
 ---
 
 <center>
