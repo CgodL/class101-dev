@@ -197,7 +197,7 @@ app.use(router.routes()).use(router.allowedMethods());
 
 > router 인스턴스를 만들고 왜 app 인스턴스에 등록하나요?
 > <br>[개인적 생각] 제가 생각하는 작동 원리 입니다. <br>
-> Koa 또는 Express 는 프레임워크 입니다. 이 녀석들이 요구하는 규칙 같은게 존재합니다. <br>Koa / Express 는 미들웨어를 읽습니다. 미들웨어는 `app.use()`와 같이 만듭니다. 우리는 Third party로 router를 설치했습니다. <br> Koa 는 router를 읽지 못합니다. 이를 읽게 하기 위해서 Koa를 상속받은 app 미들웨어에 설정한 router를 등록합니다.<br> <br> 또는 Koa 서버 자체를 이용하기 위해선 Koa 위에서 작동해야 하고 이를 위해서는 Koa를 상속 받아야하는게 맞으니까 router는 Koa를 상속받은 녀석이 아니니까 app에 등록하여 사용한다 가 맞을까요
+> Koa 또는 Express 는 프레임워크 입니다. 이 녀석들이 요구하는 규칙 같은게 존재합니다. <br>Koa / Express 는 미들웨어를 읽습니다. 미들웨어는 `app.use()`와 같이 만듭니다. 우리는 Third party로 router를 설치했습니다. <br> Koa 는 router를 읽지 못합니다. 이를 읽게 하기 위해서 Koa를 상속받은 app 미들웨어에 설정한 router를 등록합니다.<br> <br> 또는 Koa 서버 자체를 이용하기 위해선 Koa 위에서 작동해야 하고 이를 위해서는 Koa를 상속 받아야 하는게 맞고, router는 Koa를 상속받은 녀석이 아니니까 app에 등록하여 사용한다 가 맞을까요
 
 ### Route Query
 

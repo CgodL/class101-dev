@@ -10,6 +10,8 @@ description: '리액트를 다루는 기술 - 블로그 만들기'
 ![blog](./whatisblog.png)
 
 <center>
+[19.11.24 - 잠시 중단]
+<br>
 
 [리액트를 다루는 기술](https://kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791160505238&orderClick=JAj)의 블로그 만들기 내용을 따라해보겠습니다.
 
@@ -53,8 +55,8 @@ description: '리액트를 다루는 기술 - 블로그 만들기'
 
 </center>
 
-> <b> - </b> 
-    
+> <b> - </b>
+
 <hr />
 
 <center>
