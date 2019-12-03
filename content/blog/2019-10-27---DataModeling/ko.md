@@ -120,6 +120,6 @@ DATA MODELING 을 위해서 서버 아키텍쳐를 먼저 구상하고, 설계�
 Reference <br>
 [데이터 구조와 설계](https://medium.com/@khwsc1/%EB%B2%88%EC%97%AD-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%84%A4%EA%B3%84-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-b25792a0aa86)<br>
 [lucidchart](https://www.lucidchart.com/pages/database-diagram/database-models#discovery__top)<br>
-[DATAMODELING](http://www.dbguide.net/db.db?boardUid=148404&boardConfigUid=9&boardIdx=132)
+[DATA_MODELING](http://www.dbguide.net/db.db?boardUid=148404&boardConfigUid=9&boardIdx=132)
 
 </center>
