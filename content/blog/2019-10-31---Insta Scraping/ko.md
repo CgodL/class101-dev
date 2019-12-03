@@ -18,18 +18,19 @@ description: 'INSTAGRAM SCRAPING - 인스타그램 해시태그를 활용하여 
 
 ![it](./it4.jpg)
 
-**INSTAGRAM SCRAPING**
+<center>
+
+**INSTAGRAM SCRAPING** <br>
+[기덥](https://github.com/CgodL/Insta_Crawling)
+
+</center>
 
 ### GOAL
 
 > <b>2019.10.29 - (미정)</b><br>
 > 인스타그램 해시태그를 활용하여 특정 지역 들의 데이터를 스크랩핑 / 크롤링 해보도록 하겠습니다.
->
-> 1.  해시태그를 크롤링 한다.
-> 2.  인덱스 페이지에서 특정 지역(\*제주도)를 크롤링 한다.
-> 3.  제주도 사진에 접근하여 제주도 해시태그를 크롤링 한다.
-> 4.  해시태그된 데이터 기준 '글' 을 크롤링 한다.
-> 5.  '글'에 유용한 정보가 될 부분에 분기 / 한글 전처리 패키지를 활용한다.
+
+---
 
 ### STACK
 
@@ -39,49 +40,66 @@ description: 'INSTAGRAM SCRAPING - 인스타그램 해시태그를 활용하여 
 
 - JS + Puppeteer
 - Python + Selenium
-- async / await
 
 ---
 
-<b>1번 목표의 가이드를 작성합니다.</b>
+### 시나리오
 
-1.  인스타그램(웹) 메인화면 에서 해시태그를 스크랩핑 한다.
-1.  인스타그램(앱) 화면 에서 해시태그를 스크랩핑 한다.
+> 1. 인스타그램 로그인 화면을 띄운다.
+> 2. 인스타그램에 로그인 한다.
+> 3. 검색창에 '제주도'를 입력한다.(해시태그)
+> 4. 페이지 소스를 검사한다.
+> 5. 사진에 있는 해시 태그를 추출한다.
 
-저는 인스타그램(웹) 에 대해서 스크랩핑(크롤링)을 할 것입니다.<br>
 <b>먼저 특정 검색어를 지정해서 원하는 데이터를 제대로 크롤링 해오는지</b> 부터 확인하기 위해 검색어를 '제주도'로 하여 크롤링을 구현해보도록 하겠습니다.<br>
-후에 '제주도' 로 크롤링을 성공한 후 → '전국' 으로 확장하는 식으로 구현하겠습니다.
+후에 '제주도' 로 크롤링을 성공한 후 다른 키워드로 확장하는 식으로 구현 해보겠습니다.
 
 <center>
 
-작지만 작동하는 기능을 구현한 후, 크게 확장하는 식으로 코드를 작성하겠습니다.
+작지만 작동하는 기능을 구현한 후, 크게 확장하는 식으로 코드를 작성하기
 
 </center>
 
 ---
 
-### PUPPETEER
-
-> **Puppeteer** 는
-
----
-
-**Requirements**
+### REQUIREMENTS
 
 - 비동기로 처리해야 합니다.
 - 인스타 페이지 로그인이 필요합니다.<br>
   - 로그인 시에 계정 비밀번호와 같은 시크릿한 값에 대한 처리가 필요합니다. <b>dotenv</b>를 활용하겠습니다.
 - 인스타 그램 검색 페이지는 인피니티 스크롤로 이루어져 있습니다. 인스타 그램 에서 적정량의 데이터만을 처리해야 합니다.<br>
   - 모든 데이터를 크롤링 하다보면 `setTimeout`에 걸리게 됩니다. 분기처리나 제약을 걸 수 있는 API를 활용해야 합니다.
-- robot.txt
+- robot.txt를 확인해야 합니다.
 
 ---
 
-### SETTING DOTENV PACKAGE
+### SETTING DOTENV
 
-puppeteer instagram은 비밀번호 와 아이디를 포함하기 때문에 .env파일로 따로 세팅하여야 합니다.
+puppeteer instagram은 비밀번호 와 아이디를 포함하기 때문에 `.env`파일(환경변수?)로 따로 세팅하여야 합니다. 그리고 `.gitignore`에 `.env`파일을 추가하여 github에 개인정보가 올라가는 불상사를 막습니다.
+
+- `npm i dotenv` 로 dotenv를 설치합니다.
+- .env 파일을 프로젝트 루트에 생성합니다.
+- .gitignore에 .env 를 추가합니다.
+- .env 내부에 아이디와 비밀번호를 설정해 줍니다.
+- 패스워드나 아이디 같은 값을 .env에 설정해줍니다.
+- 필요한 부분에 .env 에 저장한 값을 가져와 사용합니다.
+
+```js
+$ .env;
+INSTA_ID = 'HHHHHHHHHHH';
+INSTA_PASSWORD = 'BBBBBBBBB';
+
+$ crwaler.js
+require('dotenv').config();
+await page.type('input[name="username"]', process.env.INSTA_ID)
+await page.type('input[name="password"]', process.env.INSTA_PASSWORD)
+```
 
 ---
+
+### 무작정 구현해보기
+
+> 일단 무작정 이해없이 부딪혀봅니다.
 
 ```js
 const puppeteer = require('puppeteer');
@@ -160,11 +178,16 @@ puppeteer.launch().then(async browser => {
 });
 ```
 
+> 역시나 원하는 대로 코드가 작동하지 않으므로 순서에 맞춰서 다시 작성해보겠습니다.(2019.12.02~ )
+
 ---
 
 ### 태그 읽어오기
 
 <br>
+
+태그를 읽어오기 위해선 해당 페이지를 `evaluate`하여, 원하는 태그를 읽어와야 합니다. 그런데 여기서 문제가 생겨버렸습니다.. 예상과 달리 아래 코드는 undefined 만을 반환합니다. page 자체에서 해당 태그 자체를 읽어오지 못합니다.
+`content`의 경우 html을 다 읽어오는 반면에, content로는 읽어오지 못하는 것 같습니다.
 
 ```js
 // TODO Page에 특정 태그 클래스 네임만 읽어오기
@@ -174,8 +197,93 @@ const text = await page.evaluate(() => {
 console.log(text);
 ```
 
-태그를 읽어오기 위해선 해당 페이지를 `evaluate`하여, 원하는 태그를 읽어와야 합니다. 그런데 여기서 문제가 생겨버렸습니다.. 예상과 달리 위 코드는 undefined 만을 반환합니다. page 자체에서 해당 태그 자체를 읽어오지 못합니다.
-`content`의 경우 html을 다 읽어오는 반면에, content로는 읽어오지 못하는 것 같습니다.
+<center>
+
+--
+
+</center>
+
+`evaluate`을 잘못 사용했었습니다! return을 따로 하였고 아래와 같이 코드를 구성했을 경우, 태그를 통해 데이터를 받아오는걸 볼 수 있었습니다!
+
+```js
+const links = await page.evaluate(() => {
+  const article = Array.from(document.querySelectorAll('article div a'));
+  return article.map(a => a.textContent);
+});
+```
+
+<center>
+
+--
+
+</center>
+
+또, [Puppeteer Crawling](https://moonsupport.tistory.com/239) 블로그를 참조하니, 아래와 같이 사용하여 태그에 접근할 수 있다는 것을 알았습니다.
+
+```js
+const scoreEl = await page.$('.score.score_left .star_score');
+```
+
+"태그의 접근은 해당 페이지로 이동 후 .\$ 메소드를 이용하고, 그 중 text만 가져오기 위해서 evaluate 메소드를 이용하였다."<br>
+이를 활용해서도 다시 인스타 태그에 접근할 수 있을것 같습니다.
+
+---
+
+### 인스타 사진 클릭하기
+
+<br>
+
+```js
+const links = await page.evaluate(() => {
+  const article = Array.from(document.querySelectorAll('article div a'));
+  return article.map(a => a.textContent);
+});
+```
+
+이렇게 `querySelectorAll("article div a")` 태그를 읽었을 때 return 값으로 textContent를 주면 빈 스트링을 담은 배열이 반환됩니다. <br>왜냐하면 인스타그램의 a 태그에는 text가 없기 때문입니다. 따라서 저는 a 태그를 클릭하여 해당 사진에 들어가는 코드를 작성해보겠습니다.<br>
+<br>
+
+[참고]: [Select Link](https://stackoverflow.com/questions/51011466/puppeteer-select-link)를 참조하여 클릭 이벤트를 작동시킵니다.
+
+```js
+await page.waitForSelector('article div a'); // article 태그 밑, div 태그 밑, a 태그
+
+await Promise.all([
+  page.$eval('article div a', el => el.click()),
+  page.waitForNavigation()
+]).catch(e => console.log(e));
+
+// 스크린샷은 작동하지 않습니다. 하지만 console을 따로 찍어서 확인하지 않으므로 넣어줍니다.
+await page.screenshot({ path: '인스타' });
+```
+
+---
+
+### 해시태그 읽어오기
+
+인스타 사진을 클릭하는 것 까지 구현이 되었으며, 이제 인스타 사진 내부의 해시태그를 가져와야 합니다.
+
+```js
+await page.waitForSelector('article div span a');
+
+const tags = await page.evaluate(() => {
+  const div = Array.from(document.querySelectorAll('article div span a'));
+  return div.map(a => a.textContent);
+});
+console.log(tags);
+```
+
+![tags](./hashtag.png)
+
+<center>
+
+읽어오는데에 성공했습니다!
+
+</center>
+
+---
+
+### 데이터 가공하기
 
 ---
 
@@ -187,14 +295,23 @@ console.log(text);
 
 </center>
 
-> <b> - </b>
+<br>
+
+> <b> - </b> `UnhandledPromiseRejectionWarning: Error: net::ERR_ABORTED` : 리소스를 가져오지 못한다.. | 애초에 검색창에서 '제주도'를 입력해서 페이지에 접근하려 `page.type( )`을 활용하려 했으나 태그 class를 읽지못해서(능력부족 ㅠㅠ) 다른 방법을 찾아보다가, 그냥 제주도 링크를 `page.goto( )`로 주고, `launch( )에 headless 설정` 을하여 chronium으로 접근 하는 방법을 찾았고, 콘솔에 찍히는걸 확인했다. <br> > [참고]: https://github.com/puppeteer/puppeteer/issues/1477
+
+![j](./jj.png)
+
+![제주](./jeju.png)
+
+> <b>-</b> dotenv 설정을 코드를 어느정도 구현한 상태에서 했었는데, ignore처리가 잘 된걸 확인했지만, github에 올라갈때는 이전 커밋 내역들이 함께올라가게 되어서, 테스트하며 했던 시크릿 키 값이 담긴 코드가 그대로 올라가버렸다. 커밋을 지우거나 / 파일을 새로 파거나 ..
 
 <hr />
 <center>
 
 Reference <br>
-[PUPPETEER](https://boxfoxs.tistory.com/418)<br>
+[PUPPETEER](https://github.com/puppeteer/puppeteer/blob/master/docs/api.md)<br>
 [PupGithub](https://github.com/GoogleChrome/puppeteer)<br>
 [INSTA-Package](https://www.npmjs.com/package/puppeteer-instagram)<br>
+[Puppeteer Example](https://github.com/checkly/puppeteer-examples#amazon-search)
 
 </center>

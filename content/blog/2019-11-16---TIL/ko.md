@@ -412,13 +412,34 @@ Airbnb 클론 을 통해 얻어가야 할 것 들을 얻기 / 업그레이드 �
 
 > GraphQL 복습중 <br>
 > Docker 복습중 <br>
-> CORS 복습중
+> CORS 복습중 - HTTP에 정리.
 
 ---
 
 **😭TODO**
 
 ---
+
+**🥰COMMENT**<br>
+비 오고 .. 춥고..
+
+---
+
+<center>
+
+# 2019.12.02 월요일
+
+</center>
+
+**😇TIL**
+
+> [노션](https://www.notion.so/elt1992/Local-SNS-635c595cc78a47f2bee0421f87c33cf4) 에 프로젝트 추가함
+
+---
+
+**😭TODO**
+
+> 인스타그램 스크래핑 완료해야함
 
 **🥰COMMENT**<br>
 
