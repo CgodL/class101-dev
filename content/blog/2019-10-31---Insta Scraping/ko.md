@@ -351,6 +351,7 @@ while(count < 100){
   ...
   await page.click('.HBoOv.coreSpriteRightPaginationArrow');
   ...
+  temp = temp.concat(tags);
   count++
 }
 
@@ -360,17 +361,30 @@ while(count < 100){
 
 ![tags](./tags.png)
 
-> 문제가 하나 있습니다. 크롤링 하던중 태그가 없는 사진을 만나게 되면 크롤링을 멈춥니다. 코드에 태그가 없을 경우 에 대한 처리가 필요합니다.
+> 문제가 하나 있습니다. 크롤링 하던중 태그가 없는 사진을 만나게 되면 크롤링을 멈춥니다. 코드에 태그가 없을 경우 에 대한 처리가 필요합니다. 태그가 없을때 크로니움에서는 콘솔에 어떤 에러도 나타내지 않습니다. 분기처리를 해줘야할 것 같습니다.
+
+위처럼 생각했었는데, `const browser = await puppeteer.launch({ headless: false })`
+에서 `{ headless: false }` 를 없애니 문제 없이 크롤링 해옵니다..
 
 ---
 
 ## 데이터 가공하기
 
+데이터를 의미있는 값만 뽑아내어 CSV 파일로 변환하여 데이터를 관리하겠습니다. 아니면 DB안에 담아야 할까요..
+
+CSV 파일로 만들기 위해서는 컬럼이 필요합니다.
+
+---
+
+## 워드클라우드
+
+---
+
+## Airflow
+
 ---
 
 <center>
-
-## ---
 
 ## ERROR | ISSUE
 
@@ -389,7 +403,20 @@ while(count < 100){
 > 알고보니까 새로운 배열에 생성된 태그들을 push 해주는 부분에서 에러가 난거 같다.
 > push 할때 timeouterror가 빈번하다..
 > 크로니움에서 `Failed to load resource: the server responded with a status of 429 ()`
-> 이 에러를 발견했다. 이에 대한 검색이 필요.
+> 이 에러를 발견했다. 이에 대한 검색이 필요. <br> <b>검색해본 결과 Too Many Requests, 정해진 쿼터를 초과한 것이며,
+> 쿼터는 사용처별로 통합관리되는데 사용량이 많아 발생한 것으로 보인다고 한다..</b>
+> Instagram has silently changed the API request limit to 200
+> <br>**궁금한점(가능할까)**- Insta 자체에서 요청을 제한 한다면, 제한하는 기준이 어떻게 되는지 | 즉 만약에 요청이 ip기준 이다 라고 하면 vpn을 활용해서 limit에 다가갈때마다 ip를 리셋하는 식으로 할 수 있는거 아닌지?
+
+> <b>-</b> **git push error** <br>
+> ! [rejected] master -> master (non-fast-forward)<br>
+> error: failed to push some refs to 'https://github.com/...<br>
+> hint: Updates were rejected because the tip of your current branch is behind<br>
+> hint: its remote counterpart. Integrate the remote changes (e.g.<br>
+> hint: 'git pull ...') before pushing again.<br>
+> hint: See the 'Note about fast-forwards' in 'git push --help' for details.<br>
+> 이 에러가 왜 나는건지 이제야 알았다.. 작업을 하던 vscode에서가 아닌, 깃헙 자체에서 README.md 파일을 추가 해줬었는데 vscode 커밋 내역에는 없던 README.md 파일이 있으니 에러가 날 수 밖에.. 작업은 한 곳에서 해야겠다.
+> 해결방법은 git pull 해당 branch를 통해 변경된 값을 pull 해온다. (충돌이 날 수 있다..)
 
 <hr />
 <center>
@@ -398,6 +425,6 @@ Reference <br>
 [PUPPETEER](https://github.com/puppeteer/puppeteer/blob/master/docs/api.md)<br>
 [PupGithub](https://github.com/GoogleChrome/puppeteer)<br>
 [INSTA-Package](https://www.npmjs.com/package/puppeteer-instagram)<br>
-[Puppeteer Example](https://github.com/checkly/puppeteer-examples#amazon-search)
+[Puppeteer Example](https://github.com/checkly/puppeteer-examples#amazon-search)<br>
 
 </center>
