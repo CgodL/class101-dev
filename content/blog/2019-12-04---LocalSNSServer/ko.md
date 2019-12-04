@@ -65,6 +65,16 @@ http.createServer(app).listen(app.get('port'), function() {
 
 ---
 
+### Mongoose BASIC
+
+<center>
+
+<b>[Mongoose](https://developer-channing.com/blog/2019/09/19/channing/#%EC%8A%A4%ED%82%A4%EB%A7%88-%EC%83%9D%EC%84%B1-%ED%85%8C%EC%8A%A4%ED%8A%B8)</b>
+
+</center>
+
+---
+
 ### Express 와 MongoDB 연동하기
 
 <br>
@@ -92,15 +102,7 @@ mongoose
 app.listen(port, () => console.log(`Server listening on post ${port}`));
 ```
 
----
 
-### MONGOOSE BASIC
-
-<center>
-
-<b>[Mongoose](https://developer-channing.com/blog/2019/09/19/channing/#%EC%8A%A4%ED%82%A4%EB%A7%88-%EC%83%9D%EC%84%B1-%ED%85%8C%EC%8A%A4%ED%8A%B8)</b>
-
-</center>
 
 ---
 
