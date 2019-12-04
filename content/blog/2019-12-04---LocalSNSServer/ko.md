@@ -34,9 +34,10 @@ description: '로딩 중 ..'
 - git init
 - npm init
 - eslint --init
-- dotenv 설치
-- express 설치
-- nodemon 설치
+- dotenv 설치 합니다.
+- express 설치 합니다.
+- nodemon 설치 합니다.
+- Mongoose를 설치 합니다.
 
 ---
 
@@ -68,10 +69,6 @@ http.createServer(app).listen(app.get('port'), function() {
 
 <br>
 
-- 먼저 Mongoose를 설치합니다. `npm install --save mongoose`
-
-참조 : [POIEMA](https://poiemaweb.com/mongoose)
-
 ```js
 require('dotenv').config();
 const express = require('express');
@@ -97,80 +94,21 @@ app.listen(port, () => console.log(`Server listening on post ${port}`));
 
 ---
 
-### 스키마 생성 테스트
+### MONGOOSE BASIC
 
-참조 : [Mongoose](https://mongoosejs.com/)
+<center>
 
-```js
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true });
+<b>[Mongoose](https://developer-channing.com/blog/2019/09/19/channing/#%EC%8A%A4%ED%82%A4%EB%A7%88-%EC%83%9D%EC%84%B1-%ED%85%8C%EC%8A%A4%ED%8A%B8)</b>
 
-const Cat = mongoose.model('Cat', { name: String });
-
-const kitty = new Cat({ name: 'Zildjian' });
-kitty.save().then(() => console.log('meow'));
-```
-
-> 잘보면 생성한 model은 OOP 의 생성자 처럼 작동합니다. Cat의 인스턴스로 kitty를 만드는 것을 통해 확인할 수 있습니다.<br>레퍼런스를 기반으로 하여 스키마와 모델을 생성해보겠습니다.
-
-```js
-$ models > hashtag.js
-// Test Schema
-const catSchema = new mongoose.Schema({
-    name: String,
-    age: Number,
-})
-
-// 생성한 스키마에 메서드도 추가할 수 있습니다.
-// 야옹! 메서드 입니다.
-catSchema.methods.speak = function() {
-  const greeting = this.name
-    ? "Meow name is " + this.name
-    : "I don't have a name";
-  console.log(greeting);
-};
-
-module.exports = mongoose.model("Cat", catSchema)
-```
-
-- 이렇게 Cat model을 생성한뒤 , 저 같은 경우 index.js 에서 아래와 같이 사용합니다.
-
-```js
-//Test Model
-const Cat = require('./models/hashtag');
-const munchkin = new Cat({ name: 'Maum' });
-console.log(munchkin.name);
-munchkin.speak();
-```
-
-- 이제 생성한 모델을 db에 저장합니다.
-
-```js
-munchkin.save((err, munchkin) => {
-  if (err) return console.error(err);
-  munchkin.speak();
-});
-```
-
-- 저장한 모델을 확인합니다.
-
-```js
-Cat.find((err, munchkin) => {
-  if (err) return console.error(err);
-  console.log(munchkin);
-});
-
-// 이런식으로도 쓸수 있습니다.
-Cat.find({ name: munchkin }, () => {
-  console.log(munchkin);
-});
-```
+</center>
 
 ---
 
 ### 프로젝트 스키마 생성
 
 models 폴더를 생성하고, Schema가 될 파일을 생성합니다.
+
+> 고려할 사항이 몇가지 있어 보입니다. POST를 통해 DB에 데이터를 저장할텐데, 어떤 타입을 줄지에 대해서도 고려해야 하며 제가 갖고 있는 데이터는 배열이라는 점도 있습니다.
 
 ```js
 $ models > hashtag.js
@@ -188,6 +126,12 @@ module.exports = mongoose.model("Hashtag", hashTagSchema);
 
 ---
 
+### CRUD(Create, Retrieve, Update, Delete)
+
+**REST API**
+
+---
+
 <center>
 
 ### ---
@@ -202,6 +146,7 @@ module.exports = mongoose.model("Hashtag", hashTagSchema);
 <center>
 
 Reference <br>
+[POIEMA](https://poiemaweb.com/mongoose)<br>
 [express](https://developer-channing.com/blog/2019/10/24/channing)<br>
 [mongoose](https://mongoosejs.com/docs/index.html)
 

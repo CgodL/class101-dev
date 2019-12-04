@@ -126,6 +126,76 @@ var Blog = mongoose.model('Blog', blogSchema);
 
 ---
 
+#### 예제를 통한 스키마 테스트
+
+<br>
+
+```js
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true });
+
+const Cat = mongoose.model('Cat', { name: String });
+
+const kitty = new Cat({ name: 'Zildjian' });
+kitty.save().then(() => console.log('meow'));
+```
+
+> 잘보면 생성한 model은 OOP 의 생성자 처럼 작동합니다. Cat의 인스턴스로 kitty를 만드는 것을 통해 확인할 수 있습니다.<br>레퍼런스를 기반으로 하여 테스트 스키마와 테스트 모델을 생성해보겠습니다.
+
+```js
+$ models > hashtag.js
+// Test Schema
+const catSchema = new mongoose.Schema({
+    name: String,
+    age: Number,
+})
+
+// 생성한 스키마에 메서드도 추가할 수 있습니다.
+// 야옹! 메서드 입니다.
+catSchema.methods.speak = function() {
+  const greeting = this.name
+    ? "Meow name is " + this.name
+    : "I don't have a name";
+  console.log(greeting);
+};
+
+module.exports = mongoose.model("Cat", catSchema)
+
+// 이렇게 Cat model을 생성한뒤 , 저 같은 경우 index.js 에서 아래와 같이 사용합니다.
+// Test Model
+const Cat = require('./models/hashtag');
+const munchkin = new Cat({ name: 'Maum' });
+console.log(munchkin.name);
+munchkin.speak();
+
+// 이제 생성한 모델을 db에 저장합니다.
+munchkin.save((err, munchkin) => {
+  if (err) return console.error(err);
+  munchkin.speak();
+});
+
+// 저장한 모델을 확인합니다.
+Cat.find((err, munchkin) => {
+  if (err) return console.error(err);
+  console.log(munchkin);
+});
+
+// 이런 방법 으로도 쓸수 있습니다.
+Cat.find({ name: munchkin }, () => {
+  console.log(munchkin);
+});
+```
+
+---
+
+### Mongoose QUERY
+
+<center>
+
+<b>[QUERY](https://mongoosejs.com/docs/api/query.html)</b>
+
+</center>
+
 <!--
 <center>
 
