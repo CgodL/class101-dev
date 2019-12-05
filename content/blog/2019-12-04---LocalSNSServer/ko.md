@@ -22,6 +22,12 @@ description: '로딩 중 ..'
 
 ---
 
+### ARCHITECTURE
+
+![ar](./aa.png)
+
+---
+
 ### STACK
 
 - Node.js (Express.js | Koa.js)

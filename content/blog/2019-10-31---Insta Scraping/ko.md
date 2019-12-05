@@ -285,6 +285,64 @@ console.log(tags);
 읽어오는데에 성공했습니다!
 
 </center>
+<br>
+
+이제 마지막으로 해시태그가 없을때 예외 처리를 통해 다음 페이지로 넘어가는 로직을 구성해주면 됩니다. `try/catch`를 활용하면 구현할 수 있습니다.
+
+```js
+ try {
+      await page.waitForSelector("article div span a", { timeout: 800 });
+
+      tags = await page.evaluate(() => {
+        const div = Array.from(document.querySelectorAll("article div span a"));
+        return div.map(a => a.textContent);
+      });
+    } catch (error) {
+      await page.click(".HBoOv.coreSpriteRightPaginationArrow");
+    }
+```
+
+---
+
+### DATE / LOCATION 읽어오기
+
+Location을 크롤링 해보겠습니다.
+![loca](./loca.png)
+
+'동백포레스트' 저 부분을 읽어와야 합니다. 해당 태그 부분에 class 이름이 있으므로 이를 통해서 크롤링 해옵니다.
+```js
+  // 해당 selector가 로딩 되기를 기다립니다.
+  await page.waitForSelector(".O4GlU");
+  // 해당 태그의 문자열을 읽어옵니다.
+  location = await page.evaluate(() => {
+    const div = document.querySelector(".O4GlU").textContent;
+    return div;
+  });
+```
+<br>
+
+하지만 location 이 없는 경우 timeOut 에러를 냅니다. location은 항상 제공되어지는 것 이 아닙니다. 즉 분기 처리가 필요합니다!
+> 분기 처리를 위해서 로직을 구성해봅니다. <br>
+>  1. 비동기적으로 작동합니다. waitForSelector를 통해서 원하는 selector를 읽어오길 기다립니다.<br>
+>  2. 1번 과정을 기다리는데, 만약 없다면 다음 페이지로 넘어가도록 합니다.
+>  3. try/catch와 settimeout을 이용합니다.
+
+```js
+  try {
+      await page.waitForSelector(".O4GlU", { timeout: 2000 });
+      location = await page.evaluate(() => {
+        const div = document.querySelector(".O4GlU").textContent;
+        if (div) {
+          return div;
+        }
+      });
+    } catch (error) {
+      await page.click(".HBoOv.coreSpriteRightPaginationArrow");
+    }
+```
+
+이로써 location 데이터는 잘 뽑아오게 되었습니다.
+
 
 ---
 
@@ -361,10 +419,9 @@ while(count < 100){
 
 ![tags](./tags.png)
 
-> 문제가 하나 있습니다. 크롤링 하던중 태그가 없는 사진을 만나게 되면 크롤링을 멈춥니다. 코드에 태그가 없을 경우 에 대한 처리가 필요합니다. 태그가 없을때 크로니움에서는 콘솔에 어떤 에러도 나타내지 않습니다. 분기처리를 해줘야할 것 같습니다.
+> 문제가 하나 있습니다. 크롤링 하던중 태그가 없는 사진을 만나게 되면 크롤링을 멈춥니다. 코드에 태그가 없을 경우 에 대한 처리가 필요합니다. 태그가 없을때 크로니움에서는 콘솔에 어떤 에러도 나타내지 않습니다. 분기처리를 해줘야할 것 같습니다.<br>
+> `(node: 55679)UnhandledPromiseRejectionWarning: TimeoutError: waiting for selector "article div span a" failed: timeout 30000ms exceeded` 
 
-위처럼 생각했었는데, `const browser = await puppeteer.launch({ headless: false })`
-에서 `{ headless: false }` 를 없애니 문제 없이 크롤링 해옵니다..
 
 ---
 
@@ -376,7 +433,23 @@ CSV 파일로 만들기 위해서는 컬럼이 필요합니다. 컬럼에 의미
 
 > 데이터 가공을 목표로 하는 프로젝트에 맞춰서 해야할 것 같습니다.<br>
 > 저는 데이터를 클라이언트 단에서 사용할 것 이므로 DB안에 담는 형태로 데이터를 가공하겠습니다. <br>
-> 이 부분은 새로운 포스트에 만들겠습니다.
+> DB와 연동하는 부분은 새로운 포스트에 만들겠습니다. [여기](https://developer-channing.com/blog/2019/12/04/channing)
+
+개략적으로, 제가 사용하는 DB 스키마에 어떤 값이 들어가야 할지 부터 고려해야 합니다.<br>
+저는 MongoDB (Mongoose)를 사용할 것입니다.
+크롤링을 클라이언트 단 에서 하지 않기 때문에, 크롤링 데이터가 POST를 통한 추가로 이뤄지지 않습니다. 서버 단에서 크롤링한 데이터를 바로 추가하도록 하겠습니다.
+
+```js
+// Mongoose
+const catSchema = new mongoose.Schema({
+    name: String,
+    age: Number,
+})
+
+const munchkin = new Cat({ name: 'Maum' });
+```
+
+몽구스는 위와 같은 형태 입니다. 그리고 제 데이터는 1차원 배열 입니다. 어떻게 제 tags를  스키마에 집어넣을지 구상해야 합니다.
 
 ---
 
@@ -430,6 +503,9 @@ CSV 파일로 만들기 위해서는 컬럼이 필요합니다. 컬럼에 의미
 > 이 에러가 왜 나는건지 이제야 알았다.. 작업을 하던 vscode에서가 아닌, 깃헙 자체에서 README.md 파일을 추가 해줬었는데 vscode 커밋 내역에는 없던 README.md 파일이 있으니 에러가 날 수 밖에.. 작업은 한 곳에서 해야겠다.
 > 해결방법은 git pull 해당 branch를 통해 변경된 값을 pull 해온다. (충돌이 날 수 있다..)
 
+> <b>-</b> 
+`UnhandledPromiseRejectionWarning: TimeoutError: waiting for selector "article div span a" failed: timeout 30000ms exceeded` <br>
+답: https://github.com/puppeteer/puppeteer/issues/1149<br> try / catch에 답이 있었다. 응답을 settimeout을 걸어서 일정 시간까지 기다리게 하고 없다면 넘어가는 식으로 구현.
 <hr />
 <center>
 
