@@ -186,9 +186,10 @@ puppeteer.launch().then(async browser => {
 <br>
 
 태그를 읽어오기 위해선 해당 페이지를 `evaluate`하여, 원하는 태그를 읽어와야 합니다. 그런데 여기서 문제가 생겨버렸습니다.. 예상과 달리 아래 코드는 undefined 만을 반환합니다. page 자체에서 해당 태그 자체를 읽어오지 못합니다.
-`content`의 경우 html을 다 읽어오는 반면에, content로는 읽어오지 못하는 것 같습니다.
+`content`의 경우 html을 다 읽어오는데...
 
 ```js
+// 틀린 코드
 // TODO Page에 특정 태그 클래스 네임만 읽어오기
 const text = await page.evaluate(() => {
   document.querySelectorAll('article');
@@ -202,7 +203,7 @@ console.log(text);
 
 </center>
 
-`evaluate`을 잘못 사용했었습니다! return을 따로 하였고 아래와 같이 코드를 구성했을 경우, 태그를 통해 데이터를 받아오는걸 볼 수 있었습니다!
+`evaluate`을 잘못 사용했었습니다! 당연하게도 return이 필요했습니다. (puppeteer 를  이해를 안하고 사용하다보니 ㅠ)<br>아래와 같이 코드를 구성했을 경우, 태그를 통해 데이터를 받아오는걸 볼 수 있었습니다!
 
 ```js
 const links = await page.evaluate(() => {
@@ -217,14 +218,14 @@ const links = await page.evaluate(() => {
 
 </center>
 
-또, [Puppeteer Crawling](https://moonsupport.tistory.com/239) 블로그를 참조하니, 아래와 같이 사용하여 태그에 접근할 수 있다는 것을 알았습니다.
+또, [Puppeteer Crawling](https://moonsupport.tistory.com/239) 블로그를 참조하니, 아래와 같이 제이쿼리를 사용하여 태그에 접근할 수 있다는 것을 알았습니다.
 
 ```js
 const scoreEl = await page.$('.score.score_left .star_score');
 ```
 
 "태그의 접근은 해당 페이지로 이동 후 .\$ 메소드를 이용하고, 그 중 text만 가져오기 위해서 evaluate 메소드를 이용하였다."<br>
-이를 활용해서도 다시 인스타 태그에 접근할 수 있을것 같습니다.
+이를 활용해서도 인스타 태그에 접근할 수 있을것 같습니다.
 
 ---
 
@@ -302,11 +303,12 @@ console.log(tags);
     }
 ```
 
+
 ---
 
 ### DATE / LOCATION 읽어오기
 
-Location을 크롤링 해보겠습니다.
+**Location을 크롤링 해보겠습니다.**
 ![loca](./loca.png)
 
 '동백포레스트' 저 부분을 읽어와야 합니다. 해당 태그 부분에 class 이름이 있으므로 이를 통해서 크롤링 해옵니다.
@@ -325,7 +327,7 @@ Location을 크롤링 해보겠습니다.
 > 분기 처리를 위해서 로직을 구성해봅니다. <br>
 >  1. 비동기적으로 작동합니다. waitForSelector를 통해서 원하는 selector를 읽어오길 기다립니다.<br>
 >  2. 1번 과정을 기다리는데, 만약 없다면 다음 페이지로 넘어가도록 합니다.
->  3. try/catch와 settimeout을 이용합니다.
+>  3. try/catch와 timeout을 이용합니다.
 
 ```js
   try {
@@ -341,7 +343,13 @@ Location을 크롤링 해보겠습니다.
     }
 ```
 
-이로써 location 데이터는 잘 뽑아오게 되었습니다.
+마지막으로, 고려해야할 사항이 있습니다. 인스타 그램은 한개 이상의 사진을 올릴 수 있습니다.
+그렇다 보니 장소의 경우 중복되는 값이 배열에 저장되게 됩니다. 이를 처리하여 중복되는 요소가 없도록 하겠습니다. 
+> 한가지 유의할 점이, 만약 A라는 사람이 '제주도'라는 장소로 4개의 사진을 올렸다고 했을때, 현재 배열에는 ['제주도', '제주도', '제주도', '제주도'] 이런식의 데이터가 저장될 겁니다.
+따라서 이를 uniq등의 처리를 통해 '제주도' 하나만을 저장한다고 하였을 때, 그 해당 페이지의 장소만 uniq처리 되야 한다는 점 입니다. 다른 페이지(B)에서 나온 '제주도'를 같은 값으로 처리해서는 안됩니다. 
+
+**Date를 크롤링 해보도록 하겠습니다**<br>
+방식은 위와 같으며, Date는 인스타그램에 항상 존재하기 때문에 예외처리 없이 간단하게 구현할 수 있습니다.
 
 
 ---
@@ -419,9 +427,19 @@ while(count < 100){
 
 ![tags](./tags.png)
 
-> 문제가 하나 있습니다. 크롤링 하던중 태그가 없는 사진을 만나게 되면 크롤링을 멈춥니다. 코드에 태그가 없을 경우 에 대한 처리가 필요합니다. 태그가 없을때 크로니움에서는 콘솔에 어떤 에러도 나타내지 않습니다. 분기처리를 해줘야할 것 같습니다.<br>
-> `(node: 55679)UnhandledPromiseRejectionWarning: TimeoutError: waiting for selector "article div span a" failed: timeout 30000ms exceeded` 
 
+> 한가지 고민되는 점이 있습니다. 현재는 concat으로 1차원 배열로 데이터를 관리하는데, 이를 2차원 배열로 관리하는게 나을지 고민입니다. <br> 또, 현재(19.12.05.목) 저는 데이터를 각각의 배열을 만들어 따로 따로 관리를 하고 있었는데, 이를 하나의 배열에 넣는 방식으로 할지 고민입니다. 
+
+
+<b>해시태그</b>를 크롤링 하다보면, waitforSelector에 해당하는 데이터를 모두 가져옵니다. 여기에는 사용자의 아이디와 '로그인' 같이 의미 없는 데이터도 따라옵니다. 따라서 이런 의미없는 값을 필터링 해야 합니다.
+
+
+
+![caa](./cr.png)
+
+<center>
+[일단 현재 까지 크롤링한 데이터 형태와 데이터 입니다.]
+</center>
 
 ---
 
@@ -493,6 +511,10 @@ const munchkin = new Cat({ name: 'Maum' });
 > Instagram has silently changed the API request limit to 200
 > <br>**궁금한점(가능할까)**- Insta 자체에서 요청을 제한 한다면, 제한하는 기준이 어떻게 되는지 | 즉 만약에 요청이 ip기준 이다 라고 하면 vpn을 활용해서 limit에 다가갈때마다 ip를 리셋하는 식으로 할 수 있는거 아닌지?
 
+> <b>-</b> **태그/지역정보가 없을때** : 크롤링 하던중 태그가 없는 사진을 만나게 되면 크롤링을 멈춥니다. 코드에 태그가 없을 경우 에 대한 처리가 필요합니다. 태그가 없을때 크로니움에서는 콘솔에 어떤 에러도 나타내지 않습니다. 분기처리를 해줘야할 것 같습니다.<br>
+> `(node: 55679)UnhandledPromiseRejectionWarning: TimeoutError: waiting for selector "article div span a" failed: timeout 30000ms exceeded` | **위에 try/catch를 통해 해결했습니다.**
+
+
 > <b>-</b> **git push error** <br>
 > ! [rejected] master -> master (non-fast-forward)<br>
 > error: failed to push some refs to 'https://github.com/...<br>
@@ -505,7 +527,11 @@ const munchkin = new Cat({ name: 'Maum' });
 
 > <b>-</b> 
 `UnhandledPromiseRejectionWarning: TimeoutError: waiting for selector "article div span a" failed: timeout 30000ms exceeded` <br>
-답: https://github.com/puppeteer/puppeteer/issues/1149<br> try / catch에 답이 있었다. 응답을 settimeout을 걸어서 일정 시간까지 기다리게 하고 없다면 넘어가는 식으로 구현.
+답: https://github.com/puppeteer/puppeteer/issues/1149<br> try / catch에 답이 있었다. 응답을 timeout을 걸어서 일정 시간까지 기다리게 하고 없다면 넘어가는 식으로 구현.
+
+> <b>- ISSUE</b> : 
+요구하는 데이터가 없을때 / 로딩되기를 기다리는 시간을 `timeout` 을 통해 구현하고 있는데,
+어떻게 해야 최적화할 수 있을지도 고려해야 한다.
 <hr />
 <center>
 
