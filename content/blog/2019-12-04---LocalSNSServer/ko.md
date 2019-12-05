@@ -24,7 +24,7 @@ description: '로딩 중 ..'
 
 ### ARCHITECTURE
 
-![ar](./aa.png)
+![ar](./a1.png)
 
 ---
 
@@ -40,10 +40,10 @@ description: '로딩 중 ..'
 - git init
 - npm init
 - eslint --init
-- dotenv 설치 합니다.
-- express 설치 합니다.
-- nodemon 설치 합니다.
-- Mongoose를 설치 합니다.
+- dotenv 설치 
+- express 설치 
+- nodemon 설치 
+- Mongoose를 설치 
 
 ---
 
@@ -137,6 +137,9 @@ module.exports = mongoose.model("Hashtag", hashTagSchema);
 ### CRUD(Create, Retrieve, Update, Delete)
 
 **REST API**
+
+POST 요청이 필요할지 ..
+>크롤링을 클라이언트 단 에서 하지 않기 때문에, 크롤링 데이터가 POST를 통한 추가로 이뤄지지 않습니다. 서버 단에서 크롤링한 데이터를 바로 추가하도록 하겠습니다.
 
 ---
 
