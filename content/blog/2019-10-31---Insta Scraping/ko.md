@@ -21,7 +21,7 @@ description: 'INSTAGRAM SCRAPING - 인스타그램 해시태그를 활용하여 
 <center>
 
 **INSTAGRAM SCRAPING** <br>
-[기덥](https://github.com/CgodL/Insta_Crawling)
+[기덥](https://github.com/CgodL/Insta_Crawling) | 현재는 Private으로 확인할 수 없습니다~
 
 </center>
 
@@ -203,7 +203,7 @@ console.log(text);
 
 </center>
 
-`evaluate`을 잘못 사용했었습니다! 당연하게도 return이 필요했습니다. (puppeteer 를  이해를 안하고 사용하다보니 ㅠ)<br>아래와 같이 코드를 구성했을 경우, 태그를 통해 데이터를 받아오는걸 볼 수 있었습니다!
+`evaluate`을 잘못 사용했었습니다! 당연하게도 return이 필요했습니다. (puppeteer 를 이해를 안하고 사용하다보니 ㅠ)<br>아래와 같이 코드를 구성했을 경우, 태그를 통해 데이터를 받아오는걸 볼 수 있었습니다!
 
 ```js
 const links = await page.evaluate(() => {
@@ -290,21 +290,21 @@ console.log(tags);
 
 **해시태그가 없을때 예외 처리**<br>
 이제 마지막으로 해시태그가 없을때 예외 처리를 통해 다음 페이지로 넘어가는 로직을 구성해주면 됩니다. `try/catch`를 활용하면 구현할 수 있습니다.
+
 > 초기에는 if/else로 분기처리를 시도 했지만, 응답을 받고 / 이를 처리하는 구조로 인해 한계가 있다 생각하여 try/catch를 통해 구현했습니다.
 
 ```js
- try {
-      await page.waitForSelector("article div span a", { timeout: 800 });
+try {
+  await page.waitForSelector('article div span a', { timeout: 800 });
 
-      tags = await page.evaluate(() => {
-        const div = Array.from(document.querySelectorAll("article div span a"));
-        return div.map(a => a.textContent);
-      });
-    } catch (error) {
-      await page.click(".HBoOv.coreSpriteRightPaginationArrow");
-    }
+  tags = await page.evaluate(() => {
+    const div = Array.from(document.querySelectorAll('article div span a'));
+    return div.map(a => a.textContent);
+  });
+} catch (error) {
+  await page.click('.HBoOv.coreSpriteRightPaginationArrow');
+}
 ```
-
 
 ---
 
@@ -314,52 +314,60 @@ console.log(tags);
 ![loca](./loca.png)
 
 '동백포레스트' 저 부분을 읽어와야 합니다. 해당 태그 부분에 class 이름이 있으므로 이를 통해서 크롤링 해옵니다.
+
 ```js
-  // 해당 selector가 로딩 되기를 기다립니다.
-  await page.waitForSelector(".O4GlU");
-  // 해당 태그의 문자열을 읽어옵니다.
-  location = await page.evaluate(() => {
-    const div = document.querySelector(".O4GlU").textContent;
-    return div;
-  });
+// 해당 selector가 로딩 되기를 기다립니다.
+await page.waitForSelector('.O4GlU');
+// 해당 태그의 문자열을 읽어옵니다.
+location = await page.evaluate(() => {
+  const div = document.querySelector('.O4GlU').textContent;
+  return div;
+});
 ```
+
 <br>
 
 **Location 예외 처리** <br>
 하지만 location 이 없는 경우 timeOut 에러를 냅니다. location은 항상 제공되어지는 것 이 아닙니다. 즉 예외 처리가 필요합니다!
+
 > 분기 처리를 위해서 로직을 구성해봅니다. <br>
->  1. 비동기적으로 작동합니다. waitForSelector를 통해서 원하는 selector를 읽어오길 기다립니다.<br>
->  2. 1번 과정을 기다리는데, 만약 없다면 다음 페이지로 넘어가도록 합니다.
->  3. try/catch와 timeout을 이용합니다.
+>
+> 1.  비동기적으로 작동합니다. waitForSelector를 통해서 원하는 selector를 읽어오길 기다립니다.<br>
+> 2.  1번 과정을 기다리는데, 만약 없다면 다음 페이지로 넘어가도록 합니다.
+> 3.  try/catch와 timeout을 이용합니다.
 
 ```js
-  try {
-      await page.waitForSelector(".O4GlU", { timeout: 2000 });
-      location = await page.evaluate(() => {
-        const div = document.querySelector(".O4GlU").textContent;
-        if (div) {
-          return div;
-        }
-      });
-    } catch (error) {
-      await page.click(".HBoOv.coreSpriteRightPaginationArrow");
+try {
+  await page.waitForSelector('.O4GlU', { timeout: 2000 });
+  location = await page.evaluate(() => {
+    const div = document.querySelector('.O4GlU').textContent;
+    if (div) {
+      return div;
     }
+  });
+} catch (error) {
+  await page.click('.HBoOv.coreSpriteRightPaginationArrow');
+}
 ```
 
 **중복 데이터 고려**<br>
 마지막으로, 고려해야할 사항이 있습니다. 인스타 그램은 한개 이상의 사진을 올릴 수 있습니다.
-그렇다 보니 장소의 경우 중복되는 값이 배열에 저장되게 됩니다. 이를 처리하여 중복되는 요소가 없도록 하겠습니다. 
+그렇다 보니 장소의 경우 중복되는 값이 배열에 저장되게 됩니다. 이를 처리하여 중복되는 요소가 없도록 하겠습니다.
+
 > 한가지 유의할 점이, 만약 A라는 사람이 '제주도'라는 장소로 4개의 사진을 올렸다고 했을때, 현재 배열에는 ['제주도', '제주도', '제주도', '제주도'] 이런식의 데이터가 저장될 겁니다.
-따라서 이를 uniq등의 처리를 통해 '제주도' 하나만을 저장한다고 하였을 때, 그 해당 페이지의 장소만 uniq처리 되야 한다는 점 입니다. 다른 페이지(B)에서 나온 '제주도'를 같은 값으로 처리해서는 안됩니다.<br>
-><b>다시 생각해보니</b> 각 페이지 에 응답을 기다린뒤, 한 페이지에 해당하는 데이터(태그)들을 배열에 저장하는 구조 입니다. 이 말은 즉 각 데이터 간의 중복은 없으며, 페이지가 변할 때 마다 새롭게 카운트 되는 데이터라고 생각할 수 있을것 같습니다.
+> 따라서 이를 uniq등의 처리를 통해 '제주도' 하나만을 저장한다고 하였을 때, 그 해당 페이지의 장소만 uniq처리 되야 한다는 점 입니다. 다른 페이지(B)에서 나온 '제주도'를 같은 값으로 처리해서는 안됩니다.<br> <b>다시 생각해보니</b> 각 페이지 에 응답을 기다린뒤, 한 페이지에 해당하는 데이터(태그)들을 배열에 저장하는 구조 입니다. 이 말은 즉 각 데이터 간의 중복은 없으며, 페이지가 변할 때 마다 새롭게 카운트 되는 데이터라고 생각할 수 있을것 같습니다.
 
 **Date를 크롤링 해보도록 하겠습니다**<br>
 방식은 위와 같으며, Date는 인스타그램에 항상 존재하기 때문에 예외처리 없이 간단하게 구현할 수 있습니다.
 
+> Date에 문제가 하나 있습니다.. 현재 크롤링을 하게 되면 a 링크의 textContent 1시간전 / 20시간전 / 날짜일 수도 있구요 이와 같은 데이터를 가져오는데요, 이렇게 되면 매일 또는 특정 시간 에 크롤링 한 기준으로 계속 1시간전 / 몇 시간전 과 같이 구분할 수 없는 데이터가 추가 되버립니다. 따라서 크롤링 하는데 데이터를 변경을 하던가 또는 Date 메서드를 이용해서 크롤링 요청을 할때마다 요청시간을 추가하는 방법 이 있을것 같습니다.<br> <b>인스타그램 태그를 확인해보니, a 링크내에 title 과 datetime이 시간 관련 데이터를 제공하고 있습니다. 따라서 저는 title 이나 datetime 데이터를 크롤링 해보도록 하겠습니다.</b>
+
+`document.querySelector('._1o9PC.Nzb55').datetime` 을 통해서 원하는 데이터를 잘 크롤링 해옵니다.
 
 ---
 
 ### 크롤링 고도화 하기
+
 <br>
 
 **많은 태그 크롤링 하기**<br>
@@ -435,7 +443,6 @@ while(count < 100){
 
 ![tags](./tags.png)
 
-
 **데이터 형태 정하기**<br>
 한가지 고민되는 점이 있습니다. 현재는 concat으로 1차원 배열로 데이터를 관리하는데, 이를 2차원 배열로 관리하는게 나을지 고민입니다. <br> 또, 현재(19.12.05.목) 저는 데이터를 각각의 배열을 만들어 따로 따로 관리를 하고 있었는데, 이를 하나의 배열에 넣는 방식으로 할지 고민입니다. <br>
 <b>최종적으로 `instarr.push([location, date, tags])` 처럼 2차원 배열로 저장하는게 DB에서 사용하기 용이할것 같습니다.
@@ -444,9 +451,7 @@ while(count < 100){
 **의미없는 데이터 필터링 하기**<br>
 <b>해시태그</b>를 크롤링 하다보면, waitforSelector에 해당하는 데이터를 모두 가져옵니다. 여기에는 사용자의 아이디와 '로그인' 같이 의미 없는 데이터도 따라옵니다. 따라서 이런 의미없는 값을 필터링 해야 합니다.
 
-
-
-![caa](./sca.png)
+![caa](./fri.png)
 
 <center>
 [크롤링한 데이터 형태와 데이터 입니다. | 반복을 임의로 2번만 돌렸습니다.]
@@ -469,17 +474,17 @@ while(count < 100){
 ```js
 // Mongoose
 const catSchema = new mongoose.Schema({
-    name: String,
-    age: Number,
-})
+  name: String,
+  age: Number
+});
 
 const munchkin = new Cat({ name: 'Maum' });
 ```
 
-몽구스는 위와 같은 형태 입니다. 그리고 제 데이터는 1차원 또는 2차원 배열 입니다. 어떻게 제 인스타 태그를  스키마에 집어넣을지 구상해야 합니다.
+몽구스는 위와 같은 형태 입니다. 그리고 제 데이터는 1차원 또는 2차원 배열 입니다. 어떻게 제 인스타 태그를 스키마에 집어넣을지 구상해야 합니다.
 
 ```js
-
+const hashTagSchema = new mongoose.Schema({});
 ```
 
 ---
@@ -524,9 +529,7 @@ const munchkin = new Cat({ name: 'Maum' });
 > Instagram has silently changed the API request limit to 200
 > <br>**궁금한점(가능할까)**- Insta 자체에서 요청을 제한 한다면, 제한하는 기준이 어떻게 되는지 | 즉 만약에 요청이 ip기준 이다 라고 하면 vpn을 활용해서 limit에 다가갈때마다 ip를 리셋하는 식으로 할 수 있는거 아닌지?
 
-> <b>-</b> **태그/지역정보가 없을때** : 크롤링 하던중 태그가 없는 사진을 만나게 되면 크롤링을 멈춥니다. 코드에 태그가 없을 경우 에 대한 처리가 필요합니다. 태그가 없을때 크로니움에서는 콘솔에 어떤 에러도 나타내지 않습니다. 분기처리를 해줘야할 것 같습니다.<br>
-> `(node: 55679)UnhandledPromiseRejectionWarning: TimeoutError: waiting for selector "article div span a" failed: timeout 30000ms exceeded` | **위에 try/catch를 통해 해결했습니다.**
-
+> <b>-</b> **태그/지역정보가 없을때** : 크롤링 하던중 태그가 없는 사진을 만나게 되면 크롤링을 멈춥니다. 코드에 태그가 없을 경우 에 대한 처리가 필요합니다. 태그가 없을때 크로니움에서는 콘솔에 어떤 에러도 나타내지 않습니다. 분기처리를 해줘야할 것 같습니다.<br> > `(node: 55679)UnhandledPromiseRejectionWarning: TimeoutError: waiting for selector "article div span a" failed: timeout 30000ms exceeded` | **위에 try/catch를 통해 해결했습니다.**
 
 > <b>-</b> **git push error** <br>
 > ! [rejected] master -> master (non-fast-forward)<br>
@@ -538,13 +541,13 @@ const munchkin = new Cat({ name: 'Maum' });
 > 이 에러가 왜 나는건지 이제야 알았다.. 작업을 하던 vscode에서가 아닌, 깃헙 자체에서 README.md 파일을 추가 해줬었는데 vscode 커밋 내역에는 없던 README.md 파일이 있으니 에러가 날 수 밖에.. 작업은 한 곳에서 해야겠다.
 > 해결방법은 git pull 해당 branch를 통해 변경된 값을 pull 해온다. (충돌이 날 수 있다..)
 
-> <b>-</b> 
-`UnhandledPromiseRejectionWarning: TimeoutError: waiting for selector "article div span a" failed: timeout 30000ms exceeded` <br>
-답: https://github.com/puppeteer/puppeteer/issues/1149<br> try / catch에 답이 있었다. 응답을 timeout을 걸어서 일정 시간까지 기다리게 하고 없다면 넘어가는 식으로 구현.
+> <b>-</b> > `UnhandledPromiseRejectionWarning: TimeoutError: waiting for selector "article div span a" failed: timeout 30000ms exceeded` <br>
+> 답: https://github.com/puppeteer/puppeteer/issues/1149<br> try / catch에 답이 있었다. 응답을 timeout을 걸어서 일정 시간까지 기다리게 하고 없다면 넘어가는 식으로 구현.
 
-> <b>- ISSUE</b> : 
-요구하는 데이터가 없을때 / 로딩되기를 기다리는 시간을 `timeout` 을 통해 구현하고 있는데,
-어떻게 해야 최적화할 수 있을지도 고려해야 한다.
+> <b>- ISSUE</b> :
+> 요구하는 데이터가 없을때 / 로딩되기를 기다리는 시간을 `timeout` 을 통해 구현하고 있는데,
+> 어떻게 해야 최적화할 수 있을지도 고려해야 한다.
+
 <hr />
 <center>
 
