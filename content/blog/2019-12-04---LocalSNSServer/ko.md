@@ -1,10 +1,10 @@
 ---
-title: '로딩 중 ..'
+title: '로딩 중 ..(프로젝트)'
 date: '2019-12-04T23:20:56'
 thumbnail: '/images/thumbnails/lod.jpg'
 author: 'channing'
 tags: ['Project', 'Insta', 'Crawling', 'Scraping']
-description: '로딩 중 ..'
+description: '로딩 중 ..( 차후에 이름을 바꿀 포스트 )'
 ---
 
 ![lo](./loading.png)
@@ -40,10 +40,10 @@ description: '로딩 중 ..'
 - git init
 - npm init
 - eslint --init
-- dotenv 설치 
-- express 설치 
-- nodemon 설치 
-- Mongoose를 설치 
+- dotenv 설치
+- express 설치
+- nodemon 설치
+- Mongoose를 설치
 
 ---
 
@@ -108,8 +108,6 @@ mongoose
 app.listen(port, () => console.log(`Server listening on post ${port}`));
 ```
 
-
-
 ---
 
 ### 프로젝트 스키마 생성
@@ -139,7 +137,8 @@ module.exports = mongoose.model("Hashtag", hashTagSchema);
 **REST API**
 
 POST 요청이 필요할지 ..
->크롤링을 클라이언트 단 에서 하지 않기 때문에, 크롤링 데이터가 POST를 통한 추가로 이뤄지지 않습니다. 서버 단에서 크롤링한 데이터를 바로 추가하도록 하겠습니다.
+
+> 크롤링을 클라이언트 단 에서 하지 않기 때문에, 크롤링 데이터가 POST를 통한 추가로 이뤄지지 않습니다. 서버 단에서 크롤링한 데이터를 바로 추가하도록 하겠습니다.
 
 ---
 

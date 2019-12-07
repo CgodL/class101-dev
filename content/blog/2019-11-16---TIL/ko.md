@@ -456,8 +456,7 @@ Airbnb 클론 을 통해 얻어가야 할 것 들을 얻기 / 업그레이드 �
 
 **😇TIL**
 
-> [노션](https://www.notion.so/elt1992/Local-SNS-635c595cc78a47f2bee0421f87c33cf4)
-
+> 개인 프로젝트 중<br> [노션](https://www.notion.so/elt1992/Local-SNS-635c595cc78a47f2bee0421f87c33cf4)<br>
 > 인스타그램 해시태그 크롤링 초기 세팅 완료 / 프로젝트 목표 재정립
 
 ---
@@ -471,5 +470,111 @@ Airbnb 클론 을 통해 얻어가야 할 것 들을 얻기 / 업그레이드 �
 
 **🥰COMMENT**<br>
 수많은 에러를 만났다.. 그래도 아직까진 순항중?
+
+---
+
+<center>
+
+# 2019.12.04 수요일
+
+</center>
+
+**😇TIL**
+
+> 개인 프로젝트 중<br> [노션](https://www.notion.so/elt1992/Local-SNS-635c595cc78a47f2bee0421f87c33cf4)<br>
+> 인스타그램 해시태그 + Date + Place 크롤링 완료
+
+---
+
+**😭TODO**
+
+> 프로젝트 블링커 블로그 정리(여유있게 하기)
+
+---
+
+**🥰COMMENT**<br>
+크롤링할 데이터 추가
+
+---
+
+<center>
+
+# 2019.12.05 목요일
+
+</center>
+
+**😇TIL**
+
+> 개인 프로젝트 중<br> [노션](https://www.notion.so/elt1992/Local-SNS-635c595cc78a47f2bee0421f87c33cf4)<br>
+> DB 설계 <br>
+> UI/UX Sketch + Zeplin 유튜브 강의 시청
+
+---
+
+**😭TODO**
+
+> 프로젝트 블링커 블로그 정리(여유있게 하기)<br>
+> DB 스키마 설계<br>
+> UI/UX Sketch + Zeplin 유튜브 강의 시청
+
+---
+
+**🥰COMMENT**<br>
+DB를 몽구스로 초기 선택했는데, 몽구스는 관계형성이 어렵지 않나 싶다.. SQL로 갈아타야 할지 고민중<br>
+클라이언트 입장에서 생각하며 프로그램 구성하기. 어떻게 접근할지에 따라서 어떤 DB를 사용하고 / 어떻게 데이터를 쌓느냐 부터가 다른것 같다.<br>
+내 데이터를 고려하면서 DB를 설계하자
+
+---
+
+<center>
+
+# 2019.12.06 금요일
+
+</center>
+
+**😇TIL**
+
+> 개인 프로젝트 중<br> [노션](https://www.notion.so/elt1992/Local-SNS-635c595cc78a47f2bee0421f87c33cf4)<br>
+> DB 설계 <br>
+
+---
+
+**😭TODO**
+
+> 프로젝트 블링커 블로그 정리(여유있게 하기)<br>
+> DB 스키마 설계<br>
+> UI/UX Sketch + Zeplin 유튜브 강의 시청<br>
+> D3를 위한 CSV파일 생성 필요..
+
+---
+
+**🥰COMMENT**<br>
+해시태그가 내 생각보다 의미있는 데이터 같지 않다.. 쩝..
+
+---
+
+<center>
+
+# 2019.12.07 토요일
+
+</center>
+
+**😇TIL**
+
+> CSV 파일 생성을 위한 해시태그 데이터 JSON 타입으로 만들기.
+
+---
+
+**😭TODO**
+
+> 프로젝트 블링커 블로그 정리(여유있게 하기)<br>
+> DB 스키마 설계<br>
+> UI/UX Sketch + Zeplin 유튜브 강의 시청<br>
+> D3를 위한 CSV파일 생성 필요..
+
+---
+
+**🥰COMMENT**<br>
+눈이다 눈
 
 ---

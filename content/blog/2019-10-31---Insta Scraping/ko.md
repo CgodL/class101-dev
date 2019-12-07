@@ -20,8 +20,9 @@ description: 'INSTAGRAM SCRAPING - 인스타그램 해시태그를 활용하여 
 
 <center>
 
-**INSTAGRAM SCRAPING** <br>
-[기덥](https://github.com/CgodL/Insta_Crawling) | 현재는 Private으로 확인할 수 없습니다~
+**INSTAGRAM CRAWLING** <br>
+[기덥](https://github.com/CgodL/Insta_Crawling) | 현재는 Private으로 확인할 수 없습니다~ <br>
+[ 2019.12.06 - 계속 수정중 ]
 
 </center>
 
@@ -450,12 +451,7 @@ while(count < 100){
 
 **의미없는 데이터 필터링 하기**<br>
 <b>해시태그</b>를 크롤링 하다보면, waitforSelector에 해당하는 데이터를 모두 가져옵니다. 여기에는 사용자의 아이디와 '로그인' 같이 의미 없는 데이터도 따라옵니다. 따라서 이런 의미없는 값을 필터링 해야 합니다.
-
-![caa](./fri.png)
-
-<center>
-[크롤링한 데이터 형태와 데이터 입니다. | 반복을 임의로 2번만 돌렸습니다.]
-</center>
+필터링은 쉽습니다. map한 부분에서 split / splice / join 을 통해서 '#' 이외의 데이터는 무시하고, '#'를 포함한다면 위의 메소드로 처리해줍니다.
 
 ---
 
@@ -484,12 +480,108 @@ const munchkin = new Cat({ name: 'Maum' });
 몽구스는 위와 같은 형태 입니다. 그리고 제 데이터는 1차원 또는 2차원 배열 입니다. 어떻게 제 인스타 태그를 스키마에 집어넣을지 구상해야 합니다.
 
 ```js
-const hashTagSchema = new mongoose.Schema({});
+const hashTagSchema = new mongoose.Schema({
+  date: String,
+  location: String,
+  weather: String,
+  crowd: String
+});
 ```
+
+**의미없는 데이터 처리**<br>
+인스타그램은 생각외로 의미없는 데이터가 많습니다. 가장 최근의 데이터를 요구하는 입장에서, 인스타그램은 지난 기간의 사진을 현재시간에 올릴 수 있기 때문에 이러한 데이터는 저에게 필요없는 더미가 됩니다. 이를 처리해야 합니다.
+
+> 일단 최신 데이터 기준 분류하는 방법으로 생각한 로직은 현재 Date를 뽑아낼 수 있으니 이 데이터와 크롤링한 Date를 빼서 분기 하는 식으로 하면 최신 데이터만을 뽑아올 수 있을 것 같습니다. ( 애초에 크롤링한 데이터 자체가 최근 데이터이기 때문에 필요없는 과정이기도 합니다.)
+
+**crowd를 어떻게 계산할까**<br>
+
+> 인스타 그램은 많은 사람이 이용합니다. 특정 장소에 관련된 태그는 그 사람이 장소를 방문했다는 자료가 됩니다. 그리고 이 태그의 수는 장소마다 다릅니다. 따라서 생각한 로직은 이를 기반으로 하여, 상대적 지표를 만들 수 있지 않을까 싶습니다. 최신 데이터만을 크롤링 할 것이며,날짜 기준으로 하여 각 키워드 별 해시태그 수의 차이를 계산하면 단순 태그로 혼잡도를 계산할 수 있지않을까 싶습니다. ( 물론 정확도는 기대하기 어렵습니다.. ㅠㅠ )
+
+**데이터 시간 문제**<br>
+
+> 인스타그램 사용자들은 자신이 촬영한 사진과 장소에 대한 정보를 실시간으로 업로드 하지 않는 경우가 더 많습니다. 예를 들어 밤 11시에 낮에 찍은 사진을 올린다던가 말이죠. 이는 즉 실시간으로 데이터를 반영하기에 오류가 될 수 있는 부분인 것 같습니다.
+
+**Array to JSON**<br>
+먼저 제 데이터는 2차원(tags는 3차원) 배열로 구성되어 있습니다. 저는 D3를 사용하려고 하는데요, D3는 CSV파일을 요구합니다. 그리고 CSV파일은 JSON데이터를 통해서 만들 수 있습니다. 이를 위해서 먼저 Array를 JSON으로 바꿔야 합니다.
+
+로직은 이렇습니다. 객체를 생성하고, 키를 추가하여 배열 데이터를 추가하면 됩니다.
+
+```js
+let tags2Json = [];
+let tagsObj = { location: '', date: '', tags: [] };
+
+for (let i = 0; i < instArr.length; i++) {
+  tagsObj = { location: '', date: '', tags: [] };
+  for (let key in tagsObj) {
+    if (key === 'location') {
+      tagsObj[key] = instArr[i][0];
+    } else if (key === 'date') {
+      tagsObj[key] = instArr[i][1];
+    } else if (key === 'tags') {
+      tagsObj[key] = instArr[i][2];
+    }
+  }
+  tags2Json.push(tagsObj);
+}
+```
+
+> 코드가 매우 더럽지만, 리팩토링은 어느정도 기능을 구현한 후에 해도 늦지 않을 것 같습니다.
+
+**JSON to CSV**<br>
+이제 JSON 형태로 데이터를 바꿨으니, 이를 CSV로 바꿔야 합니다.
+Python의 경우에 `Pandas`를 통해서 할 수 있고, JS의 경우 `json2csv` 패키지를 이용해서 할 수 있습니다.
+
+> 사실 더 다양한 방법이 존재하지만, 저는 이 방법으로 생성했습니다.
+
+- `npm i json2csv`를 통해서 json2csv 패키지를 설치합니다.
+- https://www.npmjs.com/package/json2csv 레퍼런스를 확인합니다.
+
+```js
+const { Parser } = require('json2csv');
+
+const fields = ['car', 'price', 'color'];
+const myCars = [
+  {
+    car: 'Audi',
+    price: 40000,
+    color: 'blue'
+  },
+  {
+    car: 'BMW',
+    price: 35000,
+    color: 'black'
+  },
+  {
+    car: 'Porsche',
+    price: 60000,
+    color: 'green'
+  }
+];
+
+const json2csvParser = new Parser({ fields });
+const csv = json2csvParser.parse(myCars);
+
+console.log(csv);
+```
+
+위 예제가 저의 데이터와 비슷한 모양을 하고 있습니다. 위를 참조하여 코드를 구현합니다.
+console을 찍어보면 csv형태로 데이터가 출력됩니다.
+
+저는 이 데이터를 저장하고 싶습니다. 이를 위해서 file-system을 사용합니다.<br>
+
+- `npm install file-system --save` 설치 합니다.
+
+```js
+fs.writeFileSync('./tag.csv', csv);
+```
+
+위 코드를 통해서 CSV 파일이 생성된걸 확인 할 수 있습니다!
 
 ---
 
 ### 워드 클라우드
+
+**D3.js**
 
 ---
 
@@ -513,7 +605,7 @@ const hashTagSchema = new mongoose.Schema({});
 
 <br>
 
-> <b> - </b> `UnhandledPromiseRejectionWarning: Error: net::ERR_ABORTED` : 리소스를 가져오지 못한다.. | 애초에 검색창에서 '제주도'를 입력해서 페이지에 접근하려 `page.type( )`을 활용하려 했으나 태그 class를 읽지못해서(능력부족 ㅠㅠ) 다른 방법을 찾아보다가, 그냥 제주도 링크를 `page.goto( )`로 주고, `launch( )에 headless 설정` 을하여 chronium으로 접근 하는 방법을 찾았고, 콘솔에 찍히는걸 확인했다. <br> [참고]: https://github.com/puppeteer/puppeteer/issues/1477
+> <b> - </b> `UnhandledPromiseRejectionWarning: Error: net::ERR_ABORTED` : 리소스를 가져오지 못한다.. | 애초에 검색창에서 '제주도'를 입력해서 페이지에 접근하려 `page.type( )`을 활용하려 했으나 태그 class를 읽지못해서(능력부족 ㅠㅠ) 다른 방법을 찾아보다가, 그냥 제주도 링크를 `page.goto( )`로 주고, `launch( )에 headless 설정` 을하여 chronium으로 접근 하는 방법을 찾았고, 콘솔에 찍히는걸 확인했다. <br> [참고]: https://github.com/puppeteer/puppeteer/issues/1477 > <br> 이를 해결했는데, 초기 설정 페이지를 클릭해서 넘어가도록 코드에 추가했습니다.
 
 > <b>-</b> **dotenv 설정**을 코드를 어느정도 구현한 상태에서 했었는데, ignore처리가 잘 된걸 확인했지만, github에 올라갈때는 이전 커밋 내역들이 함께올라가게 되어서, 테스트하며 했던 시크릿 키 값이 담긴 코드가 그대로 올라가버렸다. 커밋을 지우거나 / 파일을 새로 파거나 ..
 
@@ -547,6 +639,7 @@ const hashTagSchema = new mongoose.Schema({});
 > <b>- ISSUE</b> :
 > 요구하는 데이터가 없을때 / 로딩되기를 기다리는 시간을 `timeout` 을 통해 구현하고 있는데,
 > 어떻게 해야 최적화할 수 있을지도 고려해야 한다.
+> location 데이터를 받아올때 timeout을 1초 이하로 줄 경우, undefined를 반환 했습니다. 즉 해당 데이터를 크롤링 하기위해선 일정 시간이 필요하다는걸 알았습니다.
 
 <hr />
 <center>
