@@ -483,6 +483,7 @@ const munchkin = new Cat({ name: 'Maum' });
 const hashTagSchema = new mongoose.Schema({
   date: String,
   location: String,
+  tags: Array,
   weather: String,
   crowd: String
 });
@@ -496,6 +497,8 @@ const hashTagSchema = new mongoose.Schema({
 **crowd를 어떻게 계산할까**<br>
 
 > 인스타 그램은 많은 사람이 이용합니다. 특정 장소에 관련된 태그는 그 사람이 장소를 방문했다는 자료가 됩니다. 그리고 이 태그의 수는 장소마다 다릅니다. 따라서 생각한 로직은 이를 기반으로 하여, 상대적 지표를 만들 수 있지 않을까 싶습니다. 최신 데이터만을 크롤링 할 것이며,날짜 기준으로 하여 각 키워드 별 해시태그 수의 차이를 계산하면 단순 태그로 혼잡도를 계산할 수 있지않을까 싶습니다. ( 물론 정확도는 기대하기 어렵습니다.. ㅠㅠ )
+
+![crowd](./crowd.png)
 
 **데이터 시간 문제**<br>
 
@@ -567,7 +570,7 @@ console.log(csv);
 위 예제가 저의 데이터와 비슷한 모양을 하고 있습니다. 위를 참조하여 코드를 구현합니다.
 console을 찍어보면 csv형태로 데이터가 출력됩니다.
 
-저는 이 데이터를 저장하고 싶습니다. 이를 위해서 file-system을 사용합니다.<br>
+저는 이 데이터를 저장하고 싶습니다. 이를 위해서 `file-system`을 사용합니다.<br>
 
 - `npm install file-system --save` 설치 합니다.
 
@@ -577,11 +580,46 @@ fs.writeFileSync('./tag.csv', csv);
 
 위 코드를 통해서 CSV 파일이 생성된걸 확인 할 수 있습니다!
 
+**Failed to load resource: the server responded with a status of 429 ( )**<br>
+인스타그램을 크롤링 하다보면 해당 에러가 발생합니다. 인스타그램 자체에서 요청 횟수를 막은 에러 인데요, 이 에러를 try / catch로 처리 하겠습니다.
+
+> VPN을 통해서 해결할 수 있다면 좋겠지만, 일단은 에러처리를 통해서 해결하겠습니다.
+
+```js
+for (let i = 0; i < instArr.length; i++) {
+  tagsObj = { location: '', date: '', tags: [] };
+  for (let key in tagsObj) {
+    if (key === 'location') {
+      tagsObj[key] = instArr[i][0];
+    } else if (key === 'date') {
+      tagsObj[key] = instArr[i][1];
+    } else if (key === 'tags') {
+      tagsObj[key] = instArr[i][2];
+    }
+  }
+  tags2Json.push(tagsObj);
+}
+
+if (error instanceof puppeteer.errors.TimeoutError) {
+  const fields = ['location', 'date', 'tags'];
+  const json2csvParser = new Parser({ fields });
+  const csv = json2csvParser.parse(tags2Json);
+  fs.writeFileSync('./csv_container/limit_hashtag.csv', csv);
+  browser.close();
+}
+```
+
+저는 이런식으로 데이터를 JSON으로 그리고 CSV파일로 생성합니다. 이 코드를 새롭게 추가해주는 겁니다. <br>로직은 이렇습니다. 먼저 크롤링시 제일 먼저 Loaction을 크롤링하게 되는데요, 요청 횟수 제한의 에러가 나게 되면, Location을 읽어오지 못하고, Timeout 에러가 발생하게 됩니다. 따라서 이 부분에 try/catch 에서 catch 로 에러가 발생시에 상단에 코드를 실행하게 하여, 에러가 발생하기 전 까지의 데이터를 CSV 파일로 생성합니다.
+
+**크롤링 소요시간**<br>
+100개 기준 1분 30초 정도 소요되며, 요청 횟수 제한에 자주 걸립니다.
+
 ---
 
-### 워드 클라우드
+### D3 | 워드 클라우드
 
-**D3.js**
+**D3.js**<br>
+`npm install d3 d3.layout.cloud`
 
 ---
 
