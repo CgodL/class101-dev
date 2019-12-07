@@ -618,14 +618,24 @@ if (error instanceof puppeteer.errors.TimeoutError) {
 
 ### D3 | 워드 클라우드
 
+**Tags Count CSV**<br>
+D3에서 CSV파일을 활용하여 워드 클라우드를 만들 수 있습니다. D3 가 CSV를 읽고, CSV에서 column이 tagsCount(저 같은 경우)의 값이 큰 순서대로 size를 줘서, 크고 / 작게를 나타냅니다. 이를 위해서 tags 배열을 {tags: string, tagsCount: number} 과 같은 데이터 형태가 필요했으며, 이를 위해서 `const collections = require("pycollections");`를 활용하여 이차원 배열을 만들고 이를 다시 변환하는 과정을 거쳐, tagsCount CSV 파일을 생성했습니다.
+
 **D3.js**<br>
-`npm install d3 d3.layout.cloud`
+
+- `npm install d3 d3.layout.cloud`<br>
+- [reference](https://gist.github.com/e9t/e462f7462e9d83b03464)를 활용하여 d3를 구현합니다.
+
+> d3에 대한 이해가 부족하므로 더 학습이 필요합니다.
+
+![do](./do.png)
 
 ---
 
 ### 자연어 처리
 
-**필요한가?**
+**필터링**<Br>
+원하는 태그들을 모두 뽑을 수 있습니다. 다만 의미없는 데이터들이 많습니다. 제공하고자 하는 목표에 맞춰서 태그를 더 가공할 필요가 있습니다.
 
 ---
 
