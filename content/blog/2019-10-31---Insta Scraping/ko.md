@@ -22,7 +22,7 @@ description: 'INSTAGRAM SCRAPING - 인스타그램 해시태그를 활용하여 
 
 **INSTAGRAM CRAWLING** <br>
 [기덥](https://github.com/CgodL/Insta_Crawling) | 현재는 Private으로 확인할 수 없습니다~ <br>
-[ 2019.12.06 - 계속 수정중 ]
+[ 2019.12.03(본격 시작) - ]
 
 </center>
 
@@ -636,6 +636,9 @@ D3에서 CSV파일을 활용하여 워드 클라우드를 만들 수 있습니�
 
 **필터링**<Br>
 원하는 태그들을 모두 뽑을 수 있습니다. 다만 의미없는 데이터들이 많습니다. 제공하고자 하는 목표에 맞춰서 태그를 더 가공할 필요가 있습니다.
+
+[korean-text-analytics](https://npm.runkit.com/korean-text-analytics)<br>
+[koalanlp](https://www.npmjs.com/package/koalanlp)
 
 ---
 
