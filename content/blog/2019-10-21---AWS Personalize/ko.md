@@ -11,7 +11,8 @@ description: 'AWS Personalize 서비스 소개 와 구축 - 개발자가 애플�
 
 <center>
 
-### E-COMMERCE 기업과 협업을 통해 구축한 AWS Personalize 서비스에 대해서 소개 해보려고 합니다.
+<b> E-COMMERCE 기업과 협업을 통해 구축한 AWS Personalize 서비스에 대해서 소개 해보려고 합니다.
+</b>
 
 </center>
 
