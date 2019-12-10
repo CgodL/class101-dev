@@ -41,9 +41,37 @@ description: '로딩 중 ..( 차후에 이름을 바꿀 포스트 )'
 - npm init
 - eslint --init
 - dotenv 설치
+- babel 세팅
 - express 설치
 - nodemon 설치
-- Mongoose를 설치
+- Mongoose 설치
+
+---
+
+### babel 세팅
+
+ES6 문법 (import) 를 사용하기 위해 바벨 세팅을 합니다.
+
+```js
+npm install @bable/node
+npm install @babel/preset-env
+npm install --save-dev @babel/cli
+
+$ .babelrc 생성
+// preset 추가
+{
+  "presets": ["@babel/preset-env"]
+}
+
+$ package.json
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "nodemon --exec babel-node index.js"
+}
+
+nodemon 설정
+npm start 실행
+```
 
 ---
 
