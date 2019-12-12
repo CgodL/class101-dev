@@ -24,7 +24,7 @@ description: '로딩 중 ..( 차후에 이름을 바꿀 포스트 )'
 
 ### ARCHITECTURE
 
-![ar](./a1.png)
+![ar](./arch.png)
 
 ---
 
@@ -161,15 +161,29 @@ module.exports = mongoose.model("Hashtag", hashTagSchema);
 > 스키마를 만들고 정의한 타입에 데이터를 저장하면, 몽고 디비에서 객체의 형태로 저장되어집니다. 저는 저장되어 있는 데이터를 통해 CSV 파일을 생성하는데요, 현재 코드상에서 JSON 타입으로 변환 및 이를 CSV로 생성하는 과정 까지 구현해둔 코드를 통해서 실행합니다.
 > 하지만 만약 몽구스에서 바로 CSV파일로 변환이 가능하다면 위에 구현한 코드대신에 보다 편한 방법으로 CSV로 export할 수 있을 것 같습니다. 따라서 고려해야할 사항으로, 정의한 데이터 타입에 스트링으로 집어 넣는것이 맞을지 아니면 배열로 넣어야 할지 등을 고려해야 합니다.
 
+> 로직은, 데이터를 모두 스트링으로 넣고, count가 필요할때 전처리를 하는식으로 코드를 구현하겠습니다.
+
 ---
 
 ### CRUD(Create, Retrieve, Update, Delete)
 
 **REST API**
 
-POST 요청이 필요할지 ..
+POST X
 
 > 크롤링을 클라이언트 단 에서 하지 않기 때문에, 크롤링 데이터가 POST를 통한 추가로 이뤄지지 않습니다. 서버 단에서 크롤링한 데이터를 바로 추가하도록 하겠습니다.
+
+GET
+
+---
+
+### 데이터 전처리
+
+데이터 전처리를 서버단에서 해주는게 나을 것 같아서 서버단에서 해주겠습니다.
+
+---
+
+### 모듈화
 
 ---
 
@@ -182,7 +196,10 @@ POST 요청이 필요할지 ..
 </center>
 
 > <b>-</b> **dotenv 세팅 문제** : .env파일을 초기에 루트에두고 사용했는데, 폴더안에 들어있는 크롤링 코드를 서버 코드에 추가 후에, .env에 접근을 시도했더니 `text is not iterable` 이라는 오류가 발생하였다. 확인해보니 디렉토리를 찾지 못해서 .env 파일을 읽지 못하는 문제였고, 이를 해결하기 위해 경로 설정을 해주었다.
-> `require("dotenv").config({ path: path.resolve(__dirname, "../config/.env") });` 이런식으로.. 잘 읽어온다.
+> `require("dotenv").config({ path: path.resolve(__dirname, "../config/.env") });` 이런식으로.. 잘 읽어온다.<br>[참조] : https://stackoverflow.com/questions/42335016/dotenv-file-is-not-loading-environment-variables
+
+> <b>-</b> **router 문제** : 라우터를 세팅하고 postman으로 get요청을 날렸지만, cannot get response였다. 이유를 찾고보니 mongoose에 직접 연결하여(then) 라우터 세팅을 해주니 문제없이 실행됐다.
+> 실행은 되는데, 현재 코드가 깔끔한 코드인지를 모르겠다.
 
 <hr />
 <center>
