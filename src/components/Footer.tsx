@@ -14,12 +14,7 @@ const Footer: React.FC = () => {
             <ContactSection>
               <ContactArticle>
                 <div>
-                  TEL. 010-6328-4679
-                </div>
-              </ContactArticle>
-              <ContactArticle>
-                <div>
-                  Powerd by Gatsby
+                  E-MAIL : c.henry.9209@gmail.com
                 </div>
               </ContactArticle>
             </ContactSection>
