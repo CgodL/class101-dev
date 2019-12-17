@@ -19,7 +19,7 @@ description: '엑스포에 대해서 학습해 봅시다!'
 
 ---
 
-### Workflows
+### WORKFLOWS
 
 엑스포로 어플리케이션을 개발할때, "managed workflow" 와 "bare workflow" 두 가지 접근방식이 있습니다.
 
@@ -36,6 +36,8 @@ Managed workflow 는 리액트/리액트 네이티브의 CRA와 비슷합니다.
 
 > Managed 되는게 싫다면 `eject` 하면 됩니다! 선택은 본인의 몫.
 
+엑스포 이전 버전과 현재 버전의 차이점은, 이전 버전의 경우 필요없는 모듈까지 전부 설치되어 있어서, 무거웠던 반면에 현재는 필요로 하는 모듈만을 Install 할 수 있어서, 보다 가벼워졌다는 장점이 있습니다.
+
 ---
 
 ### 설치
@@ -48,12 +50,22 @@ Managed workflow 는 리액트/리액트 네이티브의 CRA와 비슷합니다.
 - expo init
 - Expo 앱을 설치 후 카메라로 QR코드를 스캔 합니다.<br><br>
   > 스캔후, 접속에러가 날 수 있는데요, 이와 같이 해결할 수 있습니다. <br> First, make sure that you are on the same wifi network on your computer and your device.
-  > If it still doesn't work, it may be due to the router configuration — this is common for public networks. You can work around this by <b>choosing the "Tunnel" connection type in Expo Dev Tools</b>, then scanning the QR code again.
+  > If it still doesn't work, it may be due to the router configuration — this is common for public networks.<br> You can work around this by <b>choosing the "Tunnel" connection type in Expo Dev Tools</b>, then scanning the QR code again.
   > ![e](./e.png)
 
 ---
 
-### 시작
+### STRUCTURE 구성
+
+- 로딩페이지 구성
+
+---
+
+### RN CSS
+
+- paddingVertical
+- paddingHorizontal
+- fontSize
 
 ---
 

@@ -28,7 +28,7 @@ const AuthorsPage: React.FC = () => {
           ))}
         </Row> */}
 
-        <Headline2>이 찬 행</Headline2> <span># Junior Developer ​</span>
+        <Headline2>이 찬 행</Headline2> <span># Junior Developer </span>
         <hr />
         <br />
         <Headline3>ABOUT ME</Headline3>
@@ -147,7 +147,7 @@ const AuthorsPage: React.FC = () => {
         <br />
         <br />
         <br />
-        <Headline3>EDUCATION 및 활동 </Headline3>
+        <Headline3>EDUCATION AND ACTIVITIES </Headline3>
         <hr />
         코드 스테이츠 Immersive Course 14 ( 2019.07.22 - 2019.10.19 )<br />
         AWS 101 세미나 ( 2019.10.14 )<br />
