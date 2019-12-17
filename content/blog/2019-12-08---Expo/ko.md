@@ -26,7 +26,7 @@ description: '엑스포에 대해서 학습해 봅시다!'
 - "managed workflow"는 오직 JS/TS 와 Expo 도구와 서비스만으로 개발하는 workflow 입니다.
 
 - "bare workflow"는 native 프로젝트의 모든 부분을 완벽하게 컨트롤 할 수 있으며, Expo 툴은 큰 역할을 차지하지 않습니다.
-  > React Native를 Expo 없이 사용하는 워크플로우각 "bare workflow" 입니다.
+  > React Native를 Expo 없이 사용하는 워크플로우가 "bare workflow" 입니다.
 
 ---
 
@@ -39,20 +39,21 @@ Managed workflow 는 리액트/리액트 네이티브의 CRA와 비슷합니다.
 ---
 
 ### 설치
+
 `Expo CLI` 를 통해서 엑스포를 설치해보겠습니다.
-* 노드가 설치되어 있어야 합니다.
-* Git repo를 생성해야 합니다.
-* npm install -g expo-cli
-* expo init
-* Expo 앱을 설치 후 카메라로 QR코드를 스캔 합니다.<br><br>
->  스캔후, 접속에러가 날 수 있는데요, 이와 같이 해결할 수 있습니다. <br> First, make sure that you are on the same wifi network on your computer and your device.
-If it still doesn't work, it may be due to the router configuration — this is common for public networks. You can work around this by <b>choosing the "Tunnel" connection type in Expo Dev Tools</b>, then scanning the QR code again.
-![e](./e.png)
+
+- 노드가 설치되어 있어야 합니다.
+- Git repo를 생성해야 합니다.
+- npm install -g expo-cli
+- expo init
+- Expo 앱을 설치 후 카메라로 QR코드를 스캔 합니다.<br><br>
+  > 스캔후, 접속에러가 날 수 있는데요, 이와 같이 해결할 수 있습니다. <br> First, make sure that you are on the same wifi network on your computer and your device.
+  > If it still doesn't work, it may be due to the router configuration — this is common for public networks. You can work around this by <b>choosing the "Tunnel" connection type in Expo Dev Tools</b>, then scanning the QR code again.
+  > ![e](./e.png)
 
 ---
 
 ### 시작
-
 
 ---
 

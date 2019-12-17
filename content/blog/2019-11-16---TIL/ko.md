@@ -682,6 +682,52 @@ DB를 몽구스로 초기 선택했는데, 몽구스는 관계형성이 어렵�
 ---
 
 **🥰COMMENT**<br>
-서버 구축 /
+서버 구축
+
+---
+
+<center>
+
+# 2019.12.15 일요일
+
+</center>
+
+**😇TIL**<br>
+
+> 블로그 정리 중 안 사실.
+> ![header](./h.png)
+
+> 네트워크 연결이 없을때, 로컬로 접속하게 되면 헤더부분이 위 스크린샷 처럼 되는데, 블로그의 경우,<br>해당 헤더를
+> `import NavDropdown from 'react-bootstrap/NavDropdown` 처럼 import 해와서 사용 합니다. 재밌는 점은 react-bootstrap/NavDropdown이 네트워크 연결 상태에서만 구동 된다는 점 입니다.
+> 이 경우, 렌더링 속도에 영향을 줄 수 있는 부분인지 궁금합니다.
+
+---
+
+**😭TODO**
+
+---
+
+**🥰COMMENT**<br>
+
+---
+
+<center>
+
+# 2019.12.16 월요일
+
+</center>
+
+**😇TIL**
+
+---
+
+**😭TODO**
+
+> EXPO / RN 학습
+
+---
+
+**🥰COMMENT**<br>
+프론트 작업 시작
 
 ---
