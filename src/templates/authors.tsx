@@ -158,13 +158,13 @@ const AuthorsPage: React.FC = () => {
         <br />
         <Headline3>CONTACT ME</Headline3>
         <hr />
-        BLOG : <a href="https://developer-channing.com">
+        <b>BLOG </b>: <a href="https://developer-channing.com">
           developer-channing
         </a>{' '}
         <br />
-        GITHUB : <a href="https://github.com/CgodL/">elt</a> <br />
-        E-MAIL : c.henry.9209@gmail.com <br />
-        TEL : 010-6328-4679
+        <b>GITHUB</b> : <a href="https://github.com/CgodL/">elt</a> <br />
+        <b>E-MAIL</b> : c.henry.9209@gmail.com <br />
+        <b>TEL</b> : 010-6328-4679
         <br />
         <br />
         <br />

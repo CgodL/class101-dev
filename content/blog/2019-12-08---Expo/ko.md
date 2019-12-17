@@ -77,7 +77,13 @@ Managed workflow 는 리액트/리액트 네이티브의 CRA와 비슷합니다.
 
 </center>
 
+> `expo start` 이후, Run on iOS simulator를 실행 할 경우 에러 발생
+> `Error installing or running app. SyntaxError: Unexpected token I in JSON at position 0` https://github.com/expo/expo-cli/issues/1164
 >
+> 1. Xcode를 업데이트 하던가.<br>
+> 2. npm install -g expo-cli | expo-cli를 업데이트 하던가 https://github.com/expo/expo/issues/3585
+> 3. rm -rf .expo 실행해서 expo를 제거한뒤 다시 실행하던가 https://github.com/expo/expo-cli/issues/1164 <br>
+>    다 안된다. 일단 Xcode가 app store에서 업데이트 자체가 안된다. 뭐 이런 ㅡ.ㅡ
 
 <hr />
 <center>
