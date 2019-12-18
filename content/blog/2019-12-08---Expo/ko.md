@@ -84,6 +84,14 @@ Managed workflow 는 리액트/리액트 네이티브의 CRA와 비슷합니다.
 > 2. npm install -g expo-cli | expo-cli를 업데이트 하던가 https://github.com/expo/expo/issues/3585
 > 3. rm -rf .expo 실행해서 expo를 제거한뒤 다시 실행하던가 https://github.com/expo/expo-cli/issues/1164 <br>
 >    다 안된다. 일단 Xcode가 app store에서 업데이트 자체가 안된다. 뭐 이런 ㅡ.ㅡ
+>    <br/><br/> 해결했다 방법은 이러하다. <b><br><br>
+>    ‣ Xcode가 앱스토어에서 설치가 되지 않으므로, App developer 사이트에서 최신버전을 다운로드 한다.<br>
+>    ‣ Xcode를 실행한다. <br>
+>    ‣ 환경설정 에서 location 탭을 선택한다. <br>
+>    ‣ Command Line Tools를 설치한 Xcode 최신버전으로 선택한다.<br>
+>    ‣ expo start를 하고 run on ios simulator를 클릭하면 문제없이 실행된다.
+
+> ![xcode](./xcode2.png)
 
 <hr />
 <center>
