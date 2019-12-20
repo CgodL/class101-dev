@@ -28,7 +28,7 @@ const AuthorsPage: React.FC = () => {
           ))}
         </Row> */}
         <Parent>
-          <Headline2>이 찬 행</Headline2> <span># Junior Developer </span>
+          <Headline2>이 찬 행</Headline2> <span># Junior Developer # 28세</span>
           <hr />
           <br />
           <Headline3>ABOUT ME</Headline3>

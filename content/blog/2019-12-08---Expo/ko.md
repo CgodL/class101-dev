@@ -58,6 +58,30 @@ Managed workflow 는 리액트/리액트 네이티브의 CRA와 비슷합니다.
 ### STRUCTURE 구성
 
 - 로딩페이지 구성
+- 라우터 세팅
+
+---
+
+### react-native-router-flux
+
+리액트와 리액트 네이티브의 차이점은 라우터 세팅에 있습니다.
+RN 같은 경우, 라우팅을 위해 `react-native-router-flux`과 `react-navigation`을 사용할 수 있는데, 저는 `react-native-router-flux`를 사용했습니다. 초기 페이지 구성을 고려하지 않고 코드를 작성하여, 꼬인부분이 있어 재설계후 라우터 세팅을 했습니다.
+
+```js
+$ App.js
+
+import { Router, Scene } from 'react-native-router-flux';
+
+<Router>
+  <Scene key="root">
+    <Scene key="Main" component={Main} title="Main" />
+    <Scene key="jeju" component={Jeju} title="Jeju" />
+  </Scene>
+</Router>;
+```
+
+위와 같은 식으로, App.js 에서 라우터를 통해 페이지를 관리하는 식으로 페이지를 구성 해줍니다.
+메인 페이지에서 버튼을 클릭하면 해당 페이지로 이동 렌더링 되도록 코드를 구성합니다.
 
 ---
 
