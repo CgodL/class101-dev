@@ -43,9 +43,10 @@ npm install --save typescript @types/node // npm 으로도 설치 해줍니다.
 
 ### 왜 필요한가요?
 
-<b>탄생 배경 으로 JS 개발자들은 `for in loop` 나 `Object.keys` 같은 기존 메소드를 변경 없이 새로 객체에 프로퍼티를 추가하는 작업이 필요해졌다고 합니다.</b>
-<br>
-<br>
+탄생 배경 을 알아보겠습니다.
+보통 객체의 key로는 문자열이나 정수 등의 값을 사용합니다. key가 문자나 정수일때 문제는, 객체의 key 값이 변경될 수 있다는 것 입니다. 만약, 많은 사람이 사용하는 JS 라이브러리가 있고, 거기에 어떤 객체가 있다고 가정 해보겠습니다. 그 객체에 우리(개인)가 메소드를 추가하게 되었을 때, 만약 이 메소드 이름이 이미 객체에 존재한다면 덮어 씌어질 수 있기 때문 입니다.<br>
+또, JS 개발자들은 `for in loop` 나 `Object.keys` 같은 기존 메소드를 변경 없이 새로 객체에 프로퍼티를 추가하는 작업(hidden 속성)이 필요해져서 생겼다고도 합니다.
+
 예를 들어, 아래와 같은 객체가 있다고 가정했을때,
 
 ```js
@@ -73,6 +74,7 @@ var middleName = Symbol('middleName');
 myObject[middleName] = 'blah';
 
 Object.keys(myObject); // return  ["firstName", "lastName"]
+console.log(Object.getOwnPropertySymbols(myObject)); //Object.getOwnPropertySymbols()를 통해서 Symbol에 대한 key에만 접근할 수 있습니다.
 ```
 
 <br>
@@ -111,6 +113,15 @@ Array.prototype[toUpperCase] = function() {
 };
 var myArray = ['raja', 'rao'];
 myArray[toUpperCase](); // return ['RAJA', 'RAO']
+
+---
+
+var includes = Symbol('will store custom includes method');
+Array.prototype[includes] = () => console.log('inside includes func');
+var arr = [1, 2, 3];
+console.log(arr.includes(1)); // true
+console.log(arr['includes'](1)); // true
+console.log(arr[includes]()); // 'inside includes func'
 ```
 
 ---
@@ -123,10 +134,6 @@ myArray[toUpperCase](); // return ['RAJA', 'RAO']
 
 ![sym3](./sym3.png)
 
-<br>
-
-global symbols는 위 그림과 같이 여러 개가 존재합니다.
-
 ---
 
 1.  Symbol은 메서드를 갖고 있어 객체 처럼 보이지만, 원시 타입 이며, Symbol 생성자를 호출하여 생성됩니다.
@@ -136,15 +143,15 @@ const symbol0 = new Symbol(); // Symbol은 객체가 아닌 원시타입 이기 
 ```
 
 2. Symbols 은 “description” 을 가집니다.
-   f
 
 ```js
-const symbol1 = Symbol('key'); // 'key'는 “description” 입니다.
+const symbol1 = Symbol('key'); // 'key'(parameter)는 optional 이며,  “description” 입니다.
 ```
 
 3. Symbols는 unique합니다.
 
 ```js
+const symbol1 = Symbol('key');
 const symbol2 = Symbol('key');
 const symbol3 = Symbol(3);
 
@@ -179,6 +186,29 @@ console.log(myCar.type); // undefined
 
 ---
 
+### Typescript에서의 Symbol
+
+---
+
+### Iterators
+
+우리는 `for of loop` 와 `spread operator(...)` 같은 메서드를 활용하여 기존 array, strings 같은 표준 객체에서 데이터를 추출합니다. 하지만 Object에서는 사용할수 없습니다. 왜 그럴까요?
+
+```js
+const Dog = {
+  Bichon: 'Maum',
+  Pug: 'blah'
+};
+
+for (let dog of Dog) {
+  console.log(dog); // TypeError Dog is not iterable
+}
+```
+
+객체에서도 위 처럼 순회하기 위해 새로운 방식을 만들지 않고 기존에 있는 방식을 활용하기로 했습니다. 따라서 이를 위해 규칙을 만들었습니다. 그리고 이러한 규칙에 따라 순회할 수 있는 객체를 'iterable' 이라고 부르기로 했습니다.
+
+---
+
 <center>
 
 ### ---
@@ -195,6 +225,8 @@ console.log(myCar.type); // undefined
 Reference <br>
 [NOMAD](https://academy.nomadcoders.co/courses/303219/lectures/4975930)<br>
 [TypeScript](http://blog.haandol.com/2017/04/27/typescript2-experss-tutorial-part-one.html)<br>
-[Symbol](https://www.freecodecamp.org/news/some-of-javascripts-most-useful-features-can-be-tricky-let-me-explain-them-4003d7bbed32/)
+[Symbol](https://www.freecodecamp.org/news/some-of-javascripts-most-useful-features-can-be-tricky-let-me-explain-them-4003d7bbed32/)<br>
+[Symbol2](https://medium.com/sjk5766/es-6-symbol-%EC%9D%B4%EB%9E%80-48c2ad5b054c)<br>
+[Symbol3](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
 
 </center>
