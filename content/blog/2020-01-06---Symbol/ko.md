@@ -110,8 +110,6 @@ console.log(arr[includes]()); // 'inside includes func'
 
 ![sym2](./sym3.png)
 
-이 중에, `symbol . iterator` 에 대해서 알아 보겠습니다.
-
 ---
 
 1.  Symbol은 메서드를 갖고 있어 객체 처럼 보이지만, 원시 타입 이며, Symbol 생성자를 호출하여 생성됩니다.
@@ -164,14 +162,12 @@ console.log(myCar.type); // undefined
 
 ---
 
-### Typescript에서의 Symbol
+### Iterable
 
----
+이터러블 프로토콜을 준수한 객체를 이터러블이라 합니다. `Symbol.iterator`메소드를 소유합니다.
 
-### Iterators
-
-이터레이터는 반복을 위해 설계된, 특별한 인터페이스를 가진 객체 입니다.
-
+일반적인 for loop는 인덱스를 활용하여 순차적으로 해당하는 배열 요소에 접근할 수 있습니다.
+그렇다면 for ... of 는 어떻게 작동하는 걸까요? 바로 이터레이터 덕분 입니다~
 우리는 `for of loop` 와 `spread operator(...)` 같은 메서드를 활용하여 기존 array, strings 같은 표준 '객체'에서 데이터를 추출합니다. 하지만 Object 에서는 사용할 수 없습니다. 이터레이션 프로토콜을 준수한 객체는 위 메서드들로 순회할 수 있습니다.
 
 ```js
@@ -195,13 +191,13 @@ for (const item of array) {
 console.dir(array); // Symbol(Symbol.iterator)
 ```
 
-일반 객체에서도 위 처럼 순회하기 위해 새로운 방식을 만들지 않고 기존에 있는 방식을 활용하기로 했습니다. 따라서 이를 위해 규칙을 만들었습니다. 그리고 이러한 규칙에 따라 순회할 수 있는 객체를 'iterable'(반복 가능한 객체) 이라고 부르기로 했다고 합니다.
+일반 객체에서도 for...of 나 Spread 문법으로 순회하기 위해 새로운 방식을 만들지 않고 기존에 있는 방식을 활용하기로 했습니다. 따라서 이를 위해 규칙을 만들었습니다. 그리고 이러한 규칙에 따라 순회할 수 있는 객체를 'iterable'(반복 가능한 객체) 이라고 부르기로 했다고 합니다.
 
 ---
 
 ### Iteration protocol
 
-Iteration protocol은 어떠한 객체든 특정 조건을 만족하면 Iterable 또는 Iterator로 평가 받을 수 있도록 하는 규약입니다.
+이터레이션 프로토콜은 어떠한 객체든 특정 조건을 만족하면 Iterable 또는 Iterator로 평가 받을 수 있도록 하는 규약입니다.
 
 1. 객체/클래스는 데이터를 저장해야 합니다.
 2. 객체/클래스는 "well-known" symbol인 `Symbol.iterator`를 메서드로 갖고 있어야 하며, 3번, 6번에 따라 구현되어야 합니다.
@@ -264,14 +260,169 @@ console.log([...allUsers]);
 
 ---
 
-### Generator
+### 이터레이션 프로토콜 왜 필요할까요?
 
-직접 Iterator/Iterable 객체를 만드는 것은 번거로운 일입니다. 그래서 자바스크립트는 손쉽게 well-formed iterable을 생성 할 수 있는 제네레이터 함수를 제공합니다.
+<center>
 
-제너레이터 함수는 사용자의 요구에 따라 내부를 관리할 수 있습니다.
-일반적인 함수는 한번 실행 하게 되면 처음부터 끝까지 실행이 완료되는 반면에, 제너레이터 함수는 사용자의 요구(yield | next) 를 통해 일시적으로 정지 및 재시작을 할 수 있습니다.
-제너레이터 함수의 반환값으로 제너레이터가 반환 됩니다.
+[Iteration protocol](https://poiemaweb.com/es6-iteration-for-of)
+
+</center>
 
 ---
 
+### Iterator
+
+이터레이터는 반복을 위해 설계된, 특별한 인터페이스를 가진 객체 입니다.
+`next()`메소드를 갖습니다.
+
+```js
+// 배열은 이터러블 입니다.
+const array = [1, 2, 3];
+console.dir(array) // Symbol.iterator
+
+// Symbo.iterator 메소드는 이터레이터를 반환합니다.
+const iterator = array[Symbol.iterator]();
+
+console.log('next' in iterator); // true
+
+let iteratorResult = iterator.next();
+console.log(iteratorResult); // {value: 1, done: false}
+console.log(iterator.next()); // {value: 2, done: false}
+console.log(iterator.next()); // {value: 3, done: false}
+console.log(iterator.next()); // {value: undefined, done: true}
+...
+// value 프로퍼티는 현재 순회중인 이터러블의 값을 반환 합니다.
+// done 프로퍼티는 이터러블의 순회 완료 여부를 반환 합니다.
+```
+
+---
+
+### Generator
+
+이터레이션 프로토콜을 준수하며 직접 Iterator/Iterable 객체를 만드는 것은 번거로운 일입니다. 그래서 자바스크립트는 손쉽게 well-formed iterable을 생성 할 수 있는 제네레이터 함수를 제공합니다. 제너레이터는 이터러블 이면서 동시에 이터레이터 입니다.
+
+제너레이터 함수는 이터레이터를 사용해 자신의 실행을 제어하는 함수 입니다.
+일반적인 함수는 한번 실행 하게 되면 처음부터 끝까지 실행이 완료되는 반면에, 제너레이터 함수는 사용자의 요구(yield | next) 를 통해 일시적으로 정지 및 재시작을 할 수 있습니다.
+제너레이터 함수의 반환값으로 제너레이터가 반환 됩니다.
+또한 제너레이터 함수는 비동기 처리에 유용합니다.
+
+제너레이터는 두 가지 예외를 제외하면 일반적인 함수와 같습니다.
+
+- 언제든 호출자에게 제어권을 넘길(yield) 수 있습니다.
+
+* 제너레이터는 호출한 즉시 실행되지 않습니다. 대신 이터레이터를 반환하고, 이터레이터의 next 메서드를 호출함에 따라 실행됩니다.
+
+```js
+function* rainbow() {
+  yield 'red';
+  yield 'orange';
+  yield 'yellow';
+  yield 'green';
+  yield 'blue';
+  yield 'indigo';
+  yield 'violet';
+}
+
+const it = rainbow(); // 제너레이터를 호출하면 이터레이터를 얻습니다.
+it.next(); // { value: 'red', done: false }
+it.next(); // { value: 'oragne', done: false }
+it.next();
+it.next();
+it.next();
+it.next();
+it.next(); // { value: 'violet', done: false }
+it.next(); // { value: undefined , done: true }
+
+// 이터레이터를 반환하므로 for...of 루프에서 사용가능 합니다.
+for (let color of rainbow()) {
+  console.log(color);
+}
+```
+
+제너레이터는 실행될때 이터레이터를 반환합니다. 이터레이터는 next() 메소드를 갖고 있습니다.
+next()가 호출될 때마다 호출되는 곳의 위치를 기억한 채로 실행됩니다. 그리고 함수에서 `yield`를 만날 때마다 기억해둔 위치로 이동합니다. 해당 함수가 끝날때까지 반복됩니다.
+
+---
+
+### yield 표현식과 양방향 통신
+
+제너레이터와 호출자 사이에서 양방향 통신이 가능합니다.
+next()와 yield가 서로 데이터를 주고 받을 수 도 있습니다. yield 뒤의 값이 value의 프로퍼티로 들어갑니다. 이를 활용하여 반대로 제너레이터에 값을 전달할 수 있습니다.
+
+```js
+function* interrogate() {
+  const name = yield 'What is your name?';
+  const color = yield 'What is your favorite color?';
+  return `${name}'s favorite color is ${color}`;
+}
+```
+
+위 제너레이터 함수를 호출하면 이터레이터를 얻습니다. 그리고 `next`를 호출하면 제너레이터는 첫 번째 행을 실행하려 합니다. 하지만 그 행 에는 `yield` 표현식이 들어있으므로 제너레이터는 반드시 제어권을 호출자에게 넘겨야 합니다. 제너레이터의 첫번째 행이 완료 되려면 호출자가 다시 `next`를 호출해야 합니다. 그러면 name은 next에서 전달하는 값을 받습니다.
+
+```js
+const it = interrogate();
+it.next(); // {value: "What is your name?" , done :false}
+it.next('chan'); // {value: "What is your favorite color?", done: false}
+it.next('green'); // {value: "Chan's favorite color is green", done: true}
+```
+
 <br>
+
+<center>
+
+실행 흐름 입니다.
+
+</center>
+
+![gener](./gener.png)
+![gener1](./gene1.png)
+
+```js
+1. 제너레이터는 이터레이터를 반환 하고 일시 정지한 상태로 시작합니다.
+
+function* interrogate(){    // let it = interrogate();
+    let name = yield "What is your name?" // it.next();
+    let color = yield 'What is your favorite color?'; // it.next('chan')
+    return `${name}'s favorite color is ${color}`; // it.next('green')
+}
+
+2. undefined 를 제너레이터에 넘깁니다. 제너레이터는 "What is your name?"을 yield 하고 일시 정지합니다.
+3. "Chan"을 제너레이터에 넘깁니다. 제너레이터는 "What is your favorite color?"를 넘기고 일시 정지합니다.
+4. "Green"을 제너레이터에 넘깁니다. 제너레이터는 "Chan's favorite color is Green"을 반환하고 멈춥니다.
+
+```
+
+---
+
+### 비동기에서의 제너레이터
+
+제너레이터는 동기적 성격을 가졌지만, 프로미스와 결합하면 비동기 코드를 효율적으로 관리할 수 있습니다.
+
+파일 세개를 읽고 1분을 기다린 후 내용을 합쳐서 네번째 파일에 쓰는 수도 코드 입니다.
+
+```js
+dataA = read contents of 'a.txt'
+dataB = read contents of 'b.txt'
+dataC = read contetns of 'c.txt'
+wait 60 seconds
+write dataA + dataB + dataC to 'd.txt'
+```
+
+위와 같은 사고가, 비동기적 사고가 아닌 일반적인 생각입니다. 그리고 제너레이터는 이런 자연스러운 발상과 비슷한 코드를 작성할 수 있게 해줍니다.
+
+---
+
+<center>
+
+Reference <br>
+[TypeScript-Symbol](https://fettblog.eu/symbols-in-javascript-and-typescript/)<br>
+[Symbol](https://www.freecodecamp.org/news/some-of-javascripts-most-useful-features-can-be-tricky-let-me-explain-them-4003d7bbed32/)<br>
+[Symbol2](https://medium.com/sjk5766/es-6-symbol-%EC%9D%B4%EB%9E%80-48c2ad5b054c)<br>
+[Symbol3](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Symbol)<br>
+[Iterator](https://poiemaweb.com/es6-iteration-for-of)<br>
+[Generator](https://meetup.toast.com/posts/73)<br>
+[Generator2](https://medium.com/@jooyunghan/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%A0%9C%EB%84%88%EB%A0%88%EC%9D%B4%ED%84%B0%EC%9D%98-%EC%9E%AC%EB%AF%B8-246553cadfbd)<br>
+[Generator3](http://hacks.mozilla.or.kr/2015/08/es6-in-depth-generators/)<br>
+러닝자바스크립트
+
+</center>
