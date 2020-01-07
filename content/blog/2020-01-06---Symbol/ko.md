@@ -1,7 +1,7 @@
 ---
 title: 'Symbol | Iterator | Generator'
 date: '2020-01-06T12:51:03'
-thumbnail: '/images/thumbnails/es.jpeg'
+thumbnail: '/images/thumbnails/es6.jpeg'
 author: 'channing'
 tags: ['Symbol', 'ES6', 'JS', 'Iterator', 'Generator']
 description: 'Symbol! Iterator! Generator!'
