@@ -1,10 +1,10 @@
 ---
 title: 'TIL'
-date: '2019-12-12T23:20:56'
+date: '2020-01-07T23:20:56'
 thumbnail: '/images/thumbnails/til1.png'
 author: 'channing'
 tags: ['TIL']
-description: 'TIL - 그날 그날 배운 내용을 최신으로 업데이트 합니다.'
+description: 'TIL'
 ---
 
 ![til](./til2.png)
