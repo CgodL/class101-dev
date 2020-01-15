@@ -132,17 +132,16 @@ const AuthorsPage: React.FC = () => {
           <Headline3>TECHNICAL SKILLS</Headline3>
           <hr />
 
-          Frontend : <S> JavaScript | ES6 | React | HTML5 / CSS </S> | <K> TypeScript | EXPO | </K>  <br />
-          Backend : <S>Node.js ( Express.js ) | REST API</S> | <K> Django | Koa.js | </K> <br />
-          DB : <S>MySQL | MongoDB ( Mongoose ) |  </S> <br />
-          Tool : <S>AWS | Git | VSCode </S> <K> | Jupyter |</K><br />
-          ETC : <S> Puppeteer | </S><K> Airflow | Docker | GraphQL | Jest | </K><br />
-          <br />
-          * <S> STRONG</S> <br />
-          * <K> KNOWLEDGEABLE</K>
+          Frontend :  JavaScript | React | HTML5 / CSS <br />
+          Backend : Node.js ( Express.js ) | REST API  <br />
+          DB : MySQL | MongoDB ( Mongoose ) <br />
+          Tool : AWS | Git <br />
+          ETC : Puppeteer | Airflow <br />
           <br />
           <br />
           <br />
+          <br />
+
           <Headline3>EDUCATION AND ACTIVITIES </Headline3>
           <hr />
 
