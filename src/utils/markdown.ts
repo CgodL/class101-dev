@@ -639,6 +639,7 @@ export default css`
   .markdown-body li {
     word-wrap: break-all;
     font-weight: 400;
+    list-style-type: square;
   }
 
   .markdown-body li > p {

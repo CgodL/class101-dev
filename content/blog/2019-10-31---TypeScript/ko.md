@@ -23,7 +23,7 @@ TypeScript는 컴파일 속도가 일반 JavaScript 보다 월등히 빠릅니�
 
 ### 설치 및 초기 세팅
 
-- 먼저 **typescript**를 전역에 설치합니다.
+- 먼저 Typescript를 전역에 설치합니다.
   <br>
 
 ```javascript
@@ -31,21 +31,29 @@ yarn global add typscript
 npm install --save typescript @types/node // npm 으로도 설치 해줍니다.
 ```
 
-- **tsconfig.json** 파일을 생성하여, Typescript 에게 Javascript로 어떻게 컴파일 할지 세팅 합니다.
+- `yarn init -y` 로 package.json을 설치합니다.
+
+- `tsc --init` 명령어를 통해 tsconfig.json을 세팅합니다.파일을 생성하여, Typescript 에게 Javascript로 어떻게 컴파일 할지 세팅 합니다.
+
+* .ts 확장자로 파일을 생성합니다.
+
+* `yarn build`를 사용하여 컴파일 하기 위해, `yarn add typescript`를 설치 해준뒤 package.json에 "scripts": { "build" : "tsc" } 를 추가해줍니다.
 
 ---
 
-<center>
+### Type
 
-### ---
+```ts
+const message: string = 'hi';
+console.log(message);
+```
 
-### ERROR | ISSUE
+- tsc filename 으로 컴파일(트랜스파일링) 합니다.
 
-</center>
+Type은 기본적으로 `const message: 'type' = 'blahblah'` 같은 형태로 지정 해줍니다.
 
-> <b> - </b>
+---
 
-<hr />
 <center>
 
 Reference <br>
