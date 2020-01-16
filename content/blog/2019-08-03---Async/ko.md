@@ -9,10 +9,6 @@ description: 'Async - Ajax - Axios - Fetch / 하나의 서버에 수 많은 클�
 
 ![a](./cl.png)
 
-## ASYNC
-
-> 비동기에 대하여
-
 ### Multi Thread
 
 [Thread](https://developer-channing.com/ko/blog/2019/11/08/channing)
@@ -23,6 +19,8 @@ description: 'Async - Ajax - Axios - Fetch / 하나의 서버에 수 많은 클�
 ![io](./io.png)
 
 하나의 서버에 수 많은 클라이언트의 요청이 발생하게 되면 병목현상이 발생하게 됩니다. 이 **병목현상**은 로직보다 **입출력(IO)**에서 발생하게 되죠. 따라서 서버에서 IO를 처리하다 지연이 발생하게 되면 다른 요청들을 처리하지 못하고 계속 대기하는 현상이 발생합니다. 이를 해결하기 위해 자바(스프링) 같은 언어는 **멀티쓰레드** 를 이용해 사용자의 요청을 처리하기 위해 클라이언트 요청 마다 쓰레드를 발생시킵니다. 이 말은 동시 접속자 수가 많을 수록 Thread가 많이 발생한다는 의미이며 그만큼 메모리 자원도 많이 소모한다는 의미입니다. 그러나 서버의 자원은 제한되어 있으므로 일정 수 이상의 Thread는 발생시킬 수 없습니다
+
+---
 
 ### 비동기가 필요한 때
 
@@ -48,6 +46,8 @@ description: 'Async - Ajax - Axios - Fetch / 하나의 서버에 수 많은 클�
   - 콜스택 안에 많은 처리 시간이 걸리는 함수 호출이 있을 때 발생할 수 있는 일 입니다.
     > 브라우저는 콜스택에 실행할 함수가 있는 동안 다른 일을 할 수 없습니다(Blocked). 이 상태에서 브라우저는 렌더링을 할 수 도 없고 다른 코드를 수행할 수 도 없습니다.
     > 이는 큰 문제를 야기할 수 있는데, 브라우저가 콜스택 내에 처리하 테스크가 너무 많아지기 시작하면 한참 동안 반응을 하지 않을 수 있다는 점 입니다. 이때 브라우저는 에러를 발생시켜 해당 페이지를 닫을 것인지 물어볼 것 입니다.
+
+---
 
 ### 자바스크립트 프로그램의 구성요소
 
@@ -93,16 +93,43 @@ second
 
 JS 엔진은 특정 타이밍에 특정 코드를 실행해주는 일 이외에는 특별한 일을 해준 것은 없습니다. 실제로 JS엔진은 고립되어서 수행되는 것이 아닌 호스팅 환경내에서 수행됩니다. 대부분의 개발자들에게는 Node.js 이거나 웹 브라우저 일 것입니다.
 
-## AJAX
+---
+
+### Call Back
+
+![call](./callback.png)
+
+콜백에 대하여 설명해 보겠습니다. 저희는 함수를 만들 수 있습니다. 그래서 위 처럼 A라는 함수와 B라는 함수를 만들었습니다. <br> 그런데
+저는 B함수를 A함수가 실행된 이후에 실행 하고 싶습니다. 함수는 특징이 있습니다. return을 통해 반환 되었을때 함수실행이 끝난다는 특징입니다. 이를 통해서 우리는 함수 실행의 순서를 정해줄 수 있습니다.
+
+```js
+function foo(b) {
+  let a = 5;
+  return a + b;
+}
+
+function bar(x) {
+  let y = 3;
+  return foo(x * y);
+}
+
+console.log(bar(3));
+```
+
+실행 흐름은 이렇습니다.
+bar함수를 먼저 실행하고 foo함수를 실행하는 코드 입니다. <br>
+먼저 함수를 콘솔에서 `bar(3)` 로 함수를 호출합니다. 그러면 bar 함수가 실행되고, bar 함수는 x 매개변수로 3을 받은뒤 `foo(x*y)`를 return하고 종료됩니다. 리턴과 동시에 foo 함수가 호출되며, foo함수는 a+b 값을 리턴 하며 함수가 종료됩니다.
+
+콜백은 대표적인 비동기 로직 입니다.
 
 <hr />
 
-## FETCH
+### FETCH
 
 **Fetch** 는 사전적 의미로 <b>꺼내오다 / 가지고 오다</b> 라는 뜻을 갖고 있습니다. 말 그대로 클라이언트에서 서버로부터 리소스를 가져 온다 라고 생각하면 될 것 같습니다. **Fetch API** 는 디폴트로 GET 메서드를 사용합니다.
 Fetch API 는 네트워크 통신을 포함한 리소스 취득을 위한 인터페이스가 정의되어 있습니다.
 
-### 기본 개념 과 사용 방법
+<b>기본 개념 과 사용 방법</b>
 
 Fetch API를 이용하면 Request와 Response와 같은 HTTP의 파이프라인을 구성하는 요소를 조작하는 것 이 가능합니다. 또한 **fetch( )** 메소드를 이용하는 것으로 비동기 네트워크 통신을 알기 쉽게 기술할 수 있습니다.
 
@@ -135,6 +162,8 @@ fetch 를 통해 얻은 response 는 JSON 타입이 아닙니다. 이를 JSON �
 - text() - In this case it resolves with a string.
 - json() - Lastly we have the method to that resolves the promise with JSON.
 
+---
+
 ### Response Metadata
 
 ```js
@@ -148,6 +177,8 @@ fetch('users.json').then(function(response) {
 });
 ```
 
+---
+
 ### Fecth API 요청과 응답
 
 클라이언트에서 fetch api를 통해서 특정 리소스에 대한 요청을 하면 서버에서는 이를 토대로 응답을 주게 되는데, 응답에 걸리는 시간이 수초 에서 수시간 까지 예측할 수 없는 범위내에 일어날 수 있기 때문에, 응답을 마냥 기다리는 것이 아닌 **비동기 처리**를 위해 then을 사용합니다.
@@ -160,6 +191,8 @@ fetch('users.json').then(function(response) {
 > 서버와의 소통 특성상 응답이 언제 올지 모르기 때문에 비동기 처리가 필요합니다.
 
 ![fetch](./fetch.png)
+
+---
 
 ### Fetch API 와 Express
 
@@ -193,7 +226,7 @@ fetch('/api/courses', {
 
 <hr />
 
-## AXIOS
+### AXIOS
 
 ![axios](./axios.png)
 
@@ -210,19 +243,67 @@ fetch('/api/courses', {
 
 ---
 
-## ASYNC/AWAIT
+### Promise
+
+“A promise is an object that may produce a single value some time in the future” 프로미스는 비동기 처리를 위해 사용되는 객체 입니다. Promise는 세가지 상태 Fulfilled, Rejected, Pending 중 한가지를 갖습니다.
+
+Promise 객체는 `Promise` 생성자를 통해 만듭니다.
+
+```js
+const promiseObj = new Promise((res, rej) => {
+  setTimeout(() => {
+    console.log('5초를 기다립니다.');
+    res('Welcome');
+  }, 5000);
+});
+```
+
+res 는 resolve를 줄여서 쓴 겁니다. Promise는 resolve의 인자로 받은 데이터를 반환 합니다.
+Promise를 통해 받은 결과값에 대하여 추가적인 작업을 하려면 `then` 메소드를 사용합니다.
+`then`메소드도 Promise객체를 반환 합니다.
+
+```js
+promiseObj
+  .then(res => {
+    return res + 'then';
+  })
+  .then(res => {
+    console.log(res);
+  });
+```
+
+당연하게도 axios에서 Promise를 사용할 수 있습니다.
+
+```js
+const axios = require('axios');
+const url = 'https://blahblah.com';
+
+axios.get(`${url}...`).then(res => {
+  console.log('axios를 통해 해당 api를 가져 옵니다');
+  return res;
+});
+```
+
+위 코드는 작동예시를 보여준 코드 입니다. axios는 Promise 객체를 반환 하겠죠? resolve를 리턴함으로써 Pending 상태였던 Promise객체를 Fulfilled된 상태로 변환합니다.
 
 ---
 
-## 비동기 파이썬
+### ASYNC/AWAIT
+
+ES7에서 나온 ASYNC/AWAIT을 알아보겠습니다.
+사람은 일반적으로 로직을 구성할때 동기적으로 구현합니다. 일의 순서대로 접근합니다.
+비동기 로직은 일반적인 사고와 다른 사고방향 입니다. A가 끝나기를 기다리지 않고 그전에 B를 실행하고.. 이러한 사고의 복잡성?과 가독성 을 해결해 줄 수 있는 녀석이 ASYNC/AWAIT 입니다.
+
+ASYNC/AWAIT은 동기적 사고로 구현하는 비동기 로직 입니다.
+일반적인 함수에 `async`를 붙이면 비동기 함수가 됩니다. 비동기 함수는 Promise 객체를 반환합니다. Promise 와의 차이는 `await` 키워드가 있습니다. await 키워드 뒤에 오는 Promise가 값을 가질때까지 비동기 함수의 실행을 중단 시킵니다.
 
 ---
 
 <center>
 
-## ---
+### ---
 
-## ERROR | ISSUE
+### ERROR | ISSUE
 
 </center>
 
