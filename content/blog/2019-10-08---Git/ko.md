@@ -88,18 +88,6 @@ git rebase --abort
 
 <center>
 
-### ---
-
-### ERROR | ISSUE
-
-</center>
-
-> <b> - </b>
-
-<hr />
-
-<center>
-
 Reference <br>
 [git_reset](https://www.popit.kr/%EA%B0%9C%EB%B0%9C%EB%B0%94%EB%B3%B4%EB%93%A4-git-back-to-the-future/) <br>
 

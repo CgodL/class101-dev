@@ -9,7 +9,7 @@ description: 'AIRBNB CLONE - 장고를 활용한 Airbnb 클론 코딩을 해보�
 
 ![airbnb](./aba.png)
 
-> Airbnb 클론 코딩을 해보도록 하겠습니다.
+> 노마드코더를 통해 Airbnb 클론 코딩을 해보도록 하겠습니다.
 
 ### 기술 스택
 

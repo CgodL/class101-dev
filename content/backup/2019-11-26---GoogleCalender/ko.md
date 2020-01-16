@@ -9,12 +9,6 @@ description: '구글 캘린더 블로그에 연동하기'
 
 ![cal](./c.jpeg)
 
-<center>
-
-[2019.11.26 ~ 잠시 중단]
-
-</center>
-
 ### CONTENT
 
 - 시작

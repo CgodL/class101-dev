@@ -108,18 +108,6 @@ REST는 기존 RPC나 SOAP 등 복잡한 프로토콜로 통신하는 것보다 
 
 <center>
 
-### ---
-
-### ERROR | ISSUE
-
-</center>
-
-> <b> - </b>
-
-<hr />
-
-<center>
-
 Reference <br>
 [API](https://jungwoon.github.io/infra,%20api,%20cloud/2019/01/31/Api-Summary/) <br>
 [그림으로 배우는 클라우드 인프라](https://book.naver.com/bookdb/book_detail.nhn?bid=12071725) <br>

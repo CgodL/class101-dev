@@ -95,18 +95,18 @@ HTTP Status Code는 서버에서 설정해주는 응답(Response) 정보.
 
 ### HTTP GET / POST Method
 
-#### GET Method
+<b>GET Method</b>
 
 GET is used to request data from a specified resource.
 GET is one of the most common HTTP methods.
 
-#### POST Method
+<b>POST Method</b>
 
 POST is used to send data to a server to create/update a resource.
 
 ---
 
-#### STRUCTURE
+### STRUCTURE
 
 ![http1](./http1.png)
 

@@ -27,7 +27,7 @@ description: 'MongoDB 기본'
 
 - **관계형 데이터베이스란** 데이터 항목들을 모아 놓은 집합체인 정형화된 테이블을 여러 개 포함하고 있으면서 다양한 방법으로 데이터에 접근하거나 조회할 수 있도록 만든 데이터 저장소를 말합니다. 관계형 DB는 데이터를 조작하거나 접근할 수 있도록 검색 언어인 **SQL**을 제공 합니다. **SQL**문장은 데이터를 직접 조회하거나 보고서를 추출하는데 주로 사용됩니다.
 
-몽고디비는 앞서 말했듯이 **NoSQL**이기 때문에 **DB의 테이블 개념이 없습니다.**  대신 여러 데이터가 모인 하나의 단위를 **컬렉션**이라고 부릅니다.<br>
+몽고디비는 앞서 말했듯이 **NoSQL**이기 때문에 **DB의 테이블 개념이 없습니다.** 대신 여러 데이터가 모인 하나의 단위를 **컬렉션**이라고 부릅니다.<br>
 몽고디비는 데이터 저장소를 갖고 있으며, 그 안에 여러개의 컬렉션을 갖고 있는 **컬렉션의 집합** 이라고 할 수 있습니다.
 각각의 컬렉션은 여러 개의 **문서 객체(Document)** 를 가질 수 있습니다.
 문서는 Key-value pair로 이루어져 있습니다.
@@ -75,7 +75,6 @@ Document 동적( dynamic )의 schema 를 갖고있습니다. 같은 Collection �
 ---
 
 ### Mongoose
-
 
 <b>Mongoose</b> 는 elegant mongodb object modeling for node.js.
 || **Node.js 전용** MongoDB기반 ODM(Object Document Mapping) 입니다. <br>( ODM 은 객체와 문서를 매칭 한다는 뜻 입니다.)<br>
@@ -257,18 +256,6 @@ docker run -d -p 27017-27019:27017-27019 --name (mongodb) mongo
  -->
 
 ---
-
-<center>
-
-### ---
-
-### ERROR | ISSUE
-
-</center>
-
-> <b> - </b>
-
-<hr />
 
 <center>
 

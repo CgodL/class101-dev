@@ -203,8 +203,8 @@ const PostDate = styled(Body2)`
 
 const PostTOC = styled.div`
   ${TextStyles.body2};  
-  border-left: 0.3px solid;
-  border-left-color: #DAE3F0; 
+  // border-left: 0.3px solid;
+  // border-left-color: #DAE3F0; 
   padding-left: 14px;
   width: 20%;
   position: sticky;
@@ -226,6 +226,9 @@ const PostTOC = styled.div`
     }
   }
   ul,
+  li {
+    list-style-type: none;
+  },
   ol {
     margin: 0 0 0 8px;
     color: #fbeef1  

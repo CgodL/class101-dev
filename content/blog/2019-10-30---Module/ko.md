@@ -27,18 +27,6 @@ description: '모듈화 - 모듈은 매우 복잡하고 긴 코드를 사용 용
 
 ### COMMON JS
 
----
-
-<center>
-
-### ---
-
-### ERROR | ISSUE
-
-</center>
-
-> <b> - </b>
-
 <hr />
 <center>
 Reference <br>

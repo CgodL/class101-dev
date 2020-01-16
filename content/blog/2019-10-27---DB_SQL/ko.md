@@ -9,7 +9,9 @@ description: 'DATA BASE - SQL / 데이터는 어떤 것들의 ‘기록 정보�
 
 ![sql](./sql-illustration.png)
 
-## DATABASE 란?
+### DATABASE 란?
+
+---
 
 ### 먼저 데이터,
 
@@ -177,7 +179,9 @@ description: 'DATA BASE - SQL / 데이터는 어떤 것들의 ‘기록 정보�
 
 ---
 
-## SQL
+### SQL
+
+---
 
 ### ORACLE Live SQL
 
@@ -417,18 +421,6 @@ $ desc prac;
 ---
 
 ### AWS RDS
-
----
-
-<center>
-
-## ---
-
-## ERROR | ISSUE
-
-</center>
-
-> <b> - </b>
 
 <hr />
 <center>

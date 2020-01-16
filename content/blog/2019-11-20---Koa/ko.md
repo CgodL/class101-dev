@@ -22,9 +22,9 @@ Koa 미들웨어 함수에는 두가지 파라미터가 있습니다. `ctx` 와 
 > `yarn add koa`로 koa를 설치합니다. <br>
 > koa 서버는 `node src`로 서버를 실행합니다. <br> `node src`로 실행하는 서버는 업데이트를 위해서 서버 종료와 시작을 반복해야 합니다. 이는 매우 귀찮고 불편하므로 <br>`yarn --dev add nodemon`(노드몬이 전역에 설치되어 있다면)으로 nodemon을 설치 후 script 설정을 후 `yarn start`로 서버를 시작합니다.
 
-#### Koa ctx
-
 ---
+
+### Koa ctx
 
 ```js
 
@@ -116,7 +116,7 @@ listening to port 4000
 
 ---
 
-#### Koa next
+### Koa next
 
 Koa의 `next`는 프로미스 입니다. 다음 미들웨어로 가게 하는 명령 이라고 생각하면 됩니다.
 프로미스 이기 때문에 비동기로 작동합니다.
@@ -227,8 +227,7 @@ app.use(router.routes()).use(router.allowedMethods());
 
 </center>
 
-> <b>1. import 시 `unexpected Identifier` 에러 - </b> `require` 가 아닌 ES6 `import`를 사용하고 싶었다. 그래서 바벨 세팅 부터 여러가지 설정을 한 뒤, 노드몬을 실행했는데 `import express 에서 unexpected Identifier` 에러가 난다.. 해결하려고 구글링 하면서 바벨 설정도 바꿔보고 이것저것 해봤지만, 바벨 서버 실행 코드에서만 작동하고 노드몬을 활용하는것은 아직 성공하지 못했다.. 노드몬 자체가 ES6를 못 읽어서? 바벨을 쓴건데.. 흠..<br>
-> <b>해결 : </b>nodemon 세팅을 잘못해서 안 됐었다. package.json 에서 `"start": "nodemon --exec babel-node index.js"` 이런식으로 해주면 잘 실행된다.
+> <b>1. import 시 `unexpected Identifier` 에러 - </b> `require` 가 아닌 ES6 `import`를 사용하고 싶었다. 그래서 바벨 세팅 부터 여러가지 설정을 한 뒤, 노드몬을 실행했는데 `import express 에서 unexpected Identifier` 에러가 난다.. 해결하려고 구글링 하면서 바벨 설정도 바꿔보고 이것저것 해봤지만, 바벨 서버 실행 코드에서만 작동하고 노드몬을 활용하는것은 아직 성공하지 못했다.. 노드몬 자체가 ES6를 못 읽어서? 바벨을 쓴건데.. 흠..<br> > <b>해결 : </b>nodemon 세팅을 잘못해서 안 됐었다. package.json 에서 `"start": "nodemon --exec babel-node index.js"` 이런식으로 해주면 잘 실행된다.
 
 ---
 

@@ -30,18 +30,6 @@ function HashTable() {
 
 <center>
 
-### ---
-
-### ERROR | ISSUE
-
-</center>
-
-> <b> - </b>
-
----
-
-<center>
-
 Reference <br>
 [HashTableResize](https://medium.com/@sooeung2/hash-table-in-javascript-d213057711c2)
 
