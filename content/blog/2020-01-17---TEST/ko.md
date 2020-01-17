@@ -226,7 +226,7 @@ test('compiling android goes as expected', () => {
 일반적으로, Jest 는 함수 실행이 끝나면 완료됩니다.
 
 ```js
-// Don't dso this
+// Don't do this
 test('the data is peanut butter', () => {
   function callback(data) {
     expect(data).toBe('peanut butter');

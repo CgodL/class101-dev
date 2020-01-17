@@ -403,18 +403,26 @@ const PostWrapper = styled.section`
   .gatsby-highlight .request,
   .gatsby-highlight .status,
   .gatsby-highlight .clojure .attribute {
-    color: #e3ceab;
+    color: #7FFFD4;
   }
 
   .gatsby-highlight .django .template_tag,
   .gatsby-highlight .django .variable,
   .gatsby-highlight .django .filter .argument {
-    color: #dcdcdc;
+    color: #61afefs;
   }
-
+  
   .gatsby-highlight .number,
   .gatsby-highlight .date {
     color: #8cd0d3;
+  }
+
+  .gatsby-highlight .function {
+    color: #61afef
+  }
+  
+  .gatsby-highlight .operator {
+    color: #56b6c2
   }
 
   .gatsby-highlight .dos .envvar,
@@ -475,7 +483,7 @@ const PostWrapper = styled.section`
   .gatsby-highlight .apache .cbracket,
   .gatsby-highlight .tex .formula,
   .gatsby-highlight .coffeescript .attribute {
-    color: #cc9393;
+    color: #98c379;
   }
 
   .gatsby-highlight .shebang,
