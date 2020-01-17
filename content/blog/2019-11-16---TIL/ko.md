@@ -1,6 +1,6 @@
 ---
 title: 'TIL'
-date: '2020-01-07T23:20:56'
+date: '2020-01-17T23:20:56'
 thumbnail: '/images/thumbnails/til1.png'
 author: 'channing'
 tags: ['TIL']
@@ -818,5 +818,27 @@ DB를 몽구스로 초기 선택했는데, 몽구스는 관계형성이 어렵�
 
 **🥰COMMENT**<br>
 요즘 프로젝트한다 뭐한다 하느라 TIL을 소홀히 했다. 집중하자
+
+---
+
+<center>
+
+# 2020.01.17 금요일
+
+</center>
+
+**😇TIL**
+
+> JEST 테스트 블로깅
+> React Hook basic
+
+---
+
+**😭TODO**
+
+---
+
+**🥰COMMENT**<br>
+모델링하는게 스트레스 풀기에 좋다.. 코드는 ..코드는..
 
 ---
