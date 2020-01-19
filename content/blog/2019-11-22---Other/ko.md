@@ -1,10 +1,10 @@
 ---
-title: '개발을 배우기 전'
+title: '모델링'
 date: '2019-11-20T23:20:56'
 thumbnail: '/images/thumbnails/other.jpeg'
 author: 'channing'
 tags: ['Other']
-description: '개발관련이 아닌 글..'
+description: '그래픽 작업'
 ---
 
 ![other](./p.png)

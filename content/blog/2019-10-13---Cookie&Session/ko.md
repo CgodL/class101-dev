@@ -114,7 +114,43 @@ Cahcing은 GET 요청에만 합니다. GET이 REST적 의미로 가져오다 이
 
 ### Passport
 
-익스프레스에는 **패스포트(Passport)** 라는 노드에서 사용할 수 있는 사용자 인증 모듈이 존재합니다.
+노드에는 **패스포트(Passport)** 라는 사용자 인증 모듈이 존재합니다. 익스프레스와 사용할 경우 미들웨어로 끼워 넣을 수 있습니다. <br>
+패스포트 모듈의 목적은 <b>클라이언트에서 요청한 인증 정보로 사용자 인증을 하는 것 입니다.</b>
+
+#### Strategy
+
+패스포트에는 수백가지 인증방식을 제공하고 있으며, 어떤 인증방식을 사용할지 결정하는 것이 스트래티지(Strategy) 입니다.
+각각의 인증방식은 어떤 스트래티지를 사용하냐에 따라 달라집니다.
+
+- <b>DB에 저장된 사용자 정보와 비교하는 로컬 인증 방식(Local Strategy)
+- 페이스북 이나 트위터 계정을 사용하는 OAuth 인증 방식 등이 있습니다</b>.
+
+#### Logic
+
+클라이언트가 인증을 요청하면 웹 서버에 있는 패스포트 모듈은 미리 설정해둔 인증 방식으로 사용자를 인증한 후 성공하면 사용자 정보를 세션에 저장합니다. 세션 정보는 정상적으로 사용자 인증이 되었을 때만 사용할 수 있으므로 로그인 이후의 요청 정보를 처리할 때는 세션 정보를 확인함으로써 사용자가 로그인되었는지 아닌지를 구별할 수 있습니다.
+
+#### Basic
+
+- npm install passport --save
+
+```js
+router.route('/login').post(passport.authenticate('local'), function(req, res) {
+  // 인증에 성공되었을 때 호출
+  // 'req.user'는 인증된 사용자의 정보
+  res.redirect('/users/' + rerq.user.username);
+});
+```
+
+`passport.authenticiate()` 메소드의 인자로 전달된 'local'이 Strategy의 인증방식 입니다.<br>
+코드에서 redirect를 사용해 다른 요청 패스로 이동하는 경우가 많습니다. 따라서 인증에 성공했을 때 와 실패했을 때 어떻게 리다이렉트 할 것인지에 대한 정보를 파라미터로 전달하는 코드를 사용합니다.
+
+```js
+router.rotue('/login').post(
+  passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login'
+  })
+```
 
 ---
 
