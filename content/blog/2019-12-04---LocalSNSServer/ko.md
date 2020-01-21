@@ -165,18 +165,6 @@ module.exports = mongoose.model("Hashtag", hashTagSchema);
 
 ---
 
-### CRUD(Create, Retrieve, Update, Delete)
-
-**REST API**
-
-POST X
-
-> 크롤링을 클라이언트 단 에서 하지 않기 때문에, 크롤링 데이터가 POST를 통한 추가로 이뤄지지 않습니다. 서버 단에서 크롤링한 데이터를 바로 추가하도록 하겠습니다.
-
-GET
-
----
-
 ### 데이터 전처리
 
 데이터 전처리를 서버단에서 해주는게 나을 것 같아서 서버단에서 해주겠습니다.
