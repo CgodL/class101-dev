@@ -70,7 +70,11 @@ const AuthorsPage: React.FC = () => {
           </a>
             <br />
             <a href="https://developer-channing.com/blog/2019/12/04/channing">
-              LOCAL SNS
+              LOCAL SNS SERVER
+          </a>
+            <br />
+            <a href="https://developer-channing.com/blog/2019/12/08/channing">
+              LOCAL SNS CLIENT
           </a>
           </div>
           <hr />
