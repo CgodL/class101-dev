@@ -1,10 +1,10 @@
 ---
-title: '로딩 중 ..(프로젝트)'
+title: 'LocalSNS'
 date: '2019-12-04T23:20:56'
 thumbnail: '/images/thumbnails/lod.jpg'
 author: 'channing'
 tags: ['Project', 'Insta', 'Crawling', 'Scraping']
-description: '로딩 중 ..( 차후에 이름을 바꿀 포스트 )'
+description: 'LocalSNS'
 ---
 
 ![lo](./loading.png)

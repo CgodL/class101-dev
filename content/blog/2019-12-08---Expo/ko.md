@@ -55,6 +55,12 @@ Managed workflow 는 리액트/리액트 네이티브의 CRA와 비슷합니다.
 
 ---
 
+### Base Design
+
+![de](./design.png)
+
+---
+
 ### STRUCTURE 구성
 
 - 로딩페이지 구성
