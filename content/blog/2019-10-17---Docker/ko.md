@@ -136,18 +136,6 @@ docker를 사용하는 중에 pip3 install 과 같이 패키지를 설치하려�
 
 <center>
 
-### ---
-
-### ERROR | ISSUE
-
-</center>
-
-> <b> - </b>
-
-<hr />
-
-<center>
-
 Reference <br>
 
 [Docker_Slide](https://www.slideshare.net/pyrasis/docker-fordummies-44424016)<br>

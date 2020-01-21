@@ -162,18 +162,6 @@ POST is used to send data to a server to create/update a resource.
 
 <center>
 
-### ---
-
-### ERROR | ISSUE
-
-</center>
-
-> <b> - </b>
-
-<hr />
-
-<center>
-
 Reference <br>
 [HTTP](https://www.edwith.org/boostcourse-web/lecture/16661/) <br>
 [HTTP 완벽가이드](https://feel5ny.github.io/2019/08/18/HTTP_003_04/)<br>

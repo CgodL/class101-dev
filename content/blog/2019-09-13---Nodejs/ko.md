@@ -362,20 +362,10 @@ req.end();
 
 <center>
 
-### ---
-
-### ERROR | ISSUE
-
-</center>
-
-> <b> - </b>
-
-<hr />
-
-<center>
-
 **다음편**<br>
 [Express](https://channing.netlify.com/ko/blog/2019/10/24/channing)
+
+---
 
 Reference <br>
 

@@ -207,13 +207,9 @@ class HeroSerializer(serializers.HyperlinkedModelSerializer):
 
 <center>
 
-### ---
-
 ### ERROR | ISSUE
 
 </center>
-
-> <b> - </b>
 
 <hr />
 

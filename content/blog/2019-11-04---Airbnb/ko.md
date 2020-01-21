@@ -999,18 +999,6 @@ CBV 는 이러한 특성 때문에 abstraction(추상개념) 이라고 부릅니
 
 <center>
 
-### ---
-
-### ERROR | ISSUE
-
-</center>
-
-> <b> - </b>
-
-<hr />
-
-<center>
-
 Reference <br>
 [DJANGO](https://docs.djangoproject.com/ko/2.2/intro/)<br>
 [NOMAD](https://academy.nomadcoders.co/courses/category/KR)<br>

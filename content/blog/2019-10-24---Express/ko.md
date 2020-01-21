@@ -303,13 +303,9 @@ app.use('/', router);
 
 <center>
 
-### ---
-
 ### ERROR | ISSUE
 
 </center>
-
-> <b> - </b>
 
 ---
 

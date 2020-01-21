@@ -106,13 +106,9 @@ DATA MODELING 을 위해서 서버 아키텍쳐를 먼저 구상하고, 설계�
 
 <center>
 
-### ---
-
 ### ERROR | ISSUE
 
 </center>
-
-> <b> - </b>
 
 <hr />
 <center>

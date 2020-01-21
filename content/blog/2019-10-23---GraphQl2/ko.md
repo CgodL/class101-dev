@@ -251,13 +251,9 @@ server.start(() => console.log('GraphQL Server Running'));
 
 <center>
 
-### ---
-
 ### ERROR | ISSUE
 
 </center>
-
-> <b> - </b>
 
 <hr />
 

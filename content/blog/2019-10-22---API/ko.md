@@ -100,9 +100,24 @@ REST는 기존 RPC나 SOAP 등 복잡한 프로토콜로 통신하는 것보다 
   - 행위(Verb) - HTTP METHOD
   - 표현(Representations)
 
----
+#### CRUD
 
-### RESTful API 설계
+- POST : POST를 통해 해당 URI를 요청하면 리소스를 생성합니다.
+- GET : GET을 통해 리소스를 조회 합니다.
+- PUT : PUT을 통해 해당 리소스를 수정합니다.
+- DELETE : DELETE를 통해 리소스를 삭제합니다.
+
+#### 디자인 가이드
+
+- REST URI는 심플하고 직관적으로
+
+  > 최대 2 depth 정도로 간단하게 만드는 것이 이해하기 편하다.<br>
+  > /dogs <br>
+  > /dogs/1234
+  > URI 리소스 이름은 명사를 사용합니다.
+
+- REST API는 리소스에 대해서 행동을 정의하는 형태를 사용합니다.
+  > POST /dogs - /dogs 리소스를 생성하라는 의미 입니다.
 
 ---
 
@@ -113,6 +128,7 @@ Reference <br>
 [그림으로 배우는 클라우드 인프라](https://book.naver.com/bookdb/book_detail.nhn?bid=12071725) <br>
 [REST](https://meetup.toast.com/posts/92)<br>
 [Restful API 설계](https://sanghaklee.tistory.com/57) <br>
-[Restuful API 설계2](https://spoqa.github.io/2012/02/27/rest-introduction.html)
+[Restuful API 설계2](https://spoqa.github.io/2012/02/27/rest-introduction.html)<br>
+[REST API](https://bcho.tistory.com/954)
 
   </center>

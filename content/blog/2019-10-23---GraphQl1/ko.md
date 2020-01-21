@@ -204,13 +204,9 @@ REST API와 GraphQL API의 사용
 
 <center>
 
-### ---
-
 ### ERROR | ISSUE
 
 </center>
-
-> <b> - </b>
 
 <hr />
 
