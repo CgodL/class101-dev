@@ -54,7 +54,7 @@ const AuthorsPage: React.FC = () => {
           <br />
             <br />
             - 인스타그램 태그 크롤링을 위한 Puppeteer 사용. <br />
-            - 크롤링 데이터 가공 및 CSV 변환 / MongoDB(Mongoose) 연동. <br />
+            - MongoDB(Mongoose) 활용 <br />
             - Express 서버 구성 | RESTful API 설계 | 라우터 세팅. <br />
             - Expo 활용 애플리케이션 제작 중.
           <br />
