@@ -13,9 +13,9 @@ const Footer: React.FC = () => {
           <Col>
             <ContactSection>
               <ContactArticle>
-                <div>
+                {/* <div>
                   E-MAIL : c.henry.9209@gmail.com
-                </div>
+                </div> */}
               </ContactArticle>
             </ContactSection>
           </Col>

@@ -92,15 +92,9 @@ const selectionSort = arr => {
 
 ---
 
-<center>
+### 퀵정렬(Quick Sort)
 
-### ---
-
-### ERROR | ISSUE
-
-</center>
-
-> <b> - </b>
+![qck](./qck.png)
 
 ---
 

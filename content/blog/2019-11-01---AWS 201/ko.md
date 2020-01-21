@@ -11,18 +11,14 @@ description: 'AWS 201 - AWS S3 , AWS EBS , AWS CloudFront , AWS Glacier'
 
 **AWS 201 세미나**
 
----
-
 - 스토리지
 - Block 스토리지 : AWS EBS
 - File 스토리지 : AWS EFS
 - Object 스토리지 : AWS S3
 - Migration 툴
 
----
-
-- S3 종류의 분류 -> 사용 빈도에 따라 분류
-- 스토리지 특성 <br>
+* S3 종류의 분류 -> 사용 빈도에 따라 분류
+* 스토리지 특성 <br>
   > 내구성 <br>
   > 가용성 - 기대 다운타임<br>
   > 보안<br>
@@ -31,11 +27,11 @@ description: 'AWS 201 - AWS S3 , AWS EBS , AWS CloudFront , AWS Glacier'
   > 성능<br>
   > Integration<br>
 
----
-
 - Block 스토리지 : AWS EBS
 
 - EC2 는 휘발성 입니다. stop / start로 인해 하드웨어가 바뀌면서 사라집니다.
+
+---
 
 ### AWS EBS(Elastic Block Store)
 
@@ -44,8 +40,6 @@ Amazon EBS Volumes. An Amazon EBS volume is a durable, block-level storage devic
 **Amazon EBS 볼륨**은 내구성이 있는 블록 수준 스토리지 디바이스를 제공하여 단일 EC2 인스턴스를 연결하는 것이 가능합니다. 인스턴스의 시스템 드라이브 또는 데이터베이스 애플리케이션용 스토리지 등 자주 업데이트해야 하는 데이터의 경우 EBS 볼륨을 기본 스토리지로 사용할 수 있습니다. 볼륨이 인스턴스에 연결되면, 다른 물리적 하드 드라이브처럼 사용할 수 있습니다.
 
 - 생성한 용량만큼만 비용 지불
-
----
 
 #### EBS Volume type
 
@@ -86,8 +80,6 @@ S3에 저장(백업), EBS API 지원
 
 Access Frequency 에 따라서 분류
 
-#### 가용성에 따라 선택
-
 #### S3 Object Tagging
 
 inteligence 어쩌구가 티어를 자동으로세팅
@@ -121,17 +113,6 @@ inteligence 어쩌구가 티어를 자동으로세팅
 
 ---
 
-<center>
-
-### ---
-
-### ERROR | ISSUE
-
-</center>
-
-> <b> - </b>
-
-<hr />
 <center>
 
 Reference

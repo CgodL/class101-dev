@@ -70,7 +70,7 @@ RN 같은 경우, 라우팅을 위해 `react-native-router-flux`과 `react-navig
 ```js
 $ App.js
 
-import { Router, Scene } from 'react-native-router-flux';
+import { Router, Scene, Actions } from 'react-native-router-flux';
 
 <Router>
   <Scene key="root">
@@ -78,6 +78,9 @@ import { Router, Scene } from 'react-native-router-flux';
     <Scene key="jeju" component={Jeju} title="Jeju" />
   </Scene>
 </Router>;
+
+Actions.jeju({})
+
 ```
 
 위와 같은 식으로, App.js 에서 라우터를 통해 페이지를 관리하는 식으로 페이지를 구성 해줍니다.

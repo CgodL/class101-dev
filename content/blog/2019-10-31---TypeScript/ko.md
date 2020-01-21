@@ -28,7 +28,7 @@ TypeScript는 컴파일 속도가 일반 JavaScript 보다 월등히 빠릅니�
 
 ```javascript
 yarn global add typscript
-npm install --save typescript @types/node // npm 으로도 설치 해줍니다.
+npm install --save typescript @types/node || npm install -g typescript
 ```
 
 - `yarn init -y` 로 package.json을 설치합니다.
@@ -51,6 +51,99 @@ console.log(message);
 - tsc filename 으로 컴파일(트랜스파일링) 합니다.
 
 Type은 기본적으로 `const message: 'type' = 'blahblah'` 같은 형태로 지정 해줍니다.
+
+#### Boolean
+
+```js
+let isDone: boolean = false;
+```
+
+#### Number
+
+```js
+let decimal: numberr = 6;
+let hex: number = 0xf00d;
+```
+
+#### String
+
+```js
+let color: string = 'blue';
+color = 'red';
+
+let fullName: string = 'Channing';
+let age: number = 29;
+let sentence: string = `Hello, my name is ${fullName}. I'll be ${age +
+  1} years old next month.`;
+```
+
+#### null / undefined
+
+```js
+const nullValue: null = null;
+const undefinedValue: undefined = undefined;
+const numberValue: number = null; // Type 'null' is not assignable to type 'number'
+```
+
+#### any
+
+```js
+let bool: any = true;
+bool = 3;
+bool = 'whatever';
+bool = {};
+```
+
+#### Array
+
+```js
+let list: number[] = [1, 2, 3];
+let list: Array<number> = [1, 2, 3]; // generic array type
+let list: string[] = ['a', 'b', 'c'];
+```
+
+#### Tuple
+
+```js
+let x: [string, number];
+x = ['hello', 10]; // OK
+x = [10, 'hello']; // Error
+
+console.log(x[0].substring(1)); // OK
+console.log(x[1].substring(1)); // Error, 'number' does not have 'substring'
+x[3] = 'world'; // Error, Property '3' does not exist on type '[string, number]`
+```
+
+#### Enum
+
+```js
+enum Color { Red, Green, Blue }
+let c: Color = Color.Green
+```
+
+#### Void
+
+```js
+function warnUser(): void {
+  console.log('This is my warning message');
+}
+```
+
+#### Object
+
+```js
+const user: { name: string, height: number } = {
+  name: 'Channing',
+  height: 176
+};
+
+const userWithUnkknownHeight: { name: string, height?: number } = {
+  name: 'Channing'
+};
+
+const user: { readonly name: string; height: number } = { name: 'Channing', height: 176}
+user.name = 'Henry' // Cannot assign to 'name' because it is a constant or a read-only property.
+```
 
 ---
 
