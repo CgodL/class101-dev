@@ -42,7 +42,7 @@ const AuthorsPage: React.FC = () => {
           {/* 개발 동안 에러를 만나거나, 막히는 문제에 대하여 빠르고, 좀 더 올바른 방향의 해결책을 찾아 생산력을 높였고, 원활한 커뮤니케이션과 빠른 이해를 통해 목표로 하는 결과를 내는 데 도움이
           되었습니다. 과정 수료 후,*/}
           동료들과의 협업을 좋아하고, 소통하는 개발자 입니다. 고안한 로직에 따라 구현되는 개발을 즐기며 다양한 분야에 관심이 많아 배우는걸 즐기고 있습니다.
-          <br />창의적인 일을 좋아하며 아이디어를 기록하고, 실제 구체화 가능한지에 대한 고민을 하곤 합니다. 
+          <br />또, 창의적인 일을 좋아하며 아이디어를 기록하고, 실제 구체화 가능한지에 대한 고민을 하곤 합니다. 
           <br /> 현재는 Instagram 크롤링 데이터 기반의 어플리케이션 개발을 이어나가고 있습니다. 
           <br />
           <br />
@@ -139,7 +139,7 @@ const AuthorsPage: React.FC = () => {
           <hr />
 
           <b>Frontend</b> :  JavaScript | React | HTML5 / CSS <br />
-          <b>Backend</b> : Node.js ( Express.js ) | REST API  <br />
+          <b>Backend</b> : Node.js ( Express.js )   <br />
           <b>DB</b> : MySQL | MongoDB ( Mongoose ) <br />
           <b>Tool</b> : AWS <br />
           <b>ETC</b> : Puppeteer  <br />
