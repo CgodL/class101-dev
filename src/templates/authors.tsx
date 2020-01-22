@@ -37,12 +37,13 @@ const AuthorsPage: React.FC = () => {
           <Headline2>ABOUT ME</Headline2>
 
           <hr />
-          개발을 배울 수 있는 부트캠프에서 웹 전반에 대한 학습과 이해뿐만 아니라 협업과 같은 소프트 스킬까지 아우르면서 소통하는 개발능력을 키웠습니다. <br />
           {/* 몇 개의 프로젝트를 진행하면서 애자일 스크럼을 통한 개발, 문제 해결 능력,
           로직 구성 등의 능력을 키웠습니다. */}
           {/* 개발 동안 에러를 만나거나, 막히는 문제에 대하여 빠르고, 좀 더 올바른 방향의 해결책을 찾아 생산력을 높였고, 원활한 커뮤니케이션과 빠른 이해를 통해 목표로 하는 결과를 내는 데 도움이
           되었습니다. 과정 수료 후,*/}
-          현재는 Instagram 크롤링 데이터 기반의 어플리케이션 개발을 이어나가고 있습니다. 
+          동료들과의 협업을 좋아하고, 소통하는 개발자 입니다. 고안한 로직에 따라 구현되는 개발을 즐기며 다양한 분야에 관심이 많아 배우는걸 즐기고 있습니다.
+          <br />창의적인 일을 좋아하며 아이디어를 기록하고, 실제 구체화 가능한지에 대한 고민을 하곤 합니다. 
+          <br /> 현재는 Instagram 크롤링 데이터 기반의 어플리케이션 개발을 이어나가고 있습니다. 
           <br />
           <br />
           <br />
@@ -50,8 +51,8 @@ const AuthorsPage: React.FC = () => {
           <hr />
 
           <div>
-            <h4><b>LOCAL SNS | 2019 (진행 중)</b></h4>
-            <Semi>개인 프로젝트 | Full-Stack </Semi><br />
+            <Inner><b>LOCAL SNS | 2019 (진행 중)</b></Inner>
+            <Semi>개인 프로젝트 | Full-Stack | Expo | React | Express | AWS </Semi><br />
             인스타그램 해시태그 | 장소 | 날짜 데이터를 크롤링 및 가공 하여
             사용하는 해시태그 데이터 기반 어플리케이션 입니다.
           <br />
@@ -81,19 +82,19 @@ const AuthorsPage: React.FC = () => {
           </div>
           <hr />
           <div>
-            <h4><b>CRUNCH PRICE | 2019</b> </h4>
-            <Semi>기업협업 프로젝트 ( 개인화 상품 추천 기능 구현 ) | Back-End </Semi><br />
+            <Inner><b>CRUNCH PRICE | 2019</b> </Inner>
+            <Semi>기업협업 프로젝트 ( 개인화 상품 추천 기능 구현 ) | Back-End | AWS | Django | Docker </Semi><br />
             AWS Personalize를 활용하여 MD의 개입없이 인공지능으로 사용자 개개인
             에게 맞는 상품 추천 시스템을 구현했습니다.
           <br />
             <br />
-            - mongoDB 데이터를 Pandas를 활용하여 JSON to CSV 변환 및 AWS S3 저장
+            - mongoDB 데이터 JSON to CSV 변환 및 AWS S3 저장
             변환.
           <br />
-            - SDK(boto3)를 사용하여, Django 서버에 Personalize
+            - SDK(boto3)를 사용하여, Personalize
             코드 구현 및 Personalize API 세팅.
           <br />
-            - 크런치 프라이스 유저 데이터
+            - 유저 데이터 업데이트
             자동화를 위해 Personalize API 활용 실시간 업데이트 구현.
           <br />
             - Airflow 배치 프로세싱을 이용하여 Personalize 데이터(S3 CSV) 주기적
@@ -114,8 +115,8 @@ const AuthorsPage: React.FC = () => {
           </div>
           <hr />
           <div>
-            <h4><b>BLINKER | 2019</b></h4 >
-            <Semi>윙크로 게임하기 | Front-End</Semi> <br />
+            <Inner><b>BLINKER | 2019</b></Inner>
+            <Semi>윙크로 게임하기 | Front-End | React | AWS</Semi> <br />
             openCV 기반 BRFV4 SDK를 사용하여 윙크(Blink)를 인식, 깜빡일때 점프하는
           웹 게임을 개발했습니다. <br /> <br />
             - Face Detection과 Tracking이
@@ -146,11 +147,10 @@ const AuthorsPage: React.FC = () => {
           <br />
           <br />
           <br />
-
           <Headline2>EDUCATION AND ACTIVITIES </Headline2>
           <hr />
 
-          - 코드 스테이츠 Immersive Course 14 ( 2019.07.22 - 2019.10.19 )<br />
+          - 코드 스테이츠(부트캠프) Immersive Course 14 ( 2019.07.22 - 2019.10.19 )<br />
           - AWS 101 세미나 ( 2019.10.14 )<br />
           - AWS 201 세미나 ( 2019.10.28 )<br />
           - AWS 웨비나 ( 2019.11.14 )
@@ -200,6 +200,10 @@ const Semi = styled.span`
   color: #696969;
 `
 
-
+const Inner = styled.div`
+  font-weight: 500;
+  font-size: 18px;
+  color: #696969;
+`
 
 export default AuthorsPage;
