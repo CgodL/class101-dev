@@ -4,8 +4,7 @@ date: '2019-10-31T11:46:56'
 thumbnail: '/images/thumbnails/t.png'
 author: 'channing'
 tags: ['Javascript', 'Typescript']
-description: 'TYPESCRIPT - TypeScript는 컴파일 속도가 일반 JavaScript 보다 월등히 빠릅니다.
-컴파일을 하는 동안 타입을 체크하는데 걸리는 시간이 현저히 짧기 때문입니다.'
+description: 'TYPESCRIPT'
 ---
 
 ![TypeScript](./t.png)
@@ -13,9 +12,6 @@ description: 'TYPESCRIPT - TypeScript는 컴파일 속도가 일반 JavaScript �
 <center>
 
 ### TypeScript
-
-TypeScript는 컴파일 속도가 일반 JavaScript 보다 월등히 빠릅니다.<br>
-컴파일을 하는 동안 타입을 체크하는데 걸리는 시간이 현저히 짧기 때문입니다.
 
 </center>
 
