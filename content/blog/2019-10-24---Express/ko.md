@@ -56,14 +56,13 @@ http.createServer(app).listen(app.get('port'), function() {
 });
 ```
 
-```
 app 객체는 express() 메소드 호출로 만들어지는 익스프레스 서버 객체 입니다.
-  주요 메소드들은 다음과 같습니다.
-  - set(name, value) : 서버 설정을 위한 속성을 지정합니다. set( ) 메소드로 지정한 속성은 get ( ) 메소드로 꺼내어 확인할 수 있습니다.
-  - get(name) : 서버 설정을 위해 지정한 속성을 꺼내옵니다.
-  - use([path,]function[,function...]) : 미들웨어 함수를 사용합니다.
-  - get([path,]function) : 특정 패스(Path)로 요청된 정보를 처리합니다.
-```
+주요 메소드들은 다음과 같습니다.
+
+- set(name, value) : 서버 설정을 위한 속성을 지정합니다. set( ) 메소드로 지정한 속성은 get ( ) 메소드로 꺼내어 확인할 수 있습니다.
+- get(name) : 서버 설정을 위해 지정한 속성을 꺼내옵니다.
+- use([path,]function[,function...]) : 미들웨어 함수를 사용합니다.
+- get([path,]function) : 특정 패스(Path)로 요청된 정보를 처리합니다.
 
 ---
 
@@ -102,23 +101,19 @@ http.createServer(app).listen(3000, function() {
 
 ### 익스프레스의 요청 객체와 응답 객체
 
-```
-  - send([body]) : 클라이언트에 응답 데이터를 보냅니다. 데이터는 HTML 문자열 / Buffer 객체 / JSON 객체, 배열 입니다.
-  - status(code) : HTTP상태 코드를 반환합니다. 상태 코드는 send()나 end() 같은 전송 메소드를 추가로 호출해야 전송할 수 있습니다.
-  - sendStatus(statusCode) : HTTP 상태 코드를 반환합니다. 상태 코드는 상태 메시지와 함께 전송됩니다.
-  - redirect([status], path) : 웹 페이지 경로를 강제로 이동시킵니다.
-  - render(view [,locals][,callback]) : 뷰 엔진을 사용해 문서를 만든 후 전송합니다.
-```
+- send([body]) : 클라이언트에 응답 데이터를 보냅니다. 데이터는 HTML 문자열 / Buffer 객체 / JSON 객체, 배열 입니다.
+- status(code) : HTTP상태 코드를 반환합니다. 상태 코드는 send()나 end() 같은 전송 메소드를 추가로 호출해야 전송할 수 있습니다.
+- sendStatus(statusCode) : HTTP 상태 코드를 반환합니다. 상태 코드는 상태 메시지와 함께 전송됩니다.
+- redirect([status], path) : 웹 페이지 경로를 강제로 이동시킵니다.
+- render(view [,locals][,callback]) : 뷰 엔진을 사용해 문서를 만든 후 전송합니다.
 
 ---
 
 ### 요청 객체 헤더와 파라미터
 
-```
- - query : 클라이언트에서 GET 방식으로 전송한 요청 파라미터를 확인합니다.
- - body : 클라이언트에서 POST 방식으로 전송한 요청 파라미터를 확인합니다. 단, body-parser와 같은 외장 모듈을 사용해야 합니다.
- - header(name) : 헤더를 확인합니다.
-```
+- query : 클라이언트에서 GET 방식으로 전송한 요청 파라미터를 확인합니다.
+- body : 클라이언트에서 POST 방식으로 전송한 요청 파라미터를 확인합니다. 단, body-parser와 같은 외장 모듈을 사용해야 합니다.
+- header(name) : 헤더를 확인합니다.
 
 클라이언트에서는 요청 파라미터를 함께 보낼 수 있습니다. 이때 GET 방식으로 요청했다면 요청 파라미터들은 요청 객체의 query 객체 안에 들어갑니다.
 
@@ -284,14 +279,13 @@ app.use('/', router);
 
 클라이언트에서 요청한 요청 패스에 따라 실행될 함수는 **라우터** 객체를 사용해 등록합니다. **router** 객체에는 **route( )** 메소드가 있어 요청 패스(Path)를 지정할 수 있으며, get( ) 이나 post( ) 메소드를 호출하면 실행될 함수를 등록할 수 있습니다.
 
-```
-  주요 메소드들은 다음과 같습니다.
-  - get(callback) : GET 방식으로 특정 패스 요청이 발생했을 때 사용할 콜백함수를 지정합니다.
-  - post(callback) : POST 방식으로 특정 패스 요청이 발생했을 때 사용할 콜백함수를 지정합니다.
-  - put(callabck) : PUT 방식으로 특정 패스 요청이 발생했을 때 사용할 콜백함수를 지정합니다.
-  - delete(callback) : DELETE 방식으로 특정 패스 요청이 발생했을 때 사용할 콜백함수를 지정합니다.
-  - all(callback) : 모든 요청 방식을 처리하며, 특정 패스 요청이 발생했을 때 사용할 콜백함수를 지정합니다.
-```
+주요 메소드들은 다음과 같습니다.
+
+- get(callback) : GET 방식으로 특정 패스 요청이 발생했을 때 사용할 콜백함수를 지정합니다.
+- post(callback) : POST 방식으로 특정 패스 요청이 발생했을 때 사용할 콜백함수를 지정합니다.
+- put(callabck) : PUT 방식으로 특정 패스 요청이 발생했을 때 사용할 콜백함수를 지정합니다.
+- delete(callback) : DELETE 방식으로 특정 패스 요청이 발생했을 때 사용할 콜백함수를 지정합니다.
+- all(callback) : 모든 요청 방식을 처리하며, 특정 패스 요청이 발생했을 때 사용할 콜백함수를 지정합니다.
 
 ---
 
