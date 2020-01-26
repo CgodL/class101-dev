@@ -177,9 +177,13 @@ module.exports = mongoose.model("Hashtag", hashTagSchema);
 
 ---
 
-<center>
+### Structure
 
-### ---
+![str](./str.png)
+
+---
+
+<center>
 
 ### ERROR | ISSUE
 
@@ -187,9 +191,6 @@ module.exports = mongoose.model("Hashtag", hashTagSchema);
 
 > <b>-</b> **dotenv 세팅 문제** : .env파일을 초기에 루트에두고 사용했는데, 폴더안에 들어있는 크롤링 코드를 서버 코드에 추가 후에, .env에 접근을 시도했더니 `text is not iterable` 이라는 오류가 발생하였다. 확인해보니 디렉토리를 찾지 못해서 .env 파일을 읽지 못하는 문제였고, 이를 해결하기 위해 경로 설정을 해주었다.
 > `require("dotenv").config({ path: path.resolve(__dirname, "../config/.env") });` 이런식으로.. 잘 읽어온다.<br>[참조] : https://stackoverflow.com/questions/42335016/dotenv-file-is-not-loading-environment-variables
-
-> <b>-</b> **router 문제** : 라우터를 세팅하고 postman으로 get요청을 날렸지만, cannot get response였다. 이유를 찾고보니 mongoose에 직접 연결하여(then) 라우터 세팅을 해주니 문제없이 실행됐다.
-> 실행은 되는데, 현재 코드가 깔끔한 코드인지를 모르겠다.
 
 <hr />
 <center>

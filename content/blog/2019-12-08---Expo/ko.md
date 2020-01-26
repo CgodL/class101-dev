@@ -100,6 +100,8 @@ Actions.jeju({})
 - paddingHorizontal
 - fontSize
 
+`Button` 태그에 css가 먹히지 않는데, 이유는 EXPO(RN)에서는 `TouchableOpacity` 에 css를 입혀야 사용할 수 있습니다.
+
 ---
 
 ![p8](./p4.png)
@@ -109,8 +111,6 @@ Actions.jeju({})
 ---
 
 <center>
-
-### ---
 
 ### ERROR | ISSUE
 

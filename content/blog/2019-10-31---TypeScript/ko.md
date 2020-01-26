@@ -141,6 +141,8 @@ const user: { readonly name: string; height: number } = { name: 'Channing', heig
 user.name = 'Henry' // Cannot assign to 'name' because it is a constant or a read-only property.
 ```
 
+#### Interface
+
 ---
 
 <center>
