@@ -1,13 +1,13 @@
 ---
 title: 'LocalSNS'
 date: '2019-12-04T23:20:56'
-thumbnail: '/images/thumbnails/lod.jpg'
+thumbnail: '/images/thumbnails/local.png'
 author: 'channing'
 tags: ['Project', 'Insta', 'Crawling', 'Scraping']
 description: 'LocalSNS'
 ---
 
-![lo](./loading.png)
+![lo](./localll.png)
 
 <center>
 

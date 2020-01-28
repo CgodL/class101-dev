@@ -49,13 +49,9 @@ description: 'Movie_web_service  만들기'
 
 <center>
 
-### ---
-
 ### ERROR | ISSUE
 
 </center>
-
-> <b> - </b>
 
 <hr />
 
