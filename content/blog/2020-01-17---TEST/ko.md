@@ -221,7 +221,7 @@ test('compiling android goes as expected', () => {
 
 <br>
 
-만약 일부 데이터를 가져오고 완료되면 callback(data)를 호출하는 fetchData(callback) 기능이 있다고 가정해 봅시다. 당신은 이 반환된 데이터가 '피넛 버터' 문자열임을 테스트하고 싶습니다.
+만약 일부 데이터를 가져오고 완료되면 callback(data)를 호출하는 fetchData(callback) 기능이 있다고 가정해 봅시다. <br> 당신은 이 반환된 데이터가 '피넛 버터' 문자열임을 테스트하고 싶습니다.
 
 일반적으로, Jest 는 함수 실행이 끝나면 완료됩니다.
 
@@ -235,7 +235,7 @@ test('the data is peanut butter', () => {
 });
 ```
 
-위 코드는 의도한 대로 작동하지 않습니다. 위 코드의 문제는 테스트가 fetchData가 callback을 호출하기 전에 완료되는 즉시 완료된다는 것 입니다.
+위 코드는 의도한 대로 작동하지 않습니다. 위 코드의 문제는 callback을 호출하기 전에 fetchData가 완료되는 즉시 테스트가 완료된다는 것 입니다.
 이를 해결하기 위한 다른 방법의 test가 존재합니다. 인자 없이 function안에 test를 넣는 대신에, `done` 이라는 단일 인자를 사용하는 겁니다. Jest는 테스트를 끝나기 전에 완료된 done callback을 부를때 까지 기다립니다.
 
 ```js
@@ -243,6 +243,8 @@ test('the data is peanut butter', done => {
   function callback(data) {
     expect(data).toBe('peanut butter');
     done();
+  }catch(error){
+    done(error)
   }
 
   fetchData(callback);

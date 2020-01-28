@@ -1,6 +1,6 @@
 ---
 title: 'TIL'
-date: '2020-01-17T23:20:56'
+date: '2020-01-28T23:20:56'
 thumbnail: '/images/thumbnails/til1.png'
 author: 'channing'
 tags: ['TIL']
@@ -896,5 +896,22 @@ DB를 몽구스로 초기 선택했는데, 몽구스는 관계형성이 어렵�
 
 **🥰COMMENT**<br>
 설날 마지막 ~
+
+---
+
+<center>
+
+# 2020.01.28 화요일
+
+</center>
+
+**😇TIL**
+
+> AWS Beanstalk
+
+---
+
+**🥰COMMENT**<br>
+감기 조심
 
 ---
