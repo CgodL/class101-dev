@@ -32,6 +32,10 @@ CRA (create-react-app)는 여러개의 패키지를 조합해서 자동으로 �
 
 ### CRA
 
+- `yarn create react-app my-app`
+- `npm init react-app my-app`
+- `npx create-react-app my-app`
+
 create-react-app 으로 개발환경을 구축 합니다.
 초기 생성된 파일이 여러개 존재하는데, `index.html` | `index.js` | `package.json` 파일을 제외한 나머지 파일은 삭제해도 됩니다. index 파일들은 빌드시 예약된 파일이름으로 지워서는 안됩니다. <br>
 `index.js`로 연결된 모든 JS파일과 CSS파일은 `src폴더` 밑에 있어야 합니다.
@@ -522,7 +526,31 @@ export default TodoList;
   > - 브라우저의 뒤로 가기 와 같은 사용자의 페이지 전환 요청을 JS에서 처리할 수 있어야 합니다.<br> ( 두 과정 모두 브라우저는 서버로 요청을 보내지 않습니다. )<br><br> 이러한 조건을 만족하는 브라우저 API는 `pushState`, `replaceState` 함수와 `popstate` 이벤트 입니다.
 
 - react-router-dom
-  > 브라우저 히스토리 API를 활용하여 라우팅 처리를 구현할 수 있지만 신경써야할 부분이 많습니다. `react-router-dom`을 활용합니다. <br>(내부적으로 브라우저 히스토리 API를 사용합니다.)
+  > 브라우저 히스토리 API를 활용하여 라우팅 처리를 구현할 수 있지만 신경써야할 부분이 많습니다. `react-router-dom`을 활용합니다. <br>(내부적으로 브라우저 히스토리 API를 사용합니다.) `npm i react-router-dom`
+
+```js
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div style={{ padding: 20, border: '5px solid gray' }}>
+          <Link to="/">홈</Link>
+          <br />
+          <Link to="/photo">사진</Link>
+          <br />
+          <Link to="/rooms">방 소개 </Link>
+          <br />
+          <Route exact path="/" component={Home} />
+          <Route path="/photo" component={Photo} />
+          <Route path="/rooms" component={Rooms} />
+        </div>
+      </BrowserRouter>
+    );
+  }
+}
+```
+
+`react-router-dom`을 사용하기 위해서는 전체를 `BrowserRouter` 컴포넌트로 감싸야 합니다. 버튼을 통해서 페이지 전환을 할때, `Link` 컴포넌트를 사용해야 합니다. to 속성값은 이동할 주소를 나타냅니다. `Route` 컴포넌트를 이용해서 각 페이지를 정의합니다.
 
 ---
 
