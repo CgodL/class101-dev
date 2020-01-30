@@ -1,6 +1,6 @@
 ---
 title: 'TIL'
-date: '2020-01-28T23:20:56'
+date: '2020-01-30T23:20:56'
 thumbnail: '/images/thumbnails/til1.png'
 author: 'channing'
 tags: ['TIL']

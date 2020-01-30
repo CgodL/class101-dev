@@ -13,18 +13,17 @@ description: 'Koa로 서버 만들기 - Koa 는 웹 프레임워크 입니다. E
 
 ---
 
-### Koa
+### KOA
 
 Koa 는 웹 프레임워크 입니다. Express.js 와 비슷합니다. 서버를 구현하는데 에 편리한 도구? 입니다. <br>
 Koa 미들웨어 함수에는 두가지 파라미터가 있습니다. `ctx` 와 `next` 입니다.
 `ctx`는 웹 요청과 응답 정보를 갖고 있습니다.
 
-> `yarn add koa`로 koa를 설치합니다. <br>
-> koa 서버는 `node src`로 서버를 실행합니다. <br> `node src`로 실행하는 서버는 업데이트를 위해서 서버 종료와 시작을 반복해야 합니다. 이는 매우 귀찮고 불편하므로 <br>`yarn --dev add nodemon`(노드몬이 전역에 설치되어 있다면)으로 nodemon을 설치 후 script 설정을 후 `yarn start`로 서버를 시작합니다.
+`yarn add koa`로 koa를 설치합니다. <br>
 
 ---
 
-### Koa ctx
+### KOA CTX
 
 ```js
 
@@ -116,7 +115,7 @@ listening to port 4000
 
 ---
 
-### Koa next
+### KOA NEXT
 
 Koa의 `next`는 프로미스 입니다. 다음 미들웨어로 가게 하는 명령 이라고 생각하면 됩니다.
 프로미스 이기 때문에 비동기로 작동합니다.
@@ -147,7 +146,7 @@ app.use((ctx, next) => {
 
 ---
 
-### Koa async/await
+### KOA ASYNC/AWAIT
 
 Koa 는 async/await을 정식으로 지원합니다. <b>Express와 다른 분명한 점입니다.</b>
 async/await을 지원한다는 것은 에러 처리가 Koa 자체적으로 가능하다는 말 입니다.
@@ -162,7 +161,7 @@ app.use(async (ctx, next) => {
 
 ---
 
-### Koa-router
+### KOA-ROUTER
 
 Koa 역시 라우터가 존재합니다. 다른 주소로 요청이 들어오면 이를 처리하기 위한 라우터를 사용합니다.
 
@@ -199,7 +198,9 @@ app.use(router.routes()).use(router.allowedMethods());
 > <br>[개인적 생각] 제가 생각하는 작동 원리 입니다. <br>
 > Koa 또는 Express 는 프레임워크 입니다. 이 녀석들이 요구하는 규칙 같은게 존재합니다. <br>Koa / Express 는 미들웨어를 읽습니다. 미들웨어는 `app.use()`와 같이 만듭니다. 우리는 Third party로 router를 설치했습니다. <br> Koa 는 router를 읽지 못합니다. 이를 읽게 하기 위해서 Koa를 상속받은 app 미들웨어에 설정한 router를 등록합니다.<br> <br> 또는 Koa 서버 자체를 이용하기 위해선 Koa 위에서 작동해야 하고 이를 위해서는 Koa를 상속 받아야 하는게 맞고, router는 Koa를 상속받은 녀석이 아니니까 app에 등록하여 사용한다 가 맞을까요
 
-### Route Query
+---
+
+### ROUTE QUERY
 
 라우트에는 첫번째 파라미터로 path를 넘깁니다.<br>
 

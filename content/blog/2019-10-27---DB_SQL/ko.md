@@ -81,7 +81,7 @@ description: 'DATA BASE - SQL / 데이터는 어떤 것들의 ‘기록 정보�
 
 ### 관계
 
-#### 1. 일대일 관계(One to One)
+#### 1. 일대일 관계
 
 ![customer](./customer.png)
 
@@ -93,7 +93,7 @@ description: 'DATA BASE - SQL / 데이터는 어떤 것들의 ‘기록 정보�
 
 ---
 
-#### 2. 일대다 | 다대일 관계(One to Many | Many to One)
+#### 2. 일대다 | 다대일 관계
 
 ![customer](./customer.png)
 
