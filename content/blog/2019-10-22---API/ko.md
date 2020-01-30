@@ -14,7 +14,7 @@ description: 'API - 다른 소프트웨어를 제어하기 위해 미리 약속�
 **API(Application Program Interface)**
 
 - 정의 - 다른 소프트웨어를 제어하기 위해 미리 <b>약속된 인터페이스</b> 나 <b>규약</b>
-- 효과 - 반복되는 코드를 *API*로 이용함으로써 소스 코드의 재사용성을 높여 개발 *생산성*을 올릴 수 있습니다.
+- 효과 - 반복되는 코드를 _API_ 로 이용함으로써 소스 코드의 재사용성을 높여 개발 _생산성_ 을 올릴 수 있습니다.
 
 ![APIStructure](./APIstructure.png)
 
@@ -121,6 +121,15 @@ REST는 기존 RPC나 SOAP 등 복잡한 프로토콜로 통신하는 것보다 
 
 ---
 
+### JSON:API
+
+**Naming**
+
+- Should be Camel-Cased(i.e., worldWorld)
+- Should be start and end with "a-z"
+
+---
+
 <center>
 
 Reference <br>
@@ -129,6 +138,7 @@ Reference <br>
 [REST](https://meetup.toast.com/posts/92)<br>
 [Restful API 설계](https://sanghaklee.tistory.com/57) <br>
 [Restuful API 설계2](https://spoqa.github.io/2012/02/27/rest-introduction.html)<br>
+[REST API](https://jsonapi.org/recommendations/)<br>
 [REST API](https://bcho.tistory.com/954)
 
   </center>

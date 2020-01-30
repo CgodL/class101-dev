@@ -372,7 +372,7 @@ export default css`
     margin-bottom: 0;
     margin-top: 0;
     padding-left: 0;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Raleway', sans-serif;
   }
 
   .markdown-body ol ol,
@@ -648,7 +648,7 @@ export default css`
   }
 
   .markdown-body li + li {
-    margin-top: 0.25em;
+    margin-top: 1em;
   }
 
   .markdown-body dl {

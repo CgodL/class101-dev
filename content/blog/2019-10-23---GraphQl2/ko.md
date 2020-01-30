@@ -9,8 +9,6 @@ description: 'GRAPHQL 실습'
 
 ![apo](./apo.png)
 
-먼저 GraphQL의 특징을 먼저 복습 해보겠습니다.<br>
-
 ---
 
 ### Problems solved by GraphQL
@@ -92,73 +90,50 @@ description: 'GRAPHQL 실습'
 
 <center>
 
-#### GraphQL 실습 [ Nomad Coders ]
+### GraphQL 실습
 
 </center>
 
+<br>
+
 - 먼저, GraphQL을 실습할 Github Repository를 생성합니다.
-
-  1. GraphQL 을 실습할 폴더를 생성합니다.
-  2. yarn init 을 터미널에서 입력합니다.<br>
-     description, repository url 을 차례대로 입력합니다.
-  3. 내 origin에 생성한 repository를 remote에 추가합니다.
-  4. git pull origin master
-
-<br>
-
-- [GraphQL-Yoga](https://github.com/prisma-labs/graphql-yoga)를 사용할 겁니다.<br>
-  GraphQL-Yoga 는 React의 CRA와 비슷합니다. 매우 간편하게 서버를 설정할 수 있습니다.
-
-```js
-$ yarn add graphql-yoga 를 입력합니다.
-```
-
-```js
-$ yarn global add nodemon 노드몬을 설치해줍니다.
-```
-
 - index.js 파일을 생성합니다.
-- package.json에 nodemon을 추가합니다.
+- [GraphQL-Yoga](https://github.com/prisma-labs/graphql-yoga)를 사용할 겁니다. - GraphQL-Yoga 는 React의 CRA와 비슷합니다. 매우 간편하게 서버를 설정할 수 있습니다.
 
-```js
-  "scripts" :{
-      "start": "nodemon"
-  }
-```
+  - `yarn add graphql-yoga` 를 입력합니다.
 
-- **yarn start** 를 실행하면 index.js 내의 코드가 실행됩니다. 수정 시 nodemon이 자동으로 서버를 재시작 합니다.
+* `yarn global add nodemon` 노드몬을 설치해줍니다.
+
+  - package.json에 nodemon을 추가합니다.
+
+  - yarn start 를 실행하면 index.js 내의 코드가 실행됩니다. 수정 시 nodemon이 자동으로 서버를 재시작 합니다.
+
+- babel 세팅을 합니다.
+
+  - `yarn add babel-node --dev`
+
+  - `yarn global add babel-cli`
+
+  - package.json scripts를 수정 해줍니다.
+    <br><br>
+
+        ```js
+          "scripts": {
+            "start": "nodemon --exec babel-node index.js"
+          },
+        ```
+
+  - .babelrc 파일을 생성한뒤, 초기 세팅을 해줍니다.
+    <br><br>
+    ```js
+    {
+        "presets": ["env", "stage-3"]
+    }
+    ```
+
+  * `yarn add babel-cli babel-preset-env babel-preset-stage-3 --dev`
 
 <br>
-
-다음으로 babel 세팅을 하겠습니다.
-
-```js
-$ yarn add babel-node --dev
-```
-
-```js
-$ yarn global add babel-cli
-```
-
-- package.json scripts를 수정 해줍니다.
-
-```js
-  "scripts": {
-    "start": "nodemon --exec babel-node index.js"
-  },
-```
-
-- .babelrc 파일을 생성한뒤, 초기 세팅을 해줍니다.
-
-```js
-{
-    "presets": ["env", "stage-3"]
-}
-```
-
-```js
-$ yarn add babel-cli babel-preset-env babel-preset-stage-3 --dev
-```
 
 - index.js 에 graphql-yoga를 import 합니다.
 
@@ -195,7 +170,7 @@ $ yarn add babel-cli babel-preset-env babel-preset-stage-3 --dev
 
 ---
 
-### resolvers
+### RESOLVERS
 
 Resolver란 query에서 특정 필드에 대한 요청이 있을 때, 그것을 어떤 로직으로 처리할지 GraphQL에게 알려주는 역할을 합니다.
 

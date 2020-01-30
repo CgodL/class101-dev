@@ -1,5 +1,5 @@
 ---
-title: 'ASYNC'
+title: 'ASYNC AWAIT'
 date: '2019-08-03T19:32:56'
 thumbnail: '/images/thumbnails/cl.png'
 author: 'channing'

@@ -17,7 +17,7 @@ description: 'React Hooks 에 대하여'
 
 [공식문서](https://ko.reactjs.org/docs/hooks-intro.html) 를 정리한 내용입니다.
 
-"Hook은 React 버전 16.8에 새로 추가되었습니다. Hook를 이용하여 Class를 작성할 필요 없이 상태 값과 여러 React의 기능을 사용할 수 있습니다."
+"Hook은 React 버전 16.8에 새로 추가되었습니다. Hook를 이용하여 Class를 작성할 필요 없이 함수 기반으로 상태 값과 여러 React의 기능을 사용할 수 있습니다."
 
 **언제 Hook을 사용하나요?**
 함수 컴포넌트를 사용하던 중 state를 추가하고 싶을 때 클래스 컴포넌트로 바꾸지 않고, 함수 컴포넌트 안에서 Hook을 이용하여 state를 사용할 수 있습니다.
@@ -64,10 +64,35 @@ class Example extends React.Component {
 
 ---
 
-### USESTATE
+### USE STATE
 
-위 코드에서 `useState`가 Hook 입니다. 이를 통해서 function component 안에 state를 추가했습니다. useState는 `const [ count, setCount ] = useState(0)` 처럼 현재의 state 값과, 이 값을 업데이트하는 함수를 쌍으로 제공 합니다.
+`const [state, setState] = useState(initialState)`
+
+위 코드에서 `useState`가 Hook 입니다. 이를 통해서 function component 안에 state를 추가했습니다. <br> useState는 `const [ count, setCount ] = useState(0)` 처럼 현재의 state 값과, 이 값을 업데이트하는 함수를 쌍으로 제공 합니다. <br>
 `useState(0)`에서 0는 설정한 초기 값 입니다. 이 초기 값은 맨 처음 렌더링 시에만 딱 한번 사용되며 객체일 필요가 없습니다.
+
+---
+
+### USE EFFECTS
+
+lifeCycle에서 렌더링 이후에 처리되는 부분을 넣는 과정 입니다. componentDidMount() 에서 사용하던 코드를 useEffects 에서 사용하면 됩니다. <br>
+또 여러번 사용 가능합니다.
+
+```js
+const fetchInitialData = async () => {
+  const response = await fetch('http://localhost:8080/todo');
+  const initialData = await response.json();
+  console.log(initialData);
+};
+
+useEffect(() => {
+  console.log('새로운 내용이 렌더링 됐습니다.', todos);
+}, [todos]);
+
+useEffect(() => {
+  fetchInitialData();
+}, []);
+```
 
 ---
 
