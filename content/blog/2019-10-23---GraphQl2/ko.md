@@ -11,7 +11,7 @@ description: 'GRAPHQL 실습'
 
 ---
 
-### Problems solved by GraphQL
+### OVER/UNDER FETCHING
 
 - #### Over-fetching<br>
 
@@ -41,6 +41,7 @@ description: 'GRAPHQL 실습'
 
   ```sql
     // Query는 DB에 무언가를 요청하는 GraphQL 언어로 내가 원하는 정보를 알려줄 수 있습니다.
+    // feed에 코멘트, 좋아요 수 등을 얻고 싶고 등등 을 아래와 같이 쓸 수 있습니다.
     query {
       feed {
         comments
@@ -102,7 +103,7 @@ description: 'GRAPHQL 실습'
 
   - `yarn add graphql-yoga` 를 입력합니다.
 
-* `yarn global add nodemon` 노드몬을 설치해줍니다.
+* `yarn add nodemon` 노드몬을 설치해줍니다.
 
   - package.json에 nodemon을 추가합니다.
 
@@ -156,17 +157,22 @@ description: 'GRAPHQL 실습'
 
 ### graphql의 schema
 
-#### Object types and fields
+**Object types and fields**
 
 가장 기본적인 GraphQL 스키마 구성 요소는 단순히 저의 서비스에서 가져올 수 있는 객체와 그 객체가 가지고 있는 필드를 보여주는 Object Type 입니다.
 
 ```js
+  $ schema.graphql
   이런식으로 스키마를 구성합니다.
 
   type Query{
+    // !는 필수 사항을 체크할때 사용한다.
     name: String!
   }
 ```
+
+위 처럼 name에 대하여 Query를 날리게 되면, GraphQL 서버에서 Query를 날린 사용자에게 String을 보내게 됩니다. <br>
+즉, Query를 지정 해줌으로써, 사용자가 Query에 name을 보내면 String을 보내주겠다 는 정의를 해준 것 입니다.
 
 ---
 
@@ -190,12 +196,11 @@ export default resolvers;
 - index.js 에 resolvers를 추가합니다.
 
 ```js
-// const graphqlYoga = require('graphql-yoga')
 import { GraphQLServer } from 'graphql-yoga';
 import resolvers from './graphql/resolvers';
 
 const server = new GraphQLServer({
-  //TODO 환경설정을 세팅 합니다.
+  // 환경설정을 세팅 합니다.
   typeDefs: 'graphql/schema.graphql',
   resolvers
 });
@@ -204,6 +209,8 @@ server.start(() => console.log('GraphQL Server Running'));
 ```
 
 - GraphQL Server Running이 실행되며, localhost:4000에 접속이 가능합니다.
+
+![p](./play.png)
 
 ---
 
@@ -218,15 +225,7 @@ server.start(() => console.log('GraphQL Server Running'));
 
 <center>
 
-**GraphQL은 Operation(질문) 을 Resolve(해결)하는 함수를 만드는 것**
-
-</center>
-
----
-
-<center>
-
-### ERROR | ISSUE
+**GraphQL은 Query(operation(질문)) 을 Resolve(해결)하는 함수를 만드는 것**
 
 </center>
 

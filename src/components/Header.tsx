@@ -36,9 +36,9 @@ const Header: React.FC = () => {
         <Nav className="mr-auto">
           {/* <Nav.Link href="#link">R E S U M E</Nav.Link> */}
           <NavDropdown title="M E N U" id="basic-nav-dropdown">
-            <NavDropdown.Item href="http://developer-channing.com/">H O M E  </NavDropdown.Item>
+            <NavDropdown.Item href="https://o-henry.github.io/">H O M E  </NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="https://github.com/CgodL">G I T H U B</NavDropdown.Item>
+            <NavDropdown.Item href="https://github.com/o-henry">G I T H U B</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href=" https://developer-channing.com/authors/">R E S U M E</NavDropdown.Item>
             <NavDropdown.Divider />
