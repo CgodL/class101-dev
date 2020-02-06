@@ -69,15 +69,15 @@ const AuthorsPage: React.FC = () => {
             <br />
             LINKS
           <br />
-            <a href="https://developer-channing.com/blog/2019/10/29/channing">
+            <a href="https://o-henry.github.io/2019/10/29/Insta/">
               INSTAGRAM CRAWLING
           </a>
             <br />
-            <a href="https://developer-channing.com/blog/2019/12/04/channing">
+            <a href="https://o-henry.github.io/2019/12/04/LocalServer/">
               LOCAL SNS SERVER
           </a>
             <br />
-            <a href="https://developer-channing.com/blog/2019/12/08/channing">
+            <a href="https://o-henry.github.io/2019/12/08/Expo/">
               LOCAL SNS CLIENT
           </a>
           </div>
@@ -110,7 +110,7 @@ const AuthorsPage: React.FC = () => {
             <br />
             LINKS
           <br />
-            <a href="https://developer-channing.com/blog/2019/10/21/channing">
+            <a href="https://o-henry.github.io/2019/10/21/AWSPersonalize/">
               AWS Personalize
           </a>
           </div>
@@ -128,7 +128,7 @@ const AuthorsPage: React.FC = () => {
             <br />
             LINKS
           <br />
-            <a href="https://github.com/CgodL/Blinker_Client">BLINKER GITHUB</a>
+            <a href="https://github.com/o-henry/Blinker_Client">BLINKER GITHUB</a>
             <br />
             <a href="https://d3hj5v0x0oqu9l.cloudfront.net/">BLINKER GAME</a>
           </div>
