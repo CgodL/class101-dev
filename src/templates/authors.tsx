@@ -161,11 +161,11 @@ const AuthorsPage: React.FC = () => {
           <br />
           <Headline2>CONTACT ME</Headline2>
           <hr />
-          <b>Blog</b> : <K> <a href="https://developer-channing.com">
-            developer-channing</a></K>
+          <b>Blog</b> : <K> <a href="https://o-henry.github.io/">
+            o-henry.github.io</a></K>
           {' '}
           <br />
-          <b>Github </b>  : <a href="https://github.com/CgodL/">elt</a> <br />
+          <b>Github </b>  : <a href="https://github.com/o-henry/">o-henry</a> <br />
           <b>E-Mail</b> : c.henry.9209@gmail.com <br />
           <b>Tel</b> : 010-6328-4679
         <br />
