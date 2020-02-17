@@ -70,16 +70,25 @@ const AuthorsPage: React.FC = () => {
             LINKS
           <br />
             <a href="https://o-henry.github.io/2019/10/29/Insta/">
-              INSTAGRAM CRAWLING
+              Instagram Crawling Blog
           </a>
             <br />
+            <a href="https://github.com/o-henry/LocalServer">
+              Local Sns Server Github</a>
+            <br />
             <a href="https://o-henry.github.io/2019/12/04/LocalServer/">
-              LOCAL SNS SERVER
+              Local Sns Server Blog
+          </a>
+            <br />
+            <a href="https://github.com/o-henry/LocalSNSApp">
+              Local Sns Client Github
           </a>
             <br />
             <a href="https://o-henry.github.io/2019/12/08/Expo/">
-              LOCAL SNS CLIENT
+              Local Sns Client Blog
           </a>
+
+
           </div>
           <hr />
           <div>
